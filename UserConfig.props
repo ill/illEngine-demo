@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <BoostPath>$(ProgramFiles)\boost\boost_1_47</BoostPath>
+    <SdlPath>..\dependancies\SDL-1.3.0-6248</SdlPath>
+    <GlmPath>..\dependancies\glm-0.9.4.1</GlmPath>
+    <GlewPath>..\dependancies\glew-1.9.0</GlewPath>
+    <PhysFsPath>..\dependancies\physfs-2.0.2</PhysFsPath>
+    <PhysXPath>..\dependancies\PhysX-3.1</PhysXPath>
+    <TbbPath>..\dependancies\Thread Building Blocks</TbbPath>
+    <DevilPath>..\dependancies\DevIL-1.7.8</DevilPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <_PropertySheetDisplayName>UserConfig.props</_PropertySheetDisplayName>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalDependencies>SDLmain.lib;SDL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <BuildMacro Include="BoostPath">
+      <Value>$(BoostPath)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="SdlPath">
+      <Value>$(SdlPath)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="GlmPath">
+      <Value>$(GlmPath)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="GlewPath">
+      <Value>$(GlewPath)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PhysFsPath">
+      <Value>$(PhysFsPath)</Value>
+    </BuildMacro>
+    <BuildMacro Include="PhysXPath">
+      <Value>$(PhysXPath)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="TbbPath">
+      <Value>$(TbbPath)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="DevilPath">
+      <Value>$(DevilPath)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

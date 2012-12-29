@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{18FC197B-A090-43D3-8E50-8A2C5A2E7385}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>illEnginedemo</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserConfig.props" />
+    <Import Project="ProjectConfig_Common.props" />
+    <Import Project="ProjectConfig_Win32.props" />
+    <Import Project="ProjectConfig_Debug.props" />
+    <Import Project="Game_CopyDll_Win32.props" />
+    <Import Project="Game_CopyDll_Win32_Debug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserConfig.props" />
+    <Import Project="ProjectConfig_Common.props" />
+    <Import Project="ProjectConfig_Win64.props" />
+    <Import Project="ProjectConfig_Debug.props" />
+    <Import Project="Game_CopyDll_x64.props" />
+    <Import Project="Game_CopyDll_x64_Debug.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserConfig.props" />
+    <Import Project="ProjectConfig_Common.props" />
+    <Import Project="ProjectConfig_Win32.props" />
+    <Import Project="ProjectConfig_Release.props" />
+    <Import Project="Game_CopyDll_Win32.props" />
+    <Import Project="Game_CopyDll_Win32_Release.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="UserConfig.props" />
+    <Import Project="ProjectConfig_Common.props" />
+    <Import Project="ProjectConfig_Win64.props" />
+    <Import Project="ProjectConfig_Release.props" />
+    <Import Project="Game_CopyDll_x64.props" />
+    <Import Project="Game_CopyDll_x64_Release.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="demoPC\FixedStepController.cpp" />
+    <ClCompile Include="demoPC\Game\CameraController.cpp" />
+    <ClCompile Include="demoPC\Game\MainController.cpp" />
+    <ClCompile Include="demoPC\Game\MainMenu\MainMenuController.cpp" />
+    <ClCompile Include="demoPC\main.cpp" />
+    <ClCompile Include="illEngine\Console\serial\consoleConsole.cpp" />
+    <ClCompile Include="illEngine\Console\serial\DeveloperConsole.cpp" />
+    <ClCompile Include="illEngine\FileSystem-Physfs\PhysFsFile.cpp" />
+    <ClCompile Include="illEngine\FileSystem-Physfs\PhysFsFileSystem.cpp" />
+    <ClCompile Include="illEngine\GlCommon\serial\GlRenderer.cpp" />
+    <ClCompile Include="illEngine\GlCommon\serial\loadMesh.cpp" />
+    <ClCompile Include="illEngine\GlCommon\serial\loadShader.cpp" />
+    <ClCompile Include="illEngine\GlCommon\serial\loadShaderProgram.cpp" />
+    <ClCompile Include="illEngine\GlCommon\serial\loadTexture.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Material\Shader.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Material\ShaderProgram.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Material\Texture.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Model\Mesh.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Model\ModelAnimationController.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Model\Skeleton.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Model\SkeletonAnimation.cpp" />
+    <ClCompile Include="illEngine\Input\serial\InputContext.cpp" />
+    <ClCompile Include="illEngine\Input\serial\InputContextStack.cpp" />
+    <ClCompile Include="illEngine\Input\serial\InputManager.cpp" />
+    <ClCompile Include="illEngine\Logging\serial\SerialLogger.cpp" />
+    <ClCompile Include="illEngine\Pc\serial\SdlWindow.cpp" />
+    <ClCompile Include="illEngine\Tests\testEndian.cpp" />
+    <ClCompile Include="illEngine\Tests\testRefCountPtr.cpp" />
+    <ClCompile Include="illEngine\Tests\testVectorManager.cpp" />
+    <ClCompile Include="illEngine\Util\util.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="demoPC\Engine.h" />
+    <ClInclude Include="demoPC\FixedStepController.h" />
+    <ClInclude Include="demoPC\GameControllerBase.h" />
+    <ClInclude Include="demoPC\Game\CameraController.h" />
+    <ClInclude Include="demoPC\Game\MainController.h" />
+    <ClInclude Include="demoPC\Game\MainMenu\MainMenuController.h" />
+    <ClInclude Include="illEngine\Console\serial\consoleConsole.h" />
+    <ClInclude Include="illEngine\Console\serial\ConsoleVariable.h" />
+    <ClInclude Include="illEngine\Console\serial\DeveloperConsole.h" />
+    <ClInclude Include="illEngine\Console\serial\VariableManager.h" />
+    <ClInclude Include="illEngine\FileSystem-Physfs\PhysFsFile.h" />
+    <ClInclude Include="illEngine\FileSystem-Physfs\PhysFsFileSystem.h" />
+    <ClInclude Include="illEngine\FileSystem\File.h" />
+    <ClInclude Include="illEngine\FileSystem\FileSystem.h" />
+    <ClInclude Include="illEngine\GlCommon\glLogging.h" />
+    <ClInclude Include="illEngine\GlCommon\serial\GlRenderer.h" />
+    <ClInclude Include="illEngine\Graphics\graphicsLogging.h" />
+    <ClInclude Include="illEngine\Graphics\RendererBackend.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Camera\Camera.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Camera\CameraTransform.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Effect.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Light.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Material\Material.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Material\Shader.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Material\ShaderProgram.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Material\Texture.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Model\Mesh.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Model\ModelAnimationController.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Model\Skeleton.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Model\SkeletonAnimation.h" />
+    <ClInclude Include="illEngine\Graphics\serial\RendererFrontent.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsScene.h" />
+    <ClInclude Include="illEngine\Graphics\Window.h" />
+    <ClInclude Include="illEngine\Input\serial\inputAxisEnum.h" />
+    <ClInclude Include="illEngine\Input\serial\InputBinding.h" />
+    <ClInclude Include="illEngine\Input\serial\InputContext.h" />
+    <ClInclude Include="illEngine\Input\serial\InputContextStack.h" />
+    <ClInclude Include="illEngine\Input\serial\InputListenerBase.h" />
+    <ClInclude Include="illEngine\Input\serial\InputListenerRange.h" />
+    <ClInclude Include="illEngine\Input\serial\InputListenerState.h" />
+    <ClInclude Include="illEngine\Input\serial\InputManager.h" />
+    <ClInclude Include="illEngine\Logging\LogDestination.h" />
+    <ClInclude Include="illEngine\Logging\Logger.h" />
+    <ClInclude Include="illEngine\Logging\logging.h" />
+    <ClInclude Include="illEngine\Logging\serial\SerialLogger.h" />
+    <ClInclude Include="illEngine\Pc\serial\sdlInputEnum.h" />
+    <ClInclude Include="illEngine\Pc\serial\SdlWindow.h" />
+    <ClInclude Include="illEngine\Tests\tests.h" />
+    <ClInclude Include="illEngine\Util\casting.h" />
+    <ClInclude Include="illEngine\Util\debug.h" />
+    <ClInclude Include="illEngine\Util\endian.h" />
+    <ClInclude Include="illEngine\Util\Geometry\BoundingVolume.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Box.h" />
+    <ClInclude Include="illEngine\Util\Geometry\BoxIterator.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Frustum.h" />
+    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator-old.h" />
+    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator.h" />
+    <ClInclude Include="illEngine\Util\Geometry\geomUtil.h" />
+    <ClInclude Include="illEngine\Util\Geometry\GridVolume3D.h" />
+    <ClInclude Include="illEngine\Util\Geometry\LineIterator.h" />
+    <ClInclude Include="illEngine\Util\Geometry\MeshData.h" />
+    <ClInclude Include="illEngine\Util\Geometry\MeshEdgeList.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Plane.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Sphere.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Transform.h" />
+    <ClInclude Include="illEngine\Util\Illmesh\IllmeshLoader.h" />
+    <ClInclude Include="illEngine\Util\serial\LruCache.h" />
+    <ClInclude Include="illEngine\Util\serial\RefCountPtr.h" />
+    <ClInclude Include="illEngine\Util\serial\ResourceBase.h" />
+    <ClInclude Include="illEngine\Util\serial\ResourceManager.h" />
+    <ClInclude Include="illEngine\Util\serial\UidGenerator.h" />
+    <ClInclude Include="illEngine\Util\serial\VectorManager.h" />
+    <ClInclude Include="illEngine\Util\util.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
