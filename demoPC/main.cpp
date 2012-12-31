@@ -69,11 +69,11 @@ int main(int argc, char * argv[]) {
     engine.m_inputManager = &inputManager;
     engine.m_rendererBackend = &rendererBackend;
 
-    Graphics::ShaderManager shaderManager(engine.m_rendererBackend);
+    illGraphics::ShaderManager shaderManager(engine.m_rendererBackend);
 
-    Graphics::ShaderProgramLoader shaderProgramLoader(engine.m_rendererBackend, &shaderManager);
-    Graphics::ShaderProgramManager shaderProgramManager(&shaderProgramLoader);
-    Graphics::TextureManager textureManager(engine.m_rendererBackend);
+    illGraphics::ShaderProgramLoader shaderProgramLoader(engine.m_rendererBackend, &shaderManager);
+    illGraphics::ShaderProgramManager shaderProgramManager(&shaderProgramLoader);
+    illGraphics::TextureManager textureManager(engine.m_rendererBackend);
     //Graphics::MaterialManager materialProgramManager;
 
     engine.m_shaderManager = &shaderManager;

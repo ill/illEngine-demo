@@ -148,7 +148,7 @@
 //    }
 //}
 
-void renderMesh(Graphics::Mesh& mesh, Graphics::ModelAnimationController& controller, const Graphics::Camera& camera, const glm::mat4& xform, GLuint prog) {
+void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& controller, const illGraphics::Camera& camera, const glm::mat4& xform, GLuint prog) {
     
     GLint loc = glGetUniformLocation(prog, "modelViewProjectionMatrix");
     if(loc == -1) {
@@ -254,7 +254,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //load the diffuse texture
     {
-        Graphics::TextureLoadArgs loadArgs;
+        illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Marine/marine.tga";
         loadArgs.m_wrapS = GL_CLAMP;
         loadArgs.m_wrapT = GL_CLAMP;
@@ -264,7 +264,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //marine normal map
     {
-        Graphics::TextureLoadArgs loadArgs;
+        illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Marine/marine_local.tga";
         loadArgs.m_wrapS = GL_CLAMP;
         loadArgs.m_wrapT = GL_CLAMP;
@@ -287,7 +287,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //helmet normal map
     {
-        Graphics::TextureLoadArgs loadArgs;
+        illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Marine/helmet_local.tga";
         loadArgs.m_wrapS = GL_CLAMP;
         loadArgs.m_wrapT = GL_CLAMP;
@@ -297,7 +297,7 @@ MainMenuController::MainMenuController(Engine * engine)
     
     //diffuse helmet texture
     {
-        Graphics::TextureLoadArgs loadArgs;
+        illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Marine/helmet.tga";
         loadArgs.m_wrapS = GL_CLAMP;
         loadArgs.m_wrapT = GL_CLAMP;
@@ -310,7 +310,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //load the skeleton
     {
-        Graphics::SkeletonLoadArgs loadArgs;
+        illGraphics::SkeletonLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Marine/marine.illskel";
         m_marineSkeleton.load(loadArgs, NULL);
 
@@ -322,7 +322,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //load the animation
     {
-        Graphics::SkeletonAnimationLoadArgs loadArgs;
+        illGraphics::SkeletonAnimationLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Marine/marine.illanim";
         m_marineAnimation.load(loadArgs, NULL);
 
@@ -345,7 +345,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //load the diffuse texture
     {
-        Graphics::TextureLoadArgs loadArgs;
+        illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/HellKnight/hellknight.tga";
         loadArgs.m_wrapS = GL_CLAMP;
         loadArgs.m_wrapT = GL_CLAMP;
@@ -355,7 +355,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //marine normal map
     {
-        Graphics::TextureLoadArgs loadArgs;
+        illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/HellKnight/hellknight_local.tga";
         loadArgs.m_wrapS = GL_CLAMP;
         loadArgs.m_wrapT = GL_CLAMP;
@@ -365,7 +365,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //load the skeleton
     {
-        Graphics::SkeletonLoadArgs loadArgs;
+        illGraphics::SkeletonLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/HellKnight/hellknight.illskel";
         m_hellKnightSkeleton.load(loadArgs, NULL);
         
@@ -381,7 +381,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //load the animation
     {
-        Graphics::SkeletonAnimationLoadArgs loadArgs;
+        illGraphics::SkeletonAnimationLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/HellKnight/hellknight.illanim";
         m_hellKnightAnimation.load(loadArgs, NULL);
 
@@ -408,7 +408,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //load the diffuse texture
     {
-        Graphics::TextureLoadArgs loadArgs;
+        illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Demon/pinky_d.tga";
         loadArgs.m_wrapS = GL_CLAMP;
         loadArgs.m_wrapT = GL_CLAMP;
@@ -418,7 +418,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //marine normal map
     {
-        Graphics::TextureLoadArgs loadArgs;
+        illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Demon/pinky_local.tga";
         loadArgs.m_wrapS = GL_CLAMP;
         loadArgs.m_wrapT = GL_CLAMP;
@@ -438,7 +438,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //load the skeleton
     {
-        Graphics::SkeletonLoadArgs loadArgs;
+        illGraphics::SkeletonLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Demon/demon.illskel";
         m_demonSkeleton.load(loadArgs, NULL);
         
@@ -457,7 +457,7 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //load the animation
     {
-        Graphics::SkeletonAnimationLoadArgs loadArgs;
+        illGraphics::SkeletonAnimationLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Demon/demon.illanim";
         m_demonAnimation.load(loadArgs, NULL);
 
@@ -476,19 +476,19 @@ MainMenuController::MainMenuController(Engine * engine)
 
     //load the test shader
     {
-        std::vector<RefCountPtr<Graphics::Shader> > shaders;
+        std::vector<RefCountPtr<illGraphics::Shader> > shaders;
 
-        Graphics::Shader * shader = new Graphics::Shader();
+        illGraphics::Shader * shader = new illGraphics::Shader();
         shader->loadInternal(m_engine->m_rendererBackend, "shaders/debugShader.vert", GL_VERTEX_SHADER, "");
 
-        shaders.push_back(RefCountPtr<Graphics::Shader>(shader));
+        shaders.push_back(RefCountPtr<illGraphics::Shader>(shader));
 
-        shader = new Graphics::Shader();
+        shader = new illGraphics::Shader();
         shader->loadInternal(m_engine->m_rendererBackend, "shaders/debugShader.frag", GL_FRAGMENT_SHADER, "");
 
-        shaders.push_back(RefCountPtr<Graphics::Shader>(shader));
+        shaders.push_back(RefCountPtr<illGraphics::Shader>(shader));
 
-        m_debugShaderLoader = new Graphics::ShaderProgramLoader(m_engine->m_rendererBackend, NULL);
+        m_debugShaderLoader = new illGraphics::ShaderProgramLoader(m_engine->m_rendererBackend, NULL);
         m_debugShader.loadInternal(m_debugShaderLoader, shaders);
     }
 
@@ -561,7 +561,7 @@ void MainMenuController::updateSound(float seconds) {
  
 void MainMenuController::render() {
     m_cameraTransform.m_transform = m_cameraController.m_transform;
-    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), Graphics::DEFAULT_FOV * m_cameraController.m_zoom, Graphics::DEFAULT_NEAR, 2000.0f);
+    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 2000.0f);
     
     m_marineController.computeAnimPose();
 

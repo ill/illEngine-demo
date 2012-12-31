@@ -11,7 +11,7 @@ class VariableManager;
 template <typename Key, typename T, typename Loader> class ResourceManager;
 template<typename Id, typename T, typename LoadArgs, typename Loader> class ConfigurableResourceManager;
 
-namespace Graphics {
+namespace illGraphics {
 class Window;
 class RendererBackend;
 
@@ -47,14 +47,14 @@ public:
     Console::DeveloperConsole * m_developerConsole;
     Console::VariableManager * m_consoleVariableManager;
 
-    Graphics::Window * m_window;
-    Graphics::RendererBackend * m_rendererBackend;
+    illGraphics::Window * m_window;
+    illGraphics::RendererBackend * m_rendererBackend;
 
-    Graphics::ShaderManager * m_shaderManager;
-    Graphics::ShaderProgramManager * m_shaderProgramManager;
-    Graphics::TextureManager * m_textureManager;
-    //Graphics::MaterialManager * m_materialProgramManager;
-    //Graphics::MeshManager * m_meshManager;
+    illGraphics::ShaderManager * m_shaderManager;
+    illGraphics::ShaderProgramManager * m_shaderProgramManager;
+    illGraphics::TextureManager * m_textureManager;
+    //illGraphics::MaterialManager * m_materialProgramManager;
+    //illGraphics::MeshManager * m_meshManager;
 
     Input::InputManager * m_inputManager;
 };

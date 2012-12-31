@@ -33,54 +33,54 @@ private:
 
     CameraController m_cameraController;
 
-    Graphics::Camera m_camera;
-    Graphics::CameraTransform m_cameraTransform;
+    illGraphics::Camera m_camera;
+    illGraphics::CameraTransform m_cameraTransform;
     
     //marine
 
-    Graphics::Mesh m_marine;
-    Graphics::Mesh m_marineHelmet;
-    Graphics::Texture m_marineDiffuse;
-    Graphics::Texture m_helmetDiffuse;
-    Graphics::Texture m_marineNormal;
-    Graphics::Texture m_helmetNormal;
-    Graphics::Skeleton m_marineSkeleton;
-    Graphics::SkeletonAnimation m_marineAnimation;
-    Graphics::ModelAnimationController m_marineController;
+    illGraphics::Mesh m_marine;
+    illGraphics::Mesh m_marineHelmet;
+    illGraphics::Texture m_marineDiffuse;
+    illGraphics::Texture m_helmetDiffuse;
+    illGraphics::Texture m_marineNormal;
+    illGraphics::Texture m_helmetNormal;
+    illGraphics::Skeleton m_marineSkeleton;
+    illGraphics::SkeletonAnimation m_marineAnimation;
+    illGraphics::ModelAnimationController m_marineController;
 
     //hell knight
 
-    Graphics::Mesh m_hellKnight;
-    Graphics::Texture m_hellKnightDiffuse;
-    Graphics::Texture m_hellKnightNormal;
-    Graphics::Skeleton m_hellKnightSkeleton;
-    Graphics::SkeletonAnimation m_hellKnightAnimation;
+    illGraphics::Mesh m_hellKnight;
+    illGraphics::Texture m_hellKnightDiffuse;
+    illGraphics::Texture m_hellKnightNormal;
+    illGraphics::Skeleton m_hellKnightSkeleton;
+    illGraphics::SkeletonAnimation m_hellKnightAnimation;
 
-    Graphics::ModelAnimationController m_hellKnightController0;
-    Graphics::ModelAnimationController m_hellKnightController1;
-    Graphics::ModelAnimationController m_hellKnightController2;
+    illGraphics::ModelAnimationController m_hellKnightController0;
+    illGraphics::ModelAnimationController m_hellKnightController1;
+    illGraphics::ModelAnimationController m_hellKnightController2;
 
     //demon
 
-    Graphics::Mesh m_demon;
-    Graphics::Texture m_demonDiffuse;
-    Graphics::Texture m_demonNormal;
-    Graphics::Skeleton m_demonSkeleton;
-    Graphics::SkeletonAnimation m_demonAnimation;
+    illGraphics::Mesh m_demon;
+    illGraphics::Texture m_demonDiffuse;
+    illGraphics::Texture m_demonNormal;
+    illGraphics::Skeleton m_demonSkeleton;
+    illGraphics::SkeletonAnimation m_demonAnimation;
 
-    Graphics::ModelAnimationController m_demonController0;
-    Graphics::ModelAnimationController m_demonController1;
-    Graphics::ModelAnimationController m_demonController2;
-    Graphics::ModelAnimationController m_demonController3;
+    illGraphics::ModelAnimationController m_demonController0;
+    illGraphics::ModelAnimationController m_demonController1;
+    illGraphics::ModelAnimationController m_demonController2;
+    illGraphics::ModelAnimationController m_demonController3;
 
     //demon front
 
-    Graphics::Mesh m_demonFront;
+    illGraphics::Mesh m_demonFront;
 
     //the skinning shader
 
-    Graphics::ShaderProgram m_debugShader;
-    Graphics::ShaderProgramLoader * m_debugShaderLoader;
+    illGraphics::ShaderProgram m_debugShader;
+    illGraphics::ShaderProgramLoader * m_debugShaderLoader;
 
     /*std::map<unsigned int, glm::mat4> m_animationTest;    //temporarily testing animations manually without the animation controller
     glm::mat4 * m_animationTestSkelMats;*/
