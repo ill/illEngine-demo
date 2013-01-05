@@ -326,5 +326,8 @@
     <ClInclude Include="illEngine\Tests\tests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="illEngine\Graphics\serial\Model\LastFrameInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

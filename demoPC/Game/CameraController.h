@@ -7,15 +7,15 @@
 #include <glm/gtx/transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
-#include "Util/Geometry/geomUtil.h"
+#include "illEngine/Util/Geometry/geomUtil.h"
 
-#include "Input/serial/InputContext.h"
-#include "Input/serial/InputListenerState.h"
-#include "Input/serial/InputListenerRange.h"
-#include "Input/serial/InputBinding.h"
-#include "Pc/serial/sdlInputEnum.h"
+#include "illEngine/Input/serial/InputContext.h"
+#include "illEngine/Input/serial/InputListenerState.h"
+#include "illEngine/Input/serial/InputListenerRange.h"
+#include "illEngine/Input/serial/InputBinding.h"
+#include "illEngine/Pc/serial/sdlInputEnum.h"
 
-#include "Logging/logging.h"
+#include "illEngine/Logging/logging.h"
 
 namespace Demo {
 

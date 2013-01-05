@@ -217,6 +217,7 @@
     <ClInclude Include="illEngine\Graphics\serial\Material\Shader.h" />
     <ClInclude Include="illEngine\Graphics\serial\Material\ShaderProgram.h" />
     <ClInclude Include="illEngine\Graphics\serial\Material\Texture.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Model\LastFrameInfo.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\Mesh.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\ModelAnimationController.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\Skeleton.h" />

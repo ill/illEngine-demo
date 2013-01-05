@@ -17,136 +17,633 @@
 //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer
 #include <GL/glew.h>
 
-//void debugDrawBone(const glm::mat4& xForm, const glm::mat4& prevXform, bool drawLine) {
-//    glm::vec4 currPoint(0.0f, 0.0f, 0.0f, 1.0f);
-//    currPoint = xForm * currPoint;
-//
-//    glm::vec4 parentPos(0.0f, 0.0f, 0.0f, 1.0f);
-//    parentPos = prevXform * parentPos;
-//
-//    //draw line from this bone to the last bone
-//    glLineWidth(3.0f);
-//
-//    if(drawLine) {
-//        glColor4f(1.0f, 1.0f, 0.0f, 0.15f);
-//
-//        glBegin(GL_LINES);
-//            glVertex3fv(glm::value_ptr(parentPos));
-//            glVertex3fv(glm::value_ptr(currPoint));
-//        glEnd();
-//    }
-//
-//    glPointSize(5.0f);
-//    glColor4f(1.0f, 0.0f, 0.0f, 0.5f);
-//
-//    //draw the bone point
-//    glBegin(GL_POINTS);
-//    glVertex3fv(glm::value_ptr(currPoint));
-//    glEnd();
-//
-//    //draw the bone orientation
-//    glLineWidth(3.0f);
-//
-//    glBegin(GL_LINES);
-//        //x
-//        glColor4f(1.0f, 0.0f, 0.0f, 0.5f);
-//        glVertex3fv(glm::value_ptr(currPoint));
-//        
-//        glColor4f(1.0f, 0.0f, 0.0f, 0.0f);
-//        glVertex3fv(glm::value_ptr(glm::vec3(currPoint) + glm::mat3(xForm) * glm::vec3(1.0f, 0.0f, 0.0f) * 5.0f));
-//
-//        //y
-//        glColor4f(0.0f, 1.0f, 0.0f, 0.5f);
-//        glVertex3fv(glm::value_ptr(currPoint));
-//        
-//        glColor4f(0.0f, 1.0f, 0.0f, 0.0f);
-//        glVertex3fv(glm::value_ptr(glm::vec3(currPoint) + glm::mat3(xForm) * glm::vec3(0.0f, 1.0f, 0.0f) * 5.0f));
-//
-//        //z
-//        glColor4f(0.0f, 0.0f, 1.0f, 0.5f);
-//        glVertex3fv(glm::value_ptr(currPoint));
-//        
-//        glColor4f(0.0f, 0.0f, 1.0f, 0.0f);
-//        glVertex3fv(glm::value_ptr(glm::vec3(currPoint) + glm::mat3(xForm) * glm::vec3(0.0f, 0.0f, 1.0f) * 5.0f));
-//    glEnd();
-//    
-//    glLineWidth(1.0f);
-//}
-//
-//void debugDrawSkeleton(const Graphics::Skeleton * skeleton, const Graphics::Skeleton::BoneHeirarchy * currNode, glm::mat4 currXform, glm::mat4 currBindXform, glm::mat4 currAnimXform, std::map<unsigned int, glm::mat4>& animTransforms, glm::mat4 * animationTestSkelMats) {
-//    glm::mat4 prevXform = currXform;
-//    glm::mat4 prevBindXform = currBindXform;
-//    
-//    //currXform = currXform * skeleton->getBone(currNode->m_boneIndex)->m_transform * animTransforms[currNode->m_boneIndex];
-//
-//    std::map<unsigned int, glm::mat4>::iterator iter = animTransforms.find(currNode->m_boneIndex);
-//
-//    /*glm::mat4 relXform; //TODO: This should go into the animation file instead of absolute transforms from the bind pose, there's currently a limitation though so it's computed here
-//
-//    if(iter != animTransforms.end()) {
-//        relXform = glm::inverse(skeleton->getBone(currNode->m_boneIndex)->m_transform) * animTransforms[currNode->m_boneIndex];
-//    }
-//
-//    currXform = currXform * skeleton->getBone(currNode->m_boneIndex)->m_transform * relXform;
-//    currBindXform = currBindXform * skeleton->getBone(currNode->m_boneIndex)->m_transform;
-//    currAnimXform = currAnimXform * relXform;*/
-//    
-//    if(iter != animTransforms.end()) {
-//        currXform = currXform * animTransforms[currNode->m_boneIndex];
-//    }
-//    else {
-//        currXform = currXform * skeleton->getBone(currNode->m_boneIndex)->m_transform;
-//    }
-//
-//    currBindXform = currBindXform * skeleton->getBone(currNode->m_boneIndex)->m_transform;
-//
-//    animationTestSkelMats[currNode->m_boneIndex] = 
-//        //glm::inverse(currBindXform) * currXform;
-//        currXform * glm::inverse(currBindXform) * glm::rotate(-90.0f, glm::vec3(1.0f, 0.0, 0.0f));      //TODO: for now hardcoded to rotate this -90 degrees around x since all md5s seem to be flipped
-//                                                                                                        //figure out how to export models in the right orientation
-//                                                                                                        //THIS!  is why there's the horrible hack code below and why it took me days to get this working, 1 tiny mistake and it all explodes
-//        //currAnimXform;
-//        //glm::mat4();
-//        
-//        /*skeleton->getBone(currNode->m_boneIndex)->m_boneOffsetHack
-//            ? currXform * *skeleton->getBone(currNode->m_boneIndex)->m_boneOffsetHack
-//            : glm::mat4();*/
-//
-//    /*if(skeleton->getBone(currNode->m_boneIndex)->m_boneOffsetHack) {
-//        glm::mat4 debMat = glm::inverse(currBindXform);
-//    
-//        LOG_DEBUG("\nBind inverse:\n\t%3.4f %3.4f %3.4f %3.4f\n\t%3.4f %3.4f %3.4f %3.4f\n\t%3.4f %3.4f %3.4f %3.4f\n\t%3.4f %3.4f %3.4f %3.4f\n",
-//            debMat[0][0], debMat[0][1], debMat[0][2], debMat[0][3],
-//            debMat[1][0], debMat[1][1], debMat[1][2], debMat[1][3],
-//            debMat[2][0], debMat[2][1], debMat[2][2], debMat[2][3],
-//            debMat[3][0], debMat[3][1], debMat[3][2], debMat[3][3]);
-//
-//        debMat = *skeleton->getBone(currNode->m_boneIndex)->m_boneOffsetHack;
-//
-//        LOG_DEBUG("\nBone Offset:\n\t%3.4f %3.4f %3.4f %3.4f\n\t%3.4f %3.4f %3.4f %3.4f\n\t%3.4f %3.4f %3.4f %3.4f\n\t%3.4f %3.4f %3.4f %3.4f\n",
-//            debMat[0][0], debMat[0][1], debMat[0][2], debMat[0][3],
-//            debMat[1][0], debMat[1][1], debMat[1][2], debMat[1][3],
-//            debMat[2][0], debMat[2][1], debMat[2][2], debMat[2][3],
-//            debMat[3][0], debMat[3][1], debMat[3][2], debMat[3][3]);
-//
-//        debMat = currBindXform * *skeleton->getBone(currNode->m_boneIndex)->m_boneOffsetHack;
-//
-//        LOG_DEBUG("\Difference Offset:\n\t%3.4f %3.4f %3.4f %3.4f\n\t%3.4f %3.4f %3.4f %3.4f\n\t%3.4f %3.4f %3.4f %3.4f\n\t%3.4f %3.4f %3.4f %3.4f\n",
-//            debMat[0][0], debMat[0][1], debMat[0][2], debMat[0][3],
-//            debMat[1][0], debMat[1][1], debMat[1][2], debMat[1][3],
-//            debMat[2][0], debMat[2][1], debMat[2][2], debMat[2][3],
-//            debMat[3][0], debMat[3][1], debMat[3][2], debMat[3][3]);
-//
-//        LOG_DEBUG("\n\n\n");
-//    }*/
-//
-//    debugDrawBone(currXform, prevXform, currNode->m_parent != NULL);
-//    debugDrawBone(currBindXform, prevBindXform, currNode->m_parent != NULL);
-//
-//    for(std::vector<Graphics::Skeleton::BoneHeirarchy *>::const_iterator iter = currNode->m_children.begin(); iter != currNode->m_children.end(); iter++) {
-//        debugDrawSkeleton(skeleton, *iter, currXform, currBindXform, currAnimXform, animTransforms, animationTestSkelMats);
-//    }
-//}
+void renderSceneDebug(const Box<>&sceneBounds, const glm::vec3& chunkDimensions, const glm::uvec3& chunkNumber, const illGraphics::Camera& camera) {
+   glUseProgram(0);
+
+   glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+   glDepthMask(GL_TRUE);
+   glDisable(GL_CULL_FACE);
+   glDisable(GL_DEPTH_TEST);
+   glDepthFunc(GL_LEQUAL);
+   glEnable(GL_BLEND);
+   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+   glMatrixMode(GL_PROJECTION);   
+   glLoadMatrixf(glm::value_ptr(camera.getProjection()));
+
+   glMatrixMode(GL_MODELVIEW);
+   glLoadMatrixf(glm::value_ptr(camera.getModelView()));
+
+   //render cells, including some outside of the scene
+   glColor4f(1.0f, 1.0f, 1.0f, 0.15f);
+   glBegin(GL_LINES);
+      for (int z = -3; z <= (int)chunkNumber.z + 3; z++) {
+         for (int x = -3; x <= (int)chunkNumber.x + 3; x ++) {
+            glVertex3f(chunkDimensions.x * x, -chunkDimensions.y * 3, chunkDimensions.z * z);
+            glVertex3f(chunkDimensions.x * x, sceneBounds.m_max.y + chunkDimensions.y * 3, chunkDimensions.z * z);
+         }
+      }
+
+      for (int z = -3; z <= (int)chunkNumber.z + 3; z++) {
+         for (int y = -3; y <= (int)chunkNumber.y + 3; y++) {
+            glVertex3f(-chunkDimensions.x * 3, chunkDimensions.y * y, chunkDimensions.z * z);
+            glVertex3f(sceneBounds.m_max.x + chunkDimensions.x * 3, chunkDimensions.y * y, chunkDimensions.z * z);
+         }
+      }
+
+      for (int x = -3; x <= (int)chunkNumber.x + 3; x++) {
+         for (int y = -3; y <= (int)chunkNumber.y + 3; y++) {
+            glVertex3f(chunkDimensions.x * x, chunkDimensions.y * y, -chunkDimensions.z * 3);
+            glVertex3f(chunkDimensions.x * x, chunkDimensions.y * y, sceneBounds.m_max.z + chunkDimensions.z * 3);
+         }
+      }
+   glEnd();
+
+   //render scene bounds
+   glColor4f(1.0f, 1.0f, 0.0f, .25);
+
+   //near
+   glBegin(GL_LINE_LOOP);      
+      glVertex3f(sceneBounds.m_min.x, sceneBounds.m_min.y, sceneBounds.m_min.z);
+      glVertex3f(sceneBounds.m_max.x, sceneBounds.m_min.y, sceneBounds.m_min.z);
+      glVertex3f(sceneBounds.m_max.x, sceneBounds.m_max.y, sceneBounds.m_min.z);
+      glVertex3f(sceneBounds.m_min.x, sceneBounds.m_max.y, sceneBounds.m_min.z);
+   glEnd();
+
+   //far
+   glBegin(GL_LINE_LOOP);      
+      glVertex3f(sceneBounds.m_min.x, sceneBounds.m_min.y, sceneBounds.m_max.z);
+      glVertex3f(sceneBounds.m_max.x, sceneBounds.m_min.y, sceneBounds.m_max.z);
+      glVertex3f(sceneBounds.m_max.x, sceneBounds.m_max.y, sceneBounds.m_max.z);
+      glVertex3f(sceneBounds.m_min.x, sceneBounds.m_max.y, sceneBounds.m_max.z);
+   glEnd();
+
+   //connect
+   glBegin(GL_LINES);      
+      glVertex3f(sceneBounds.m_min.x, sceneBounds.m_min.y, sceneBounds.m_min.z);
+      glVertex3f(sceneBounds.m_min.x, sceneBounds.m_min.y, sceneBounds.m_max.z);
+
+      glVertex3f(sceneBounds.m_max.x, sceneBounds.m_min.y, sceneBounds.m_min.z);
+      glVertex3f(sceneBounds.m_max.x, sceneBounds.m_min.y, sceneBounds.m_max.z);
+
+      glVertex3f(sceneBounds.m_max.x, sceneBounds.m_max.y, sceneBounds.m_min.z);
+      glVertex3f(sceneBounds.m_max.x, sceneBounds.m_max.y, sceneBounds.m_max.z);
+
+      glVertex3f(sceneBounds.m_min.x, sceneBounds.m_max.y, sceneBounds.m_min.z);
+      glVertex3f(sceneBounds.m_min.x, sceneBounds.m_max.y, sceneBounds.m_max.z);
+   glEnd();
+
+   glDisable(GL_BLEND);
+}
+
+/*void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const illGraphics::Camera& camera) {
+   glUseProgram(0);
+
+   glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
+   glDepthMask(GL_TRUE);
+   glDisable(GL_CULL_FACE);
+   glDisable(GL_DEPTH_TEST);
+   glDepthFunc(GL_LEQUAL);
+   glEnable(GL_BLEND);   
+   glShadeModel(GL_SMOOTH);
+   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+   glMatrixMode(GL_PROJECTION);   
+   glLoadMatrixf(glm::value_ptr(camera.getProjection()));
+
+   glMatrixMode(GL_MODELVIEW);
+   glLoadMatrixf(glm::value_ptr(camera.getModelView()));
+   
+   glm::vec3 drawVec;
+
+   //render frustum
+   glLineWidth(5.0f);
+
+   glBegin(GL_LINES);
+
+   //inactive edges
+   glColor4f(1.0f, 1.0f, 0.0f, 0.25f);
+
+   for(uint8_t edge = 0; edge < FRUSTUM_NUM_EDGES; edge++) {
+      if(iterator.m_iterator->m_inactiveEdges[edge]) {
+         glVertex3fv(glm::value_ptr(iterator.m_frustum.m_points[FRUSTUM_EDGE_LIST[edge][0]]));
+         glVertex3fv(glm::value_ptr(iterator.m_frustum.m_points[FRUSTUM_EDGE_LIST[edge][1]]));
+      }
+   }
+
+   //active edges
+   glColor4f(0.0f, 1.0f, 0.0f, 0.25f);
+
+   for(uint8_t edge = 0; edge < FRUSTUM_NUM_EDGES; edge++) {
+      if(iterator.m_iterator->m_activeEdges[edge]) {
+         glVertex3fv(glm::value_ptr(iterator.m_frustum.m_points[FRUSTUM_EDGE_LIST[edge][0]]));
+         glVertex3fv(glm::value_ptr(iterator.m_frustum.m_points[FRUSTUM_EDGE_LIST[edge][1]]));
+      }
+   }
+
+   //inactive edges
+   glColor4f(1.0f, 0.0f, 0.0f, 0.25f);
+
+   for(uint8_t edge = 0; edge < FRUSTUM_NUM_EDGES; edge++) {
+      if(iterator.m_discarededEdges[edge]) {
+         glVertex3fv(glm::value_ptr(iterator.m_frustum.m_points[FRUSTUM_EDGE_LIST[edge][0]]));
+         glVertex3fv(glm::value_ptr(iterator.m_frustum.m_points[FRUSTUM_EDGE_LIST[edge][1]]));
+      }
+   }
+
+   glEnd();
+
+   glLineWidth(1.0f);
+      
+   //the direction
+   drawVec = iterator.m_frustum.m_nearTipPoint + iterator.m_frustum.m_direction * 10.0f;
+
+   glBegin(GL_LINES);
+      glColor4f(0.5f, 0.5f, 0.5f, 0.5f);
+      glVertex3f(iterator.m_frustum.m_nearTipPoint.x, iterator.m_frustum.m_nearTipPoint.y, iterator.m_frustum.m_nearTipPoint.z);
+      glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+      glVertex3f(iterator.m_frustum.m_farTipPoint.x, iterator.m_frustum.m_farTipPoint.y, iterator.m_frustum.m_farTipPoint.z);
+
+      glColor4f(0.5f, 0.5f, 0.5f, 0.5f);
+      glVertex3f(iterator.m_frustum.m_nearTipPoint.x, iterator.m_frustum.m_nearTipPoint.y, iterator.m_frustum.m_nearTipPoint.z);
+      glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+      glVertex3f(iterator.m_frustum.m_nearTipPoint.x + iterator.m_iterator->m_directionSign.x * 20.0f, iterator.m_frustum.m_nearTipPoint.y, iterator.m_frustum.m_nearTipPoint.z);
+
+      glColor4f(0.5f, 0.5f, 0.5f, 0.5f);
+      glVertex3f(iterator.m_frustum.m_nearTipPoint.x, iterator.m_frustum.m_nearTipPoint.y, iterator.m_frustum.m_nearTipPoint.z);
+      glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+      glVertex3f(iterator.m_frustum.m_nearTipPoint.x, iterator.m_frustum.m_nearTipPoint.y + iterator.m_iterator->m_directionSign.y * 20.0f, iterator.m_frustum.m_nearTipPoint.z);
+
+      glColor4f(0.5f, 0.5f, 0.5f, 0.5f);
+      glVertex3f(iterator.m_frustum.m_nearTipPoint.x, iterator.m_frustum.m_nearTipPoint.y, iterator.m_frustum.m_nearTipPoint.z);
+      glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+      glVertex3f(iterator.m_frustum.m_nearTipPoint.x, iterator.m_frustum.m_nearTipPoint.y, iterator.m_frustum.m_nearTipPoint.z + iterator.m_iterator->m_directionSign.z * 20.0f);
+   glEnd();
+
+   //the bounds
+   glBegin(GL_LINES);
+      glColor4f(0.0f, 0.5f, 0.0f, 0.5f);
+
+      if(iterator.m_iterator->m_dimensionOrder[0] == 0) {
+         glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
+      }
+      else if(iterator.m_iterator->m_dimensionOrder[1] == 0) {
+         glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+      }
+      else if(iterator.m_iterator->m_dimensionOrder[2] == 0) {
+         glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+      }
+
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+
+      if(iterator.m_iterator->m_dimensionOrder[0] == 1) {
+         glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
+      }
+      else if(iterator.m_iterator->m_dimensionOrder[1] == 1) {
+         glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+      }
+      else if(iterator.m_iterator->m_dimensionOrder[2] == 1) {
+         glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+      }
+
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+
+      if(iterator.m_iterator->m_dimensionOrder[0] == 2) {
+         glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
+      }
+      else if(iterator.m_iterator->m_dimensionOrder[1] == 2) {
+         glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+      }
+      else if(iterator.m_iterator->m_dimensionOrder[2] == 2) {
+         glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+      }
+
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+
+
+      glColor4f(0.0f, 1.0f, 1.0f, 0.2f);
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+
+
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+
+
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+
+      glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+      glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+   glEnd();
+
+   //the slice plane normal and distance
+   glBegin(GL_LINES);
+      glColor4f(1.0f, 1.0f, 1.0f, 0.0f);
+      drawVec = iterator.m_iterator->m_slicePlane.m_normal * -iterator.m_iterator->m_slicePlane.m_distance;
+      glVertex3fv(glm::value_ptr(drawVec));
+
+      glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+      drawVec += iterator.m_iterator->m_slicePlane.m_normal * 100.0f;
+      glVertex3fv(glm::value_ptr(drawVec));
+
+   glEnd();
+
+   //slice planes   
+   glBegin(GL_QUADS); 
+   {
+      glm::vec3 drawPoint;
+
+      //front plane
+      glColor4f(1.0f, 1.0f, 1.0f, 0.05f);
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[0]] = iterator.m_iterator->m_sliceStart;
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[1]];
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[2]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[1]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[2]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[1]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+      //back plane
+      glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[0]] = iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[0]] * iterator.m_iterator->m_directionSign[iterator.m_iterator->m_dimensionOrder[0]];
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[1]];
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[2]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[1]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[2]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[1]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+   }
+   glEnd();
+
+   //grid
+   glBegin(GL_LINES);
+   {
+      glm::mediump_float start;
+      glm::mediump_float sign;
+      glm::mediump_float dimensions;
+      int numLines;
+               
+      glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
+      sign = iterator.m_iterator->m_directionSign[iterator.m_iterator->m_dimensionOrder[1]];
+
+      start = sign >= 0
+         ? iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[1]]
+         : iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[1]];
+
+      dimensions = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[1]];
+
+      numLines = glm::abs((int) iterator.m_iterator->m_range.m_max[iterator.m_iterator->m_dimensionOrder[1]] - (int) iterator.m_iterator->m_range.m_min[iterator.m_iterator->m_dimensionOrder[1]]);
+
+      for(int line = 1; line <= numLines; line ++) {
+         glm::vec3 drawPoint;
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[0]] = iterator.m_iterator->m_sliceStart;
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = start + line * dimensions;
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_range.m_min[iterator.m_iterator->m_dimensionOrder[2]] * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[2]];
+
+         glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_range.m_max[iterator.m_iterator->m_dimensionOrder[2]] * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[2]];
+
+         glVertex3fv(glm::value_ptr(drawPoint));
+      }
+         
+      sign = iterator.m_iterator->m_directionSign[iterator.m_iterator->m_dimensionOrder[2]];
+
+      start = sign >= 0
+         ? iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[2]]
+         : iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[2]];
+
+      dimensions = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[2]];
+
+      numLines = glm::abs((int) iterator.m_iterator->m_range.m_max[iterator.m_iterator->m_dimensionOrder[2]] - (int) iterator.m_iterator->m_range.m_min[iterator.m_iterator->m_dimensionOrder[2]]);
+
+      for(int line = 1; line <= numLines; line ++) {
+         glm::vec3 drawPoint;
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[0]] = iterator.m_iterator->m_sliceStart;
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_range.m_min[iterator.m_iterator->m_dimensionOrder[1]] * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[1]];
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = start + line * dimensions;
+
+         glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_range.m_max[iterator.m_iterator->m_dimensionOrder[1]] * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[1]];
+
+         glVertex3fv(glm::value_ptr(drawPoint));
+      }
+   }
+   glEnd();
+   
+   //current row rasterizing debug
+   glLineWidth(3.0f);
+
+   glBegin(GL_LINES);
+   {
+      glm::vec3 drawPoint;
+
+      //row bottom
+      glColor4f(1.0f, 1.0f, 0.0f, 0.2f);
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[0]] = iterator.m_iterator->m_sliceStart;
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_lineBottom;
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[2]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[2]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+         
+      //row top
+      glColor4f(1.0f, 1.0f, 0.0f, 0.6f);
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_lineTop;
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[2]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[2]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+      //side bounds
+      glColor4f(0.0f, 1.0f, 1.0f, 0.2f);
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[0]] = iterator.m_iterator->m_sliceStart + 2.0f;
+
+         //min
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[2]];
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[1]] * iterator.m_sliceMin.x;         
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[2]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+      glColor4f(0.0f, 1.0f, 1.0f, 0.6f);
+
+         //max
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[2]];
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[1]] * iterator.m_iterator->m_sliceMax.x;         
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[2]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+      //top and bottom bounds
+      glColor4f(0.0f, 1.0f, 1.0f, 0.2f);
+
+         //min
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[2]] * iterator.m_sliceMin.y;
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[1]];         
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[1]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+      glColor4f(0.0f, 1.0f, 1.0f, 0.6f);
+
+         //max
+         drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[2]] * iterator.m_iterator->m_sliceMax.y;
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[1]];         
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+
+         drawPoint[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[1]];
+
+            glVertex3fv(glm::value_ptr(drawPoint));
+   }
+   glEnd();
+
+   //the 3D line/slice intersection points
+   glPointSize(10.0f);
+   
+   glBegin(GL_POINTS);
+
+   glColor4f(1.0f, 1.0f, 1.0f, .5f);
+
+   for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_pointList[!iterator.m_iterator->m_currentPointList].m_size; elementIndex++) {
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_pointList[!iterator.m_iterator->m_currentPointList].m_data[elementIndex], iterator.m_pointListMissingDim[!iterator.m_iterator->m_currentPointList].m_data[elementIndex])));
+   }
+
+   glColor4f(1.0f, 1.0f, 0.0f, 1.0f);
+
+   for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_pointList[iterator.m_iterator->m_currentPointList].m_size; elementIndex++) {
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_pointList[iterator.m_iterator->m_currentPointList].m_data[elementIndex], iterator.m_pointListMissingDim[iterator.m_iterator->m_currentPointList].m_data[elementIndex])));
+   }
+
+   glEnd();
+
+   //line connecting polygon points in sorted order
+
+   glBegin(GL_LINES);
+
+   for(std::list<glm::vec2*>::const_iterator iter = iterator.m_sortedSlicePoints.begin(); iter != iterator.m_sortedSlicePoints.end(); ) {
+      glColor4f(1.0f, 0.0f, 1.0f, 0.2f);
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(**iter, iterator.m_iterator->m_sliceStart) + glm::vec3(5.0f)));
+
+      iter++;
+
+      if(iter == iterator.m_sortedSlicePoints.end()) {
+         break;
+      }
+
+      glColor4f(1.0f, 0.0f, 1.0f, 1.0f);
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(**iter, iterator.m_iterator->m_sliceStart) + glm::vec3(5.0f)));
+   }
+
+   glEnd();
+
+   glLineWidth(6.0f);
+
+   //the unclipped convex hull polygon slice
+   glBegin(GL_LINES);
+
+   //"right"
+   for(uint8_t elementIndex = 0; elementIndex < iterator.m_unclippedRasterizeEdges[0].m_size;) {
+      glColor4f(0.7f, 0.7f, 1.0f, 0.3f);
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(*iterator.m_unclippedRasterizeEdges[0].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
+
+      elementIndex++;
+
+      if(elementIndex == iterator.m_unclippedRasterizeEdges[0].m_size) {
+         break;
+      }
+
+      glColor4f(0.7f, 0.7f, 1.0f, 0.7f);
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(*iterator.m_unclippedRasterizeEdges[0].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
+   }
+
+   glEnd();
+
+
+   glBegin(GL_LINES);
+
+   //"left"
+   for(int8_t elementIndex = iterator.m_unclippedRasterizeEdges[1].m_size - 1; elementIndex >= 0;) {
+      glColor4f(0.3f, 0.3f, 1.0f, 0.3f);
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(*iterator.m_unclippedRasterizeEdges[1].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
+
+      elementIndex--;
+
+      if(elementIndex == -1) {
+         break;
+      }
+
+      glColor4f(0.3f, 0.3f, 1.0f, 0.7f);
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(*iterator.m_unclippedRasterizeEdges[1].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
+   }
+
+   glEnd();
+
+   //the clipped convex hull polygon slice
+   glLineWidth(20.0f);
+
+   glBegin(GL_LINES);
+
+   //"right"
+   for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[0].m_size;) {
+      glColor4f(0.7f, 0.7f, 1.0f, 0.3f);
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_sliceRasterizeEdges[0].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
+
+      elementIndex++;
+
+      if(elementIndex == iterator.m_iterator->m_sliceRasterizeEdges[0].m_size) {
+         break;
+      }
+
+      glColor4f(0.7f, 0.7f, 1.0f, 1.0f);
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_sliceRasterizeEdges[0].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
+   }
+
+   glEnd();
+
+
+   glBegin(GL_LINES);
+
+   //"left"
+   for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[1].m_size;) {
+      glColor4f(0.3f, 0.3f, 1.0f, 0.3f);
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_sliceRasterizeEdges[1].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
+
+      elementIndex++;
+
+      if(elementIndex == iterator.m_iterator->m_sliceRasterizeEdges[1].m_size) {
+         break;
+      }
+
+      glColor4f(0.3f, 0.3f, 1.0f, 1.0f);
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_sliceRasterizeEdges[1].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
+   }
+
+   glEnd();
+
+   //some of the clipped points for debugging purposes
+   glPointSize(15.0f);
+
+   glBegin(GL_POINTS);
+
+   glColor4f(0.7f, 0.7f, 0.7f, 0.3f);
+   for(std::list<glm::detail::tvec2<glm::mediump_float> >::const_iterator iter = iterator.m_clipPoints.begin(); iter != iterator.m_clipPoints.end(); iter++) {
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(*iter, iterator.m_iterator->m_sliceStart)));
+   }
+
+   glEnd();
+
+   //the points
+   glPointSize(20.0f);
+
+   glBegin(GL_POINTS);
+
+   //right
+   glColor4f(0.7f, 0.7f, 1.0f, 0.3f);
+   for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[0].m_size; elementIndex++) {      
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_sliceRasterizeEdges[0].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
+   }
+
+   //left
+   glColor4f(0.3f, 0.3f, 1.0f, 0.3f);
+   for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[1].m_size; elementIndex++) {      
+      glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_sliceRasterizeEdges[1].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
+   }
+
+   glEnd();
+
+   //draw the so far rasterized points
+   glPointSize(30.0f);
+
+   glBegin(GL_POINTS);
+
+   glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
+
+   for(std::list<glm::detail::tvec3<glm::mediump_float> >::const_iterator iter = iterator.m_rasterizedCells.begin(); iter != iterator.m_rasterizedCells.end(); iter++) {
+      glVertex3fv(glm::value_ptr(*iter));
+   }
+
+   glEnd();
+
+   //draw the current point
+
+   glBegin(GL_POINTS);
+
+   glColor4f(1.0f, 0.0f, 0.0f, 0.5f);
+
+   glVertex3fv(glm::value_ptr(iterator.m_iterator->m_cellDimensions * vec3cast<int, glm::mediump_float>(iterator.m_iterator->m_currentPosition) + (iterator.m_iterator->m_cellDimensions * 0.5f * vec3cast<int8_t, glm::mediump_float>(iterator.m_iterator->m_directionSign))));
+
+   glEnd();
+
+   glLineWidth(1.0f);
+   
+   glShadeModel(GL_FLAT);
+
+   glPointSize(1.0f);
+}*/
 
 void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& controller, const illGraphics::Camera& camera, const glm::mat4& xform, GLuint prog) {
     
@@ -234,7 +731,96 @@ void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& 
     glDrawRangeElements(GL_TRIANGLES, start, end, num, GL_UNSIGNED_INT, (char *)NULL + start);*/
 }
 
+void debugDrawBone(const glm::mat4& xForm, const glm::mat4& prevXform, bool drawLine) {
+    glm::vec4 currPoint(0.0f, 0.0f, 0.0f, 1.0f);
+    currPoint = xForm * currPoint;
+
+    glm::vec4 parentPos(0.0f, 0.0f, 0.0f, 1.0f);
+    parentPos = prevXform * parentPos;
+
+    //draw line from this bone to the last bone
+    glLineWidth(3.0f);
+
+    if(drawLine) {
+        glColor4f(1.0f, 1.0f, 0.0f, 0.15f);
+
+        glBegin(GL_LINES);
+            glVertex3fv(glm::value_ptr(parentPos));
+            glVertex3fv(glm::value_ptr(currPoint));
+        glEnd();
+    }
+
+    glPointSize(5.0f);
+    glColor4f(1.0f, 0.0f, 0.0f, 0.5f);
+
+    //draw the bone point
+    glBegin(GL_POINTS);
+    glVertex3fv(glm::value_ptr(currPoint));
+    glEnd();
+
+    //draw the bone orientation
+    glLineWidth(3.0f);
+
+    glBegin(GL_LINES);
+        //x
+        glColor4f(1.0f, 0.0f, 0.0f, 0.5f);
+        glVertex3fv(glm::value_ptr(currPoint));
+        
+        glColor4f(1.0f, 0.0f, 0.0f, 0.0f);
+        glVertex3fv(glm::value_ptr(glm::vec3(currPoint) + glm::mat3(xForm) * glm::vec3(1.0f, 0.0f, 0.0f) * 5.0f));
+
+        //y
+        glColor4f(0.0f, 1.0f, 0.0f, 0.5f);
+        glVertex3fv(glm::value_ptr(currPoint));
+        
+        glColor4f(0.0f, 1.0f, 0.0f, 0.0f);
+        glVertex3fv(glm::value_ptr(glm::vec3(currPoint) + glm::mat3(xForm) * glm::vec3(0.0f, 1.0f, 0.0f) * 5.0f));
+
+        //z
+        glColor4f(0.0f, 0.0f, 1.0f, 0.5f);
+        glVertex3fv(glm::value_ptr(currPoint));
+        
+        glColor4f(0.0f, 0.0f, 1.0f, 0.0f);
+        glVertex3fv(glm::value_ptr(glm::vec3(currPoint) + glm::mat3(xForm) * glm::vec3(0.0f, 0.0f, 1.0f) * 5.0f));
+    glEnd();
+    
+    glLineWidth(1.0f);
+}
+
+void renderSkeleton(const illGraphics::Skeleton& skeleton, const illGraphics::Skeleton::BoneHeirarchy * currNode, const illGraphics::ModelAnimationController& animationController, glm::mat4 currXform, glm::mat4 currBindXform) {
+    glm::mat4 prevXform = currXform;
+    glm::mat4 prevBindXform = currBindXform;
+    
+    std::map<unsigned int, illGraphics::ModelAnimationController::BoneInfo>::const_iterator iter = animationController.m_animationTest.find(currNode->m_boneIndex);
+        
+    if(iter != animationController.m_animationTest.end()) {
+        currXform = currXform * iter->second.m_transform;
+    }
+    else {
+        currXform = currXform * skeleton.getBone(currNode->m_boneIndex)->m_transform;
+    }
+
+    currBindXform = currBindXform * skeleton.getBone(currNode->m_boneIndex)->m_transform;
+           
+    debugDrawBone(currXform, prevXform, currNode->m_parent != NULL);
+    //debugDrawBone(currBindXform, prevBindXform, currNode->m_parent != NULL);
+
+    for(std::vector<illGraphics::Skeleton::BoneHeirarchy *>::const_iterator iter = currNode->m_children.begin(); iter != currNode->m_children.end(); iter++) {
+        renderSkeleton(skeleton, *iter, animationController, currXform, currBindXform);
+    }
+}
+
 namespace Demo {
+
+void MainMenuController::ResetFrustumIterator::onRelease() {
+   illGraphics::Camera testCam;
+   testCam.setTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 100.0f, 300.0f);
+   //m_controller->m_testFrustumIter = new FrustumIterator<>(&testCam.getViewFrustum(), Box<int>(glm::ivec3(0), glm::ivec3(20)), glm::vec3(10.0f));
+}
+
+void MainMenuController::RestartFrustumIterator::onRelease() {
+   //m_controller->m_testFrustumIter = new FrustumIterator<>(m_controller->m_testFrustumIter->m_frustum, Box<int>(glm::ivec3(0), glm::ivec3(20)), glm::vec3(10.0f));
+}
 
 MainMenuController::MainMenuController(Engine * engine)
     : GameControllerBase(),
@@ -500,6 +1086,7 @@ MainMenuController::MainMenuController(Engine * engine)
     m_engine->m_inputManager->bindDevice(SdlPc::PC_MOUSE_WHEEL, 0);
 
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
+    m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_frustumInputContext);
 
     m_cameraController.m_speed = 50.0f;
     m_cameraController.m_rollSpeed = 50.0f;
@@ -523,36 +1110,6 @@ void MainMenuController::update(float seconds) {
     m_demonController1.update(seconds * 0.5f);
     m_demonController2.update(seconds * 0.2f);
     m_demonController3.update(seconds * 0.1f);
-
-    /*static float animTime = 0.0f;
-
-    animTime += seconds * 0.01f;
-    
-    Graphics::SkeletonAnimation::InterpInfo interpInfo = m_animation.getFrames(animTime);
-
-    //get transforms for all the bones
-    for(std::map<std::string, unsigned int>::const_iterator iter = m_skeleton.getBoneNameMap().begin(); iter != m_skeleton.getBoneNameMap().end(); iter++) {
-        std::map<std::string, Graphics::SkeletonAnimation::Transform*>::const_iterator animIter = m_animation.getAnimations().find(iter->first);
-        
-        if(animIter == m_animation.getAnimations().end()) {
-            continue;
-        }
-
-        Graphics::SkeletonAnimation::Transform* transforms = animIter->second;
-
-        Graphics::SkeletonAnimation::Transform currentTransform;
-
-        currentTransform.m_position = glm::mix(transforms[interpInfo.m_frame1].m_position, transforms[interpInfo.m_frame2].m_position, interpInfo.m_delta);
-        currentTransform.m_rotation = glm::fastMix(transforms[interpInfo.m_frame1].m_rotation, transforms[interpInfo.m_frame2].m_rotation, interpInfo.m_delta);
-        currentTransform.m_scale = glm::mix(transforms[interpInfo.m_frame1].m_scale, transforms[interpInfo.m_frame2].m_scale, interpInfo.m_delta);
-
-        //compute the matrix
-        //Oh god!  It took me 2 days of trying to debug math problems to fix this.
-        glm::mat4 transform = glm::translate(currentTransform.m_position) * glm::mat4_cast(currentTransform.m_rotation) * glm::scale(currentTransform.m_scale);
-                
-        //place the transform into the thing
-        m_animationTest[iter->second] = transform;
-    }*/
 }
 
 void MainMenuController::updateSound(float seconds) {
@@ -607,98 +1164,34 @@ void MainMenuController::render() {
         glVertex3f(0.0f, 0.0f, 5.0f);
     glEnd();
 
-    //debug draw the skeleton
-    //debugDrawSkeleton(&m_skeleton, m_skeleton.getRootBoneNode(), glm::mat4(), glm::mat4(), glm::mat4(), m_animationTest, m_animationTestSkelMats);
+    //debug draw the skeletons
+    /*renderSkeleton(m_marineSkeleton, m_marineSkeleton.getRootBoneNode(), m_marineController, 
+        glm::translate(glm::vec3(500.0f, 0.0f, 0.0f)), 
+        glm::translate(glm::vec3(500.0f, 0.0f, 0.0f)));
 
-    ////debug draw the mesh stuff
-    //glPointSize(5.0f);
+    renderSkeleton(m_hellKnightSkeleton, m_hellKnightSkeleton.getRootBoneNode(), m_hellKnightController0, 
+        glm::translate(glm::vec3(0.0f, 100.0f, 0.0f)), 
+        glm::translate(glm::vec3(0.0f, 100.0f, 0.0f)));
+    renderSkeleton(m_hellKnightSkeleton, m_hellKnightSkeleton.getRootBoneNode(), m_hellKnightController1, 
+        glm::translate(glm::vec3(-20.0f, -200.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)), 
+        glm::translate(glm::vec3(-20.0f, -200.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)));
+    renderSkeleton(m_hellKnightSkeleton, m_hellKnightSkeleton.getRootBoneNode(), m_hellKnightController2, 
+        glm::translate(glm::vec3(-500.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(4.0f)), 
+        glm::translate(glm::vec3(-500.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(4.0f)));
 
-    ////make all the computed poses be the relative xform
-
-    //for(unsigned int vertex = 0; vertex < m_mesh.m_meshFrontendData->getNumVert(); vertex++) {
-    //    glm::vec3 thisPos = m_mesh.m_meshFrontendData->getPosition(vertex);
-    //    glm::vec4 pos(0.0f);
-    //    
-    //    for(unsigned int weight = 0; weight < 4; weight++) {
-    //        //bone xform * this position * bone weight
-    //        glm::mat4 xform = m_animationTestSkelMats[(int) m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendIndex[weight]];
-    //        glm::vec4 weightsArray = m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendWeight;
-    //        glm::mediump_float wgt = m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendWeight[weight];
-
-    //        pos += m_animationTestSkelMats[(int) m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendIndex[weight]]
-    //            * glm::vec4(thisPos, 1.0f) 
-    //            * m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendWeight[weight];
-    //    }
-
-    //    //transformed point
-    //    glBegin(GL_POINTS);
-
-    //    glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-    //    glVertex3fv(glm::value_ptr(pos));
-
-    //    glEnd();
-
-    //    glBegin(GL_LINES);
-
-    //    glm::vec3 tail;
-
-    //    //normal
-    //    glm::vec3 thisNormal = m_mesh.m_meshFrontendData->getNormal(vertex);
-    //    glm::vec3 skinned(0.0f);
-
-    //    for(unsigned int weight = 0; weight < 4; weight++) {
-    //        //bone xform * this position * bone weight
-    //        skinned += glm::mat3(m_animationTestSkelMats[(int) m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendIndex[weight]])
-    //            * thisNormal
-    //            * m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendWeight[weight];
-    //    }
-
-    //    tail = glm::vec3(pos) + glm::vec3(skinned);
-
-    //    glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-    //    glVertex3fv(glm::value_ptr(pos));
-    //    glColor4f(1.0f, 1.0f, 1.0f, 0.0f);
-    //    glVertex3fv(glm::value_ptr(tail));
-
-    //    //tangent
-    //    glm::vec3 thisTangent = m_mesh.m_meshFrontendData->getTangent(vertex).m_tangent;
-    //    skinned = glm::vec3(0.0f);
-
-    //    for(unsigned int weight = 0; weight < 4; weight++) {
-    //        //bone xform * this position * bone weight
-    //        skinned += glm::mat3(m_animationTestSkelMats[(int) m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendIndex[weight]])
-    //            * thisTangent
-    //            * m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendWeight[weight];
-    //    }
-
-    //    tail = glm::vec3(pos) + glm::vec3(skinned);
-
-    //    glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
-    //    glVertex3fv(glm::value_ptr(pos));
-    //    glColor4f(1.0f, 0.0f, 0.0f, 0.0f);
-    //    glVertex3fv(glm::value_ptr(tail));
-
-    //    //bitangent
-    //    glm::vec3 thisBitangent = m_mesh.m_meshFrontendData->getTangent(vertex).m_bitangent;
-    //    skinned = glm::vec3(0.0f);
-
-    //    for(unsigned int weight = 0; weight < 4; weight++) {
-    //        //bone xform * this position * bone weight
-    //        skinned += glm::mat3(m_animationTestSkelMats[(int) m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendIndex[weight]])
-    //            * thisBitangent
-    //            * m_mesh.m_meshFrontendData->getBlendData(vertex).m_blendWeight[weight];
-    //    }
-
-    //    tail = glm::vec3(pos) + glm::vec3(skinned);
-
-    //    glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
-    //    glVertex3fv(glm::value_ptr(pos));
-    //    glColor4f(0.0f, 0.0f, 1.0f, 0.0f);
-    //    glVertex3fv(glm::value_ptr(tail));
-
-    //    glEnd();
-    //}
-    
+    renderSkeleton(m_demonSkeleton, m_demonSkeleton.getRootBoneNode(), m_demonController0, 
+        glm::mat4(), 
+        glm::mat4());
+    renderSkeleton(m_demonSkeleton, m_demonSkeleton.getRootBoneNode(), m_demonController1, 
+        glm::translate(glm::vec3(0.0f, -100.0f, 0.0f)), 
+        glm::translate(glm::vec3(0.0f, -100.0f, 0.0f)));
+    renderSkeleton(m_demonSkeleton, m_demonSkeleton.getRootBoneNode(), m_demonController2, 
+        glm::translate(glm::vec3(0.0f, 300.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)), 
+        glm::translate(glm::vec3(0.0f, 300.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)));
+    renderSkeleton(m_demonSkeleton, m_demonSkeleton.getRootBoneNode(), m_demonController3, 
+        glm::translate(glm::vec3(-400.0f, 600.0f, 0.0f)) * glm::scale(glm::vec3(5.0f)), 
+        glm::translate(glm::vec3(-400.0f, 600.0f, 0.0f)) * glm::scale(glm::vec3(5.0f)));*/
+        
     //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
     glEnable(GL_DEPTH_TEST);
     //glDepthMask(GL_TRUE);

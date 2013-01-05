@@ -16,6 +16,14 @@
 #include "illEngine/Graphics/serial/Model/ModelAnimationController.h"
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
 
+//#include "illEngine/Util/Geometry/FrustumIterator.h"
+
+#include "illEngine/Input/serial/InputContext.h"
+#include "illEngine/Input/serial/InputListenerState.h"
+#include "illEngine/Input/serial/InputListenerRange.h"
+#include "illEngine/Input/serial/InputBinding.h"
+#include "illEngine/Pc/serial/sdlInputEnum.h"
+
 namespace Demo {
 struct Engine;
 
@@ -29,6 +37,50 @@ public:
     void render();
 
 private:
+    struct AdvanceFrustumIterator : public Input::InputListenerState::InputCallback {
+        AdvanceFrustumIterator()
+            : Input::InputListenerState::InputCallback()
+        {}
+
+        void onRelease() {
+            //m_controller->m_testFrustumIter->forward();
+        }
+
+        MainMenuController * m_controller;
+    };
+
+    struct AdvanceFrustumIteratorHold : public Input::InputListenerState::InputCallback {
+        AdvanceFrustumIteratorHold()
+            : Input::InputListenerState::InputCallback()
+        {}
+
+        void onChange(bool value) {
+            m_controller->m_advanceHold = value;
+        }
+
+        MainMenuController * m_controller;
+    };
+
+    struct ResetFrustumIterator : public Input::InputListenerState::InputCallback {
+        ResetFrustumIterator()
+            : Input::InputListenerState::InputCallback()
+        {}
+
+        void onRelease();
+
+        MainMenuController * m_controller;
+    };
+
+    struct RestartFrustumIterator : public Input::InputListenerState::InputCallback {
+        RestartFrustumIterator()
+            : Input::InputListenerState::InputCallback()
+        {}
+
+        void onRelease();
+
+        MainMenuController * m_controller;
+    };
+
     Engine * m_engine;
 
     CameraController m_cameraController;
@@ -36,6 +88,22 @@ private:
     illGraphics::Camera m_camera;
     illGraphics::CameraTransform m_cameraTransform;
     
+    //frustum iterator debugging
+
+    //FrustumIterator<> * m_testFrustumIter;
+
+    AdvanceFrustumIterator m_advanceFrustumIteratorCallback;
+    AdvanceFrustumIteratorHold m_advanceFrustumIteratorHoldCallback;
+    ResetFrustumIterator m_resetFrustumIteratorCallback;
+    RestartFrustumIterator m_restartFrustumIteratorCallback;
+    
+    Input::InputListenerState m_advanceFrustumIterator;
+    Input::InputListenerState m_advanceFrustumIteratorHold;
+    Input::InputListenerState m_resetFrustumIterator;
+    Input::InputListenerState m_restartFrustumIterator;
+
+    Input::InputContext m_frustumInputContext;
+
     //marine
 
     illGraphics::Mesh m_marine;
@@ -82,8 +150,7 @@ private:
     illGraphics::ShaderProgram m_debugShader;
     illGraphics::ShaderProgramLoader * m_debugShaderLoader;
 
-    /*std::map<unsigned int, glm::mat4> m_animationTest;    //temporarily testing animations manually without the animation controller
-    glm::mat4 * m_animationTestSkelMats;*/
+    bool m_advanceHold;
 };
 }
 
