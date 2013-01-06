@@ -16,7 +16,7 @@
 #include "illEngine/Graphics/serial/Model/ModelAnimationController.h"
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
 
-//#include "illEngine/Util/Geometry/FrustumIterator.h"
+#include "illEngine/Util/Geometry/FrustumIterator.h"
 
 #include "illEngine/Input/serial/InputContext.h"
 #include "illEngine/Input/serial/InputListenerState.h"
@@ -90,7 +90,7 @@ private:
     
     //frustum iterator debugging
 
-    //FrustumIterator<> * m_testFrustumIter;
+    FrustumIterator<> * m_testFrustumIter;
 
     AdvanceFrustumIterator m_advanceFrustumIteratorCallback;
     AdvanceFrustumIteratorHold m_advanceFrustumIteratorHoldCallback;

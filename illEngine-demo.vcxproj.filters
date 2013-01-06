@@ -329,5 +329,11 @@
     <ClInclude Include="illEngine\Graphics\serial\Model\LastFrameInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="illEngine\Util\serial\Pool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\serial\StaticList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

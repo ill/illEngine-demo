@@ -7,7 +7,6 @@
 #include "illEngine/Graphics/Window.h"
 
 #include "MainMenuController.h"
-//#include "serial-illUtil/ObjLoader.h"
 #include "illEngine/Util/Illmesh/IllmeshLoader.h"
 #include "illEngine/Graphics/serial/Material/Shader.h"
 #include "illEngine/Input/serial/InputManager.h"
@@ -96,7 +95,7 @@ void renderSceneDebug(const Box<>&sceneBounds, const glm::vec3& chunkDimensions,
    glDisable(GL_BLEND);
 }
 
-/*void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const illGraphics::Camera& camera) {
+void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const illGraphics::Camera& camera) {
    glUseProgram(0);
 
    glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
@@ -643,7 +642,7 @@ void renderSceneDebug(const Box<>&sceneBounds, const glm::vec3& chunkDimensions,
    glShadeModel(GL_FLAT);
 
    glPointSize(1.0f);
-}*/
+}
 
 void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& controller, const illGraphics::Camera& camera, const glm::mat4& xform, GLuint prog) {
     
@@ -815,16 +814,17 @@ namespace Demo {
 void MainMenuController::ResetFrustumIterator::onRelease() {
    illGraphics::Camera testCam;
    testCam.setTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 100.0f, 300.0f);
-   //m_controller->m_testFrustumIter = new FrustumIterator<>(&testCam.getViewFrustum(), Box<int>(glm::ivec3(0), glm::ivec3(20)), glm::vec3(10.0f));
+   m_controller->m_testFrustumIter = new FrustumIterator<>(&testCam.getViewFrustum(), Box<int>(glm::ivec3(0), glm::ivec3(20)), glm::vec3(10.0f));
 }
 
 void MainMenuController::RestartFrustumIterator::onRelease() {
-   //m_controller->m_testFrustumIter = new FrustumIterator<>(m_controller->m_testFrustumIter->m_frustum, Box<int>(glm::ivec3(0), glm::ivec3(20)), glm::vec3(10.0f));
+   m_controller->m_testFrustumIter = new FrustumIterator<>(m_controller->m_testFrustumIter->m_frustum, Box<int>(glm::ivec3(0), glm::ivec3(20)), glm::vec3(10.0f));
 }
 
 MainMenuController::MainMenuController(Engine * engine)
     : GameControllerBase(),
-    m_engine(engine)
+    m_engine(engine),
+    m_testFrustumIter(NULL)
 {
     //This is all put together to test some stuff, this is in no way how to normally do these things.  Everything should normally be done through the renderer front end when that's done.
 
@@ -1085,6 +1085,21 @@ MainMenuController::MainMenuController(Engine * engine)
     m_engine->m_inputManager->bindDevice(SdlPc::PC_MOUSE_BUTTON, 0);
     m_engine->m_inputManager->bindDevice(SdlPc::PC_MOUSE_WHEEL, 0);
 
+    m_advanceFrustumIteratorCallback.m_controller = this;
+    m_advanceFrustumIteratorHoldCallback.m_controller = this;
+    m_resetFrustumIteratorCallback.m_controller = this;
+    m_restartFrustumIteratorCallback.m_controller = this;
+
+    m_advanceFrustumIterator.m_inputCallback = &m_advanceFrustumIteratorCallback;
+    m_advanceFrustumIteratorHold.m_inputCallback = &m_advanceFrustumIteratorHoldCallback;
+    m_resetFrustumIterator.m_inputCallback = &m_resetFrustumIteratorCallback;
+    m_restartFrustumIterator.m_inputCallback = &m_restartFrustumIteratorCallback;
+
+    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_RIGHT), &m_advanceFrustumIterator);
+    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_UP), &m_advanceFrustumIteratorHold);
+    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LEFT), &m_restartFrustumIterator);
+    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_DOWN), &m_resetFrustumIterator);
+
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_frustumInputContext);
 
@@ -1095,6 +1110,7 @@ MainMenuController::MainMenuController(Engine * engine)
 MainMenuController::~MainMenuController() {
     //delete[] m_animationTestSkelMats;
     delete m_debugShaderLoader;
+    delete m_testFrustumIter;
 }
 
 void MainMenuController::update(float seconds) {
@@ -1192,8 +1208,17 @@ void MainMenuController::render() {
         glm::translate(glm::vec3(-400.0f, 600.0f, 0.0f)) * glm::scale(glm::vec3(5.0f)), 
         glm::translate(glm::vec3(-400.0f, 600.0f, 0.0f)) * glm::scale(glm::vec3(5.0f)));*/
         
+    //debug draw the frustum iterators    
+    renderSceneDebug(Box<>(glm::vec3(0.0f), glm::vec3(20.0f * 10.0f - 0.1f)), glm::vec3(10.0f), glm::uvec3(20), m_camera);
+
+    if(m_testFrustumIter) {
+        renderFrustumIterDebug(m_testFrustumIter->m_debugger, m_camera);
+    }
+
+    //draw the 3d models
+
     //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-    glEnable(GL_DEPTH_TEST);
+    /*glEnable(GL_DEPTH_TEST);
     //glDepthMask(GL_TRUE);
     glCullFace(GL_BACK);
     glEnable(GL_CULL_FACE);    
@@ -1292,7 +1317,7 @@ void MainMenuController::render() {
 
     xform = glm::translate(glm::vec3(-400.0f, 600.0f, 0.0f)) * glm::scale(glm::vec3(5.0f));
     renderMesh(m_demon, m_demonController3, m_camera, xform, prog);
-    renderMesh(m_demonFront, m_demonController3, m_camera, xform, prog);
+    renderMesh(m_demonFront, m_demonController3, m_camera, xform, prog);*/
 
     ERROR_CHECK_OPENGL;
 }
