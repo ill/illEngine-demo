@@ -43,7 +43,7 @@ private:
         {}
 
         void onRelease() {
-            //m_controller->m_testFrustumIter->forward();
+            m_controller->m_testFrustumIter->forward();
         }
 
         MainMenuController * m_controller;
@@ -102,6 +102,9 @@ private:
     Input::InputListenerState m_resetFrustumIterator;
     Input::InputListenerState m_restartFrustumIterator;
 
+    bool m_advanceHold;
+    float m_advanceHoldTimer;
+
     Input::InputContext m_frustumInputContext;
 
     //marine
@@ -149,8 +152,6 @@ private:
 
     illGraphics::ShaderProgram m_debugShader;
     illGraphics::ShaderProgramLoader * m_debugShaderLoader;
-
-    bool m_advanceHold;
 };
 }
 

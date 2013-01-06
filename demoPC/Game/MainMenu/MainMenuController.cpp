@@ -824,7 +824,9 @@ void MainMenuController::RestartFrustumIterator::onRelease() {
 MainMenuController::MainMenuController(Engine * engine)
     : GameControllerBase(),
     m_engine(engine),
-    m_testFrustumIter(NULL)
+    m_testFrustumIter(NULL),
+    m_advanceHold(false),
+    m_advanceHoldTimer(0.0f)
 {
     //This is all put together to test some stuff, this is in no way how to normally do these things.  Everything should normally be done through the renderer front end when that's done.
 
@@ -1126,6 +1128,13 @@ void MainMenuController::update(float seconds) {
     m_demonController1.update(seconds * 0.5f);
     m_demonController2.update(seconds * 0.2f);
     m_demonController3.update(seconds * 0.1f);
+    
+    m_advanceHoldTimer -= seconds;
+
+    if(m_testFrustumIter && m_advanceHold && m_advanceHoldTimer < 0) {
+        m_advanceHoldTimer = 0.05f;
+        m_testFrustumIter->forward();
+    }
 }
 
 void MainMenuController::updateSound(float seconds) {
