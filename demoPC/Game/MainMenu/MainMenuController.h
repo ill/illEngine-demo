@@ -43,7 +43,9 @@ private:
         {}
 
         void onRelease() {
-            m_controller->m_testFrustumIter->forward();
+            if(m_controller) {
+                m_controller->m_testFrustumIter->forward();
+            }
         }
 
         MainMenuController * m_controller;

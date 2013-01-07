@@ -812,13 +812,15 @@ void renderSkeleton(const illGraphics::Skeleton& skeleton, const illGraphics::Sk
 namespace Demo {
 
 void MainMenuController::ResetFrustumIterator::onRelease() {
-   illGraphics::Camera testCam;
-   testCam.setTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 100.0f, 300.0f);
-   m_controller->m_testFrustumIter = new FrustumIterator<>(&testCam.getViewFrustum(), Box<int>(glm::ivec3(0), glm::ivec3(20)), glm::vec3(10.0f));
+    illGraphics::Camera testCam;
+    testCam.setTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 100.0f, 300.0f);
+    m_controller->m_testFrustumIter = new FrustumIterator<>(&testCam.getViewFrustum(), Box<int>(glm::ivec3(0), glm::ivec3(5)), glm::vec3(100.0f));
 }
 
 void MainMenuController::RestartFrustumIterator::onRelease() {
-   m_controller->m_testFrustumIter = new FrustumIterator<>(m_controller->m_testFrustumIter->m_frustum, Box<int>(glm::ivec3(0), glm::ivec3(20)), glm::vec3(10.0f));
+    if(m_controller->m_testFrustumIter) {
+        m_controller->m_testFrustumIter = new FrustumIterator<>(m_controller->m_testFrustumIter->m_frustum, Box<int>(glm::ivec3(0), glm::ivec3(5)), glm::vec3(100.0f));
+    }
 }
 
 MainMenuController::MainMenuController(Engine * engine)
@@ -1218,7 +1220,7 @@ void MainMenuController::render() {
         glm::translate(glm::vec3(-400.0f, 600.0f, 0.0f)) * glm::scale(glm::vec3(5.0f)));*/
         
     //debug draw the frustum iterators    
-    renderSceneDebug(Box<>(glm::vec3(0.0f), glm::vec3(20.0f * 10.0f - 0.1f)), glm::vec3(10.0f), glm::uvec3(20), m_camera);
+    renderSceneDebug(Box<>(glm::vec3(0.0f), glm::vec3(5.0f * 100.0f - 0.1f)), glm::vec3(100.0f), glm::uvec3(5), m_camera);
 
     if(m_testFrustumIter) {
         renderFrustumIterDebug(m_testFrustumIter->m_debugger, m_camera);
