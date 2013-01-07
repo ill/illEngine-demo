@@ -10,7 +10,6 @@ attribute vec2 texCoords;
 
 uniform mat4 modelViewProjectionMatrix;
 uniform mat4 modelViewMatrix;
-uniform mat3 normalMatrix;
 
 uniform vec3 lightPos;
 
@@ -33,7 +32,7 @@ void main()
 	vec4 skinnedPos = modelViewMatrix * transformedMat * position;
 
 	//lighting/normal mapping
-	mat3 transformedNormMat = normalMatrix *mat3(transformedMat);
+	mat3 transformedNormMat =  mat3(modelViewMatrix) * mat3(transformedMat);
 
     vec3 lightNorm = normalize(transformedNormMat * normal);
 	vec3 lightTan = normalize(transformedNormMat * tangent);

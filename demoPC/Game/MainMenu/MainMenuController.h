@@ -189,6 +189,13 @@ private:
 
     illGraphics::Mesh m_demonFront;
 
+    //bill
+    illGraphics::Mesh m_bill;
+    illGraphics::Skeleton m_billSkeleton;
+    illGraphics::SkeletonAnimation m_billAnimation;
+
+    illGraphics::ModelAnimationController m_billController;
+
     //the skinning shader
 
     illGraphics::ShaderProgram m_debugShader;

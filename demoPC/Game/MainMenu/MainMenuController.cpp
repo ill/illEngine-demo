@@ -638,12 +638,10 @@ void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& 
 
     loc = glGetUniformLocation(prog, "modelViewMatrix");
     if(loc == -1) {
-        LOG_FATAL_ERROR("Unknown uniform modelViewMatrix");
+        LOG_FATAL_ERROR("Unknown uniform modelViewProjectionMatrix");
     }
     glUniformMatrix4fv(loc, 1, false, glm::value_ptr(camera.getModelView() * xform));
     
-    
-
     GLuint buffer = *((GLuint *) mesh.getMeshBackendData() + 0);
 
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
@@ -812,7 +810,7 @@ void renderMeshDebug(const illGraphics::Mesh& mesh, const illGraphics::ModelAnim
         glm::vec3 tail;
 
         //normal
-        glm::vec3 skinned = glm::mat3(transformedMat) * mesh.m_meshFrontendData->getNormal(vertex);
+        glm::vec3 skinned = glm::mat3(xform) * glm::mat3(transformedMat) * mesh.m_meshFrontendData->getNormal(vertex);
         
         tail = glm::vec3(pos) + glm::vec3(skinned) * 10.0f;
 
@@ -822,7 +820,7 @@ void renderMeshDebug(const illGraphics::Mesh& mesh, const illGraphics::ModelAnim
         glVertex3fv(glm::value_ptr(tail));
 
         //tangent
-        skinned = glm::mat3(transformedMat) * mesh.m_meshFrontendData->getTangent(vertex).m_tangent;
+        skinned = glm::mat3(xform) * glm::mat3(transformedMat) * mesh.m_meshFrontendData->getTangent(vertex).m_tangent;
         
         tail = glm::vec3(pos) + glm::vec3(skinned) * 10.0f;
 
@@ -832,7 +830,7 @@ void renderMeshDebug(const illGraphics::Mesh& mesh, const illGraphics::ModelAnim
         glVertex3fv(glm::value_ptr(tail));
 
         //bitangent
-        skinned = glm::mat3(transformedMat) * mesh.m_meshFrontendData->getTangent(vertex).m_bitangent;
+        skinned = glm::mat3(xform) * glm::mat3(transformedMat) * mesh.m_meshFrontendData->getTangent(vertex).m_bitangent;
         
         tail = glm::vec3(pos) + glm::vec3(skinned) * 10.0f;
 
@@ -1108,6 +1106,37 @@ MainMenuController::MainMenuController(Engine * engine)
 
 
 
+    //bill
+    {
+        IllmeshLoader<> meshLoader("Meshes/Bill/bill.illmesh");
+
+        m_bill.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+    
+        meshLoader.buildMesh(*m_bill.m_meshFrontendData);
+        m_bill.frontendBackendTransfer(m_engine->m_rendererBackend, false);
+    }
+    
+    //load the skeleton
+    {
+        illGraphics::SkeletonLoadArgs loadArgs;
+        loadArgs.m_path = "Meshes/Bill/bill.illskel";
+        m_billSkeleton.load(loadArgs, NULL);
+        
+        m_billController.alloc(m_billSkeleton.getNumBones());
+        m_billController.m_skeleton = &m_billSkeleton;
+    }
+
+    //load the animation
+    {
+        illGraphics::SkeletonAnimationLoadArgs loadArgs;
+        loadArgs.m_path = "Meshes/Bill/flutter.illanim";
+        m_billAnimation.load(loadArgs, NULL);
+
+        m_billController.m_animation = &m_billAnimation;
+    }
+
+
+
 
     //load the test shader
     {
@@ -1196,6 +1225,8 @@ void MainMenuController::update(float seconds) {
     m_demonController1.update(seconds * 0.5f);
     m_demonController2.update(seconds * 0.2f);
     m_demonController3.update(seconds * 0.1f);
+
+    m_billController.update(seconds);
     
     m_advanceHoldTimer -= seconds;
 
@@ -1245,6 +1276,8 @@ void MainMenuController::render() {
     m_demonController2.computeAnimPose();
     m_demonController3.computeAnimPose();
 
+    m_billController.computeAnimPose();
+
     //draw the 3d models
     
     //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer   
@@ -1256,18 +1289,12 @@ void MainMenuController::render() {
     glEnable(GL_DEPTH_TEST);
     glDepthMask(GL_TRUE);
     glCullFace(GL_BACK);
-    glEnable(GL_CULL_FACE);    
+    //glEnable(GL_CULL_FACE);    
     glDisable(GL_BLEND);
-
-    GLint loc = glGetUniformLocation(prog, "normalMatrix");
+        
+    GLint loc = glGetUniformLocation(prog, "lightPos");
     if(loc == -1) {
-        LOG_FATAL_ERROR("Unknown uniform normalMatrix");
-    }
-    glUniformMatrix3fv(loc, 1, false, glm::value_ptr(m_camera.getNormal()));
-    
-    loc = glGetUniformLocation(prog, "lightPos");
-    if(loc == -1) {
-        LOG_FATAL_ERROR("Unknown uniform diffuseMap");
+        LOG_FATAL_ERROR("Unknown uniform lightPos");
     }
     glUniform3fv(loc, 1, glm::value_ptr(m_camera.getModelView() * glm::vec4(m_lightPos, 1.0f)));
 
@@ -1353,6 +1380,13 @@ void MainMenuController::render() {
     renderMesh(m_demon, m_demonController3, m_camera, xform, prog);
     renderMesh(m_demonFront, m_demonController3, m_camera, xform, prog);
 
+    //draw bill
+    /*xform = glm::mat4();
+    static float testAng = 0;
+    testAng += 1.0f;
+    xform = glm::rotate(xform, testAng, glm::vec3(0.0f, 0.0f, 1.0f));
+    renderMesh(m_bill, m_billController, m_camera, xform, prog);*/
+
     //debug drawing
     glUseProgram(0);
 
@@ -1426,6 +1460,10 @@ void MainMenuController::render() {
 
     xform = glm::translate(glm::vec3(-500.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(4.0f));
     renderMeshDebug(m_hellKnight, m_hellKnightController2, xform);*/
+
+    /*xform = glm::mat4();
+    xform = glm::rotate(xform, testAng, glm::vec3(0.0f, 0.0f, 1.0f));
+    renderMeshDebug(m_bill, m_billController, xform);*/
 
     //debug draw the frustum iterators    
     //renderSceneDebug(Box<>(glm::vec3(0.0f), glm::vec3(5.0f * 100.0f - 0.1f)), glm::vec3(100.0f), glm::uvec3(5));
