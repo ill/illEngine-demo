@@ -83,6 +83,21 @@ private:
         MainMenuController * m_controller;
     };
 
+    //TODO: the state and toggle listeners look like they'd be useful everywhere, move them to the Input project?
+    struct State : public Input::InputListenerState::InputCallback {
+        State()
+            : Input::InputListenerState::InputCallback()
+        {}
+
+        virtual ~State() {}
+
+        void onChange(bool value) {
+            *m_state = value;
+        }
+
+        bool* m_state;
+    };
+
     Engine * m_engine;
 
     CameraController m_cameraController;
@@ -108,6 +123,30 @@ private:
     float m_advanceHoldTimer;
 
     Input::InputContext m_frustumInputContext;
+
+    //debug light
+    glm::vec3 m_lightPos;
+
+    bool m_forward;
+    bool m_back;
+    bool m_left;
+    bool m_right;
+    bool m_up;
+    bool m_down;
+
+    State m_forwardListener;
+    State m_backListener;
+    State m_leftListener;
+    State m_rightListener;
+    State m_upListener;
+    State m_downListener;
+
+    Input::InputListenerState m_forwardInput;
+    Input::InputListenerState m_backInput;
+    Input::InputListenerState m_leftInput;
+    Input::InputListenerState m_rightInput;
+    Input::InputListenerState m_upInput;
+    Input::InputListenerState m_downInput;
 
     //marine
 
