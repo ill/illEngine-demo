@@ -15,6 +15,7 @@
 #include "illEngine/Graphics/serial/Model/SkeletonAnimation.h"
 #include "illEngine/Graphics/serial/Model/ModelAnimationController.h"
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
+#include "illEngine/Graphics/serial/BitmapFont.h"
 
 #include "illEngine/Util/Geometry/FrustumIterator.h"
 
@@ -43,7 +44,7 @@ private:
         {}
 
         void onRelease() {
-            if(m_controller) {
+            if(m_controller->m_testFrustumIter) {
                 m_controller->m_testFrustumIter->forward();
             }
         }
@@ -148,6 +149,9 @@ private:
     Input::InputListenerState m_upInput;
     Input::InputListenerState m_downInput;
 
+    //debug font
+    illGraphics::BitmapFont m_debugFont;
+
     //marine
 
     illGraphics::Mesh m_marine;
@@ -199,6 +203,7 @@ private:
     //the skinning shader
 
     illGraphics::ShaderProgram m_debugShader;
+    illGraphics::ShaderProgram m_fontShader;
     illGraphics::ShaderProgramLoader * m_debugShaderLoader;
 };
 }

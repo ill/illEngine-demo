@@ -105,6 +105,15 @@
     <ClCompile Include="illEngine\Tests\testVectorManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="illEngine\Graphics\serial\BitmapFont.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\Sound\Decoders\WavDecoder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\Graphics\serial\RendererFrontend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demoPC\Game\MainMenu\MainMenuController.h">
@@ -269,9 +278,6 @@
     <ClInclude Include="illEngine\Graphics\serial\Light.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\Graphics\serial\RendererFrontent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="illEngine\Graphics\graphicsLogging.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -333,6 +339,36 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Util\serial\StaticList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Graphics\serial\BitmapFont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Sound\Decoders\Decoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Sound\Decoders\WavDecoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Sound\serial\Channel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Sound\serial\Sample.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Sound\serial\SoundEffect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Sound\serial\SoundFrontent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Sound\SoundBackend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Graphics\serial\RendererFrontend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\GlCommon\serial\glUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

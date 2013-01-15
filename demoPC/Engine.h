@@ -14,6 +14,7 @@ template<typename Id, typename T, typename LoadArgs, typename Loader> class Conf
 namespace illGraphics {
 class Window;
 class RendererBackend;
+class RendererFrontend;
 
 class Shader;
 typedef ResourceManager<uint64_t, Shader, RendererBackend> ShaderManager;
@@ -48,6 +49,7 @@ public:
     Console::VariableManager * m_consoleVariableManager;
 
     illGraphics::Window * m_window;
+    illGraphics::RendererFrontend * m_rendererFrontend;
     illGraphics::RendererBackend * m_rendererBackend;
 
     illGraphics::ShaderManager * m_shaderManager;
