@@ -125,7 +125,7 @@ void renderTextDebug(const char * text, const glm::mat4& transform, const illGra
         }
 
         case ' ': //space
-            currentTransform = glm::translate(currentTransform, glm::vec3(font.getSpacingHorz(), 0.0f, 0.0f));
+            currentTransform = glm::translate(currentTransform, glm::vec3(/*font.getSpacingHorz()*/5.0f, 0.0f, 0.0f));
             text++;
             continue;
 
@@ -554,12 +554,32 @@ void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const i
         drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
+                
+        //min world
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_leftSlicePoint;         
+
+        glVertex3fv(glm::value_ptr(drawPoint));
+
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+
+        glVertex3fv(glm::value_ptr(drawPoint));
 
         glColor4f(0.0f, 1.0f, 1.0f, 0.6f);
 
         //max
         drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
         drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_iterator->m_sliceMax.x;         
+
+        glVertex3fv(glm::value_ptr(drawPoint));
+
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+
+        glVertex3fv(glm::value_ptr(drawPoint));
+        
+        //max world
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_rightSlicePoint;        
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
@@ -790,6 +810,15 @@ void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const i
         glm::mat4(),
         font, camera, getProgram(fontShader));*/
 
+    //messages
+    {
+        int message = 0;
+
+        for(std::list<std::string>::const_reverse_iterator iter = iterator.m_messages.rbegin(); iter != iterator.m_messages.rend(); iter++, message++) {
+            renderTextDebug(iter->c_str(), createTransform(glm::vec3(0.0f, -20.0f - 10.0f * message, 0.0f)), font, camera, getProgram(fontShader));
+        }
+    }
+
     {
         glm::vec3 drawPoint;
 
@@ -860,6 +889,16 @@ void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const i
 
             renderTextDebug("SIDE MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
             
+            //min world
+            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_leftSlicePoint;         
+
+            renderTextDebug("SIDE MIN W", createTransform(drawPoint), font, camera, getProgram(fontShader));
+
+            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+
+            renderTextDebug("SIDE MIN W", createTransform(drawPoint), font, camera, getProgram(fontShader));
+            
             //max
             drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
             drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_iterator->m_sliceMax.x;         
@@ -869,6 +908,16 @@ void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const i
             drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
             renderTextDebug("SIDE MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
+
+            //max world
+            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_rightSlicePoint;        
+
+            renderTextDebug("SIDE MAX W", createTransform(drawPoint), font, camera, getProgram(fontShader));
+
+            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+
+            renderTextDebug("SIDE MAX W", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
             //top and bottom bounds
             drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart + 5;
