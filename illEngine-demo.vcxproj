@@ -271,7 +271,6 @@
     <ClInclude Include="illEngine\Util\Geometry\Transform.h" />
     <ClInclude Include="illEngine\Util\Illmesh\IllmeshLoader.h" />
     <ClInclude Include="illEngine\Util\serial\LruCache.h" />
-    <ClInclude Include="illEngine\Util\serial\Pool.h" />
     <ClInclude Include="illEngine\Util\serial\RefCountPtr.h" />
     <ClInclude Include="illEngine\Util\serial\ResourceBase.h" />
     <ClInclude Include="illEngine\Util\serial\ResourceManager.h" />
