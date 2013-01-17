@@ -17,6 +17,7 @@ CameraController::CameraController()
     m_sprint(false),
 
     m_lookMode(true),
+    m_orthoMode(false),
 
     m_zoom(1.0f)
 {
@@ -35,6 +36,7 @@ CameraController::CameraController()
     m_sprintListener.m_state = &m_sprint;
 
     m_lookModeListener.m_controller = this;
+    m_orthoModeListener.m_controller = this;
 
     m_zoomInListener.m_zoom = &m_zoom;
     m_zoomOutListener.m_zoom = &m_zoom;
@@ -55,6 +57,7 @@ CameraController::CameraController()
     m_sprintInput.m_inputCallback = &m_sprintListener;
 
     m_lookModeInput.m_inputCallback = &m_lookModeListener;
+    m_orthoModeInput.m_inputCallback = &m_orthoModeListener;
 
     m_zoomInInput.m_inputCallback = &m_zoomInListener;
     m_zoomOutInput.m_inputCallback = &m_zoomOutListener;
@@ -75,6 +78,7 @@ CameraController::CameraController()
     m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LSHIFT), &m_sprintInput);
 
     m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_r), &m_lookModeInput);
+    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_t), &m_orthoModeInput);
 
     m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_MOUSE_WHEEL, Input::AX_Y_POS), &m_zoomInInput);
     m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_MOUSE_WHEEL, Input::AX_Y_NEG), &m_zoomOutInput);

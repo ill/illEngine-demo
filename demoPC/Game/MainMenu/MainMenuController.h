@@ -84,6 +84,16 @@ private:
         MainMenuController * m_controller;
     };
 
+    struct CompleteFrustumIterator : public Input::InputListenerState::InputCallback {
+        CompleteFrustumIterator()
+            : Input::InputListenerState::InputCallback()
+        {}
+
+        void onRelease();
+
+        MainMenuController * m_controller;
+    };
+
     //TODO: the state and toggle listeners look like they'd be useful everywhere, move them to the Input project?
     struct State : public Input::InputListenerState::InputCallback {
         State()
@@ -114,11 +124,13 @@ private:
     AdvanceFrustumIteratorHold m_advanceFrustumIteratorHoldCallback;
     ResetFrustumIterator m_resetFrustumIteratorCallback;
     RestartFrustumIterator m_restartFrustumIteratorCallback;
+    CompleteFrustumIterator m_completeFrustumIteratorCallback;
     
     Input::InputListenerState m_advanceFrustumIterator;
     Input::InputListenerState m_advanceFrustumIteratorHold;
     Input::InputListenerState m_resetFrustumIterator;
     Input::InputListenerState m_restartFrustumIterator;
+    Input::InputListenerState m_completeFrustumIterator;
 
     bool m_advanceHold;
     float m_advanceHoldTimer;

@@ -44,6 +44,8 @@ struct CameraController {
     bool m_sprint;
 
     bool m_lookMode;
+    bool m_orthoMode;
+
     glm::mediump_float m_zoom;
 
     Input::InputListenerRange m_horzLookInput;
@@ -60,6 +62,7 @@ struct CameraController {
     Input::InputListenerState m_sprintInput;
 
     Input::InputListenerState m_lookModeInput;
+    Input::InputListenerState m_orthoModeInput;
 
     Input::InputListenerState m_zoomInInput;
     Input::InputListenerState m_zoomOutInput;
@@ -154,6 +157,20 @@ private:
         CameraController * m_controller;
     };
 
+    struct OrthoMode : public Input::InputListenerState::InputCallback {
+        OrthoMode()
+            : Input::InputListenerState::InputCallback()
+        {}
+
+        virtual ~OrthoMode() {}
+
+        void onRelease() {
+            m_controller->m_orthoMode = !m_controller->m_orthoMode;
+        }
+
+        CameraController * m_controller;
+    };
+
     struct ZoomIn : public Input::InputListenerState::InputCallback {
         ZoomIn()
             : Input::InputListenerState::InputCallback()
@@ -214,6 +231,7 @@ private:
     State m_sprintListener;
 
     LookMode m_lookModeListener;
+    OrthoMode m_orthoModeListener;
 
     ZoomIn m_zoomInListener;
     ZoomOut m_zoomOutListener;

@@ -288,6 +288,43 @@ void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const i
 
     glLineWidth(1.0f);
 
+    //the frustum bounds
+    glColor4f(1.0f, 1.0f, 1.0f, 0.25f);
+
+    glBegin(GL_LINE_LOOP);
+
+    glVertex3f(iterator.m_frustum.m_bounds.m_min.x, iterator.m_frustum.m_bounds.m_min.y, iterator.m_frustum.m_bounds.m_min.z);
+    glVertex3f(iterator.m_frustum.m_bounds.m_max.x, iterator.m_frustum.m_bounds.m_min.y, iterator.m_frustum.m_bounds.m_min.z);
+    glVertex3f(iterator.m_frustum.m_bounds.m_max.x, iterator.m_frustum.m_bounds.m_max.y, iterator.m_frustum.m_bounds.m_min.z);
+    glVertex3f(iterator.m_frustum.m_bounds.m_min.x, iterator.m_frustum.m_bounds.m_max.y, iterator.m_frustum.m_bounds.m_min.z);
+
+    glEnd();
+
+    glBegin(GL_LINE_LOOP);
+
+    glVertex3f(iterator.m_frustum.m_bounds.m_min.x, iterator.m_frustum.m_bounds.m_min.y, iterator.m_frustum.m_bounds.m_max.z);
+    glVertex3f(iterator.m_frustum.m_bounds.m_max.x, iterator.m_frustum.m_bounds.m_min.y, iterator.m_frustum.m_bounds.m_max.z);    
+    glVertex3f(iterator.m_frustum.m_bounds.m_max.x, iterator.m_frustum.m_bounds.m_max.y, iterator.m_frustum.m_bounds.m_max.z);
+    glVertex3f(iterator.m_frustum.m_bounds.m_min.x, iterator.m_frustum.m_bounds.m_max.y, iterator.m_frustum.m_bounds.m_max.z);
+
+    glEnd();
+
+    glBegin(GL_LINES);
+
+    glVertex3f(iterator.m_frustum.m_bounds.m_min.x, iterator.m_frustum.m_bounds.m_min.y, iterator.m_frustum.m_bounds.m_min.z);
+    glVertex3f(iterator.m_frustum.m_bounds.m_min.x, iterator.m_frustum.m_bounds.m_min.y, iterator.m_frustum.m_bounds.m_max.z);
+
+    glVertex3f(iterator.m_frustum.m_bounds.m_max.x, iterator.m_frustum.m_bounds.m_min.y, iterator.m_frustum.m_bounds.m_min.z);
+    glVertex3f(iterator.m_frustum.m_bounds.m_max.x, iterator.m_frustum.m_bounds.m_min.y, iterator.m_frustum.m_bounds.m_max.z);
+
+    glVertex3f(iterator.m_frustum.m_bounds.m_max.x, iterator.m_frustum.m_bounds.m_max.y, iterator.m_frustum.m_bounds.m_min.z);
+    glVertex3f(iterator.m_frustum.m_bounds.m_max.x, iterator.m_frustum.m_bounds.m_max.y, iterator.m_frustum.m_bounds.m_max.z);
+
+    glVertex3f(iterator.m_frustum.m_bounds.m_min.x, iterator.m_frustum.m_bounds.m_max.y, iterator.m_frustum.m_bounds.m_min.z);
+    glVertex3f(iterator.m_frustum.m_bounds.m_min.x, iterator.m_frustum.m_bounds.m_max.y, iterator.m_frustum.m_bounds.m_max.z);
+
+    glEnd();
+    
     //the direction
     drawVec = iterator.m_frustum.m_nearTipPoint + iterator.m_frustum.m_direction * 10.0f;
 
@@ -617,38 +654,40 @@ void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const i
     //the 3D line/slice intersection points
     glPointSize(10.0f);
 
-    /*glBegin(GL_POINTS);
+    glBegin(GL_POINTS);
 
+    //current plane (white)
     glColor4f(1.0f, 1.0f, 1.0f, .5f);
 
     for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_pointList[!iterator.m_iterator->m_currentPointList].m_size; elementIndex++) {
-    glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_pointList[!iterator.m_iterator->m_currentPointList].m_data[elementIndex], iterator.m_pointListMissingDim[!iterator.m_iterator->m_currentPointList].m_data[elementIndex])));
+        glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_pointList[!iterator.m_iterator->m_currentPointList].m_data[elementIndex], iterator.m_pointListMissingDim[!iterator.m_iterator->m_currentPointList].m_data[elementIndex])));
     }
 
+    //last plane (yellow)
     glColor4f(1.0f, 1.0f, 0.0f, 1.0f);
 
     for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_pointList[iterator.m_iterator->m_currentPointList].m_size; elementIndex++) {
-    glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_pointList[iterator.m_iterator->m_currentPointList].m_data[elementIndex], iterator.m_pointListMissingDim[iterator.m_iterator->m_currentPointList].m_data[elementIndex])));
+        glVertex3fv(glm::value_ptr(iterator.sliceTo3D(iterator.m_iterator->m_pointList[iterator.m_iterator->m_currentPointList].m_data[elementIndex], iterator.m_pointListMissingDim[iterator.m_iterator->m_currentPointList].m_data[elementIndex])));
     }
 
-    glEnd();*/
+    glEnd();
 
     //line connecting polygon points in sorted order
 
     /*glBegin(GL_LINES);
 
     for(std::list<glm::vec2*>::const_iterator iter = iterator.m_sortedSlicePoints.begin(); iter != iterator.m_sortedSlicePoints.end(); ) {
-    glColor4f(1.0f, 0.0f, 1.0f, 0.2f);
-    glVertex3fv(glm::value_ptr(iterator.sliceTo3D(**iter, iterator.m_iterator->m_sliceStart) + glm::vec3(5.0f)));
+        glColor4f(1.0f, 0.0f, 1.0f, 0.2f);
+        glVertex3fv(glm::value_ptr(iterator.sliceTo3D(**iter, iterator.m_iterator->m_sliceStart) + glm::vec3(5.0f)));
 
-    iter++;
+        iter++;
 
-    if(iter == iterator.m_sortedSlicePoints.end()) {
-    break;
-    }
+        if(iter == iterator.m_sortedSlicePoints.end()) {
+            break;
+        }
 
-    glColor4f(1.0f, 0.0f, 1.0f, 1.0f);
-    glVertex3fv(glm::value_ptr(iterator.sliceTo3D(**iter, iterator.m_iterator->m_sliceStart) + glm::vec3(5.0f)));
+        glColor4f(1.0f, 0.0f, 1.0f, 1.0f);
+        glVertex3fv(glm::value_ptr(iterator.sliceTo3D(**iter, iterator.m_iterator->m_sliceStart) + glm::vec3(5.0f)));
     }
 
     glEnd();*/
@@ -656,7 +695,7 @@ void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const i
     glLineWidth(6.0f);
 
     //the unclipped convex hull polygon slice
-    /*glBegin(GL_LINES);
+    glBegin(GL_LINES);
 
     //"right"
     for(uint8_t elementIndex = 0; elementIndex < iterator.m_unclippedRasterizeEdges[RIGHT_SIDE].m_size;) {
@@ -693,7 +732,7 @@ void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const i
     glVertex3fv(glm::value_ptr(iterator.sliceTo3D(*iterator.m_unclippedRasterizeEdges[LEFT_SIDE].m_data[elementIndex], iterator.m_iterator->m_sliceStart)));
     }
 
-    glEnd();*/
+    glEnd();
 
     //the clipped convex hull polygon slice
     glLineWidth(20.0f);
@@ -769,7 +808,7 @@ void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const i
     glEnd();
 
     //draw the so far rasterized points
-    glPointSize(30.0f);
+    glPointSize(3.0f);
 
     glBegin(GL_POINTS);
 
@@ -811,13 +850,13 @@ void renderFrustumIterDebug(const FrustumIterator<>::Debugger& iterator, const i
         font, camera, getProgram(fontShader));*/
 
     //messages
-    {
+    /*{
         int message = 0;
 
         for(std::list<std::string>::const_reverse_iterator iter = iterator.m_messages.rbegin(); iter != iterator.m_messages.rend(); iter++, message++) {
             renderTextDebug(iter->c_str(), createTransform(glm::vec3(0.0f, -20.0f - 10.0f * message, 0.0f)), font, camera, getProgram(fontShader));
         }
-    }
+    }*/
 
     {
         glm::vec3 drawPoint;
@@ -1148,12 +1187,39 @@ namespace Demo {
 void MainMenuController::ResetFrustumIterator::onRelease() {
     illGraphics::Camera testCam;
     testCam.setTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 100.0f, 300.0f);
-    m_controller->m_testFrustumIter = new FrustumIterator<>(&testCam.getViewFrustum(), Box<int>(glm::ivec3(0), glm::ivec3(5)), glm::vec3(100.0f));
+
+    //get intersection of frustum and bounds
+    Box<int> iterBounds(glm::ivec3(-3), glm::ivec3(3));
+    Box<int> frustumGrid(testCam.getViewFrustum().m_bounds.grid<int>(glm::vec3(20.0f)));
+
+    if(iterBounds.intersects(frustumGrid)) {
+        iterBounds.constrain(frustumGrid);
+
+        m_controller->m_testFrustumIter = new FrustumIterator<>(&testCam.getViewFrustum(), frustumGrid, glm::vec3(20.0f));
+    }
+    else {
+        delete m_controller->m_testFrustumIter;
+        m_controller->m_testFrustumIter = NULL;
+    }
 }
 
 void MainMenuController::RestartFrustumIterator::onRelease() {
     if(m_controller->m_testFrustumIter) {
-        m_controller->m_testFrustumIter = new FrustumIterator<>(m_controller->m_testFrustumIter->m_frustum, Box<int>(glm::ivec3(0), glm::ivec3(5)), glm::vec3(100.0f));
+        //get intersection of frustum and bounds    
+        Box<int> iterBounds(glm::ivec3(-3), glm::ivec3(3));  
+        Box<int> frustumGrid(m_controller->m_testFrustumIter->m_frustum->m_bounds.grid<int>(glm::vec3(20.0f)));
+
+        iterBounds.constrain(frustumGrid);
+
+        m_controller->m_testFrustumIter = new FrustumIterator<>(m_controller->m_testFrustumIter->m_frustum, frustumGrid, glm::vec3(20.0f));
+    }
+}
+
+void MainMenuController::CompleteFrustumIterator::onRelease() {
+    if(m_controller->m_testFrustumIter) {
+        while(!m_controller->m_testFrustumIter->atEnd()) {
+            m_controller->m_testFrustumIter->forward();
+        }
     }
 }
 
@@ -1490,11 +1556,13 @@ MainMenuController::MainMenuController(Engine * engine)
     m_advanceFrustumIteratorHoldCallback.m_controller = this;
     m_resetFrustumIteratorCallback.m_controller = this;
     m_restartFrustumIteratorCallback.m_controller = this;
+    m_completeFrustumIteratorCallback.m_controller = this;
 
     m_advanceFrustumIterator.m_inputCallback = &m_advanceFrustumIteratorCallback;
     m_advanceFrustumIteratorHold.m_inputCallback = &m_advanceFrustumIteratorHoldCallback;
     m_resetFrustumIterator.m_inputCallback = &m_resetFrustumIteratorCallback;
     m_restartFrustumIterator.m_inputCallback = &m_restartFrustumIteratorCallback;
+    m_completeFrustumIterator.m_inputCallback = &m_completeFrustumIteratorCallback;
 
     m_forwardListener.m_state = &m_forward;
     m_backListener.m_state = &m_back;
@@ -1514,6 +1582,7 @@ MainMenuController::MainMenuController(Engine * engine)
     m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_UP), &m_advanceFrustumIteratorHold);
     m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LEFT), &m_restartFrustumIterator);
     m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_DOWN), &m_resetFrustumIterator);
+    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_END), &m_completeFrustumIterator);
 
     m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_8), &m_forwardInput);
     m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_5), &m_backInput);
@@ -1554,7 +1623,7 @@ void MainMenuController::update(float seconds) {
     m_advanceHoldTimer -= seconds;
 
     if(m_testFrustumIter && m_advanceHold && m_advanceHoldTimer < 0) {
-        m_advanceHoldTimer = 0.05f;
+        m_advanceHoldTimer = 0.0f;//0.05f;
         m_testFrustumIter->forward();
     }
 
@@ -1586,7 +1655,7 @@ void MainMenuController::updateSound(float seconds) {
  
 void MainMenuController::render() {
     m_cameraTransform.m_transform = m_cameraController.m_transform;
-    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 2000.0f);
+    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 2000.0f, m_cameraController.m_orthoMode);
     
     m_marineController.computeAnimPose();
 
