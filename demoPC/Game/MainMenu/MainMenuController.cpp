@@ -166,7 +166,7 @@ void renderTextDebug(const char * text, const glm::mat4& transform, const illGra
     glDisableVertexAttribArray(tex);
 }
 
-void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList) {
+void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList, const MeshEdgeList<>& unclippedEdgeList) {
     //all the points
     glPointSize(5.0f);
 
@@ -190,6 +190,35 @@ void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList) {
     for(size_t edge = 0; edge < edgeList.m_edges.size(); edge++) {
         glVertex3fv(glm::value_ptr(edgeList.m_points[edgeList.m_edges[edge].m_point[0]]));
         glVertex3fv(glm::value_ptr(edgeList.m_points[edgeList.m_edges[edge].m_point[1]]));
+    }
+
+    glEnd();
+
+    //unclipped
+
+    //all the points
+    glPointSize(5.0f);
+
+    glColor4f(1.0f, 0.0f, 0.0f, 0.1f);
+
+    glBegin(GL_POINTS);
+
+    for(size_t point = 0; point < unclippedEdgeList.m_points.size(); point++) {
+        glVertex3fv(glm::value_ptr(unclippedEdgeList.m_points[point]));
+    }
+
+    glEnd();
+
+    //all the lines
+    glLineWidth(1.0f);
+
+    glColor4f(0.0f, 1.0f, 0.0f, 0.1f);
+
+    glBegin(GL_LINES);
+
+    for(size_t edge = 0; edge < unclippedEdgeList.m_edges.size(); edge++) {
+        glVertex3fv(glm::value_ptr(unclippedEdgeList.m_points[unclippedEdgeList.m_edges[edge].m_point[0]]));
+        glVertex3fv(glm::value_ptr(unclippedEdgeList.m_points[unclippedEdgeList.m_edges[edge].m_point[1]]));
     }
 
     glEnd();
@@ -1232,8 +1261,12 @@ void MainMenuController::ResetFrustumIterator::onRelease() {
 
     m_controller->m_testMeshEdgeList.computePointEdgeMap();
 
+    m_controller->m_testUnclippedMeshEdgeList = m_controller->m_testMeshEdgeList;
+
     //clip the mesh edge list against some planes
     m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), 0.0f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 0.0f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 0.0f));
 
     //get intersection of frustum and bounds
     Box<int> iterBounds(glm::ivec3(-3), glm::ivec3(3));
@@ -1910,7 +1943,7 @@ void MainMenuController::render() {
     renderMeshDebug(m_bill, m_billController, xform);*/
 
     //debug draw the frustum iterators
-    renderMeshEdgeListDebug(m_testMeshEdgeList);
+    renderMeshEdgeListDebug(m_testMeshEdgeList, m_testUnclippedMeshEdgeList);
 
     //renderSceneDebug(Box<>(glm::vec3(0.0f), glm::vec3(5.0f * 100.0f - 0.1f)), glm::vec3(100.0f), glm::uvec3(5));
 

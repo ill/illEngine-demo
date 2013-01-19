@@ -120,6 +120,7 @@ private:
     //frustum iterator debugging
     FrustumIterator<> * m_testFrustumIter;
     MeshEdgeList<> m_testMeshEdgeList;
+    MeshEdgeList<> m_testUnclippedMeshEdgeList;
 
     AdvanceFrustumIterator m_advanceFrustumIteratorCallback;
     AdvanceFrustumIteratorHold m_advanceFrustumIteratorHoldCallback;
