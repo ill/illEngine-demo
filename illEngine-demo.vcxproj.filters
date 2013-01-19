@@ -146,12 +146,6 @@
     <ClInclude Include="illEngine\Util\Geometry\Frustum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator-old.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="illEngine\Util\Geometry\geomUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -366,6 +360,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Util\Geometry\MeshEdgeList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator-older.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator-old.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIterator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

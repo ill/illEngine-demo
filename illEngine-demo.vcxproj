@@ -259,8 +259,9 @@
     <ClInclude Include="illEngine\Util\Geometry\Box.h" />
     <ClInclude Include="illEngine\Util\Geometry\BoxIterator.h" />
     <ClInclude Include="illEngine\Util\Geometry\Frustum.h" />
+    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator-older.h" />
     <ClInclude Include="illEngine\Util\Geometry\FrustumIterator-old.h" />
-    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator.h" />
+    <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIterator.h" />
     <ClInclude Include="illEngine\Util\Geometry\geomUtil.h" />
     <ClInclude Include="illEngine\Util\Geometry\GridVolume3D.h" />
     <ClInclude Include="illEngine\Util\Geometry\LineIterator.h" />

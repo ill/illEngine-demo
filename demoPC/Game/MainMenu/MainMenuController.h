@@ -17,7 +17,7 @@
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
 #include "illEngine/Graphics/serial/BitmapFont.h"
 
-#include "illEngine/Util/Geometry/FrustumIterator.h"
+#include "illEngine/Util/Geometry/ConvexMeshIterator.h"
 #include "illEngine/Util/Geometry/MeshEdgeList.h"
 
 #include "illEngine/Input/serial/InputContext.h"
@@ -45,6 +45,26 @@ private:
         {}
 
         void onRelease() {
+            switch(++m_controller->m_planeIndex) {
+            case 1:
+                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 0.0f));
+                break;
+
+            case 2:
+                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 0.0f));
+                break;
+
+            case 3:
+                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 0.0f));
+                break;
+
+            case 4:
+                m_controller->m_planeIndex = 0;
+                m_controller->m_testMeshEdgeList = m_controller->m_testUnclippedMeshEdgeList;
+
+                break;
+            }
+            
             if(m_controller->m_testFrustumIter) {
                 m_controller->m_testFrustumIter->forward();
             }
@@ -118,9 +138,11 @@ private:
     illGraphics::CameraTransform m_cameraTransform;
     
     //frustum iterator debugging
-    FrustumIterator<> * m_testFrustumIter;
+    ConvexMeshIterator<> * m_testFrustumIter;
     MeshEdgeList<> m_testMeshEdgeList;
     MeshEdgeList<> m_testUnclippedMeshEdgeList;
+
+    unsigned int m_planeIndex;
 
     AdvanceFrustumIterator m_advanceFrustumIteratorCallback;
     AdvanceFrustumIteratorHold m_advanceFrustumIteratorHoldCallback;
