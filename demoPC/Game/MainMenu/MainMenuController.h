@@ -18,6 +18,7 @@
 #include "illEngine/Graphics/serial/BitmapFont.h"
 
 #include "illEngine/Util/Geometry/FrustumIterator.h"
+#include "illEngine/Util/Geometry/MeshEdgeList.h"
 
 #include "illEngine/Input/serial/InputContext.h"
 #include "illEngine/Input/serial/InputListenerState.h"
@@ -117,8 +118,8 @@ private:
     illGraphics::CameraTransform m_cameraTransform;
     
     //frustum iterator debugging
-
     FrustumIterator<> * m_testFrustumIter;
+    MeshEdgeList<> m_testMeshEdgeList;
 
     AdvanceFrustumIterator m_advanceFrustumIteratorCallback;
     AdvanceFrustumIteratorHold m_advanceFrustumIteratorHoldCallback;
