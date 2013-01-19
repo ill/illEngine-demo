@@ -45,25 +45,37 @@ private:
         {}
 
         void onRelease() {
-            switch(++m_controller->m_planeIndex) {
+            /*switch(++m_controller->m_planeIndex) {
             case 1:
-                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 0.0f));
+                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), 50.0f));
                 break;
 
             case 2:
-                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 0.0f));
+                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 50.0f));
                 break;
 
             case 3:
-                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 0.0f));
+                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 50.0f));
                 break;
 
             case 4:
+                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 50.0f));
+                break;
+
+            case 5:
+                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 50.0f));
+                break;
+
+            case 6:
+                m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 50.0f));
+                break;
+
+            case 7:
                 m_controller->m_planeIndex = 0;
                 m_controller->m_testMeshEdgeList = m_controller->m_testUnclippedMeshEdgeList;
 
                 break;
-            }
+            }*/
             
             if(m_controller->m_testFrustumIter) {
                 m_controller->m_testFrustumIter->forward();
@@ -142,7 +154,7 @@ private:
     MeshEdgeList<> m_testMeshEdgeList;
     MeshEdgeList<> m_testUnclippedMeshEdgeList;
 
-    unsigned int m_planeIndex;
+    //unsigned int m_planeIndex;
 
     AdvanceFrustumIterator m_advanceFrustumIteratorCallback;
     AdvanceFrustumIteratorHold m_advanceFrustumIteratorHoldCallback;
