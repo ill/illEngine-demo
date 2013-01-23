@@ -847,132 +847,132 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
         }
     }*/
 
-    {
-        glm::vec3 drawPoint;
+    //{
+    //    glm::vec3 drawPoint;
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart;
+    //    drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart;
 
-        //the sides
-        {
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = 
-                (iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]] 
-                + iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]]) * 0.5f;
+    //    //the sides
+    //    {
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = 
+    //            (iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]] 
+    //            + iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]]) * 0.5f;
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
-            renderTextDebug("LEFT", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("LEFT", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
-            renderTextDebug("RIGHT", createTransform(drawPoint), font, camera, getProgram(fontShader));
-        
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = 
-                (iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]] 
-                + iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]]) * 0.5f;
+    //        renderTextDebug("RIGHT", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //    
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = 
+    //            (iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]] 
+    //            + iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]]) * 0.5f;
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
-            renderTextDebug("BOTTOM", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("BOTTOM", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
-            renderTextDebug("TOP", createTransform(drawPoint), font, camera, getProgram(fontShader));
-        }
+    //        renderTextDebug("TOP", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //    }
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart;
+    //    drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart;
 
-        //row rasterizing
-        {
-            /*drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart - 5;
+    //    //row rasterizing
+    //    {
+    //        /*drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart - 5;
 
-            //row bottom
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_lineBottom;
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        //row bottom
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_lineBottom;
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
-            renderTextDebug("ROW BOTTOM", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("ROW BOTTOM", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
-            renderTextDebug("ROW BOTTOM", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("ROW BOTTOM", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            //row top
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_lineTop;
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        //row top
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_lineTop;
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
-            renderTextDebug("ROW TOP", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("ROW TOP", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
-            renderTextDebug("ROW TOP", createTransform(drawPoint), font, camera, getProgram(fontShader));*/
+    //        renderTextDebug("ROW TOP", createTransform(drawPoint), font, camera, getProgram(fontShader));*/
 
-            //side bounds
+    //        //side bounds
 
-            //min
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_sliceMin.x;         
+    //        //min
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_sliceMin.x;         
 
-            renderTextDebug("SIDE MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("SIDE MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
-            renderTextDebug("SIDE MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
-            
-            //min world
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_leftSlicePoint;         
+    //        renderTextDebug("SIDE MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        
+    //        //min world
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_leftSlicePoint;         
 
-            renderTextDebug("SIDE MIN W", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("SIDE MIN W", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
-            renderTextDebug("SIDE MIN W", createTransform(drawPoint), font, camera, getProgram(fontShader));
-            
-            //max
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_iterator->m_sliceMax.x;         
+    //        renderTextDebug("SIDE MIN W", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        
+    //        //max
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_iterator->m_sliceMax.x;         
 
-            renderTextDebug("SIDE MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("SIDE MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
-            renderTextDebug("SIDE MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("SIDE MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            //max world
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_rightSlicePoint;        
+    //        //max world
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_rightSlicePoint;        
 
-            renderTextDebug("SIDE MAX W", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("SIDE MAX W", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
-            renderTextDebug("SIDE MAX W", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("SIDE MAX W", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            //top and bottom bounds
-            drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart + 5;
+    //        //top and bottom bounds
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart + 5;
 
-            //min
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]] * iterator.m_sliceMin.y;
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
+    //        //min
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]] * iterator.m_sliceMin.y;
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
 
-            renderTextDebug("VERT MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("VERT MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
-            renderTextDebug("VERT MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
-            
-            //max
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]] * iterator.m_iterator->m_sliceMax.y;
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
+    //        renderTextDebug("VERT MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        
+    //        //max
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]] * iterator.m_iterator->m_sliceMax.y;
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
 
-            renderTextDebug("VERT MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //        renderTextDebug("VERT MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
-            renderTextDebug("VERT MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
-        }
+    //        renderTextDebug("VERT MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
+    //    }
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart;
-    }
+    //    drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart;
+    //}
 
     glUseProgram(0);
 }
