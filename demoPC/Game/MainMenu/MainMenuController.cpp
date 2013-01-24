@@ -1296,19 +1296,25 @@ void MainMenuController::ResetFrustumIterator::onRelease() {
     m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 59.99f));
     m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 59.99f));
 
-    m_controller->m_testMeshEdgeList.computeBounds();
+    if(!m_controller->m_testMeshEdgeList.m_points.empty()) {
+        m_controller->m_testMeshEdgeList.computeBounds();
 
-    //get intersection of frustum and bounds
-    Box<int> iterBounds(glm::ivec3(-3), glm::ivec3(3));
-    Box<int> frustumGrid(m_controller->m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(20.0f)));
+        //get intersection of frustum and bounds
+        Box<int> iterBounds(glm::ivec3(-3), glm::ivec3(3));
+        Box<int> frustumGrid(m_controller->m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(20.0f)));
 
-    if(iterBounds.intersects(frustumGrid)) {
-        iterBounds.constrain(frustumGrid);
+        if(iterBounds.intersects(frustumGrid)) {
+            iterBounds.constrain(frustumGrid);
 
-        m_controller->m_testFrustumIter = new ConvexMeshIterator<>(&m_controller->m_testMeshEdgeList, 
-            testCam.getViewFrustum().m_direction, 
-            frustumGrid,
-            glm::vec3(20.0f));
+            m_controller->m_testFrustumIter = new ConvexMeshIterator<>(&m_controller->m_testMeshEdgeList, 
+                testCam.getViewFrustum().m_direction, 
+                frustumGrid,
+                glm::vec3(20.0f));
+        }
+        else {
+            delete m_controller->m_testFrustumIter;
+            m_controller->m_testFrustumIter = NULL;
+        }
     }
     else {
         delete m_controller->m_testFrustumIter;
