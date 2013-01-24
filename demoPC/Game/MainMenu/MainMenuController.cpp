@@ -353,7 +353,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
     glVertex3f(iterator.m_meshEdgeList.m_bounds.m_min.x, iterator.m_meshEdgeList.m_bounds.m_max.y, iterator.m_meshEdgeList.m_bounds.m_max.z);
 
     glEnd();
-    
+        
     //the direction
     /*drawVec = iterator.m_frustum.m_nearTipPoint + iterator.m_frustum.m_direction * 10.0f;
 
@@ -379,6 +379,43 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
     glVertex3f(iterator.m_frustum.m_nearTipPoint.x, iterator.m_frustum.m_nearTipPoint.y, iterator.m_frustum.m_nearTipPoint.z + iterator.m_iterator->m_directionSign.z * 20.0f);
     glEnd();*/
 
+    //the world bounds
+    glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
+
+    glBegin(GL_LINE_LOOP);
+
+    glVertex3f(iterator.m_iterator->m_worldRange.m_min.x, iterator.m_iterator->m_worldRange.m_min.y, iterator.m_iterator->m_worldRange.m_min.z);
+    glVertex3f(iterator.m_iterator->m_worldRange.m_max.x, iterator.m_iterator->m_worldRange.m_min.y, iterator.m_iterator->m_worldRange.m_min.z);
+    glVertex3f(iterator.m_iterator->m_worldRange.m_max.x, iterator.m_iterator->m_worldRange.m_max.y, iterator.m_iterator->m_worldRange.m_min.z);
+    glVertex3f(iterator.m_iterator->m_worldRange.m_min.x, iterator.m_iterator->m_worldRange.m_max.y, iterator.m_iterator->m_worldRange.m_min.z);
+
+    glEnd();
+
+    glBegin(GL_LINE_LOOP);
+
+    glVertex3f(iterator.m_iterator->m_worldRange.m_min.x, iterator.m_iterator->m_worldRange.m_min.y, iterator.m_iterator->m_worldRange.m_max.z);
+    glVertex3f(iterator.m_iterator->m_worldRange.m_max.x, iterator.m_iterator->m_worldRange.m_min.y, iterator.m_iterator->m_worldRange.m_max.z);    
+    glVertex3f(iterator.m_iterator->m_worldRange.m_max.x, iterator.m_iterator->m_worldRange.m_max.y, iterator.m_iterator->m_worldRange.m_max.z);
+    glVertex3f(iterator.m_iterator->m_worldRange.m_min.x, iterator.m_iterator->m_worldRange.m_max.y, iterator.m_iterator->m_worldRange.m_max.z);
+
+    glEnd();
+
+    glBegin(GL_LINES);
+
+    glVertex3f(iterator.m_iterator->m_worldRange.m_min.x, iterator.m_iterator->m_worldRange.m_min.y, iterator.m_iterator->m_worldRange.m_min.z);
+    glVertex3f(iterator.m_iterator->m_worldRange.m_min.x, iterator.m_iterator->m_worldRange.m_min.y, iterator.m_iterator->m_worldRange.m_max.z);
+
+    glVertex3f(iterator.m_iterator->m_worldRange.m_max.x, iterator.m_iterator->m_worldRange.m_min.y, iterator.m_iterator->m_worldRange.m_min.z);
+    glVertex3f(iterator.m_iterator->m_worldRange.m_max.x, iterator.m_iterator->m_worldRange.m_min.y, iterator.m_iterator->m_worldRange.m_max.z);
+
+    glVertex3f(iterator.m_iterator->m_worldRange.m_max.x, iterator.m_iterator->m_worldRange.m_max.y, iterator.m_iterator->m_worldRange.m_min.z);
+    glVertex3f(iterator.m_iterator->m_worldRange.m_max.x, iterator.m_iterator->m_worldRange.m_max.y, iterator.m_iterator->m_worldRange.m_max.z);
+
+    glVertex3f(iterator.m_iterator->m_worldRange.m_min.x, iterator.m_iterator->m_worldRange.m_max.y, iterator.m_iterator->m_worldRange.m_min.z);
+    glVertex3f(iterator.m_iterator->m_worldRange.m_min.x, iterator.m_iterator->m_worldRange.m_max.y, iterator.m_iterator->m_worldRange.m_max.z);
+
+    glEnd();
+
     //the bounds
     glBegin(GL_LINES);
     glColor4f(0.0f, 0.5f, 0.0f, 0.5f);
@@ -392,9 +429,14 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
     else if(iterator.m_iterator->m_dimensionOrder[X_DIM] == 0) {
         glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
     }
+    
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f * iterator.m_iterator->m_directionSign.x, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
 
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f * iterator.m_iterator->m_directionSign.x, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
 
     if(iterator.m_iterator->m_dimensionOrder[SLICE_DIM] == 1) {
         glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
@@ -406,8 +448,13 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
         glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
     }
 
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f * iterator.m_iterator->m_directionSign.x, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f * iterator.m_iterator->m_directionSign.x, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
 
     if(iterator.m_iterator->m_dimensionOrder[SLICE_DIM] == 2) {
         glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
@@ -419,39 +466,95 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
         glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
     }
 
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
 
 
     glColor4f(0.0f, 1.0f, 1.0f, 0.2f);
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
 
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
-
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
-
-
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
-
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
-
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
 
 
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z);
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
 
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
 
-    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
-    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z);
+
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_min.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_max.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+
+    glVertex3f(iterator.m_iterator->m_range.m_max.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
+
+    glVertex3f(iterator.m_iterator->m_range.m_min.x * iterator.m_iterator->m_cellDimensions.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+        iterator.m_iterator->m_range.m_min.y * iterator.m_iterator->m_cellDimensions.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+        iterator.m_iterator->m_range.m_max.z * iterator.m_iterator->m_cellDimensions.z + iterator.m_iterator->m_cellDimensions.z * 0.5f);
     glEnd();
 
     //the slice plane normal and distance
@@ -475,20 +578,20 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
         glColor4f(1.0f, 1.0f, 1.0f, 0.05f);
 
         drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart;
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
@@ -496,20 +599,20 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
         glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
 
         drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] * iterator.m_iterator->m_directionSign[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]];
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[1]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[1]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
     }
@@ -527,8 +630,8 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
         sign = iterator.m_iterator->m_directionSign[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
         start = sign >= 0
-            ? iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]]
-        : iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+            ? iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]]
+            : iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
         dimensions = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
@@ -539,11 +642,11 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
 
             drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart;
             drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = start + line * dimensions;
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_range.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]] * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
             glVertex3fv(glm::value_ptr(drawPoint));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_range.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]] * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+            drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
             glVertex3fv(glm::value_ptr(drawPoint));
         }
@@ -551,8 +654,8 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
         sign = iterator.m_iterator->m_directionSign[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         start = sign >= 0
-            ? iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]]
-        : iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+            ? iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]]
+            : iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         dimensions = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
@@ -562,12 +665,12 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
             glm::vec3 drawPoint;
 
             drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart;
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_range.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
             drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = start + line * dimensions;
 
             glVertex3fv(glm::value_ptr(drawPoint));
 
-            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_range.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+            drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
             glVertex3fv(glm::value_ptr(drawPoint));
         }
@@ -577,7 +680,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
     //current row rasterizing debug
     glLineWidth(3.0f);
 
-    glBegin(GL_LINES);
+    /*glBegin(GL_LINES);
     {
         glm::vec3 drawPoint;
 
@@ -586,11 +689,11 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
 
         drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart;
         drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_lineBottom;
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
@@ -598,11 +701,11 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
         glColor4f(1.0f, 1.0f, 0.0f, 0.6f);
 
         drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_lineTop;
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
@@ -612,44 +715,44 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
         drawPoint[iterator.m_iterator->m_dimensionOrder[SLICE_DIM]] = iterator.m_iterator->m_sliceStart + 2.0f;
 
         //min
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
         drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_sliceMin.x;         
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
                 
         //min world
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
         drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_leftSlicePoint;         
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
         glColor4f(0.0f, 1.0f, 1.0f, 0.6f);
 
         //max
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
         drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_iterator->m_sliceMax.x;         
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
         
         //max world
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
         drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_rightSlicePoint;        
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
@@ -658,11 +761,11 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
 
         //min
         drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]] * iterator.m_sliceMin.y;
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
@@ -670,15 +773,15 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
 
         //max
         drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]] * iterator.m_iterator->m_sliceMax.y;
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
 
         glVertex3fv(glm::value_ptr(drawPoint));
 
-        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
         glVertex3fv(glm::value_ptr(drawPoint));
     }
-    glEnd();
+    glEnd();*/
 
     //the 3D line/slice intersection points
     glPointSize(10.0f);
@@ -764,19 +867,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
     }
 
     glEnd();
-
-    //some of the clipped points for debugging purposes
-    /*glPointSize(15.0f);
-
-    glBegin(GL_POINTS);
-
-    glColor4f(0.7f, 0.7f, 0.7f, 0.3f);
-    for(std::list<glm::detail::tvec2<glm::mediump_float> >::const_iterator iter = iterator.m_clipPoints.begin(); iter != iterator.m_clipPoints.end(); iter++) {
-    glVertex3fv(glm::value_ptr(iterator.sliceTo3D(*iter, iterator.m_iterator->m_sliceStart)));
-    }
-
-    glEnd();*/
-
+    
     //the points
     glPointSize(20.0f);
 
@@ -815,7 +906,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
 
     glColor4f(1.0f, 0.0f, 0.0f, 0.5f);
 
-    glVertex3fv(glm::value_ptr(iterator.m_iterator->m_cellDimensions * vec3cast<int, glm::mediump_float>(iterator.m_iterator->m_currentPosition) + (iterator.m_iterator->m_cellDimensions * 0.5f * vec3cast<int8_t, glm::mediump_float>(iterator.m_iterator->m_directionSign))));
+    glVertex3fv(glm::value_ptr(iterator.m_iterator->m_cellDimensions * vec3cast<int, glm::mediump_float>(iterator.m_iterator->m_currentPosition) + (iterator.m_iterator->m_cellDimensions * 0.5f/* * vec3cast<int8_t, glm::mediump_float>(iterator.m_iterator->m_directionSign)*/)));
 
     glEnd();
 
@@ -855,26 +946,26 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
     //    //the sides
     //    {
     //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = 
-    //            (iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]] 
-    //            + iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]]) * 0.5f;
+    //            (iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]] 
+    //            + iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]]) * 0.5f;
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
     //        renderTextDebug("LEFT", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
     //        renderTextDebug("RIGHT", createTransform(drawPoint), font, camera, getProgram(fontShader));
     //    
     //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = 
-    //            (iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]] 
-    //            + iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]]) * 0.5f;
+    //            (iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]] 
+    //            + iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]]) * 0.5f;
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
     //        renderTextDebug("BOTTOM", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
     //        renderTextDebug("TOP", createTransform(drawPoint), font, camera, getProgram(fontShader));
     //    }
@@ -887,63 +978,63 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
 
     //        //row bottom
     //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_lineBottom;
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
     //        renderTextDebug("ROW BOTTOM", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
     //        renderTextDebug("ROW BOTTOM", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
     //        //row top
     //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_lineTop;
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
     //        renderTextDebug("ROW TOP", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
     //        renderTextDebug("ROW TOP", createTransform(drawPoint), font, camera, getProgram(fontShader));*/
 
     //        //side bounds
 
     //        //min
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
     //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_sliceMin.x;         
 
     //        renderTextDebug("SIDE MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
     //        renderTextDebug("SIDE MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
     //        
     //        //min world
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
     //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_leftSlicePoint;         
 
     //        renderTextDebug("SIDE MIN W", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
     //        renderTextDebug("SIDE MIN W", createTransform(drawPoint), font, camera, getProgram(fontShader));
     //        
     //        //max
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
     //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[Y_DIM]] * iterator.m_iterator->m_sliceMax.x;         
 
     //        renderTextDebug("SIDE MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
     //        renderTextDebug("SIDE MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
     //        //max world
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[X_DIM]];
     //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_rightSlicePoint;        
 
     //        renderTextDebug("SIDE MAX W", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[X_DIM]];
 
     //        renderTextDebug("SIDE MAX W", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
@@ -952,21 +1043,21 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
 
     //        //min
     //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]] * iterator.m_sliceMin.y;
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
 
     //        renderTextDebug("VERT MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
     //        renderTextDebug("VERT MIN", createTransform(drawPoint), font, camera, getProgram(fontShader));
     //        
     //        //max
     //        drawPoint[iterator.m_iterator->m_dimensionOrder[Y_DIM]] = iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrder[X_DIM]] * iterator.m_iterator->m_sliceMax.y;
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_min[iterator.m_iterator->m_dimensionOrder[Y_DIM]];         
 
     //        renderTextDebug("VERT MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
 
-    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_spaceRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
+    //        drawPoint[iterator.m_iterator->m_dimensionOrder[X_DIM]] = iterator.m_iterator->m_worldRange.m_max[iterator.m_iterator->m_dimensionOrder[Y_DIM]];
 
     //        renderTextDebug("VERT MAX", createTransform(drawPoint), font, camera, getProgram(fontShader));
     //    }
@@ -1201,9 +1292,9 @@ void MainMenuController::ResetFrustumIterator::onRelease() {
     m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 60.0f));
     m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 60.0f));
 
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 60.0f));
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 60.0f));
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 60.0f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 59.99f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 59.99f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 59.99f));
 
     m_controller->m_testMeshEdgeList.computeBounds();
 
@@ -1214,7 +1305,10 @@ void MainMenuController::ResetFrustumIterator::onRelease() {
     if(iterBounds.intersects(frustumGrid)) {
         iterBounds.constrain(frustumGrid);
 
-        m_controller->m_testFrustumIter = new ConvexMeshIterator<>(&m_controller->m_testMeshEdgeList, testCam.getViewFrustum().m_direction, frustumGrid, glm::vec3(20.0f));
+        m_controller->m_testFrustumIter = new ConvexMeshIterator<>(&m_controller->m_testMeshEdgeList, 
+            testCam.getViewFrustum().m_direction, 
+            frustumGrid,
+            glm::vec3(20.0f));
     }
     else {
         delete m_controller->m_testFrustumIter;
@@ -1234,7 +1328,7 @@ void MainMenuController::RestartFrustumIterator::onRelease() {
         
         m_controller->m_testFrustumIter = new ConvexMeshIterator<>(&m_controller->m_testMeshEdgeList, 
             glm::normalize(vec3cast<int8_t, glm::mediump_float>(m_controller->m_testFrustumIter->m_directionSign)), 
-            m_controller->m_testFrustumIter->m_range.normalize(), 
+            m_controller->m_testFrustumIter->m_range.normalize(),
             glm::vec3(20.0f));
     }
 }
@@ -1647,7 +1741,7 @@ void MainMenuController::update(float seconds) {
     
     m_advanceHoldTimer -= seconds;
 
-    if(m_testFrustumIter && m_advanceHold && m_advanceHoldTimer < 0) {
+    if(m_testFrustumIter && m_advanceHold && m_advanceHoldTimer < 0 && !m_testFrustumIter->atEnd()) {
         m_advanceHoldTimer = 0.0f;//0.05f;
         m_testFrustumIter->forward();
     }

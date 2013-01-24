@@ -77,7 +77,7 @@ private:
                 break;
             }*/
             
-            if(m_controller->m_testFrustumIter) {
+            if(m_controller->m_testFrustumIter && !m_controller->m_testFrustumIter->atEnd()) {
                 m_controller->m_testFrustumIter->forward();
             }
         }
