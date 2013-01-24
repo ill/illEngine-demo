@@ -888,7 +888,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, cons
     glEnd();
 
     //draw the so far rasterized points
-    glPointSize(3.0f);
+    glPointSize(5.0f);
 
     glBegin(GL_POINTS);
 
@@ -1266,7 +1266,7 @@ namespace Demo {
 
 void MainMenuController::ResetFrustumIterator::onRelease() {
     illGraphics::Camera testCam;
-    testCam.setTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 100.0f, 300.0f);
+    testCam.setTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 50.0f, 300.0f);
 
     //set up test mesh edge list
     m_controller->m_testMeshEdgeList.clear();
@@ -1288,20 +1288,24 @@ void MainMenuController::ResetFrustumIterator::onRelease() {
     //m_controller->m_planeIndex = 0;
 
     //clip the mesh edge list against some planes
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), 60.0f));
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 60.0f));
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 60.0f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), 500.0f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 500.0f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 500.0f));
 
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 59.99f));
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 59.99f));
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 59.99f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 499.9999f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 499.9999f));
+    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 499.9999f));
+
+    LOG_INFO("\n\nClipped the frustum: There are %u edges.", m_controller->m_testMeshEdgeList.m_edges.size());
+
+    return;
 
     if(!m_controller->m_testMeshEdgeList.m_points.empty()) {
         m_controller->m_testMeshEdgeList.computeBounds();
 
         //get intersection of frustum and bounds
-        Box<int> iterBounds(glm::ivec3(-3), glm::ivec3(3));
-        Box<int> frustumGrid(m_controller->m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(20.0f)));
+        Box<int> iterBounds(glm::ivec3(-100), glm::ivec3(100));
+        Box<int> frustumGrid(m_controller->m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(5.0f)));
 
         if(iterBounds.intersects(frustumGrid)) {
             iterBounds.constrain(frustumGrid);
@@ -1309,7 +1313,7 @@ void MainMenuController::ResetFrustumIterator::onRelease() {
             m_controller->m_testFrustumIter = new ConvexMeshIterator<>(&m_controller->m_testMeshEdgeList, 
                 testCam.getViewFrustum().m_direction, 
                 frustumGrid,
-                glm::vec3(20.0f));
+                glm::vec3(5.0f));
         }
         else {
             delete m_controller->m_testFrustumIter;
@@ -1335,7 +1339,7 @@ void MainMenuController::RestartFrustumIterator::onRelease() {
         m_controller->m_testFrustumIter = new ConvexMeshIterator<>(&m_controller->m_testMeshEdgeList, 
             glm::normalize(vec3cast<int8_t, glm::mediump_float>(m_controller->m_testFrustumIter->m_directionSign)), 
             m_controller->m_testFrustumIter->m_range.normalize(),
-            glm::vec3(20.0f));
+            glm::vec3(5.0f));
     }
 }
 
@@ -1988,7 +1992,8 @@ void MainMenuController::render() {
     renderMeshDebug(m_bill, m_billController, xform);*/
 
     //debug draw the frustum iterators
-    renderMeshEdgeListDebug(m_testUnclippedMeshEdgeList);
+    renderMeshEdgeListDebug(m_testMeshEdgeList);
+    //renderMeshEdgeListDebug(m_testUnclippedMeshEdgeList);
 
     //renderSceneDebug(Box<>(glm::vec3(0.0f), glm::vec3(5.0f * 100.0f - 0.1f)), glm::vec3(100.0f), glm::uvec3(5));
 
