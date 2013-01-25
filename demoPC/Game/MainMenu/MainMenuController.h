@@ -39,6 +39,8 @@ public:
     void render();
 
 private:
+    void setupTestFrustumIterator();
+
     struct AdvanceFrustumIterator : public Input::InputListenerState::InputCallback {
         AdvanceFrustumIterator()
             : Input::InputListenerState::InputCallback()
@@ -151,6 +153,7 @@ private:
     
     //frustum iterator debugging
     ConvexMeshIterator<> * m_testFrustumIter;
+    illGraphics::Camera m_testFrustumCamera;    //for easy resetting
     MeshEdgeList<> m_testMeshEdgeList;
     MeshEdgeList<> m_testUnclippedMeshEdgeList;
 

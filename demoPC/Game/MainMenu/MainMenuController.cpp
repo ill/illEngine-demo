@@ -166,7 +166,7 @@ void renderTextDebug(const char * text, const glm::mat4& transform, const illGra
     glDisableVertexAttribArray(tex);
 }
 
-void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList) {
+void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList, const illGraphics::Camera& camera, const illGraphics::ShaderProgram& fontShader, const illGraphics::BitmapFont& font) {
     glPointSize(5.0f);
     
     //unclipped
@@ -197,6 +197,32 @@ void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList) {
     }
 
     glEnd();
+
+     //draw the debug text for various things
+    glUseProgram(getProgram(fontShader));
+
+    {
+        GLint diff = getProgramUniformLocation(getProgram(fontShader), "diffuseMap");
+        glUniform1i(diff, 0);
+    }
+
+    //all the points
+    /*for(size_t point = 0; point < edgeList.m_points.size(); point++) {
+        renderTextDebug(formatString("pidx:%u (%f, %f, %f)", point, edgeList.m_points[point].x, edgeList.m_points[point].y, edgeList.m_points[point].z).c_str(),
+            createTransform(edgeList.m_points[point]),
+            font, camera, getProgram(fontShader));
+    }*/
+
+    //all the lines
+    /*for(size_t edge = 0; edge < edgeList.m_edges.size(); edge++) {
+        glm::vec3 pos = (edgeList.m_points[edgeList.m_edges[edge].m_point[0]] + edgeList.m_points[edgeList.m_edges[edge].m_point[1]]) * 0.5f;
+
+        renderTextDebug(formatString("eidx:%u pts: %u, %u", edge, edgeList.m_edges[edge].m_point[0], edgeList.m_edges[edge].m_point[1]).c_str(),
+            createTransform(pos),
+            font, camera, getProgram(fontShader));
+    }*/
+
+    glUseProgram(0);
 }
 
 void renderSceneDebug(const Box<>&sceneBounds, const glm::vec3& chunkDimensions, const glm::uvec3& chunkNumber) {
@@ -1264,82 +1290,70 @@ const glm::vec3 LIGHT_POS(0.0, 100.0, 100.0);
 
 namespace Demo {
 
-void MainMenuController::ResetFrustumIterator::onRelease() {
-    illGraphics::Camera testCam;
-    testCam.setTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 50.0f, 300.0f);
-
+void MainMenuController::setupTestFrustumIterator() {
     //set up test mesh edge list
-    m_controller->m_testMeshEdgeList.clear();
+    m_testMeshEdgeList.clear();
 
     //the edges
     for(unsigned int edge = 0; edge < 12; edge++) {
-        m_controller->m_testMeshEdgeList.m_edges.push_back(MeshEdgeList<>::Edge(FRUSTUM_EDGE_LIST[edge][0], FRUSTUM_EDGE_LIST[edge][1]));
+        m_testMeshEdgeList.m_edges.push_back(MeshEdgeList<>::Edge(FRUSTUM_EDGE_LIST[edge][0], FRUSTUM_EDGE_LIST[edge][1]));
     }
 
     //the points
     for(unsigned int point = 0; point < 8; point++) {
-        m_controller->m_testMeshEdgeList.m_points.push_back(testCam.getViewFrustum().m_points[point]);
+        m_testMeshEdgeList.m_points.push_back(m_testFrustumCamera.getViewFrustum().m_points[point]);
     }
 
-    m_controller->m_testMeshEdgeList.computePointEdgeMap();
+    m_testMeshEdgeList.computePointEdgeMap();
 
-    m_controller->m_testUnclippedMeshEdgeList = m_controller->m_testMeshEdgeList;
+    m_testUnclippedMeshEdgeList = m_testMeshEdgeList;
 
-    //m_controller->m_planeIndex = 0;
+    //controller.m_planeIndex = 0;
 
     //clip the mesh edge list against some planes
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), 500.0f));
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 500.0f));
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 500.0f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), 500.0f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 500.0f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 500.0f));
 
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 499.9999f));
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 499.9999f));
-    m_controller->m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 499.9999f));
-
-    LOG_INFO("\n\nClipped the frustum: There are %u edges.", m_controller->m_testMeshEdgeList.m_edges.size());
-
-    return;
-
-    if(!m_controller->m_testMeshEdgeList.m_points.empty()) {
-        m_controller->m_testMeshEdgeList.computeBounds();
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 499.9999f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 499.9999f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 499.9999f));
+    
+    if(!m_testMeshEdgeList.m_points.empty()) {
+        m_testMeshEdgeList.computeBounds();
 
         //get intersection of frustum and bounds
         Box<int> iterBounds(glm::ivec3(-100), glm::ivec3(100));
-        Box<int> frustumGrid(m_controller->m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(5.0f)));
+        Box<int> frustumGrid(m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(5.0f)));
 
         if(iterBounds.intersects(frustumGrid)) {
             iterBounds.constrain(frustumGrid);
 
-            m_controller->m_testFrustumIter = new ConvexMeshIterator<>(&m_controller->m_testMeshEdgeList, 
-                testCam.getViewFrustum().m_direction, 
+            m_testFrustumIter = new ConvexMeshIterator<>(&m_testMeshEdgeList, 
+                m_testFrustumCamera.getViewFrustum().m_direction, 
                 frustumGrid,
                 glm::vec3(5.0f));
         }
         else {
-            delete m_controller->m_testFrustumIter;
-            m_controller->m_testFrustumIter = NULL;
+            delete m_testFrustumIter;
+            m_testFrustumIter = NULL;
         }
     }
     else {
-        delete m_controller->m_testFrustumIter;
-        m_controller->m_testFrustumIter = NULL;
+        delete m_testFrustumIter;
+        m_testFrustumIter = NULL;
     }
+}
+
+void MainMenuController::ResetFrustumIterator::onRelease() {
+    m_controller->m_testFrustumCamera.setTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 50.0f, 300.0f);
+
+    m_controller->setupTestFrustumIterator();
 }
 
 void MainMenuController::RestartFrustumIterator::onRelease() {
     if(m_controller->m_testFrustumIter) {
-        //get intersection of frustum and bounds    
-        /*Box<int> iterBounds(glm::ivec3(-3), glm::ivec3(3));  
-        Box<int> frustumGrid(m_controller->m_testFrustumIter->m_frustum->m_bounds.grid<int>(glm::vec3(20.0f)));
-
-        iterBounds.constrain(frustumGrid);*/
-
-        //m_controller->m_testFrustumIter = new FrustumIterator<>(m_controller->m_testFrustumIter->m_frustum, frustumGrid, glm::vec3(20.0f));
-        
-        m_controller->m_testFrustumIter = new ConvexMeshIterator<>(&m_controller->m_testMeshEdgeList, 
-            glm::normalize(vec3cast<int8_t, glm::mediump_float>(m_controller->m_testFrustumIter->m_directionSign)), 
-            m_controller->m_testFrustumIter->m_range.normalize(),
-            glm::vec3(5.0f));
+        m_controller->setupTestFrustumIterator();
     }
 }
 
@@ -1992,7 +2006,7 @@ void MainMenuController::render() {
     renderMeshDebug(m_bill, m_billController, xform);*/
 
     //debug draw the frustum iterators
-    renderMeshEdgeListDebug(m_testMeshEdgeList);
+    renderMeshEdgeListDebug(m_testMeshEdgeList, m_camera, m_fontShader, m_debugFont);
     //renderMeshEdgeListDebug(m_testUnclippedMeshEdgeList);
 
     //renderSceneDebug(Box<>(glm::vec3(0.0f), glm::vec3(5.0f * 100.0f - 0.1f)), glm::vec3(100.0f), glm::uvec3(5));
