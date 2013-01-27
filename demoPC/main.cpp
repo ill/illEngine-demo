@@ -56,6 +56,7 @@ int main(int argc, char * argv[]) {
     //tests
     testVectorManager();
     testEndian();
+    testSortDimensions();
 
     thisFileSystem.init(argv[0]);
 

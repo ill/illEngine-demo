@@ -99,6 +99,18 @@ private:
         MainMenuController * m_controller;
     };
 
+    struct MapToWorld : public Input::InputListenerState::InputCallback {
+        MapToWorld()
+            : Input::InputListenerState::InputCallback()
+        {}
+
+        void onRelease() {
+            m_controller->m_mapToWorld = !m_controller->m_mapToWorld;
+        }
+
+        MainMenuController * m_controller;
+    };
+
     struct ResetFrustumIterator : public Input::InputListenerState::InputCallback {
         ResetFrustumIterator()
             : Input::InputListenerState::InputCallback()
@@ -154,6 +166,7 @@ private:
     //frustum iterator debugging
     ConvexMeshIterator<> * m_testFrustumIter;
     illGraphics::Camera m_testFrustumCamera;    //for easy resetting
+    MeshEdgeList<> m_iteratedMeshEdgeList;
     MeshEdgeList<> m_testMeshEdgeList;
     MeshEdgeList<> m_testUnclippedMeshEdgeList;
 
@@ -164,14 +177,17 @@ private:
     ResetFrustumIterator m_resetFrustumIteratorCallback;
     RestartFrustumIterator m_restartFrustumIteratorCallback;
     CompleteFrustumIterator m_completeFrustumIteratorCallback;
+    MapToWorld m_mapToWorldCallback;
     
     Input::InputListenerState m_advanceFrustumIterator;
     Input::InputListenerState m_advanceFrustumIteratorHold;
     Input::InputListenerState m_resetFrustumIterator;
     Input::InputListenerState m_restartFrustumIterator;
     Input::InputListenerState m_completeFrustumIterator;
+    Input::InputListenerState m_mapToWorldListener;
 
     bool m_advanceHold;
+    bool m_mapToWorld;
     float m_advanceHoldTimer;
 
     Input::InputContext m_frustumInputContext;

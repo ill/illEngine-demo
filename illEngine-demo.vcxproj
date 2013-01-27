@@ -190,6 +190,7 @@
     <ClCompile Include="illEngine\Sound\Decoders\WavDecoder.cpp" />
     <ClCompile Include="illEngine\Tests\testEndian.cpp" />
     <ClCompile Include="illEngine\Tests\testRefCountPtr.cpp" />
+    <ClCompile Include="illEngine\Tests\testSortDimensions.cpp" />
     <ClCompile Include="illEngine\Tests\testVectorManager.cpp" />
     <ClCompile Include="illEngine\Util\util.cpp" />
   </ItemGroup>
@@ -264,10 +265,13 @@
     <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIterator.h" />
     <ClInclude Include="illEngine\Util\Geometry\geomUtil.h" />
     <ClInclude Include="illEngine\Util\Geometry\GridVolume3D.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Line.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Line2.h" />
     <ClInclude Include="illEngine\Util\Geometry\LineIterator.h" />
     <ClInclude Include="illEngine\Util\Geometry\MeshData.h" />
     <ClInclude Include="illEngine\Util\Geometry\MeshEdgeList.h" />
     <ClInclude Include="illEngine\Util\Geometry\Plane.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Ray.h" />
     <ClInclude Include="illEngine\Util\Geometry\Sphere.h" />
     <ClInclude Include="illEngine\Util\Geometry\Transform.h" />
     <ClInclude Include="illEngine\Util\Illmesh\IllmeshLoader.h" />

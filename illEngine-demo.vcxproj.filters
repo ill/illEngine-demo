@@ -114,6 +114,9 @@
     <ClCompile Include="illEngine\Graphics\serial\RendererFrontend.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="illEngine\Tests\testSortDimensions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demoPC\Game\MainMenu\MainMenuController.h">
@@ -369,6 +372,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\Line.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\Line2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\Ray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
