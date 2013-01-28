@@ -549,13 +549,13 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
         
         for(int line = 1; line <= iterator.m_iterator->m_algorithmBounds.y; line ++) {
-            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, line * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_sliceStart), mapToWorld)));
-            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, line * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_sliceStart), mapToWorld)));            
+            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, line * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, line * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));            
         }
 
         for(int line = 1; line <= iterator.m_iterator->m_algorithmBounds.x; line ++) {
-            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(line * iterator.m_iterator->m_cellDimensions.x, 0.0f, iterator.m_iterator->m_sliceStart), mapToWorld)));
-            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(line * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceStart), mapToWorld)));
+            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(line * iterator.m_iterator->m_cellDimensions.x, 0.0f, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(line * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
         }
     }
     glEnd();
@@ -563,7 +563,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     //current row rasterizing debug
     glLineWidth(3.0f);
 
-    glBegin(GL_LINES);
+    /*glBegin(GL_LINES);
     {
         //row bottom
         glColor4f(1.0f, 1.0f, 0.0f, 0.2f);
@@ -611,7 +611,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_cellDimensions.y * iterator.m_iterator->m_sliceMax.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, iterator.m_iterator->m_sliceStart), mapToWorld)));
         glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_cellDimensions.y * iterator.m_iterator->m_sliceMax.y + iterator.m_iterator->m_cellDimensions.y * 0.5, iterator.m_iterator->m_sliceStart), mapToWorld)));
     }
-    glEnd();
+    glEnd();*/
 
     //the 3D line/slice intersection points
     glPointSize(10.0f);
@@ -640,7 +640,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
 
     for(std::vector<glm::vec2*>::const_iterator iter = iterator.m_sortedSlicePoints.begin(); iter != iterator.m_sortedSlicePoints.end(); ) {
         glColor4f(1.0f, 0.0f, 1.0f, 0.2f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(**iter, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(**iter, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
 
         iter++;
 
@@ -649,7 +649,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         }
 
         glColor4f(1.0f, 0.0f, 1.0f, 1.0f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(**iter, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(**iter, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
     }
 
     glEnd();
@@ -664,7 +664,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     //"right"
     for(size_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE].size();) {
         glColor4f(0.7f, 0.7f, 1.0f, 0.3f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
 
         elementIndex++;
 
@@ -673,7 +673,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         }
 
         glColor4f(0.7f, 0.7f, 1.0f, 1.0f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
     }
 
     glEnd();
@@ -684,7 +684,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     //"left"
     for(size_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE].size();) {
         glColor4f(0.3f, 0.3f, 1.0f, 0.3f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
 
         elementIndex++;
 
@@ -693,7 +693,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         }
 
         glColor4f(0.3f, 0.3f, 1.0f, 1.0f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
     }
 
     glEnd();
@@ -706,19 +706,19 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     //right
     glColor4f(0.7f, 0.7f, 1.0f, 0.3f);
     for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE].size(); elementIndex++) {
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
     }
 
     //left
     glColor4f(0.3f, 0.3f, 1.0f, 0.3f);
     for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE].size(); elementIndex++) {
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
     }
 
     glEnd();
 
     //draw the so far rasterized points
-    glPointSize(5.0f);
+    glPointSize(8.0f);
 
     glBegin(GL_POINTS);
 
@@ -818,6 +818,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
 
         //side bounds        
         //min
+        /*
         drawPoint.x = iterator.m_iterator->m_cellDimensions.x * iterator.m_sliceMin.x + iterator.m_iterator->m_cellDimensions.x * 0.5f;
         drawPoint.y = 0.0f;
 
@@ -877,6 +878,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         drawPoint.x = iterator.m_iterator->m_algorithmWorldBounds.x;
 
         renderTextDebug("VERT MAX", createTransform(iterator.getPoint(drawPoint, mapToWorld)), font, camera, getProgram(fontShader));
+        */
     }
 
     glUseProgram(0);
