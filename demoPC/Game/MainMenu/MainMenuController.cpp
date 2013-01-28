@@ -477,54 +477,42 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         glm::mediump_float sign;
 
         glBegin(GL_LINES);
-
-        if(iterator.m_iterator->m_dimensionOrder.x == 0) {
-            glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
-            sign = iterator.m_iterator->m_directionSign.x;
-        }
-        else if(iterator.m_iterator->m_dimensionOrder.y == 0) {
-            glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
-            sign = iterator.m_iterator->m_directionSign.y;
-        }
-        else if(iterator.m_iterator->m_dimensionOrder.z == 0) {
-            glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
-            sign = iterator.m_iterator->m_directionSign.z;
-        }
-
+        
+        //x
+        glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
         glVertex3fv(glm::value_ptr(glm::vec3(0.0f)));
-        glVertex3fv(glm::value_ptr(glm::vec3(sign * 10.0f, 0.0f, 0.0f)));
 
-        if(iterator.m_iterator->m_dimensionOrder.x == 1) {
-            glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
-            sign = iterator.m_iterator->m_directionSign.x;
-        }
-        else if(iterator.m_iterator->m_dimensionOrder.y == 1) {
-            glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
-            sign = iterator.m_iterator->m_directionSign.y;
-        }
-        else if(iterator.m_iterator->m_dimensionOrder.z == 1) {
-            glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
-            sign = iterator.m_iterator->m_directionSign.z;
-        }
+        drawVec = glm::vec3(0.0f);
+        drawVec[iterator.m_iterator->m_dimensionOrder[0]] = iterator.m_iterator->m_directionSign[iterator.m_iterator->m_dimensionOrder[0]] * 10.0f;
+        glVertex3fv(glm::value_ptr(drawVec));
 
+        glVertex3fv(glm::value_ptr(drawVec));
+        glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+        glVertex3fv(glm::value_ptr(iterator.m_direction * 10.0f));
+
+        //y
+        glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
         glVertex3fv(glm::value_ptr(glm::vec3(0.0f)));
-        glVertex3fv(glm::value_ptr(glm::vec3(0.0f, sign * 10.0f, 0.0f)));
 
-        if(iterator.m_iterator->m_dimensionOrder.x == 2) {
-            glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
-            sign = iterator.m_iterator->m_directionSign.x;
-        }
-        else if(iterator.m_iterator->m_dimensionOrder.y == 2) {
-            glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
-            sign = iterator.m_iterator->m_directionSign.y;
-        }
-        else if(iterator.m_iterator->m_dimensionOrder.z == 2) {
-            glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
-            sign = iterator.m_iterator->m_directionSign.z;
-        }
+        drawVec = glm::vec3(0.0f);
+        drawVec[iterator.m_iterator->m_dimensionOrder[1]] = iterator.m_iterator->m_directionSign[iterator.m_iterator->m_dimensionOrder[1]] * 10.0f;
+        glVertex3fv(glm::value_ptr(drawVec));
 
+        glVertex3fv(glm::value_ptr(drawVec));
+        glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+        glVertex3fv(glm::value_ptr(iterator.m_direction * 10.0f));
+        
+        //z
+        glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
         glVertex3fv(glm::value_ptr(glm::vec3(0.0f)));
-        glVertex3fv(glm::value_ptr(glm::vec3(0.0f, 0.0f, sign * 10.0f)));
+
+        drawVec = glm::vec3(0.0f);
+        drawVec[iterator.m_iterator->m_dimensionOrder[2]] = iterator.m_iterator->m_directionSign[iterator.m_iterator->m_dimensionOrder[2]] * 10.0f;
+        glVertex3fv(glm::value_ptr(drawVec));
+
+        glVertex3fv(glm::value_ptr(drawVec));
+        glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+        glVertex3fv(glm::value_ptr(iterator.m_direction * 10.0f));
 
         glEnd();
     }
@@ -1606,13 +1594,13 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         font, camera, getProgram(fontShader));*/
 
     //messages
-    {
+    /*{
         int message = 0;
 
         for(std::list<std::string>::const_reverse_iterator iter = iterator.m_messages.rbegin(); iter != iterator.m_messages.rend(); iter++, message++) {
             renderTextDebug(iter->c_str(), createTransform(iterator.getPoint(glm::vec3(0.0f, -20.0f - 10.0f * message, 0.0f), mapToWorld)), font, camera, getProgram(fontShader));
         }
-    }
+    }*/
 
     {
         glm::vec3 drawPoint;
@@ -1947,20 +1935,20 @@ void MainMenuController::setupTestFrustumIterator() {
     //controller.m_planeIndex = 0;
 
     //clip the mesh edge list against some planes
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), 60.0f));
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 60.0f));
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 60.0f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), 500.0f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 500.0f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 500.0f));
 
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 59.9999f));
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 59.9999f));
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 59.9999f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 499.9999f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 499.9999f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 499.9999f));
     
     if(!m_testMeshEdgeList.m_points.empty()) {
         m_testMeshEdgeList.computeBounds();
 
         //get intersection of frustum and bounds
-        Box<int> iterBounds(glm::ivec3(-3), glm::ivec3(3));
-        Box<int> frustumGrid(m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(20.0f)));
+        Box<int> iterBounds(glm::ivec3(-50), glm::ivec3(50));
+        Box<int> frustumGrid(m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(10.0f)));
 
         if(iterBounds.intersects(frustumGrid)) {
             iterBounds.constrain(frustumGrid);
@@ -1971,7 +1959,7 @@ void MainMenuController::setupTestFrustumIterator() {
             m_testFrustumIter = new ConvexMeshIterator<>(&m_iteratedMeshEdgeList, 
                 m_testFrustumCamera.getViewFrustum().m_direction, 
                 frustumGrid,
-                glm::vec3(20.0f));
+                glm::vec3(10.0f));
         }
         else {
             delete m_testFrustumIter;
