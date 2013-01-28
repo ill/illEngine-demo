@@ -318,8 +318,13 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
 
     for(size_t edge = 0; edge < iterator.m_iterator->m_meshEdgeList->m_edges.size(); edge++) {
         if(!iterator.m_iterator->m_isEdgeChecked[edge]) {
-            glVertex3fv(glm::value_ptr(iterator.getPoint(iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[edge].m_point[0]], mapToWorld)));
-            glVertex3fv(glm::value_ptr(iterator.getPoint(iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[edge].m_point[1]], mapToWorld)));
+            glVertex3fv(glm::value_ptr(iterator.getPoint(
+                iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[edge].m_point[0]], 
+                mapToWorld)));
+
+            glVertex3fv(glm::value_ptr(iterator.getPoint(
+                iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[edge].m_point[1]],
+                mapToWorld)));
         }
     }
     
@@ -327,16 +332,26 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     glColor4f(0.0f, 1.0f, 0.0f, 0.25f);
 
     for(std::unordered_map<size_t, int>::const_iterator iter = iterator.m_iterator->m_activeEdges.begin(); iter != iterator.m_iterator->m_activeEdges.end(); iter++) {
-        glVertex3fv(glm::value_ptr(iterator.getPoint(iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[iter->first].m_point[0]], mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[iter->first].m_point[1]], mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(
+            iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[iter->first].m_point[0]],
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(
+            iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[iter->first].m_point[1]],
+            mapToWorld)));
     }
 
     //discarded edges
     glColor4f(1.0f, 0.0f, 0.0f, 0.25f);
 
     for(std::unordered_set<size_t>::const_iterator iter = iterator.m_discarededEdges.begin(); iter != iterator.m_discarededEdges.end(); iter++) {
-        glVertex3fv(glm::value_ptr(iterator.getPoint(iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[*iter].m_point[0]], mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[*iter].m_point[1]], mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(
+            iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[*iter].m_point[0]], 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(
+            iterator.m_meshEdgeList.m_points[iterator.m_meshEdgeList.m_edges[*iter].m_point[1]], 
+            mapToWorld)));
     }
 
     glEnd();
@@ -348,39 +363,183 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
 
     glBegin(GL_LINE_LOOP);
 
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_min.x, iterator.m_meshEdgeList.m_bounds.m_min.y, iterator.m_meshEdgeList.m_bounds.m_min.z), mapToWorld)));
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_max.x, iterator.m_meshEdgeList.m_bounds.m_min.y, iterator.m_meshEdgeList.m_bounds.m_min.z), mapToWorld)));
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_max.x, iterator.m_meshEdgeList.m_bounds.m_max.y, iterator.m_meshEdgeList.m_bounds.m_min.z), mapToWorld)));
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_min.x, iterator.m_meshEdgeList.m_bounds.m_max.y, iterator.m_meshEdgeList.m_bounds.m_min.z), mapToWorld)));
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_min.x, 
+        iterator.m_meshEdgeList.m_bounds.m_min.y, 
+        iterator.m_meshEdgeList.m_bounds.m_min.z), 
+        mapToWorld)));
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_max.x, 
+        iterator.m_meshEdgeList.m_bounds.m_min.y, 
+        iterator.m_meshEdgeList.m_bounds.m_min.z),
+        mapToWorld)));
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_max.x, 
+        iterator.m_meshEdgeList.m_bounds.m_max.y, 
+        iterator.m_meshEdgeList.m_bounds.m_min.z), 
+        mapToWorld)));
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_min.x, 
+        iterator.m_meshEdgeList.m_bounds.m_max.y, 
+        iterator.m_meshEdgeList.m_bounds.m_min.z), 
+        mapToWorld)));
 
     glEnd();
 
     glBegin(GL_LINE_LOOP);
 
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_min.x, iterator.m_meshEdgeList.m_bounds.m_min.y, iterator.m_meshEdgeList.m_bounds.m_max.z), mapToWorld)));
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_max.x, iterator.m_meshEdgeList.m_bounds.m_min.y, iterator.m_meshEdgeList.m_bounds.m_max.z), mapToWorld)));
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_max.x, iterator.m_meshEdgeList.m_bounds.m_max.y, iterator.m_meshEdgeList.m_bounds.m_max.z), mapToWorld)));
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_min.x, iterator.m_meshEdgeList.m_bounds.m_max.y, iterator.m_meshEdgeList.m_bounds.m_max.z), mapToWorld)));
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_min.x, 
+        iterator.m_meshEdgeList.m_bounds.m_min.y, 
+        iterator.m_meshEdgeList.m_bounds.m_max.z), 
+        mapToWorld)));
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_max.x, 
+        iterator.m_meshEdgeList.m_bounds.m_min.y, 
+        iterator.m_meshEdgeList.m_bounds.m_max.z), 
+        mapToWorld)));
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_max.x, 
+        iterator.m_meshEdgeList.m_bounds.m_max.y, 
+        iterator.m_meshEdgeList.m_bounds.m_max.z), 
+        mapToWorld)));
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_min.x, 
+        iterator.m_meshEdgeList.m_bounds.m_max.y, 
+        iterator.m_meshEdgeList.m_bounds.m_max.z), 
+        mapToWorld)));
     
     glEnd();
 
     glBegin(GL_LINES);
 
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_min.x, iterator.m_meshEdgeList.m_bounds.m_min.y, iterator.m_meshEdgeList.m_bounds.m_min.z), mapToWorld)));
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_min.x, iterator.m_meshEdgeList.m_bounds.m_min.y, iterator.m_meshEdgeList.m_bounds.m_max.z), mapToWorld)));
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_min.x, 
+        iterator.m_meshEdgeList.m_bounds.m_min.y, 
+        iterator.m_meshEdgeList.m_bounds.m_min.z), 
+        mapToWorld)));
 
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_max.x, iterator.m_meshEdgeList.m_bounds.m_min.y, iterator.m_meshEdgeList.m_bounds.m_min.z), mapToWorld)));
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_max.x, iterator.m_meshEdgeList.m_bounds.m_min.y, iterator.m_meshEdgeList.m_bounds.m_max.z), mapToWorld)));
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_min.x, 
+        iterator.m_meshEdgeList.m_bounds.m_min.y, 
+        iterator.m_meshEdgeList.m_bounds.m_max.z), 
+        mapToWorld)));
 
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_max.x, iterator.m_meshEdgeList.m_bounds.m_max.y, iterator.m_meshEdgeList.m_bounds.m_min.z), mapToWorld)));
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_max.x, iterator.m_meshEdgeList.m_bounds.m_max.y, iterator.m_meshEdgeList.m_bounds.m_max.z), mapToWorld)));
 
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_min.x, iterator.m_meshEdgeList.m_bounds.m_max.y, iterator.m_meshEdgeList.m_bounds.m_min.z), mapToWorld)));
-    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_meshEdgeList.m_bounds.m_min.x, iterator.m_meshEdgeList.m_bounds.m_max.y, iterator.m_meshEdgeList.m_bounds.m_max.z), mapToWorld)));
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_max.x, 
+        iterator.m_meshEdgeList.m_bounds.m_min.y, 
+        iterator.m_meshEdgeList.m_bounds.m_min.z), 
+        mapToWorld)));
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_max.x, 
+        iterator.m_meshEdgeList.m_bounds.m_min.y, 
+        iterator.m_meshEdgeList.m_bounds.m_max.z), 
+        mapToWorld)));
+
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_max.x, 
+        iterator.m_meshEdgeList.m_bounds.m_max.y, 
+        iterator.m_meshEdgeList.m_bounds.m_min.z), 
+        mapToWorld)));
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_max.x, 
+        iterator.m_meshEdgeList.m_bounds.m_max.y, 
+        iterator.m_meshEdgeList.m_bounds.m_max.z), 
+        mapToWorld)));
+
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_min.x, 
+        iterator.m_meshEdgeList.m_bounds.m_max.y, 
+        iterator.m_meshEdgeList.m_bounds.m_min.z), 
+        mapToWorld)));
+
+    glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+        iterator.m_meshEdgeList.m_bounds.m_min.x, 
+        iterator.m_meshEdgeList.m_bounds.m_max.y, 
+        iterator.m_meshEdgeList.m_bounds.m_max.z),
+        mapToWorld)));
     
     glEnd();
         
+    //the direction sign
+    {
+        glm::mediump_float sign;
+
+        glBegin(GL_LINES);
+
+        if(iterator.m_iterator->m_dimensionOrder.x == 0) {
+            glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
+            sign = iterator.m_iterator->m_directionSign.x;
+        }
+        else if(iterator.m_iterator->m_dimensionOrder.y == 0) {
+            glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+            sign = iterator.m_iterator->m_directionSign.y;
+        }
+        else if(iterator.m_iterator->m_dimensionOrder.z == 0) {
+            glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+            sign = iterator.m_iterator->m_directionSign.z;
+        }
+
+        glVertex3fv(glm::value_ptr(glm::vec3(0.0f)));
+        glVertex3fv(glm::value_ptr(glm::vec3(sign * 10.0f, 0.0f, 0.0f)));
+
+        if(iterator.m_iterator->m_dimensionOrder.x == 1) {
+            glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
+            sign = iterator.m_iterator->m_directionSign.x;
+        }
+        else if(iterator.m_iterator->m_dimensionOrder.y == 1) {
+            glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+            sign = iterator.m_iterator->m_directionSign.y;
+        }
+        else if(iterator.m_iterator->m_dimensionOrder.z == 1) {
+            glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+            sign = iterator.m_iterator->m_directionSign.z;
+        }
+
+        glVertex3fv(glm::value_ptr(glm::vec3(0.0f)));
+        glVertex3fv(glm::value_ptr(glm::vec3(0.0f, sign * 10.0f, 0.0f)));
+
+        if(iterator.m_iterator->m_dimensionOrder.x == 2) {
+            glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
+            sign = iterator.m_iterator->m_directionSign.x;
+        }
+        else if(iterator.m_iterator->m_dimensionOrder.y == 2) {
+            glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+            sign = iterator.m_iterator->m_directionSign.y;
+        }
+        else if(iterator.m_iterator->m_dimensionOrder.z == 2) {
+            glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+            sign = iterator.m_iterator->m_directionSign.z;
+        }
+
+        glVertex3fv(glm::value_ptr(glm::vec3(0.0f)));
+        glVertex3fv(glm::value_ptr(glm::vec3(0.0f, 0.0f, sign * 10.0f)));
+
+        glEnd();
+    }
+
     //the direction
+    glBegin(GL_LINES);
+
+    glColor4f(1.0f, 1.0f, 1.0f, 0.5f);
+    glVertex3fv(glm::value_ptr(glm::vec3(0.0f)));
+
+    glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+    glVertex3fv(glm::value_ptr(iterator.m_direction * 10.0f));
+
+    glEnd();
+
     /*drawVec = iterator.m_frustum.m_nearTipPoint + iterator.m_frustum.m_direction * 10.0f;
 
     glBegin(GL_LINES);
@@ -411,35 +570,206 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
 
         glBegin(GL_LINE_LOOP);
     
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, 0.0f, 0.0f), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_algorithmWorldBounds.y, 0.0f), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_algorithmWorldBounds.y, 0.0f), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            0.0f, 
+            0.0f), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            0.0f, 
+            0.0f),
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            0.0f), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            0.0f), 
+            mapToWorld)));
         
         glEnd();
 
         glBegin(GL_LINE_LOOP);
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, 0.0f, iterator.m_iterator->m_algorithmWorldBounds.z), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, 0.0f, iterator.m_iterator->m_algorithmWorldBounds.z), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_algorithmWorldBounds.z), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_algorithmWorldBounds.z), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            0.0f, 
+            iterator.m_iterator->m_algorithmWorldBounds.z), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            0.0f, 
+            iterator.m_iterator->m_algorithmWorldBounds.z), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_algorithmWorldBounds.z), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_algorithmWorldBounds.z), 
+            mapToWorld)));
                 
         glEnd();
 
         glBegin(GL_LINES);
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, 0.0f, 0.0f), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, 0.0f, iterator.m_iterator->m_algorithmWorldBounds.z), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            0.0f, 
+            0.0f), 
+            mapToWorld)));
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, 0.0f, 0.0f), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, 0.0f, iterator.m_iterator->m_algorithmWorldBounds.z), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            0.0f, 
+            iterator.m_iterator->m_algorithmWorldBounds.z), 
+            mapToWorld)));
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_algorithmWorldBounds.y, 0.0f), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_algorithmWorldBounds.z), mapToWorld)));
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_algorithmWorldBounds.y, 0.0f), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_algorithmWorldBounds.z), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            0.0f, 
+            0.0f),
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            0.0f, 
+            iterator.m_iterator->m_algorithmWorldBounds.z), 
+            mapToWorld)));
+
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            0.0f),
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_algorithmWorldBounds.z), 
+            mapToWorld)));
+
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            0.0f), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_algorithmWorldBounds.z), 
+            mapToWorld)));
+                
+        glEnd();
+    }
+
+    //the world bounds for real
+    {
+        glColor4f(1.0f, 1.0f, 1.0f, 0.03f);
+
+        glBegin(GL_LINE_LOOP);
+    
+        glVertex3fv(glm::value_ptr(iterator.m_iterator->m_worldBounds.m_min));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_max.x, 
+            iterator.m_iterator->m_worldBounds.m_min.y, 
+            iterator.m_iterator->m_worldBounds.m_min.z)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_max.x, 
+            iterator.m_iterator->m_worldBounds.m_max.y, 
+            iterator.m_iterator->m_worldBounds.m_min.z)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_min.x, 
+            iterator.m_iterator->m_worldBounds.m_max.y, 
+            iterator.m_iterator->m_worldBounds.m_min.z)));
+        
+        glEnd();
+
+        glBegin(GL_LINE_LOOP);
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_min.x, 
+            iterator.m_iterator->m_worldBounds.m_min.y, 
+            iterator.m_iterator->m_worldBounds.m_max.z)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_max.x, 
+            iterator.m_iterator->m_worldBounds.m_min.y, 
+            iterator.m_iterator->m_worldBounds.m_max.z)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_max.x, 
+            iterator.m_iterator->m_worldBounds.m_max.y, 
+            iterator.m_iterator->m_worldBounds.m_max.z)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_min.x, 
+            iterator.m_iterator->m_worldBounds.m_max.y, 
+            iterator.m_iterator->m_worldBounds.m_max.z)));
+                
+        glEnd();
+
+        glBegin(GL_LINES);
+
+        glVertex3fv(glm::value_ptr(iterator.m_iterator->m_worldBounds.m_min));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_min.x, 
+            iterator.m_iterator->m_worldBounds.m_min.y, 
+            iterator.m_iterator->m_worldBounds.m_max.z)));
+
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_max.x, 
+            iterator.m_iterator->m_worldBounds.m_min.y, 
+            iterator.m_iterator->m_worldBounds.m_min.z)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_max.x, 
+            iterator.m_iterator->m_worldBounds.m_min.y, 
+            iterator.m_iterator->m_worldBounds.m_max.z)));
+
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_max.x, 
+            iterator.m_iterator->m_worldBounds.m_max.y, 
+            iterator.m_iterator->m_worldBounds.m_min.z)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_max.x, 
+            iterator.m_iterator->m_worldBounds.m_max.y, 
+            iterator.m_iterator->m_worldBounds.m_max.z)));
+
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_min.x, 
+            iterator.m_iterator->m_worldBounds.m_max.y, 
+            iterator.m_iterator->m_worldBounds.m_min.z)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_worldBounds.m_min.x, 
+            iterator.m_iterator->m_worldBounds.m_max.y, 
+            iterator.m_iterator->m_worldBounds.m_max.z)));
                 
         glEnd();
     }
@@ -451,60 +781,413 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         //the x
         glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0.0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, 0, 0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            0, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            0, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
+        glColor4f(1.0f, 0.0f, 0.0f, 0.05f);
+
         //the y
         glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0.0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0, iterator.m_iterator->m_algorithmBounds.y, 0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            0, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
         //the z
         glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0.0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0, 0, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            0, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            0, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
         //the rest
         glColor4f(0.0f, 1.0f, 1.0f, 0.2f);
 
         //x00 - x0z
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, 0, 0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, 0, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            0, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            0, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
         //00z - x0z
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0, 0, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, 0, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            0, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            0, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
         //xyz - x0z
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, iterator.m_iterator->m_algorithmBounds.y, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, 0, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            0, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
         //00z - 0yz
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0, 0, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0, iterator.m_iterator->m_algorithmBounds.y, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            0, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
         //x00 - xy0
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, 0, 0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, iterator.m_iterator->m_algorithmBounds.y, 0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            0, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
         //xy0 - xyz
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, iterator.m_iterator->m_algorithmBounds.y, 0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, iterator.m_iterator->m_algorithmBounds.y, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
         //0yz - xyz
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0, iterator.m_iterator->m_algorithmBounds.y, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, iterator.m_iterator->m_algorithmBounds.y, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
         //0y0 - 0yz
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0, iterator.m_iterator->m_algorithmBounds.y, 0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0, iterator.m_iterator->m_algorithmBounds.y, iterator.m_iterator->m_algorithmBounds.z)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            iterator.m_iterator->m_algorithmBounds.z)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
         //0y0 - xy0
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(0, iterator.m_iterator->m_algorithmBounds.y, 0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(iterator.m_iterator->m_algorithmBounds.x, iterator.m_iterator->m_algorithmBounds.y, 0)) * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            0, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(vec3cast<int, glm::mediump_float>(glm::ivec3(
+            iterator.m_iterator->m_algorithmBounds.x, 
+            iterator.m_iterator->m_algorithmBounds.y, 
+            0)) 
+                * iterator.m_iterator->m_cellDimensions + iterator.m_iterator->m_cellDimensions * 0.5f, 
+            mapToWorld)));
         
+        glEnd();
+    }
+
+    //the surrounding grid in world coords
+    /*glBegin(GL_LINES);
+    {
+        glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
+        
+        //the xy0 grid
+
+        //y
+        for(int line = 0; line <= iterator.m_iterator->m_algorithmBounds.y; line ++) {
+            glVertex3fv(glm::value_ptr(glm::vec3(
+                iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x], 
+                iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] 
+                    + line * iterator.m_iterator->m_cellDimensions.y, 
+                iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z])));
+
+            glVertex3fv(glm::value_ptr(glm::vec3(
+                iterator.m_iterator->m_bounds.m_max.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x], 
+                iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] 
+                    + line * iterator.m_iterator->m_cellDimensions.y, 
+                iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z])));
+        }
+
+        //x
+        for(int line = 0; line <= iterator.m_iterator->m_algorithmBounds.x; line ++) {
+            glVertex3fv(glm::value_ptr(glm::vec3(
+                iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                    + line * iterator.m_iterator->m_cellDimensions.x, 
+                iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y],
+                iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z])));
+
+            glVertex3fv(glm::value_ptr(glm::vec3(
+                iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                    + line * iterator.m_iterator->m_cellDimensions.x, 
+                iterator.m_iterator->m_bounds.m_max.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y],
+                iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z])));
+        }
+
+        //the xyz grid
+
+        //y
+        for(int line = 0; line <= iterator.m_iterator->m_algorithmBounds.y; line ++) {
+            glVertex3fv(glm::value_ptr(glm::vec3(
+                iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x], 
+                iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] 
+                    + line * iterator.m_iterator->m_cellDimensions.y, 
+                iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z])));
+
+            glVertex3fv(glm::value_ptr(glm::vec3(
+                iterator.m_iterator->m_bounds.m_max.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x], 
+                iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] 
+                    + line * iterator.m_iterator->m_cellDimensions.y, 
+                iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z])));
+        }
+
+        //x
+        for(int line = 0; line <= iterator.m_iterator->m_algorithmBounds.x; line ++) {
+            glVertex3fv(glm::value_ptr(glm::vec3(
+                iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                    + line * iterator.m_iterator->m_cellDimensions.x, 
+                iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y],
+                iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z])));
+
+            glVertex3fv(glm::value_ptr(glm::vec3(
+                iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                    + line * iterator.m_iterator->m_cellDimensions.x, 
+                iterator.m_iterator->m_bounds.m_max.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y],
+                iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z])));
+        }
+    }
+    glEnd();*/
+
+    //the grid bounds for real
+    {
+        glColor4f(1.0f, 1.0f, 0.0f, 0.1f);
+
+        glBegin(GL_LINE_LOOP);
+    
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f,
+            iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_max.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f,
+            iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_max.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+        
+        glEnd();
+
+        glBegin(GL_LINE_LOOP);
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_max.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_max.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+                
+        glEnd();
+
+        glBegin(GL_LINES);
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f,
+            iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_max.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_max.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_max.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_max.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_min.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+
+        glVertex3fv(glm::value_ptr(glm::vec3(
+            iterator.m_iterator->m_bounds.m_min.x * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.x] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.y * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.y] * 0.5f, 
+            iterator.m_iterator->m_bounds.m_max.z * iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z]
+                + iterator.m_iterator->m_cellDimensions[iterator.m_iterator->m_dimensionOrderInverse.z] * 0.5f)));
+                
         glEnd();
     }
     
@@ -528,34 +1211,90 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         //front plane
         glColor4f(1.0f, 1.0f, 1.0f, 0.05f);
         
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, 0.0f, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, 0.0f, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            0.0f, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            0.0f, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
 
         //back plane
         glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, 0.0f, iterator.m_iterator->m_sliceEnd), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceEnd), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceEnd), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, 0.0f, iterator.m_iterator->m_sliceEnd), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            0.0f, 
+            iterator.m_iterator->m_sliceEnd), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_sliceEnd), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_sliceEnd), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            0.0f, 
+            iterator.m_iterator->m_sliceEnd), 
+            mapToWorld)));
     }
     glEnd();
 
-    //grid
+    //plane grid
     glBegin(GL_LINES);
     {
         glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
         
         for(int line = 1; line <= iterator.m_iterator->m_algorithmBounds.y; line ++) {
-            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, line * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
-            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, line * iterator.m_iterator->m_cellDimensions.y, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));            
+            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+                0.0f, 
+                line * iterator.m_iterator->m_cellDimensions.y, 
+                iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+                mapToWorld)));
+
+            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+                iterator.m_iterator->m_algorithmWorldBounds.x, 
+                line * iterator.m_iterator->m_cellDimensions.y, 
+                iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+                mapToWorld)));            
         }
 
         for(int line = 1; line <= iterator.m_iterator->m_algorithmBounds.x; line ++) {
-            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(line * iterator.m_iterator->m_cellDimensions.x, 0.0f, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
-            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(line * iterator.m_iterator->m_cellDimensions.x, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+                line * iterator.m_iterator->m_cellDimensions.x, 
+                0.0f, 
+                iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+                mapToWorld)));
+
+            glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+                line * iterator.m_iterator->m_cellDimensions.x, 
+                iterator.m_iterator->m_algorithmWorldBounds.y, 
+                iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+                mapToWorld)));
         }
     }
     glEnd();
@@ -563,55 +1302,127 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     //current row rasterizing debug
     glLineWidth(3.0f);
 
-    /*glBegin(GL_LINES);
+    glBegin(GL_LINES);
     {
         //row bottom
         glColor4f(1.0f, 1.0f, 0.0f, 0.2f);
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_lineBottom, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_lineBottom, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            iterator.m_iterator->m_lineBottom, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            iterator.m_iterator->m_lineBottom, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
         
         //row top
         glColor4f(1.0f, 1.0f, 0.0f, 0.6f);
 
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_lineTop, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_lineTop, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            iterator.m_iterator->m_lineTop, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            iterator.m_iterator->m_lineTop, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
         
         //side bounds
         glColor4f(0.0f, 1.0f, 1.0f, 0.2f);
         
         //min
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_cellDimensions.x * iterator.m_sliceMin.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 0.0f, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_cellDimensions.x * iterator.m_sliceMin.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_cellDimensions.x * iterator.m_sliceMin.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+            0.0f, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_cellDimensions.x * iterator.m_sliceMin.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
                         
         //min world
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_leftSlicePoint, 0.0f, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_leftSlicePoint, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_leftSlicePoint, 
+            0.0f, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_leftSlicePoint, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
         
         glColor4f(0.0f, 1.0f, 1.0f, 0.6f);
 
         //max
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_cellDimensions.x * iterator.m_iterator->m_sliceMax.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 0.0f, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_cellDimensions.x * iterator.m_iterator->m_sliceMax.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_cellDimensions.x * iterator.m_iterator->m_sliceMax.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+            0.0f, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_cellDimensions.x * iterator.m_iterator->m_sliceMax.x + iterator.m_iterator->m_cellDimensions.x * 0.5f, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
                         
         //max world
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_rightSlicePoint, 0.0f, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_rightSlicePoint, iterator.m_iterator->m_algorithmWorldBounds.y, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_rightSlicePoint, 
+            0.0f, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_rightSlicePoint, 
+            iterator.m_iterator->m_algorithmWorldBounds.y, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
         
         //top and bottom bounds
         glColor4f(0.0f, 1.0f, 1.0f, 0.2f);
 
         //min
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_cellDimensions.y * iterator.m_sliceMin.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_cellDimensions.y * iterator.m_sliceMin.y + iterator.m_iterator->m_cellDimensions.y * 0.5, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            iterator.m_iterator->m_cellDimensions.y * iterator.m_sliceMin.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+            iterator.m_iterator->m_sliceStart),
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            iterator.m_iterator->m_cellDimensions.y * iterator.m_sliceMin.y + iterator.m_iterator->m_cellDimensions.y * 0.5, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
         
         glColor4f(0.0f, 1.0f, 1.0f, 0.6f);
 
         //max
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(0.0f, iterator.m_iterator->m_cellDimensions.y * iterator.m_iterator->m_sliceMax.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, iterator.m_iterator->m_sliceStart), mapToWorld)));
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_algorithmWorldBounds.x, iterator.m_iterator->m_cellDimensions.y * iterator.m_iterator->m_sliceMax.y + iterator.m_iterator->m_cellDimensions.y * 0.5, iterator.m_iterator->m_sliceStart), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            0.0f, 
+            iterator.m_iterator->m_cellDimensions.y * iterator.m_iterator->m_sliceMax.y + iterator.m_iterator->m_cellDimensions.y * 0.5f, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
+
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_algorithmWorldBounds.x, 
+            iterator.m_iterator->m_cellDimensions.y * iterator.m_iterator->m_sliceMax.y + iterator.m_iterator->m_cellDimensions.y * 0.5, 
+            iterator.m_iterator->m_sliceStart), 
+            mapToWorld)));
     }
-    glEnd();*/
+    glEnd();
 
     //the 3D line/slice intersection points
     glPointSize(10.0f);
@@ -622,14 +1433,20 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     glColor4f(1.0f, 1.0f, 1.0f, .5f);
 
     for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_pointList[!iterator.m_iterator->m_currentPointList].size(); elementIndex++) {
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_pointList[!iterator.m_iterator->m_currentPointList][elementIndex], iterator.m_pointListMissingDim[!iterator.m_iterator->m_currentPointList][elementIndex]), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_pointList[!iterator.m_iterator->m_currentPointList][elementIndex], 
+            iterator.m_pointListMissingDim[!iterator.m_iterator->m_currentPointList][elementIndex]), 
+            mapToWorld)));
     }
 
     //last plane (yellow)
     glColor4f(1.0f, 1.0f, 0.0f, 1.0f);
 
     for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_pointList[iterator.m_iterator->m_currentPointList].size(); elementIndex++) {
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(iterator.m_iterator->m_pointList[iterator.m_iterator->m_currentPointList][elementIndex], iterator.m_pointListMissingDim[iterator.m_iterator->m_currentPointList][elementIndex]), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            iterator.m_iterator->m_pointList[iterator.m_iterator->m_currentPointList][elementIndex], 
+            iterator.m_pointListMissingDim[iterator.m_iterator->m_currentPointList][elementIndex]), 
+            mapToWorld)));
     }
 
     glEnd();
@@ -640,7 +1457,10 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
 
     for(std::vector<glm::vec2*>::const_iterator iter = iterator.m_sortedSlicePoints.begin(); iter != iterator.m_sortedSlicePoints.end(); ) {
         glColor4f(1.0f, 0.0f, 1.0f, 0.2f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(**iter, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            **iter,
+            iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+            mapToWorld)));
 
         iter++;
 
@@ -649,7 +1469,10 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         }
 
         glColor4f(1.0f, 0.0f, 1.0f, 1.0f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(**iter, iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            **iter, 
+            iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+            mapToWorld)));
     }
 
     glEnd();
@@ -664,7 +1487,10 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     //"right"
     for(size_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE].size();) {
         glColor4f(0.7f, 0.7f, 1.0f, 0.3f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            *iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], 
+            iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+            mapToWorld)));
 
         elementIndex++;
 
@@ -673,7 +1499,10 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         }
 
         glColor4f(0.7f, 0.7f, 1.0f, 1.0f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            *iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], 
+            iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+            mapToWorld)));
     }
 
     glEnd();
@@ -684,7 +1513,10 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     //"left"
     for(size_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE].size();) {
         glColor4f(0.3f, 0.3f, 1.0f, 0.3f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            *iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], 
+            iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+            mapToWorld)));
 
         elementIndex++;
 
@@ -693,7 +1525,10 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         }
 
         glColor4f(0.3f, 0.3f, 1.0f, 1.0f);
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            *iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], 
+            iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+            mapToWorld)));
     }
 
     glEnd();
@@ -706,13 +1541,19 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     //right
     glColor4f(0.7f, 0.7f, 1.0f, 0.3f);
     for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE].size(); elementIndex++) {
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            *iterator.m_iterator->m_sliceRasterizeEdges[RIGHT_SIDE][elementIndex], 
+            iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+            mapToWorld)));
     }
 
     //left
     glColor4f(0.3f, 0.3f, 1.0f, 0.3f);
     for(uint8_t elementIndex = 0; elementIndex < iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE].size(); elementIndex++) {
-        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(*iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(glm::vec3(
+            *iterator.m_iterator->m_sliceRasterizeEdges[LEFT_SIDE][elementIndex], 
+            iterator.m_iterator->m_sliceStart + iterator.m_iterator->m_cellDimensions.z * 0.5f), 
+            mapToWorld)));
     }
 
     glEnd();
@@ -725,7 +1566,9 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
 
     for(std::vector<glm::vec3>::const_iterator iter = iterator.m_rasterizedCells.begin(); iter != iterator.m_rasterizedCells.end(); iter++) {
-        glVertex3fv(glm::value_ptr(iterator.getPoint(*iter, mapToWorld)));
+        glVertex3fv(glm::value_ptr(iterator.getPoint(
+            *iter, 
+            mapToWorld)));
     }
 
     glEnd();
@@ -736,7 +1579,10 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
 
     glColor4f(1.0f, 0.0f, 0.0f, 0.5f);
         
-    glVertex3fv(glm::value_ptr(iterator.getPoint(iterator.m_iterator->m_cellDimensions * vec3cast<int, glm::mediump_float>(iterator.m_iterator->m_currentPosition) + (iterator.m_iterator->m_cellDimensions * 0.5f), mapToWorld)));
+    glVertex3fv(glm::value_ptr(iterator.getPoint(
+        iterator.m_iterator->m_cellDimensions * vec3cast<int, glm::mediump_float>(iterator.m_iterator->m_currentPosition) 
+            + (iterator.m_iterator->m_cellDimensions * 0.5f), 
+        mapToWorld)));
 
     glEnd();
 
@@ -1114,7 +1960,7 @@ void MainMenuController::setupTestFrustumIterator() {
 
         //get intersection of frustum and bounds
         Box<int> iterBounds(glm::ivec3(-3), glm::ivec3(3));
-        Box<int> frustumGrid(m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(5.0f)));
+        Box<int> frustumGrid(m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(20.0f)));
 
         if(iterBounds.intersects(frustumGrid)) {
             iterBounds.constrain(frustumGrid);
@@ -1807,7 +2653,7 @@ void MainMenuController::render() {
     renderMeshEdgeListDebug(m_testUnclippedMeshEdgeList, m_camera, m_fontShader, m_debugFont);
     //renderMeshEdgeListDebug(m_testUnclippedMeshEdgeList);
 
-    //renderSceneDebug(Box<>(glm::vec3(0.0f), glm::vec3(5.0f * 100.0f - 0.1f)), glm::vec3(100.0f), glm::uvec3(5));
+    //renderSceneDebug(Box<>(glm::vec3(3.0f * -20.0f), glm::vec3(3.0f * 20.0f - 0.1f)), glm::vec3(20.0f), glm::uvec3(6));
 
     if(m_testFrustumIter) {
         renderFrustumIterDebug(m_testFrustumIter->m_debugger, m_mapToWorld, m_camera, m_fontShader, m_debugFont);
