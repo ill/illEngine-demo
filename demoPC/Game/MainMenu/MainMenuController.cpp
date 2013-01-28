@@ -546,11 +546,6 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
     //grid
     glBegin(GL_LINES);
     {
-        glm::mediump_float start;
-        glm::mediump_float sign;
-        glm::mediump_float dimensions;
-        int numLines;
-
         glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
         
         for(int line = 1; line <= iterator.m_iterator->m_algorithmBounds.y; line ++) {
@@ -802,7 +797,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
         //row rasterizing
 
         //row bottom
-        drawPoint.y = iterator.m_iterator->m_lineBottom;
+        /*drawPoint.y = iterator.m_iterator->m_lineBottom;
         drawPoint.x = 0.0f;
 
         renderTextDebug("ROW BOTTOM", createTransform(iterator.getPoint(drawPoint, mapToWorld)), font, camera, getProgram(fontShader));
@@ -819,7 +814,7 @@ void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool
 
         drawPoint.x = iterator.m_iterator->m_algorithmWorldBounds.x;
               
-        renderTextDebug("ROW TOP", createTransform(iterator.getPoint(drawPoint, mapToWorld)), font, camera, getProgram(fontShader));
+        renderTextDebug("ROW TOP", createTransform(iterator.getPoint(drawPoint, mapToWorld)), font, camera, getProgram(fontShader));*/
 
         //side bounds        
         //min
