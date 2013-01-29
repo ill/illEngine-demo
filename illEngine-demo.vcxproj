@@ -161,6 +161,7 @@
   <ItemGroup>
     <ClCompile Include="demoPC\FixedStepController.cpp" />
     <ClCompile Include="demoPC\Game\CameraController.cpp" />
+    <ClCompile Include="demoPC\Game\FrustumCullVisualizer\FrustumCullVisualizerController.cpp" />
     <ClCompile Include="demoPC\Game\MainController.cpp" />
     <ClCompile Include="demoPC\Game\FrustumIterVisualizer\FrustumIterVisualizerController.cpp" />
     <ClCompile Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="demoPC\FixedStepController.h" />
     <ClInclude Include="demoPC\GameControllerBase.h" />
     <ClInclude Include="demoPC\Game\CameraController.h" />
+    <ClInclude Include="demoPC\Game\FrustumCullVisualizer\FrustumCullVisualizerController.h" />
     <ClInclude Include="demoPC\Game\MainController.h" />
     <ClInclude Include="demoPC\Game\FrustumIterVisualizer\FrustumIterVisualizerController.h" />
     <ClInclude Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.h" />
@@ -261,10 +263,9 @@
     <ClInclude Include="illEngine\Util\Geometry\BoundingVolume.h" />
     <ClInclude Include="illEngine\Util\Geometry\Box.h" />
     <ClInclude Include="illEngine\Util\Geometry\BoxIterator.h" />
-    <ClInclude Include="illEngine\Util\Geometry\Frustum.h" />
-    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator-older.h" />
-    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator-old.h" />
     <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIterator.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Frustum.h" />
+    <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIteratorDebug.h" />
     <ClInclude Include="illEngine\Util\Geometry\geomUtil.h" />
     <ClInclude Include="illEngine\Util\Geometry\GridVolume3D.h" />
     <ClInclude Include="illEngine\Util\Geometry\Line.h" />

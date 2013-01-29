@@ -288,7 +288,7 @@ void renderSceneDebug(const Box<>&sceneBounds, const glm::vec3& chunkDimensions,
     glDisable(GL_BLEND);
 }
 
-void renderFrustumIterDebug(const ConvexMeshIterator<>::Debugger& iterator, bool mapToWorld, const illGraphics::Camera& camera, const illGraphics::ShaderProgram& fontShader, const illGraphics::BitmapFont& font) {
+void renderFrustumIterDebug(const ConvexMeshIteratorDebug<>::Debugger& iterator, bool mapToWorld, const illGraphics::Camera& camera, const illGraphics::ShaderProgram& fontShader, const illGraphics::BitmapFont& font) {
     glUseProgram(0);
 
     glColorMask(GL_TRUE, GL_TRUE, GL_TRUE, GL_TRUE);
@@ -1760,7 +1760,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
             //create a copy of the clipped mesh
             m_iteratedMeshEdgeList = m_testMeshEdgeList;
 
-            m_testFrustumIter = new ConvexMeshIterator<>(&m_iteratedMeshEdgeList, 
+            m_testFrustumIter = new ConvexMeshIteratorDebug<>(&m_iteratedMeshEdgeList, 
                 m_testFrustumCamera.getViewFrustum().m_direction, 
                 frustumGrid,
                 glm::vec3(50.0f));
@@ -1869,6 +1869,7 @@ FrustumIterVisualizerController::~FrustumIterVisualizerController() {
     m_engine->m_inputManager->getInputContextStack(0)->popInputContext();
 
     m_fontShader.unload();
+    m_debugFont.unload();
 
     delete m_debugShaderLoader;
     delete m_testFrustumIter;

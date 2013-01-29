@@ -120,6 +120,9 @@
     <ClCompile Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="demoPC\Game\FrustumCullVisualizer\FrustumCullVisualizerController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demoPC\Game\CameraController.h">
@@ -365,15 +368,6 @@
     <ClInclude Include="illEngine\Util\Geometry\MeshEdgeList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator-older.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="illEngine\Util\Geometry\FrustumIterator-old.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIterator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="illEngine\Util\Geometry\Line.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -387,6 +381,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIteratorDebug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="demoPC\Game\FrustumCullVisualizer\FrustumCullVisualizerController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

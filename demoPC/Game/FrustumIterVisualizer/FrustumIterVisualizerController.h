@@ -12,7 +12,7 @@
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
 #include "illEngine/Graphics/serial/BitmapFont.h"
 
-#include "illEngine/Util/Geometry/ConvexMeshIterator.h"
+#include "illEngine/Util/Geometry/ConvexMeshIteratorDebug.h"
 #include "illEngine/Util/Geometry/MeshEdgeList.h"
 
 #include "illEngine/Input/serial/InputContext.h"
@@ -144,7 +144,7 @@ private:
     illGraphics::CameraTransform m_cameraTransform;
     
     //frustum iterator debugging
-    ConvexMeshIterator<> * m_testFrustumIter;
+    ConvexMeshIteratorDebug<> * m_testFrustumIter;
     illGraphics::Camera m_testFrustumCamera;    //for easy resetting
     MeshEdgeList<> m_iteratedMeshEdgeList;
     MeshEdgeList<> m_testMeshEdgeList;

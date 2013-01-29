@@ -36,8 +36,9 @@ public:
         m_subGame->render();
     }
 
-    void startFrustumIterVisualizer();
     void startSkeletalAnimationDemo();
+    void startFrustumIterVisualizer();
+    void startFrustumCullVisualizer();
 
 private:
     inline void setSubGame(GameControllerBase * subGame) {        
@@ -62,11 +63,13 @@ private:
 
     Input::InputContext m_inputContext;
 
+    Input::InputListenerState m_startSkeletalAnimationDemoState;    
     Input::InputListenerState m_startFrustumIterVisualizerState;
-    Input::InputListenerState m_startSkeletalAnimationDemoState;
+    Input::InputListenerState m_startFrustumCullVisualizerState;
 
+    SetGame m_startSkeletalAnimationDemoCallback;    
     SetGame m_startFrustumIterVisualizerCallback;
-    SetGame m_startSkeletalAnimationDemoCallback;
+    SetGame m_startFrustumCullVisualizerCallback;
 
     Engine * m_engine;
     State m_state;
