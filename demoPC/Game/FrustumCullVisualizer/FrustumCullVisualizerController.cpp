@@ -20,28 +20,28 @@
 //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer
 #include <GL/glew.h>
 
-void renderFrustumSceneDebug(const Box<>&sceneBounds, const glm::vec3& chunkDimensions, const glm::uvec3& chunkNumber) {
+void renderSceneDebug(const GridVolume3D<>& gridVolume) {
     //render cells, including some outside of the scene
-    glColor4f(1.0f, 1.0f, 1.0f, 0.15f);
+    glColor4f(1.0f, 1.0f, 1.0f, 0.05f);
     glBegin(GL_LINES);
-    for (int z = -3; z <= (int)chunkNumber.z + 3; z++) {
-        for (int x = -3; x <= (int)chunkNumber.x + 3; x ++) {
-            glVertex3f(chunkDimensions.x * x, -chunkDimensions.y * 3, chunkDimensions.z * z);
-            glVertex3f(chunkDimensions.x * x, sceneBounds.m_max.y + chunkDimensions.y * 3, chunkDimensions.z * z);
+    for (int z = -3; z <= (int)gridVolume.getCellNumber().z + 3; z++) {
+        for (int x = -3; x <= (int)gridVolume.getCellNumber().x + 3; x ++) {
+            glVertex3f(gridVolume.getCellDimensions().x * x, -gridVolume.getCellDimensions().y * 3, gridVolume.getCellDimensions().z * z);
+            glVertex3f(gridVolume.getCellDimensions().x * x, gridVolume.getVolumeBounds().m_max.y + gridVolume.getCellDimensions().y * 3, gridVolume.getCellDimensions().z * z);
         }
     }
 
-    for (int z = -3; z <= (int)chunkNumber.z + 3; z++) {
-        for (int y = -3; y <= (int)chunkNumber.y + 3; y++) {
-            glVertex3f(-chunkDimensions.x * 3, chunkDimensions.y * y, chunkDimensions.z * z);
-            glVertex3f(sceneBounds.m_max.x + chunkDimensions.x * 3, chunkDimensions.y * y, chunkDimensions.z * z);
+    for (int z = -3; z <= (int)gridVolume.getCellNumber().z + 3; z++) {
+        for (int y = -3; y <= (int)gridVolume.getCellNumber().y + 3; y++) {
+            glVertex3f(-gridVolume.getCellDimensions().x * 3, gridVolume.getCellDimensions().y * y, gridVolume.getCellDimensions().z * z);
+            glVertex3f(gridVolume.getVolumeBounds().m_max.x + gridVolume.getCellDimensions().x * 3, gridVolume.getCellDimensions().y * y, gridVolume.getCellDimensions().z * z);
         }
     }
 
-    for (int x = -3; x <= (int)chunkNumber.x + 3; x++) {
-        for (int y = -3; y <= (int)chunkNumber.y + 3; y++) {
-            glVertex3f(chunkDimensions.x * x, chunkDimensions.y * y, -chunkDimensions.z * 3);
-            glVertex3f(chunkDimensions.x * x, chunkDimensions.y * y, sceneBounds.m_max.z + chunkDimensions.z * 3);
+    for (int x = -3; x <= (int)gridVolume.getCellNumber().x + 3; x++) {
+        for (int y = -3; y <= (int)gridVolume.getCellNumber().y + 3; y++) {
+            glVertex3f(gridVolume.getCellDimensions().x * x, gridVolume.getCellDimensions().y * y, -gridVolume.getCellDimensions().z * 3);
+            glVertex3f(gridVolume.getCellDimensions().x * x, gridVolume.getCellDimensions().y * y, gridVolume.getVolumeBounds().m_max.z + gridVolume.getCellDimensions().z * 3);
         }
     }
     glEnd();
@@ -51,36 +51,67 @@ void renderFrustumSceneDebug(const Box<>&sceneBounds, const glm::vec3& chunkDime
 
     //near
     glBegin(GL_LINE_LOOP);      
-    glVertex3f(sceneBounds.m_min.x, sceneBounds.m_min.y, sceneBounds.m_min.z);
-    glVertex3f(sceneBounds.m_max.x, sceneBounds.m_min.y, sceneBounds.m_min.z);
-    glVertex3f(sceneBounds.m_max.x, sceneBounds.m_max.y, sceneBounds.m_min.z);
-    glVertex3f(sceneBounds.m_min.x, sceneBounds.m_max.y, sceneBounds.m_min.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_min.x, gridVolume.getVolumeBounds().m_min.y, gridVolume.getVolumeBounds().m_min.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_max.x, gridVolume.getVolumeBounds().m_min.y, gridVolume.getVolumeBounds().m_min.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_max.x, gridVolume.getVolumeBounds().m_max.y, gridVolume.getVolumeBounds().m_min.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_min.x, gridVolume.getVolumeBounds().m_max.y, gridVolume.getVolumeBounds().m_min.z);
     glEnd();
 
     //far
     glBegin(GL_LINE_LOOP);      
-    glVertex3f(sceneBounds.m_min.x, sceneBounds.m_min.y, sceneBounds.m_max.z);
-    glVertex3f(sceneBounds.m_max.x, sceneBounds.m_min.y, sceneBounds.m_max.z);
-    glVertex3f(sceneBounds.m_max.x, sceneBounds.m_max.y, sceneBounds.m_max.z);
-    glVertex3f(sceneBounds.m_min.x, sceneBounds.m_max.y, sceneBounds.m_max.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_min.x, gridVolume.getVolumeBounds().m_min.y, gridVolume.getVolumeBounds().m_max.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_max.x, gridVolume.getVolumeBounds().m_min.y, gridVolume.getVolumeBounds().m_max.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_max.x, gridVolume.getVolumeBounds().m_max.y, gridVolume.getVolumeBounds().m_max.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_min.x, gridVolume.getVolumeBounds().m_max.y, gridVolume.getVolumeBounds().m_max.z);
     glEnd();
 
     //connect
     glBegin(GL_LINES);      
-    glVertex3f(sceneBounds.m_min.x, sceneBounds.m_min.y, sceneBounds.m_min.z);
-    glVertex3f(sceneBounds.m_min.x, sceneBounds.m_min.y, sceneBounds.m_max.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_min.x, gridVolume.getVolumeBounds().m_min.y, gridVolume.getVolumeBounds().m_min.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_min.x, gridVolume.getVolumeBounds().m_min.y, gridVolume.getVolumeBounds().m_max.z);
 
-    glVertex3f(sceneBounds.m_max.x, sceneBounds.m_min.y, sceneBounds.m_min.z);
-    glVertex3f(sceneBounds.m_max.x, sceneBounds.m_min.y, sceneBounds.m_max.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_max.x, gridVolume.getVolumeBounds().m_min.y, gridVolume.getVolumeBounds().m_min.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_max.x, gridVolume.getVolumeBounds().m_min.y, gridVolume.getVolumeBounds().m_max.z);
 
-    glVertex3f(sceneBounds.m_max.x, sceneBounds.m_max.y, sceneBounds.m_min.z);
-    glVertex3f(sceneBounds.m_max.x, sceneBounds.m_max.y, sceneBounds.m_max.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_max.x, gridVolume.getVolumeBounds().m_max.y, gridVolume.getVolumeBounds().m_min.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_max.x, gridVolume.getVolumeBounds().m_max.y, gridVolume.getVolumeBounds().m_max.z);
 
-    glVertex3f(sceneBounds.m_min.x, sceneBounds.m_max.y, sceneBounds.m_min.z);
-    glVertex3f(sceneBounds.m_min.x, sceneBounds.m_max.y, sceneBounds.m_max.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_min.x, gridVolume.getVolumeBounds().m_max.y, gridVolume.getVolumeBounds().m_min.z);
+    glVertex3f(gridVolume.getVolumeBounds().m_min.x, gridVolume.getVolumeBounds().m_max.y, gridVolume.getVolumeBounds().m_max.z);
+    glEnd();
+}
+
+void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList) {
+    glPointSize(5.0f);
+    
+    //unclipped
+
+    //all the points
+    glPointSize(5.0f);
+
+    glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
+
+    glBegin(GL_POINTS);
+
+    for(size_t point = 0; point < edgeList.m_points.size(); point++) {
+        glVertex3fv(glm::value_ptr(edgeList.m_points[point]));
+    }
+
     glEnd();
 
-    glDisable(GL_BLEND);
+    //all the lines
+    glLineWidth(1.0f);
+
+    glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+
+    glBegin(GL_LINES);
+
+    for(size_t edge = 0; edge < edgeList.m_edges.size(); edge++) {
+        glVertex3fv(glm::value_ptr(edgeList.m_points[edgeList.m_edges[edge].m_point[0]]));
+        glVertex3fv(glm::value_ptr(edgeList.m_points[edgeList.m_edges[edge].m_point[1]]));
+    }
+
+    glEnd();
 }
 
 namespace Demo {
@@ -168,21 +199,30 @@ void FrustumCullVisualizerController::render() {
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(0.0f, 0.0f, 5.0f);
     glEnd();
-    
-    //debug draw the frustum iterators
-    //renderSceneDebug(Box<>(glm::vec3(3.0f * -20.0f), glm::vec3(3.0f * 20.0f - 0.1f)), glm::vec3(20.0f), glm::uvec3(6));
-
-    /*if(m_testFrustumIter) {
-        renderFrustumIterDebug(m_testFrustumIter->m_debugger, m_mapToWorld, m_camera, m_fontShader, m_debugFont);
-    }*/
-    
+        
     {
         GridVolume3D<> tempGrid(glm::vec3(50.0f), glm::uvec3(80));
+
+        //debug draw the frustum iterators
+        //renderSceneDebug(tempGrid);
 
         MeshEdgeList<> meshEdgeList = m_hold 
             ? m_testFrustumCamera.getViewFrustum().getMeshEdgeList() 
             : m_camera.getViewFrustum().getMeshEdgeList();
     
+        MeshEdgeList<> meshEdgeListRenderCopy = meshEdgeList;
+
+        //clip the mesh against the bounds
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), -tempGrid.getVolumeBounds().m_min.x));
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), -tempGrid.getVolumeBounds().m_min.y));
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), -tempGrid.getVolumeBounds().m_min.z));
+
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), tempGrid.getVolumeBounds().m_max.x));
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), tempGrid.getVolumeBounds().m_max.y));
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), tempGrid.getVolumeBounds().m_max.z));
+
+        renderMeshEdgeListDebug(meshEdgeListRenderCopy);
+
         ConvexMeshIterator<> meshIterator = tempGrid.meshIteratorForMesh(&meshEdgeList, m_hold ? m_testFrustumCamera.getViewFrustum().m_direction : m_camera.getViewFrustum().m_direction);
         
         glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
@@ -191,21 +231,21 @@ void FrustumCullVisualizerController::render() {
         glBegin(GL_POINTS);
 
         while(!meshIterator.atEnd()) {
-            glVertex3fv(glm::value_ptr(vec3cast<unsigned int, glm::mediump_float>(meshIterator.getCurrentPosition()) * glm::vec3(50.0f)));
+            glVertex3fv(glm::value_ptr(vec3cast<unsigned int, glm::mediump_float>(meshIterator.getCurrentPosition()) * tempGrid.getCellDimensions()));
 
             meshIterator.forward();
         }
-    }
 
-    glEnd();
-    
+        glEnd();
+    }
+        
     //////////////
     //top down view
     glViewport(0, 0, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y / 2);
 
     illGraphics::Camera topCamera;
-    topCamera.setOrthoTransform(createTransform(glm::vec3(0.0f, 6000.0f, 0.0f), directionToMat3(glm::vec3(0.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f))),
-        -2000.0f, 2000.0f, -2000.0f * m_engine->m_window->getAspectRatio() * 0.5f, 2000.0f * m_engine->m_window->getAspectRatio() * 0.5f, 0.0f, 12000.0f);
+    topCamera.setOrthoTransform(createTransform(glm::vec3(2000.0f, 6000.0f, 2000.0f), directionToMat3(glm::vec3(0.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f))),
+        -2000.0f * m_engine->m_window->getAspectRatio() * 2.0f, 2000.0f * m_engine->m_window->getAspectRatio() * 2.0f, -2000.0f, 2000.0f, 0.0f, 12000.0f);
 
     glMatrixMode(GL_PROJECTION);
     glLoadMatrixf(glm::value_ptr(topCamera.getProjection()));
@@ -216,22 +256,39 @@ void FrustumCullVisualizerController::render() {
     {
         GridVolume3D<> tempGrid(glm::vec3(50.0f), glm::uvec3(80));
 
+        renderSceneDebug(tempGrid);
+
         MeshEdgeList<> meshEdgeList = m_hold 
             ? m_testFrustumCamera.getViewFrustum().getMeshEdgeList() 
             : m_camera.getViewFrustum().getMeshEdgeList();
     
+        MeshEdgeList<> meshEdgeListRenderCopy = meshEdgeList;
+
+        //clip the mesh against the bounds
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), -tempGrid.getVolumeBounds().m_min.x));
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), -tempGrid.getVolumeBounds().m_min.y));
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), -tempGrid.getVolumeBounds().m_min.z));
+
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), tempGrid.getVolumeBounds().m_max.x));
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), tempGrid.getVolumeBounds().m_max.y));
+        meshEdgeListRenderCopy.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), tempGrid.getVolumeBounds().m_max.z));
+
+        renderMeshEdgeListDebug(meshEdgeListRenderCopy);
+
         ConvexMeshIterator<> meshIterator = tempGrid.meshIteratorForMesh(&meshEdgeList, m_hold ? m_testFrustumCamera.getViewFrustum().m_direction : m_camera.getViewFrustum().m_direction);
-        
+                
         glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
         glPointSize(5.0f);
 
         glBegin(GL_POINTS);
 
         while(!meshIterator.atEnd()) {
-            glVertex3fv(glm::value_ptr(vec3cast<unsigned int, glm::mediump_float>(meshIterator.getCurrentPosition()) * glm::vec3(50.0f)));
+            glVertex3fv(glm::value_ptr(vec3cast<unsigned int, glm::mediump_float>(meshIterator.getCurrentPosition()) * tempGrid.getCellDimensions()));
 
             meshIterator.forward();
         }
+
+        glEnd();
     }
 
     glDepthMask(GL_TRUE);
