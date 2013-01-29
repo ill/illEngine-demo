@@ -102,9 +102,9 @@ void setupTestFrustumIterator(ConvexMeshIterator<>& convexMeshIterator, const il
     meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 2000.0f));
     meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 2000.0f));
 
-    meshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 1999.9999f));
-    meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 1999.9999f));
-    meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 1999.9999f));
+    meshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 1999.99f));
+    meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 1999.99f));
+    meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 1999.99f));
     
     if(!meshEdgeList.m_points.empty()) {
         meshEdgeList.computeBounds();
@@ -163,7 +163,7 @@ void FrustumCullVisualizerController::updateSound(float seconds) {
  
 void FrustumCullVisualizerController::render() {
     m_cameraTransform.m_transform = m_cameraController.m_transform;
-    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 1000.0f, m_cameraController.m_orthoMode);
+    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom);//, illGraphics::DEFAULT_NEAR, 1000.0f, m_cameraController.m_orthoMode);
     
     //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer   
 
