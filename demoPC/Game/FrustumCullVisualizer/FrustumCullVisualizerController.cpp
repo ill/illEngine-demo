@@ -15,6 +15,8 @@
 #include "illEngine/GlCommon/glLogging.h"
 #include "illEngine/GlCommon/serial/glUtil.h"
 
+#include "illEngine/Util/Geometry/GridVolume3D.h"
+
 //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer
 #include <GL/glew.h>
 
@@ -81,50 +83,6 @@ void renderFrustumSceneDebug(const Box<>&sceneBounds, const glm::vec3& chunkDime
     glDisable(GL_BLEND);
 }
 
-void setupTestFrustumIterator(ConvexMeshIterator<>& convexMeshIterator, const illGraphics::Camera& camera, MeshEdgeList<>& meshEdgeList) {
-    //set up test mesh edge list
-    meshEdgeList.clear();
-
-    //the edges
-    for(unsigned int edge = 0; edge < 12; edge++) {
-        meshEdgeList.m_edges.push_back(MeshEdgeList<>::Edge(FRUSTUM_EDGE_LIST[edge][0], FRUSTUM_EDGE_LIST[edge][1]));
-    }
-
-    //the points
-    for(unsigned int point = 0; point < 8; point++) {
-        meshEdgeList.m_points.push_back(camera.getViewFrustum().m_points[point]);
-    }
-
-    meshEdgeList.computePointEdgeMap();
-    
-    //clip the mesh edge list against some planes
-    meshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), 2000.0f));
-    meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 2000.0f));
-    meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 2000.0f));
-
-    meshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 1999.99f));
-    meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 1999.99f));
-    meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 1999.99f));
-    
-    if(!meshEdgeList.m_points.empty()) {
-        meshEdgeList.computeBounds();
-
-        //get intersection of frustum and bounds
-        Box<int> iterBounds(glm::ivec3(-40), glm::ivec3(40));
-        Box<int> frustumGrid(meshEdgeList.m_bounds.grid<int>(glm::vec3(50.0f)));
-
-        if(iterBounds.intersects(frustumGrid)) {
-            iterBounds.constrain(frustumGrid);
-
-            //create a copy of the clipped mesh
-            convexMeshIterator.initialize(&meshEdgeList, 
-                camera.getViewFrustum().m_direction, 
-                frustumGrid,
-                glm::vec3(50.0f));
-        }
-    }
-}
-
 namespace Demo {
     
 FrustumCullVisualizerController::FrustumCullVisualizerController(Engine * engine)
@@ -163,7 +121,8 @@ void FrustumCullVisualizerController::updateSound(float seconds) {
  
 void FrustumCullVisualizerController::render() {
     //render top portion
-    m_camera.setPerspectiveTransform(m_cameraController.m_transform, m_engine->m_window->getAspectRatio() * 0.5f, illGraphics::DEFAULT_FOV * m_cameraController.m_zoom);
+    m_camera.setPerspectiveTransform(m_cameraController.m_transform, m_engine->m_window->getAspectRatio() * 2.0f, illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR,
+        m_hold ? 5000 : illGraphics::DEFAULT_FAR);
     
     glViewport(0, m_engine->m_window->getResolution().y / 2, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y / 2);
 
@@ -217,31 +176,36 @@ void FrustumCullVisualizerController::render() {
         renderFrustumIterDebug(m_testFrustumIter->m_debugger, m_mapToWorld, m_camera, m_fontShader, m_debugFont);
     }*/
     
-    ConvexMeshIterator<> meshIterator;
-    MeshEdgeList<> meshEdgeList;
-        
-    setupTestFrustumIterator(meshIterator, m_hold ? m_testFrustumCamera : m_camera, meshEdgeList);
+    {
+        GridVolume3D<> tempGrid(glm::vec3(50.0f), glm::uvec3(80));
+
+        MeshEdgeList<> meshEdgeList = m_hold 
+            ? m_testFrustumCamera.getViewFrustum().getMeshEdgeList() 
+            : m_camera.getViewFrustum().getMeshEdgeList();
     
-    glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
-    glPointSize(5.0f);
+        ConvexMeshIterator<> meshIterator = tempGrid.meshIteratorForMesh(&meshEdgeList, m_hold ? m_testFrustumCamera.getViewFrustum().m_direction : m_camera.getViewFrustum().m_direction);
+        
+        glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
+        glPointSize(5.0f);
 
-    glBegin(GL_POINTS);
+        glBegin(GL_POINTS);
 
-    while(!meshIterator.atEnd()) {
-        glVertex3fv(glm::value_ptr(vec3cast<int, glm::mediump_float>(meshIterator.getCurrentPosition()) * glm::vec3(50.0f)));
+        while(!meshIterator.atEnd()) {
+            glVertex3fv(glm::value_ptr(vec3cast<unsigned int, glm::mediump_float>(meshIterator.getCurrentPosition()) * glm::vec3(50.0f)));
 
-        meshIterator.forward();
+            meshIterator.forward();
+        }
     }
 
     glEnd();
-
+    
     //////////////
     //top down view
     glViewport(0, 0, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y / 2);
 
     illGraphics::Camera topCamera;
-    topCamera.setOrthoTransform(createTransform(glm::vec3(0.0f, 2000.0f, 0.0f), directionToMat3(glm::vec3(0.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f))),
-        -2000.0f * m_engine->m_window->getAspectRatio() * 0.5f, 2000.0f * m_engine->m_window->getAspectRatio() * 0.5f, -2000.0f, 2000.0f, 0.0f, 4000.0f);
+    topCamera.setOrthoTransform(createTransform(glm::vec3(0.0f, 6000.0f, 0.0f), directionToMat3(glm::vec3(0.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f))),
+        -2000.0f, 2000.0f, -2000.0f * m_engine->m_window->getAspectRatio() * 0.5f, 2000.0f * m_engine->m_window->getAspectRatio() * 0.5f, 0.0f, 12000.0f);
 
     glMatrixMode(GL_PROJECTION);
     glLoadMatrixf(glm::value_ptr(topCamera.getProjection()));
@@ -249,18 +213,26 @@ void FrustumCullVisualizerController::render() {
     glMatrixMode(GL_MODELVIEW);
     glLoadMatrixf(glm::value_ptr(topCamera.getModelView()));
 
-    glBegin(GL_POINTS);
+    {
+        GridVolume3D<> tempGrid(glm::vec3(50.0f), glm::uvec3(80));
 
-    //heh just render it again
-    setupTestFrustumIterator(meshIterator, m_hold ? m_testFrustumCamera : m_camera, meshEdgeList);
+        MeshEdgeList<> meshEdgeList = m_hold 
+            ? m_testFrustumCamera.getViewFrustum().getMeshEdgeList() 
+            : m_camera.getViewFrustum().getMeshEdgeList();
+    
+        ConvexMeshIterator<> meshIterator = tempGrid.meshIteratorForMesh(&meshEdgeList, m_hold ? m_testFrustumCamera.getViewFrustum().m_direction : m_camera.getViewFrustum().m_direction);
+        
+        glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
+        glPointSize(5.0f);
 
-    while(!meshIterator.atEnd()) {
-        glVertex3fv(glm::value_ptr(vec3cast<int, glm::mediump_float>(meshIterator.getCurrentPosition()) * glm::vec3(50.0f)));
+        glBegin(GL_POINTS);
 
-        meshIterator.forward();
+        while(!meshIterator.atEnd()) {
+            glVertex3fv(glm::value_ptr(vec3cast<unsigned int, glm::mediump_float>(meshIterator.getCurrentPosition()) * glm::vec3(50.0f)));
+
+            meshIterator.forward();
+        }
     }
-
-    glEnd();
 
     glDepthMask(GL_TRUE);
 

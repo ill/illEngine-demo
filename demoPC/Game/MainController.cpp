@@ -42,7 +42,7 @@ MainController::MainController(Engine * engine)
 
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_inputContext);
 
-    startSkeletalAnimationDemo();
+    startFrustumCullVisualizer();
 }
 
 /*void MainController::startMainMenu() {
