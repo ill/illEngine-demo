@@ -4,6 +4,9 @@
 #include <cstdlib>
 #include "../GameControllerBase.h"
 
+#include "illEngine/Input/serial/InputContext.h"
+#include "illEngine/Input/serial/InputListenerState.h"
+
 namespace Demo {
 
 struct Engine;
@@ -15,13 +18,7 @@ public:
         APPST_SINGLE_PLAYER
     };
 
-    MainController(Engine * engine)
-        : GameControllerBase(),
-        m_engine(engine),
-        m_subGame(NULL)
-    {
-        startMainMenu();
-    }
+    MainController(Engine * engine);
 
     ~MainController() {
         delete m_subGame;
@@ -39,15 +36,37 @@ public:
         m_subGame->render();
     }
 
-    void startMainMenu();
-    void startSinglePlayer();
+    void startFrustumIterVisualizer();
+    void startSkeletalAnimationDemo();
 
 private:
-    inline void setSubGame(GameControllerBase * subGame) {
-        delete m_subGame;
+    inline void setSubGame(GameControllerBase * subGame) {        
         m_subGame = subGame;
         update(1.0f);
     }
+
+    struct SetGame : public Input::InputListenerState::InputCallback {
+        SetGame()
+            : Input::InputListenerState::InputCallback()
+        {}
+
+        virtual ~SetGame() {}
+
+        void onRelease() {
+            (m_controller->*m_startFunc)();
+        }
+
+        void (MainController::*m_startFunc)();
+        MainController * m_controller;
+    };
+
+    Input::InputContext m_inputContext;
+
+    Input::InputListenerState m_startFrustumIterVisualizerState;
+    Input::InputListenerState m_startSkeletalAnimationDemoState;
+
+    SetGame m_startFrustumIterVisualizerCallback;
+    SetGame m_startSkeletalAnimationDemoCallback;
 
     Engine * m_engine;
     State m_state;

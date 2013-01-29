@@ -162,7 +162,8 @@
     <ClCompile Include="demoPC\FixedStepController.cpp" />
     <ClCompile Include="demoPC\Game\CameraController.cpp" />
     <ClCompile Include="demoPC\Game\MainController.cpp" />
-    <ClCompile Include="demoPC\Game\MainMenu\MainMenuController.cpp" />
+    <ClCompile Include="demoPC\Game\FrustumIterVisualizer\FrustumIterVisualizerController.cpp" />
+    <ClCompile Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.cpp" />
     <ClCompile Include="demoPC\main.cpp" />
     <ClCompile Include="illEngine\Console\serial\consoleConsole.cpp" />
     <ClCompile Include="illEngine\Console\serial\DeveloperConsole.cpp" />
@@ -200,7 +201,8 @@
     <ClInclude Include="demoPC\GameControllerBase.h" />
     <ClInclude Include="demoPC\Game\CameraController.h" />
     <ClInclude Include="demoPC\Game\MainController.h" />
-    <ClInclude Include="demoPC\Game\MainMenu\MainMenuController.h" />
+    <ClInclude Include="demoPC\Game\FrustumIterVisualizer\FrustumIterVisualizerController.h" />
+    <ClInclude Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.h" />
     <ClInclude Include="illEngine\Console\serial\consoleConsole.h" />
     <ClInclude Include="illEngine\Console\serial\ConsoleVariable.h" />
     <ClInclude Include="illEngine\Console\serial\DeveloperConsole.h" />

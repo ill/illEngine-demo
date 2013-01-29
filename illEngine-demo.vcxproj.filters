@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="demoPC\Game\MainMenu\MainMenuController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="demoPC\Game\CameraController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -117,11 +114,14 @@
     <ClCompile Include="illEngine\Tests\testSortDimensions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="demoPC\Game\FrustumIterVisualizer\FrustumIterVisualizerController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="demoPC\Game\MainMenu\MainMenuController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="demoPC\Game\CameraController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -381,6 +381,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Util\Geometry\Ray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="demoPC\Game\FrustumIterVisualizer\FrustumIterVisualizerController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
