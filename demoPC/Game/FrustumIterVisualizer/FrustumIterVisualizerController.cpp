@@ -1748,7 +1748,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
     m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 499.999f));
     
     if(!m_testMeshEdgeList.m_points.empty()) {
-        m_testMeshEdgeList.computeBounds();
+        m_testMeshEdgeList.computeBounds(Box<>(glm::vec3(-500.0f), glm::vec3(499.999f)));
 
         //get intersection of frustum and bounds
         Box<int> iterBounds(glm::ivec3(-10), glm::ivec3(10));
