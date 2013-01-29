@@ -293,6 +293,9 @@ void FrustumCullVisualizerController::render() {
 
     glDepthMask(GL_TRUE);
 
+    //put viewport back
+    glViewport(0, 0, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y);
+
     ERROR_CHECK_OPENGL;
 }
 
