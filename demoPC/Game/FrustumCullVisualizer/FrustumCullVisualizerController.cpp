@@ -163,7 +163,7 @@ void FrustumCullVisualizerController::updateSound(float seconds) {
  
 void FrustumCullVisualizerController::render() {
     m_cameraTransform.m_transform = m_cameraController.m_transform;
-    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 300.0f, m_cameraController.m_orthoMode);
+    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 1000.0f, m_cameraController.m_orthoMode);
     
     //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer   
 
@@ -217,9 +217,9 @@ void FrustumCullVisualizerController::render() {
     
     ConvexMeshIterator<> meshIterator;
     MeshEdgeList<> meshEdgeList;
-
-    setupTestFrustumIterator(meshIterator, m_camera, meshEdgeList);
-
+        
+    setupTestFrustumIterator(meshIterator, m_hold ? m_testFrustumCamera : m_camera, meshEdgeList);
+    
     glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
     glPointSize(5.0f);
 

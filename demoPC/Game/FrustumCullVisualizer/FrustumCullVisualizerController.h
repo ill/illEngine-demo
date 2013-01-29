@@ -40,7 +40,13 @@ private:
         {}
 
         void onRelease() {
-            m_controller->m_hold = !m_controller->m_hold;
+            if(!m_controller->m_hold) {
+                m_controller->m_hold = true;
+                m_controller->m_testFrustumCamera = m_controller->m_camera; //preserve the camera
+            }
+            else {
+                m_controller->m_hold = false;
+            }
         }
 
         FrustumCullVisualizerController * m_controller;
