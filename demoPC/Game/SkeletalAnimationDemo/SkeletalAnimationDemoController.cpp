@@ -590,8 +590,7 @@ void SkeletalAnimationDemoController::updateSound(float seconds) {
 }
  
 void SkeletalAnimationDemoController::render() {
-    m_cameraTransform.m_transform = m_cameraController.m_transform;
-    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 2000.0f, m_cameraController.m_orthoMode);
+    m_camera.setPerspectiveTransform(m_cameraController.m_transform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 2000.0f);
     
     m_marineController.computeAnimPose();
 

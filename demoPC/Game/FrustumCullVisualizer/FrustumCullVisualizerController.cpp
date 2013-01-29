@@ -162,9 +162,11 @@ void FrustumCullVisualizerController::updateSound(float seconds) {
 }
  
 void FrustumCullVisualizerController::render() {
-    m_cameraTransform.m_transform = m_cameraController.m_transform;
-    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom);//, illGraphics::DEFAULT_NEAR, 1000.0f, m_cameraController.m_orthoMode);
+    //render top portion
+    m_camera.setPerspectiveTransform(m_cameraController.m_transform, m_engine->m_window->getAspectRatio() * 0.5f, illGraphics::DEFAULT_FOV * m_cameraController.m_zoom);
     
+    glViewport(0, m_engine->m_window->getResolution().y / 2, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y / 2);
+
     //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer   
 
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
@@ -224,6 +226,33 @@ void FrustumCullVisualizerController::render() {
     glPointSize(5.0f);
 
     glBegin(GL_POINTS);
+
+    while(!meshIterator.atEnd()) {
+        glVertex3fv(glm::value_ptr(vec3cast<int, glm::mediump_float>(meshIterator.getCurrentPosition()) * glm::vec3(50.0f)));
+
+        meshIterator.forward();
+    }
+
+    glEnd();
+
+    //////////////
+    //top down view
+    glViewport(0, 0, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y / 2);
+
+    illGraphics::Camera topCamera;
+    topCamera.setOrthoTransform(createTransform(glm::vec3(0.0f, 2000.0f, 0.0f), directionToMat3(glm::vec3(0.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f))),
+        -2000.0f * m_engine->m_window->getAspectRatio() * 0.5f, 2000.0f * m_engine->m_window->getAspectRatio() * 0.5f, -2000.0f, 2000.0f, 0.0f, 4000.0f);
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadMatrixf(glm::value_ptr(topCamera.getProjection()));
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadMatrixf(glm::value_ptr(topCamera.getModelView()));
+
+    glBegin(GL_POINTS);
+
+    //heh just render it again
+    setupTestFrustumIterator(meshIterator, m_hold ? m_testFrustumCamera : m_camera, meshEdgeList);
 
     while(!meshIterator.atEnd()) {
         glVertex3fv(glm::value_ptr(vec3cast<int, glm::mediump_float>(meshIterator.getCurrentPosition()) * glm::vec3(50.0f)));

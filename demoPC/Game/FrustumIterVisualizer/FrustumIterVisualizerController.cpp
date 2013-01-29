@@ -1777,7 +1777,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
 }
 
 void FrustumIterVisualizerController::ResetFrustumIterator::onRelease() {
-    m_controller->m_testFrustumCamera.setTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 50.0f, 300.0f);
+    m_controller->m_testFrustumCamera.setPerspectiveTransform(m_controller->m_camera.getTransform(), m_controller->m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV, 50.0f, 300.0f);
 
     m_controller->setupTestFrustumIterator();
 }
@@ -1894,8 +1894,7 @@ void FrustumIterVisualizerController::updateSound(float seconds) {
 }
  
 void FrustumIterVisualizerController::render() {
-    m_cameraTransform.m_transform = m_cameraController.m_transform;
-    m_camera.setTransform(m_cameraTransform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 2000.0f, m_cameraController.m_orthoMode);
+    m_camera.setPerspectiveTransform(m_cameraController.m_transform, m_engine->m_window->getAspectRatio(), illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 2000.0f);
     
     //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer   
 
