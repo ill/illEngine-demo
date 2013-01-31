@@ -123,6 +123,9 @@
     <ClCompile Include="demoPC\Game\FrustumCullVisualizer\FrustumCullVisualizerController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="illEngine\Graphics\serial\Scene\GraphicsScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demoPC\Game\CameraController.h">

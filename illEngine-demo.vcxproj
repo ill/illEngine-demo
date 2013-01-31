@@ -184,6 +184,7 @@
     <ClCompile Include="illEngine\Graphics\serial\Model\Skeleton.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Model\SkeletonAnimation.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\RendererFrontend.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Scene\GraphicsScene.cpp" />
     <ClCompile Include="illEngine\Input\serial\InputContext.cpp" />
     <ClCompile Include="illEngine\Input\serial\InputContextStack.cpp" />
     <ClCompile Include="illEngine\Input\serial\InputManager.cpp" />

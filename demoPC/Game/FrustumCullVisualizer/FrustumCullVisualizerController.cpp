@@ -133,6 +133,8 @@ FrustumCullVisualizerController::FrustumCullVisualizerController(Engine * engine
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_frustumInputContext);
 
+    m_cameraController.m_transform = createTransform(glm::vec3(5000.0f));
+
     m_cameraController.m_speed = 50.0f;
     m_cameraController.m_rollSpeed = 50.0f;
 }
@@ -153,7 +155,7 @@ void FrustumCullVisualizerController::updateSound(float seconds) {
 void FrustumCullVisualizerController::render() {
     //render top portion
     m_camera.setPerspectiveTransform(m_cameraController.m_transform, m_engine->m_window->getAspectRatio() * 2.0f, illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR,
-        m_hold ? 5000 : illGraphics::DEFAULT_FAR);
+        m_hold ? 5000 : 1500);
     
     glViewport(0, m_engine->m_window->getResolution().y / 2, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y / 2);
 
@@ -201,7 +203,7 @@ void FrustumCullVisualizerController::render() {
     glEnd();
         
     {
-        GridVolume3D<> tempGrid(glm::vec3(50.0f), glm::uvec3(80));
+        GridVolume3D<> tempGrid(glm::vec3(50.0f), glm::uvec3(10000));
 
         //debug draw the frustum iterators
         //renderSceneDebug(tempGrid);
@@ -226,7 +228,7 @@ void FrustumCullVisualizerController::render() {
         ConvexMeshIterator<> meshIterator = tempGrid.meshIteratorForMesh(&meshEdgeList, m_hold ? m_testFrustumCamera.getViewFrustum().m_direction : m_camera.getViewFrustum().m_direction);
         
         glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
-        glPointSize(5.0f);
+        glPointSize(1.0f);
 
         glBegin(GL_POINTS);
 
@@ -244,8 +246,8 @@ void FrustumCullVisualizerController::render() {
     glViewport(0, 0, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y / 2);
 
     illGraphics::Camera topCamera;
-    topCamera.setOrthoTransform(createTransform(glm::vec3(2000.0f, 6000.0f, 2000.0f), directionToMat3(glm::vec3(0.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f))),
-        -2000.0f * m_engine->m_window->getAspectRatio() * 2.0f, 2000.0f * m_engine->m_window->getAspectRatio() * 2.0f, -2000.0f, 2000.0f, 0.0f, 12000.0f);
+    topCamera.setOrthoTransform(createTransform(glm::vec3(5000.0f, 10000.0f, 5000.0f), directionToMat3(glm::vec3(0.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f))),
+        -5000.0f * m_engine->m_window->getAspectRatio() * 2.0f, 5000.0f * m_engine->m_window->getAspectRatio() * 2.0f, -5000.0f, 5000.0f, -20000.0f, 20000.0f);
 
     glMatrixMode(GL_PROJECTION);
     glLoadMatrixf(glm::value_ptr(topCamera.getProjection()));
@@ -254,9 +256,9 @@ void FrustumCullVisualizerController::render() {
     glLoadMatrixf(glm::value_ptr(topCamera.getModelView()));
 
     {
-        GridVolume3D<> tempGrid(glm::vec3(50.0f), glm::uvec3(80));
+        GridVolume3D<> tempGrid(glm::vec3(50.0f), glm::uvec3(10000));
 
-        renderSceneDebug(tempGrid);
+        //renderSceneDebug(tempGrid);
 
         MeshEdgeList<> meshEdgeList = m_hold 
             ? m_testFrustumCamera.getViewFrustum().getMeshEdgeList() 
@@ -278,7 +280,7 @@ void FrustumCullVisualizerController::render() {
         ConvexMeshIterator<> meshIterator = tempGrid.meshIteratorForMesh(&meshEdgeList, m_hold ? m_testFrustumCamera.getViewFrustum().m_direction : m_camera.getViewFrustum().m_direction);
                 
         glColor4f(1.0f, 1.0f, 1.0f, 0.1f);
-        glPointSize(5.0f);
+        glPointSize(1.0f);
 
         glBegin(GL_POINTS);
 
