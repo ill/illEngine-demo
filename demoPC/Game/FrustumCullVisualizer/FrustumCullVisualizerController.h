@@ -14,9 +14,7 @@
 #include "illEngine/Util/Geometry/ConvexMeshIterator.h"
 
 #include "illEngine/Input/serial/InputContext.h"
-#include "illEngine/Input/serial/InputListenerState.h"
-#include "illEngine/Input/serial/InputListenerRange.h"
-#include "illEngine/Input/serial/InputBinding.h"
+#include "illEngine/Input/serial/Listeners/StateListener.h"
 #include "illEngine/Pc/serial/sdlInputEnum.h"
 
 namespace Demo {
@@ -34,9 +32,9 @@ public:
 private:
     void setupFrustumIterator();
     
-    struct HoldFrustumIterator : public Input::InputListenerState::InputCallback {
+    struct HoldFrustumIterator : public illInput::StateListener {
         HoldFrustumIterator()
-            : Input::InputListenerState::InputCallback()
+            : illInput::StateListener()
         {}
 
         void onRelease() {
@@ -65,12 +63,10 @@ private:
     //unsigned int m_planeIndex;
 
     HoldFrustumIterator m_holdFrustumIteratorCallback;
-    
-    Input::InputListenerState m_holdFrustumIterator;
 
     bool m_hold;
 
-    Input::InputContext m_frustumInputContext;    
+    illInput::InputContext m_frustumInputContext;    
 };
 }
 

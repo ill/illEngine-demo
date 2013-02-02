@@ -5,7 +5,7 @@
 #include "../GameControllerBase.h"
 
 #include "illEngine/Input/serial/InputContext.h"
-#include "illEngine/Input/serial/InputListenerState.h"
+#include "illEngine/Input/serial/Listeners/StateListener.h"
 
 namespace Demo {
 
@@ -39,6 +39,7 @@ public:
     void startSkeletalAnimationDemo();
     void startFrustumIterVisualizer();
     void startFrustumCullVisualizer();
+    void startRendererDemo();
 
 private:
     inline void setSubGame(GameControllerBase * subGame) {        
@@ -46,9 +47,9 @@ private:
         update(1.0f);
     }
 
-    struct SetGame : public Input::InputListenerState::InputCallback {
+    struct SetGame : public illInput::StateListener {
         SetGame()
-            : Input::InputListenerState::InputCallback()
+            : illInput::StateListener()
         {}
 
         virtual ~SetGame() {}
@@ -61,15 +62,12 @@ private:
         MainController * m_controller;
     };
 
-    Input::InputContext m_inputContext;
-
-    Input::InputListenerState m_startSkeletalAnimationDemoState;    
-    Input::InputListenerState m_startFrustumIterVisualizerState;
-    Input::InputListenerState m_startFrustumCullVisualizerState;
-
-    SetGame m_startSkeletalAnimationDemoCallback;    
-    SetGame m_startFrustumIterVisualizerCallback;
-    SetGame m_startFrustumCullVisualizerCallback;
+    illInput::InputContext m_inputContext;
+    
+    SetGame m_startSkeletalAnimationDemoListener;    
+    SetGame m_startFrustumIterVisualizerListener;
+    SetGame m_startFrustumCullVisualizerListener;
+    SetGame m_startRendererDemoListener;
 
     Engine * m_engine;
     State m_state;

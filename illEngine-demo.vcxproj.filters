@@ -126,6 +126,9 @@
     <ClCompile Include="illEngine\Graphics\serial\Scene\GraphicsScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="demoPC\Game\RendererDemo\RendererDemoController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demoPC\Game\CameraController.h">
@@ -287,9 +290,6 @@
     <ClInclude Include="illEngine\Graphics\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\Input\serial\inputAxisEnum.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="illEngine\Input\serial\InputBinding.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -297,15 +297,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Input\serial\InputContextStack.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="illEngine\Input\serial\InputListenerBase.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="illEngine\Input\serial\InputListenerRange.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="illEngine\Input\serial\InputListenerState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Input\serial\InputManager.h">
@@ -393,6 +384,42 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="demoPC\Game\FrustumCullVisualizer\FrustumCullVisualizerController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="demoPC\Game\RendererDemo\RendererDemoController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\CopiedData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Input\serial\Listeners\ListenerBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Input\serial\Listeners\StateListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Input\serial\Listeners\RangeListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Input\serial\Listeners\ValueListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Input\serial\Listeners\StateSetListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Input\serial\Listeners\StatePressToggleListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Input\serial\Listeners\StateReleaseToggleListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Input\serial\Listeners\RangeSetListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Input\serial\Listeners\ValueSetListener.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Input\serial\inputEnum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

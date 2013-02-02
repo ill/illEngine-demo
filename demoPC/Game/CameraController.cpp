@@ -17,7 +17,6 @@ CameraController::CameraController()
     m_sprint(false),
 
     m_lookMode(true),
-    m_orthoMode(false),
 
     m_zoom(1.0f)
 {
@@ -25,64 +24,41 @@ CameraController::CameraController()
     m_horzLookListener.m_controller = this;
     m_vertLookListener.m_controller = this;
 
-    m_forwardListener.m_state = &m_forward;
-    m_backListener.m_state = &m_back;
-    m_leftListener.m_state = &m_left;
-    m_rightListener.m_state = &m_right;
-    m_upListener.m_state = &m_up;
-    m_downListener.m_state = &m_down;
-    m_rollLeftListener.m_state = &m_rollLeft;
-    m_rollRightListener.m_state = &m_rollRight;
-    m_sprintListener.m_state = &m_sprint;
+    m_forwardListener.m_value = &m_forward;
+    m_backListener.m_value = &m_back;
+    m_leftListener.m_value = &m_left;
+    m_rightListener.m_value = &m_right;
+    m_upListener.m_value = &m_up;
+    m_downListener.m_value = &m_down;
+    m_rollLeftListener.m_value = &m_rollLeft;
+    m_rollRightListener.m_value = &m_rollRight;
+    m_sprintListener.m_value = &m_sprint;
 
     m_lookModeListener.m_controller = this;
-    m_orthoModeListener.m_controller = this;
 
     m_zoomInListener.m_zoom = &m_zoom;
     m_zoomOutListener.m_zoom = &m_zoom;
     m_zoomDefaultListener.m_zoom = &m_zoom;
-
-    //init inputs
-    m_horzLookInput.m_inputCallback = &m_horzLookListener;
-    m_vertLookInput.m_inputCallback = &m_vertLookListener;
-
-    m_forwardInput.m_inputCallback = &m_forwardListener;
-    m_backInput.m_inputCallback = &m_backListener;
-    m_leftInput.m_inputCallback = &m_leftListener;
-    m_rightInput.m_inputCallback = &m_rightListener;
-    m_upInput.m_inputCallback = &m_upListener;
-    m_downInput.m_inputCallback = &m_downListener;
-    m_rollLeftInput.m_inputCallback = &m_rollLeftListener;
-    m_rollRightInput.m_inputCallback = &m_rollRightListener;
-    m_sprintInput.m_inputCallback = &m_sprintListener;
-
-    m_lookModeInput.m_inputCallback = &m_lookModeListener;
-    m_orthoModeInput.m_inputCallback = &m_orthoModeListener;
-
-    m_zoomInInput.m_inputCallback = &m_zoomInListener;
-    m_zoomOutInput.m_inputCallback = &m_zoomOutListener;
-    m_zoomDefaultInput.m_inputCallback = &m_zoomDefaultListener;
-
+    
     //TODO: this should normally be configured externally
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_MOUSE, Input::AX_X), &m_horzLookInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_MOUSE, Input::AX_Y), &m_vertLookInput);   
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_MOUSE, illInput::AX_X), &m_horzLookListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_MOUSE, illInput::AX_Y), &m_vertLookListener);   
 
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_w), &m_forwardInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_s), &m_backInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_a), &m_leftInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_d), &m_rightInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_SPACE), &m_upInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LCTRL), &m_downInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_q), &m_rollLeftInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_e), &m_rollRightInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LSHIFT), &m_sprintInput);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_w), &m_forwardListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_s), &m_backListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_a), &m_leftListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_d), &m_rightListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_SPACE), &m_upListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LCTRL), &m_downListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_q), &m_rollLeftListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_e), &m_rollRightListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LSHIFT), &m_sprintListener);
 
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_r), &m_lookModeInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_t), &m_orthoModeInput);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_r), &m_lookModeListener);
 
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_MOUSE_WHEEL, Input::AX_Y_POS), &m_zoomInInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_MOUSE_WHEEL, Input::AX_Y_NEG), &m_zoomOutInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_MOUSE_BUTTON, 2), &m_zoomDefaultInput);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_MOUSE_WHEEL, illInput::AX_Y_POS), &m_zoomInListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_MOUSE_WHEEL, illInput::AX_Y_NEG), &m_zoomOutListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_MOUSE_BUTTON, 2), &m_zoomDefaultListener);
 }
 
 void CameraController::update(double seconds) {

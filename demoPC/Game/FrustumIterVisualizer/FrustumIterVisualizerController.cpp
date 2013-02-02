@@ -1834,26 +1834,19 @@ FrustumIterVisualizerController::FrustumIterVisualizerController(Engine * engine
     }
 
     //initialize the input (this would normally initialize using console variables)    
-    m_advanceFrustumIteratorCallback.m_controller = this;
-    m_advanceFrustumIteratorHoldCallback.m_controller = this;
-    m_resetFrustumIteratorCallback.m_controller = this;
-    m_restartFrustumIteratorCallback.m_controller = this;
-    m_completeFrustumIteratorCallback.m_controller = this;
-    m_mapToWorldCallback.m_controller = this;
-
-    m_advanceFrustumIterator.m_inputCallback = &m_advanceFrustumIteratorCallback;
-    m_advanceFrustumIteratorHold.m_inputCallback = &m_advanceFrustumIteratorHoldCallback;
-    m_resetFrustumIterator.m_inputCallback = &m_resetFrustumIteratorCallback;
-    m_restartFrustumIterator.m_inputCallback = &m_restartFrustumIteratorCallback;
-    m_completeFrustumIterator.m_inputCallback = &m_completeFrustumIteratorCallback;
-    m_mapToWorldListener.m_inputCallback = &m_mapToWorldCallback;
+    m_advanceFrustumIteratorListener.m_controller = this;
+    m_advanceFrustumIteratorHoldListener.m_value = &m_advanceHold;
+    m_resetFrustumIteratorListener.m_controller = this;
+    m_restartFrustumIteratorListener.m_controller = this;
+    m_completeFrustumIteratorListener.m_controller = this;
+    m_mapToWorldListener.m_value = &m_mapToWorld;
     
-    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_RIGHT), &m_advanceFrustumIterator);
-    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_UP), &m_advanceFrustumIteratorHold);
-    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LEFT), &m_restartFrustumIterator);
-    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_DOWN), &m_resetFrustumIterator);
-    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_END), &m_completeFrustumIterator);
-    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_HOME), &m_mapToWorldListener);
+    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_RIGHT), &m_advanceFrustumIteratorListener);
+    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_UP), &m_advanceFrustumIteratorHoldListener);
+    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LEFT), &m_restartFrustumIteratorListener);
+    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_DOWN), &m_resetFrustumIteratorListener);
+    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_END), &m_completeFrustumIteratorListener);
+    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_HOME), &m_mapToWorldListener);
     
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_frustumInputContext);

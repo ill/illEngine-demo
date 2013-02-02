@@ -509,26 +509,19 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     }
     
     //initialize the input (this would normally initialize using console variables)
-    m_forwardListener.m_state = &m_forward;
-    m_backListener.m_state = &m_back;
-    m_leftListener.m_state = &m_left;
-    m_rightListener.m_state = &m_right;
-    m_upListener.m_state = &m_up;
-    m_downListener.m_state = &m_down;
+    m_forwardListener.m_value = &m_forward;
+    m_backListener.m_value = &m_back;
+    m_leftListener.m_value = &m_left;
+    m_rightListener.m_value = &m_right;
+    m_upListener.m_value = &m_up;
+    m_downListener.m_value = &m_down;
 
-    m_forwardInput.m_inputCallback = &m_forwardListener;
-    m_backInput.m_inputCallback = &m_backListener;
-    m_leftInput.m_inputCallback = &m_leftListener;
-    m_rightInput.m_inputCallback = &m_rightListener;
-    m_upInput.m_inputCallback = &m_upListener;
-    m_downInput.m_inputCallback = &m_downListener;
-
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_8), &m_forwardInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_5), &m_backInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_4), &m_leftInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_6), &m_rightInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_0), &m_upInput);
-    m_inputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_ENTER), &m_downInput);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_8), &m_forwardListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_5), &m_backListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_4), &m_leftListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_6), &m_rightListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_0), &m_upListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_ENTER), &m_downListener);
 
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_inputContext);

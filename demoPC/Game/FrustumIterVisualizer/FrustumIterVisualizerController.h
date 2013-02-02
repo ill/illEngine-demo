@@ -16,8 +16,8 @@
 #include "illEngine/Util/Geometry/MeshEdgeList.h"
 
 #include "illEngine/Input/serial/InputContext.h"
-#include "illEngine/Input/serial/InputListenerState.h"
-#include "illEngine/Input/serial/InputListenerRange.h"
+#include "illEngine/Input/serial/Listeners/StateListener.h"
+#include "illEngine/Input/serial/Listeners/StateReleaseToggleListener.h"
 #include "illEngine/Input/serial/InputBinding.h"
 #include "illEngine/Pc/serial/sdlInputEnum.h"
 
@@ -36,9 +36,9 @@ public:
 private:
     void setupTestFrustumIterator();
 
-    struct AdvanceFrustumIterator : public Input::InputListenerState::InputCallback {
+    struct AdvanceFrustumIterator : public illInput::StateListener {
         AdvanceFrustumIterator()
-            : Input::InputListenerState::InputCallback()
+            : illInput::StateListener()
         {}
 
         void onRelease() {
@@ -81,34 +81,10 @@ private:
 
         FrustumIterVisualizerController * m_controller;
     };
-
-    struct AdvanceFrustumIteratorHold : public Input::InputListenerState::InputCallback {
-        AdvanceFrustumIteratorHold()
-            : Input::InputListenerState::InputCallback()
-        {}
-
-        void onChange(bool value) {
-            m_controller->m_advanceHold = value;
-        }
-
-        FrustumIterVisualizerController * m_controller;
-    };
-
-    struct MapToWorld : public Input::InputListenerState::InputCallback {
-        MapToWorld()
-            : Input::InputListenerState::InputCallback()
-        {}
-
-        void onRelease() {
-            m_controller->m_mapToWorld = !m_controller->m_mapToWorld;
-        }
-
-        FrustumIterVisualizerController * m_controller;
-    };
-
-    struct ResetFrustumIterator : public Input::InputListenerState::InputCallback {
+    
+    struct ResetFrustumIterator : public illInput::StateListener {
         ResetFrustumIterator()
-            : Input::InputListenerState::InputCallback()
+            : illInput::StateListener()
         {}
 
         void onRelease();
@@ -116,9 +92,9 @@ private:
         FrustumIterVisualizerController * m_controller;
     };
 
-    struct RestartFrustumIterator : public Input::InputListenerState::InputCallback {
+    struct RestartFrustumIterator : public illInput::StateListener {
         RestartFrustumIterator()
-            : Input::InputListenerState::InputCallback()
+            : illInput::StateListener()
         {}
 
         void onRelease();
@@ -126,9 +102,9 @@ private:
         FrustumIterVisualizerController * m_controller;
     };
 
-    struct CompleteFrustumIterator : public Input::InputListenerState::InputCallback {
+    struct CompleteFrustumIterator : public illInput::StateListener {
         CompleteFrustumIterator()
-            : Input::InputListenerState::InputCallback()
+            : illInput::StateListener()
         {}
 
         void onRelease();
@@ -152,25 +128,18 @@ private:
 
     //unsigned int m_planeIndex;
 
-    AdvanceFrustumIterator m_advanceFrustumIteratorCallback;
-    AdvanceFrustumIteratorHold m_advanceFrustumIteratorHoldCallback;
-    ResetFrustumIterator m_resetFrustumIteratorCallback;
-    RestartFrustumIterator m_restartFrustumIteratorCallback;
-    CompleteFrustumIterator m_completeFrustumIteratorCallback;
-    MapToWorld m_mapToWorldCallback;
+    AdvanceFrustumIterator m_advanceFrustumIteratorListener;
+    illInput::StateSetListener m_advanceFrustumIteratorHoldListener;
+    ResetFrustumIterator m_resetFrustumIteratorListener;
+    RestartFrustumIterator m_restartFrustumIteratorListener;
+    CompleteFrustumIterator m_completeFrustumIteratorListener;
+    illInput::StateReleaseToggleListener m_mapToWorldListener;
     
-    Input::InputListenerState m_advanceFrustumIterator;
-    Input::InputListenerState m_advanceFrustumIteratorHold;
-    Input::InputListenerState m_resetFrustumIterator;
-    Input::InputListenerState m_restartFrustumIterator;
-    Input::InputListenerState m_completeFrustumIterator;
-    Input::InputListenerState m_mapToWorldListener;
-
     bool m_advanceHold;
     bool m_mapToWorld;
     float m_advanceHoldTimer;
 
-    Input::InputContext m_frustumInputContext;
+    illInput::InputContext m_frustumInputContext;
     
     //debug font
     illGraphics::BitmapFont m_debugFont;

@@ -10,8 +10,9 @@
 #include "illEngine/Util/Geometry/geomUtil.h"
 
 #include "illEngine/Input/serial/InputContext.h"
-#include "illEngine/Input/serial/InputListenerState.h"
-#include "illEngine/Input/serial/InputListenerRange.h"
+#include "illEngine/Input/serial/Listeners/StateListener.h"
+#include "illEngine/Input/serial/Listeners/StateSetListener.h"
+#include "illEngine/Input/serial/Listeners/RangeListener.h"
 #include "illEngine/Input/serial/InputBinding.h"
 #include "illEngine/Pc/serial/sdlInputEnum.h"
 
@@ -28,7 +29,7 @@ struct CameraController {
     glm::vec3 m_eulerAngles;
     glm::mat4 m_transform;
 
-    Input::InputContext m_inputContext;
+    illInput::InputContext m_inputContext;
 
     float m_speed;
     float m_rollSpeed;
@@ -44,34 +45,13 @@ struct CameraController {
     bool m_sprint;
 
     bool m_lookMode;
-    bool m_orthoMode;
 
     glm::mediump_float m_zoom;
-
-    Input::InputListenerRange m_horzLookInput;
-    Input::InputListenerRange m_vertLookInput;
-
-    Input::InputListenerState m_forwardInput;
-    Input::InputListenerState m_backInput;
-    Input::InputListenerState m_leftInput;
-    Input::InputListenerState m_rightInput;
-    Input::InputListenerState m_upInput;
-    Input::InputListenerState m_downInput;
-    Input::InputListenerState m_rollLeftInput;
-    Input::InputListenerState m_rollRightInput;
-    Input::InputListenerState m_sprintInput;
-
-    Input::InputListenerState m_lookModeInput;
-    Input::InputListenerState m_orthoModeInput;
-
-    Input::InputListenerState m_zoomInInput;
-    Input::InputListenerState m_zoomOutInput;
-    Input::InputListenerState m_zoomDefaultInput;
-    
+        
 private:
-    struct HorzLook : public Input::InputListenerRange::InputCallback {
+    struct HorzLook : public illInput::RangeListener {
         HorzLook() 
-            : Input::InputListenerRange::InputCallback()
+            : illInput::RangeListener()
         {}
 
         virtual ~HorzLook() {}
@@ -88,9 +68,9 @@ private:
         CameraController * m_controller;
     };
 
-    struct VertLook : public Input::InputListenerRange::InputCallback {
+    struct VertLook : public illInput::RangeListener {
         VertLook()
-            : Input::InputListenerRange::InputCallback()
+            : illInput::RangeListener()
         {}
 
         virtual ~VertLook() {}
@@ -114,25 +94,10 @@ private:
 
         CameraController * m_controller;
     };
-
-    //TODO: the state and toggle listeners look like they'd be useful everywhere, move them to the Input project?
-    struct State : public Input::InputListenerState::InputCallback {
-        State()
-            : Input::InputListenerState::InputCallback()
-        {}
-
-        virtual ~State() {}
-
-        void onChange(bool value) {
-            *m_state = value;
-        }
-
-        bool* m_state;
-    };
-
-    struct LookMode : public Input::InputListenerState::InputCallback {
+    
+    struct LookMode : public illInput::StateListener {
         LookMode()
-            : Input::InputListenerState::InputCallback()
+            : illInput::StateListener()
         {}
 
         virtual ~LookMode() {}
@@ -156,24 +121,10 @@ private:
 
         CameraController * m_controller;
     };
-
-    struct OrthoMode : public Input::InputListenerState::InputCallback {
-        OrthoMode()
-            : Input::InputListenerState::InputCallback()
-        {}
-
-        virtual ~OrthoMode() {}
-
-        void onRelease() {
-            m_controller->m_orthoMode = !m_controller->m_orthoMode;
-        }
-
-        CameraController * m_controller;
-    };
-
-    struct ZoomIn : public Input::InputListenerState::InputCallback {
+    
+    struct ZoomIn : public illInput::StateListener {
         ZoomIn()
-            : Input::InputListenerState::InputCallback()
+            : illInput::StateListener()
         {}
 
         virtual ~ZoomIn() {}
@@ -189,9 +140,9 @@ private:
         glm::mediump_float * m_zoom;
     };
 
-    struct ZoomOut : public Input::InputListenerState::InputCallback {
+    struct ZoomOut : public illInput::StateListener {
         ZoomOut()
-            : Input::InputListenerState::InputCallback()
+            : illInput::StateListener()
         {}
 
         virtual ~ZoomOut() {}
@@ -203,9 +154,9 @@ private:
         glm::mediump_float * m_zoom;
     };
 
-    struct ZoomDefault : public Input::InputListenerState::InputCallback {
+    struct ZoomDefault : public illInput::StateListener {
         ZoomDefault()
-            : Input::InputListenerState::InputCallback()
+            : illInput::StateListener()
         {}
 
         virtual ~ZoomDefault() {}
@@ -220,18 +171,17 @@ private:
     HorzLook m_horzLookListener;
     VertLook m_vertLookListener;
 
-    State m_forwardListener;
-    State m_backListener;
-    State m_leftListener;
-    State m_rightListener;
-    State m_upListener;
-    State m_downListener;
-    State m_rollLeftListener;
-    State m_rollRightListener;
-    State m_sprintListener;
+    illInput::StateSetListener m_forwardListener;
+    illInput::StateSetListener m_backListener;
+    illInput::StateSetListener m_leftListener;
+    illInput::StateSetListener m_rightListener;
+    illInput::StateSetListener m_upListener;
+    illInput::StateSetListener m_downListener;
+    illInput::StateSetListener m_rollLeftListener;
+    illInput::StateSetListener m_rollRightListener;
+    illInput::StateSetListener m_sprintListener;
 
     LookMode m_lookModeListener;
-    OrthoMode m_orthoModeListener;
 
     ZoomIn m_zoomInListener;
     ZoomOut m_zoomOutListener;

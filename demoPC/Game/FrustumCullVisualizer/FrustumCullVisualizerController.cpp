@@ -125,10 +125,8 @@ FrustumCullVisualizerController::FrustumCullVisualizerController(Engine * engine
     
     //initialize the input (this would normally initialize using console variables)    
     m_holdFrustumIteratorCallback.m_controller = this;
-
-    m_holdFrustumIterator.m_inputCallback = &m_holdFrustumIteratorCallback;
     
-    m_frustumInputContext.bindInput(Input::InputBinding(SdlPc::PC_KEYBOARD, SDLK_END), &m_holdFrustumIterator);
+    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_END), &m_holdFrustumIteratorCallback);
     
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_frustumInputContext);
@@ -155,7 +153,7 @@ void FrustumCullVisualizerController::updateSound(float seconds) {
 void FrustumCullVisualizerController::render() {
     //render top portion
     m_camera.setPerspectiveTransform(m_cameraController.m_transform, m_engine->m_window->getAspectRatio() * 2.0f, illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR,
-        m_hold ? 5000 : 1500);
+        m_hold ? 5000.0f : 1500.0f);
     
     glViewport(0, m_engine->m_window->getResolution().y / 2, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y / 2);
 

@@ -34,7 +34,7 @@ class MaterialManager;
 //class MeshManager;
 }
 
-namespace Input {
+namespace illInput {
 class InputManager;
 }
 
@@ -58,7 +58,7 @@ public:
     //illGraphics::MaterialManager * m_materialProgramManager;
     //illGraphics::MeshManager * m_meshManager;
 
-    Input::InputManager * m_inputManager;
+    illInput::InputManager * m_inputManager;
 };
 
 }

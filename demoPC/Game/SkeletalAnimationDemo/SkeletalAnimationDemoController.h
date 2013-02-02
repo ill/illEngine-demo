@@ -17,8 +17,7 @@
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
 
 #include "illEngine/Input/serial/InputContext.h"
-#include "illEngine/Input/serial/InputListenerState.h"
-#include "illEngine/Input/serial/InputListenerRange.h"
+#include "illEngine/Input/serial/Listeners/StateSetListener.h"
 #include "illEngine/Input/serial/InputBinding.h"
 #include "illEngine/Pc/serial/sdlInputEnum.h"
 
@@ -35,22 +34,7 @@ public:
     void render();
 
 private:
-
-    //TODO: the state and toggle listeners look like they'd be useful everywhere, move them to the Input project?
-    struct State : public Input::InputListenerState::InputCallback {
-        State()
-            : Input::InputListenerState::InputCallback()
-        {}
-
-        virtual ~State() {}
-
-        void onChange(bool value) {
-            *m_state = value;
-        }
-
-        bool* m_state;
-    };
-
+    
     Engine * m_engine;
 
     CameraController m_cameraController;
@@ -58,7 +42,7 @@ private:
     illGraphics::Camera m_camera;
     illGraphics::CameraTransform m_cameraTransform;
     
-    Input::InputContext m_inputContext;
+    illInput::InputContext m_inputContext;
 
     //debug light
     glm::vec3 m_lightPos;
@@ -70,19 +54,12 @@ private:
     bool m_up;
     bool m_down;
 
-    State m_forwardListener;
-    State m_backListener;
-    State m_leftListener;
-    State m_rightListener;
-    State m_upListener;
-    State m_downListener;
-
-    Input::InputListenerState m_forwardInput;
-    Input::InputListenerState m_backInput;
-    Input::InputListenerState m_leftInput;
-    Input::InputListenerState m_rightInput;
-    Input::InputListenerState m_upInput;
-    Input::InputListenerState m_downInput;
+    illInput::StateSetListener m_forwardListener;
+    illInput::StateSetListener m_backListener;
+    illInput::StateSetListener m_leftListener;
+    illInput::StateSetListener m_rightListener;
+    illInput::StateSetListener m_upListener;
+    illInput::StateSetListener m_downListener;
     
     //marine
 

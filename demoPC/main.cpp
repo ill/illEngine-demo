@@ -39,7 +39,7 @@ illFileSystem::FileSystem * illFileSystem::fileSystem = &thisFileSystem;
 Console::VariableManager consoleVariableManager;
 Console::DeveloperConsole developerConsole;
 
-Input::InputManager inputManager;
+illInput::InputManager inputManager;
 
 SdlPc::SdlWindow window;
 
