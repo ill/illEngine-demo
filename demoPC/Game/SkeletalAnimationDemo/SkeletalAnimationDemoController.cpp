@@ -20,7 +20,7 @@
 
 void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& controller, const illGraphics::Camera& camera, const glm::mat4& xform, GLuint prog) {    
     GLint loc = getProgramUniformLocation(prog, "modelViewProjectionMatrix");
-    glUniformMatrix4fv(loc, 1, false, glm::value_ptr(camera.getCanonical() * xform));
+    glUniformMatrix4fv(loc, 1, false, glm::value_ptr(camera.getModelViewProjection() * xform));
 
     loc = getProgramUniformLocation(prog, "modelViewMatrix");
     glUniformMatrix4fv(loc, 1, false, glm::value_ptr(camera.getModelView() * xform));

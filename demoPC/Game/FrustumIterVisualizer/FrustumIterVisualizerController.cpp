@@ -138,7 +138,7 @@ void renderTextDebug(const char * text, const glm::mat4& transform, const illGra
         //m_backend->renderCharacter(camera, transform, font, currColor, *text);
         {
             GLint mvp = getProgramUniformLocation(prog, "modelViewProjectionMatrix");
-            glUniformMatrix4fv(mvp, 1, false, glm::value_ptr(camera.getCanonical() * currentTransform));
+            glUniformMatrix4fv(mvp, 1, false, glm::value_ptr(camera.getModelViewProjection() * currentTransform));
         }
 
         {

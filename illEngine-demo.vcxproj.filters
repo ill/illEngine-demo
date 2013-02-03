@@ -422,5 +422,8 @@
     <ClInclude Include="illEngine\Input\serial\inputEnum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

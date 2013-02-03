@@ -236,6 +236,7 @@
     <ClInclude Include="illEngine\Graphics\serial\Model\Skeleton.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\SkeletonAnimation.h" />
     <ClInclude Include="illEngine\Graphics\serial\RendererFrontend.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsNode.h" />
     <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsScene.h" />
     <ClInclude Include="illEngine\Graphics\Window.h" />
     <ClInclude Include="illEngine\Input\serial\inputEnum.h" />
