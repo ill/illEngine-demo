@@ -193,6 +193,7 @@
     <ClCompile Include="illEngine\Pc\serial\SdlWindow.cpp" />
     <ClCompile Include="illEngine\Sound\Decoders\WavDecoder.cpp" />
     <ClCompile Include="illEngine\Tests\testEndian.cpp" />
+    <ClCompile Include="illEngine\Tests\testPool.cpp" />
     <ClCompile Include="illEngine\Tests\testRefCountPtr.cpp" />
     <ClCompile Include="illEngine\Tests\testSortDimensions.cpp" />
     <ClCompile Include="illEngine\Tests\testVectorManager.cpp" />
@@ -290,6 +291,7 @@
     <ClInclude Include="illEngine\Util\Illmesh\IllmeshLoader.h" />
     <ClInclude Include="illEngine\Util\CopiedData.h" />
     <ClInclude Include="illEngine\Util\serial\LruCache.h" />
+    <ClInclude Include="illEngine\Util\serial\Pool.h" />
     <ClInclude Include="illEngine\Util\serial\RefCountPtr.h" />
     <ClInclude Include="illEngine\Util\serial\ResourceBase.h" />
     <ClInclude Include="illEngine\Util\serial\ResourceManager.h" />

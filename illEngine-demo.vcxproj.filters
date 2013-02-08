@@ -129,6 +129,9 @@
     <ClCompile Include="demoPC\Game\RendererDemo\RendererDemoController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="illEngine\Tests\testPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demoPC\Game\CameraController.h">
@@ -423,6 +426,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\serial\Pool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
