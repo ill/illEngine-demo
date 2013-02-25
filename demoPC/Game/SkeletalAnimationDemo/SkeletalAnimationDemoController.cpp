@@ -18,7 +18,7 @@
 //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer
 #include <GL/glew.h>
 
-void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& controller, const illGraphics::Camera& camera, const glm::mat4& xform, GLuint prog) {    
+void renderMesh(const illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& controller, const illGraphics::Camera& camera, const glm::mat4& xform, GLuint prog) {    
     GLint loc = getProgramUniformLocation(prog, "modelViewProjectionMatrix");
     glUniformMatrix4fv(loc, 1, false, glm::value_ptr(camera.getModelViewProjection() * xform));
 
@@ -33,37 +33,37 @@ void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& 
 	glUniformMatrix4fv(loc, (GLsizei) controller.getNumBones(), false, &controller.getSkeleton()[0][0][0]);
 
     GLint pos = getProgramAttribLocation(prog, "position");
-    glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, (GLsizei) mesh.m_meshFrontendData->getVertexSize(), (char *)NULL + mesh.m_meshFrontendData->getPositionOffset());
+    glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, (GLsizei) mesh.getMeshFrontentData()->getVertexSize(), (char *)NULL + mesh.getMeshFrontentData()->getPositionOffset());
     glEnableVertexAttribArray(pos);
 
     GLint tex = getProgramAttribLocation(prog, "texCoords");
-    glVertexAttribPointer(tex, 2, GL_FLOAT, GL_FALSE, (GLsizei) mesh.m_meshFrontendData->getVertexSize(), (char *)NULL + mesh.m_meshFrontendData->getTexCoordOffset());
+    glVertexAttribPointer(tex, 2, GL_FLOAT, GL_FALSE, (GLsizei) mesh.getMeshFrontentData()->getVertexSize(), (char *)NULL + mesh.getMeshFrontentData()->getTexCoordOffset());
     glEnableVertexAttribArray(tex);
 
     GLint norm = getProgramAttribLocation(prog, "normal");
-    glVertexAttribPointer(norm, 3, GL_FLOAT, GL_FALSE, (GLsizei) mesh.m_meshFrontendData->getVertexSize(), (char *)NULL + mesh.m_meshFrontendData->getNormalOffset());
+    glVertexAttribPointer(norm, 3, GL_FLOAT, GL_FALSE, (GLsizei) mesh.getMeshFrontentData()->getVertexSize(), (char *)NULL + mesh.getMeshFrontentData()->getNormalOffset());
     glEnableVertexAttribArray(norm);
 
     GLint tan = getProgramAttribLocation(prog, "tangent");
-    glVertexAttribPointer(tan, 3, GL_FLOAT, GL_FALSE, (GLsizei) mesh.m_meshFrontendData->getVertexSize(), (char *)NULL + mesh.m_meshFrontendData->getTangentOffset());
+    glVertexAttribPointer(tan, 3, GL_FLOAT, GL_FALSE, (GLsizei) mesh.getMeshFrontentData()->getVertexSize(), (char *)NULL + mesh.getMeshFrontentData()->getTangentOffset());
     glEnableVertexAttribArray(tan);
 
     GLint bitan = getProgramAttribLocation(prog, "bitangent");
-    glVertexAttribPointer(bitan, 3, GL_FLOAT, GL_FALSE, (GLsizei) mesh.m_meshFrontendData->getVertexSize(), (char *)NULL + mesh.m_meshFrontendData->getBitangentOffset());
+    glVertexAttribPointer(bitan, 3, GL_FLOAT, GL_FALSE, (GLsizei) mesh.getMeshFrontentData()->getVertexSize(), (char *)NULL + mesh.getMeshFrontentData()->getBitangentOffset());
     glEnableVertexAttribArray(bitan);
 
     GLint bonei = getProgramAttribLocation(prog, "boneIndices");
-    glVertexAttribIPointer(bonei, 4, GL_INT, (GLsizei) mesh.m_meshFrontendData->getVertexSize(), (char *)NULL + mesh.m_meshFrontendData->getBlendIndexOffset());
+    glVertexAttribIPointer(bonei, 4, GL_INT, (GLsizei) mesh.getMeshFrontentData()->getVertexSize(), (char *)NULL + mesh.getMeshFrontentData()->getBlendIndexOffset());
     glEnableVertexAttribArray(bonei);
 
     GLint weights = getProgramAttribLocation(prog, "weights");
-    glVertexAttribPointer(weights, 4, GL_FLOAT, GL_FALSE, (GLsizei) mesh.m_meshFrontendData->getVertexSize(), (char *)NULL + mesh.m_meshFrontendData->getBlendWeightOffset());
+    glVertexAttribPointer(weights, 4, GL_FLOAT, GL_FALSE, (GLsizei) mesh.getMeshFrontentData()->getVertexSize(), (char *)NULL + mesh.getMeshFrontentData()->getBlendWeightOffset());
     glEnableVertexAttribArray(weights);
 
     buffer = *((GLuint *) mesh.getMeshBackendData() + 1);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer);
 
-    glDrawRangeElements(GL_TRIANGLES, 0, mesh.m_meshFrontendData->getNumTri() * 3, mesh.m_meshFrontendData->getNumTri() * 3, GL_UNSIGNED_SHORT, (char *)NULL);
+    glDrawRangeElements(GL_TRIANGLES, 0, mesh.getMeshFrontentData()->getNumTri() * 3, mesh.getMeshFrontentData()->getNumTri() * 3, GL_UNSIGNED_SHORT, (char *)NULL);
 
     glDisableVertexAttribArray(pos);
     glDisableVertexAttribArray(norm);
@@ -142,13 +142,13 @@ void renderSkeleton(const illGraphics::Skeleton& skeleton, const illGraphics::Sk
 void renderMeshDebug(const illGraphics::Mesh& mesh, const illGraphics::ModelAnimationController& controller, const glm::mat4& xform) {
     glPointSize(5.0f);
     
-    for(unsigned int vertex = 0; vertex < mesh.m_meshFrontendData->getNumVert(); vertex++) {
-        glm::mat4 transformedMat = controller.getSkeleton()[(int) mesh.m_meshFrontendData->getBlendData(vertex).m_blendIndex[0]] * mesh.m_meshFrontendData->getBlendData(vertex).m_blendWeight[0];
-        transformedMat += controller.getSkeleton()[(int) mesh.m_meshFrontendData->getBlendData(vertex).m_blendIndex[1]] * mesh.m_meshFrontendData->getBlendData(vertex).m_blendWeight[1];
-        transformedMat += controller.getSkeleton()[(int) mesh.m_meshFrontendData->getBlendData(vertex).m_blendIndex[2]] * mesh.m_meshFrontendData->getBlendData(vertex).m_blendWeight[2];
-        transformedMat += controller.getSkeleton()[(int) mesh.m_meshFrontendData->getBlendData(vertex).m_blendIndex[3]] * mesh.m_meshFrontendData->getBlendData(vertex).m_blendWeight[3];
+    for(unsigned int vertex = 0; vertex < mesh.getMeshFrontentData()->getNumVert(); vertex++) {
+        glm::mat4 transformedMat = controller.getSkeleton()[(int) mesh.getMeshFrontentData()->getBlendData(vertex).m_blendIndex[0]] * mesh.getMeshFrontentData()->getBlendData(vertex).m_blendWeight[0];
+        transformedMat += controller.getSkeleton()[(int) mesh.getMeshFrontentData()->getBlendData(vertex).m_blendIndex[1]] * mesh.getMeshFrontentData()->getBlendData(vertex).m_blendWeight[1];
+        transformedMat += controller.getSkeleton()[(int) mesh.getMeshFrontentData()->getBlendData(vertex).m_blendIndex[2]] * mesh.getMeshFrontentData()->getBlendData(vertex).m_blendWeight[2];
+        transformedMat += controller.getSkeleton()[(int) mesh.getMeshFrontentData()->getBlendData(vertex).m_blendIndex[3]] * mesh.getMeshFrontentData()->getBlendData(vertex).m_blendWeight[3];
         
-        glm::vec4 pos = xform * transformedMat * glm::vec4(mesh.m_meshFrontendData->getPosition(vertex), 1.0f);
+        glm::vec4 pos = xform * transformedMat * glm::vec4(mesh.getMeshFrontentData()->getPosition(vertex), 1.0f);
         
         //transformed point
         glBegin(GL_POINTS);
@@ -163,7 +163,7 @@ void renderMeshDebug(const illGraphics::Mesh& mesh, const illGraphics::ModelAnim
         glm::vec3 tail;
 
         //normal
-        glm::vec3 skinned = glm::mat3(xform) * glm::mat3(transformedMat) * mesh.m_meshFrontendData->getNormal(vertex);
+        glm::vec3 skinned = glm::mat3(xform) * glm::mat3(transformedMat) * mesh.getMeshFrontentData()->getNormal(vertex);
         
         tail = glm::vec3(pos) + glm::vec3(skinned) * 10.0f;
 
@@ -173,7 +173,7 @@ void renderMeshDebug(const illGraphics::Mesh& mesh, const illGraphics::ModelAnim
         glVertex3fv(glm::value_ptr(tail));
 
         //tangent
-        skinned = glm::mat3(xform) * glm::mat3(transformedMat) * mesh.m_meshFrontendData->getTangent(vertex).m_tangent;
+        skinned = glm::mat3(xform) * glm::mat3(transformedMat) * mesh.getMeshFrontentData()->getTangent(vertex).m_tangent;
         
         tail = glm::vec3(pos) + glm::vec3(skinned) * 10.0f;
 
@@ -183,7 +183,7 @@ void renderMeshDebug(const illGraphics::Mesh& mesh, const illGraphics::ModelAnim
         glVertex3fv(glm::value_ptr(tail));
 
         //bitangent
-        skinned = glm::mat3(xform) * glm::mat3(transformedMat) * mesh.m_meshFrontendData->getTangent(vertex).m_bitangent;
+        skinned = glm::mat3(xform) * glm::mat3(transformedMat) * mesh.getMeshFrontentData()->getTangent(vertex).m_bitangent;
         
         tail = glm::vec3(pos) + glm::vec3(skinned) * 10.0f;
 
@@ -217,18 +217,18 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     {
         IllmeshLoader<> meshLoader("Meshes/Marine/marine8.illmesh");
 
-        m_marine.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+        m_marine.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
-        meshLoader.buildMesh(*m_marine.m_meshFrontendData);
-        m_marine.frontendBackendTransfer(m_engine->m_rendererBackend, false);
+        meshLoader.buildMesh(*m_marine.getMeshFrontentData());
+        m_marine.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
     }
 
     //load the diffuse texture
     {
         illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Marine/marine.tga";
-        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
-        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
         m_marineDiffuse.load(loadArgs, m_engine->m_rendererBackend);
     }
@@ -237,8 +237,8 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     {
         illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Marine/marine_local.tga";
-        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
-        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
         m_marineNormal.load(loadArgs, m_engine->m_rendererBackend);
     }
@@ -250,18 +250,18 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     {
         IllmeshLoader<> meshLoader("Meshes/Marine/marine.illmesh");
 
-        m_marineHelmet.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+        m_marineHelmet.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
-        meshLoader.buildMesh(*m_marineHelmet.m_meshFrontendData);
-        m_marineHelmet.frontendBackendTransfer(m_engine->m_rendererBackend, false);
+        meshLoader.buildMesh(*m_marineHelmet.getMeshFrontentData());
+        m_marineHelmet.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
     }
 
     //helmet normal map
     {
         illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Marine/helmet_local.tga";
-        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
-        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
         m_helmetNormal.load(loadArgs, m_engine->m_rendererBackend);
     }
@@ -270,8 +270,8 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     {
         illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Marine/helmet.tga";
-        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
-        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
         m_helmetDiffuse.load(loadArgs, m_engine->m_rendererBackend);
     }
@@ -311,18 +311,18 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     {
         IllmeshLoader<> meshLoader("Meshes/HellKnight/hellKnight.illmesh");
 
-        m_hellKnight.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+        m_hellKnight.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
-        meshLoader.buildMesh(*m_hellKnight.m_meshFrontendData);
-        m_hellKnight.frontendBackendTransfer(m_engine->m_rendererBackend, false);
+        meshLoader.buildMesh(*m_hellKnight.getMeshFrontentData());
+        m_hellKnight.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
     }
 
     //load the diffuse texture
     {
         illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/HellKnight/hellknight.tga";
-        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
-        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
         m_hellKnightDiffuse.load(loadArgs, m_engine->m_rendererBackend);
     }
@@ -331,8 +331,8 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     {
         illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/HellKnight/hellknight_local.tga";
-        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
-        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
         m_hellKnightNormal.load(loadArgs, m_engine->m_rendererBackend);
     }
@@ -366,18 +366,18 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     {
         IllmeshLoader<> meshLoader("Meshes/Demon/demon.illmesh");
 
-        m_demon.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+        m_demon.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
-        meshLoader.buildMesh(*m_demon.m_meshFrontendData);
-        m_demon.frontendBackendTransfer(m_engine->m_rendererBackend, false);
+        meshLoader.buildMesh(*m_demon.getMeshFrontentData());
+        m_demon.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
     }
 
     //load the diffuse texture
     {
         illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Demon/pinky_d.tga";
-        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
-        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
         m_demonDiffuse.load(loadArgs, m_engine->m_rendererBackend);
     }
@@ -386,8 +386,8 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     {
         illGraphics::TextureLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Demon/pinky_local.tga";
-        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
-        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
         m_demonNormal.load(loadArgs, m_engine->m_rendererBackend);
     }
@@ -396,10 +396,10 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     {
         IllmeshLoader<> meshLoader("Meshes/Demon/demon0.illmesh");
 
-        m_demonFront.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+        m_demonFront.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
-        meshLoader.buildMesh(*m_demonFront.m_meshFrontendData);
-        m_demonFront.frontendBackendTransfer(m_engine->m_rendererBackend, false);
+        meshLoader.buildMesh(*m_demonFront.getMeshFrontentData());
+        m_demonFront.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
     }
 
     //load the skeleton
@@ -432,10 +432,10 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     {
         IllmeshLoader<> meshLoader("Meshes/Bill/bill.illmesh");
 
-        m_bill.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+        m_bill.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
-        meshLoader.buildMesh(*m_bill.m_meshFrontendData);
-        m_bill.frontendBackendTransfer(m_engine->m_rendererBackend, false);
+        meshLoader.buildMesh(*m_bill.getMeshFrontentData());
+        m_bill.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
     }
     
     //load the skeleton

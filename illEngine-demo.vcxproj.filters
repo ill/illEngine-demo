@@ -132,6 +132,12 @@
     <ClCompile Include="illEngine\Tests\testPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="illEngine\Graphics\serial\Material\Material.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\Graphics\serial\Scene\GraphicsEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demoPC\Game\CameraController.h">
@@ -425,10 +431,19 @@
     <ClInclude Include="illEngine\Input\serial\inputEnum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsNode.h">
+    <ClInclude Include="illEngine\Util\serial\Pool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\Util\serial\Pool.h">
+    <ClInclude Include="illEngine\Util\serial\Array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\BoxOmitIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\SceneNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsEntity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Util\serial\Array.h">
