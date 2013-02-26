@@ -385,14 +385,14 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
 
 
     //hellknight
-    /*{
-        IllmeshLoader meshLoader("Meshes/HellKnight/hellKnight.illmesh");
+    {
+        IllmeshLoader meshLoader("Meshes/HellKnight/hellknight.illmesh");
 
-        m_hellKnight.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+        m_hellKnight.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
-        meshLoader.buildMesh(*m_hellKnight.m_meshFrontendData);
-        m_hellKnight.frontendBackendTransfer(m_engine->m_rendererBackend, false);
-    }*/
+        meshLoader.buildMesh(*m_hellKnight.getMeshFrontentData());
+        m_hellKnight.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
+    }
 
     //load the diffuse texture
     {
@@ -415,15 +415,15 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     }
 
     //load the skeleton
-  //  {
-  //      illGraphics::SkeletonLoadArgs loadArgs;
-  //      loadArgs.m_path = "Meshes/HellKnight/hellknight.illskel";
-  //      m_hellKnightSkeleton.load(loadArgs, NULL);
-		////m_boneMatrixBuffer.reserve(m_hellKnightSkeleton.getNumBones());
-  //  }
+    {
+        illGraphics::SkeletonLoadArgs loadArgs;
+        loadArgs.m_path = "Meshes/HellKnight/hellknight.illskel";
+        m_hellKnightSkeleton.load(loadArgs, NULL);
+		//m_boneMatrixBuffer.reserve(m_hellKnightSkeleton.getNumBones());
+    }
 
     //load the animation
-    /*{
+    {
         illGraphics::SkeletonAnimationLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/HellKnight/hellknight.illanim";
         m_hellKnightAnimation.load(loadArgs, NULL);
@@ -435,20 +435,20 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         m_hellKnightController0.queueTransition(&m_hellKnightAnimation, 0.0f, 0.0f);
         m_hellKnightController1.queueTransition(&m_hellKnightAnimation, 0.0f, 0.0f, 1.0f);
         m_hellKnightController2.queueTransition(&m_hellKnightAnimation, 0.0f, 0.0f, 1.5f);
-    }*/
+    }
 
 
 
 
     //demon
-    /*{
+    {
         IllmeshLoader meshLoader("Meshes/Demon/demon.illmesh");
 
-        m_demon.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+        m_demon.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
-        meshLoader.buildMesh(*m_demon.m_meshFrontendData);
-        m_demon.frontendBackendTransfer(m_engine->m_rendererBackend, false);
-    }*/
+        meshLoader.buildMesh(*m_demon.getMeshFrontentData());
+        m_demon.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
+    }
 
     //load the diffuse texture
     {
@@ -471,25 +471,25 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     }
     
     //demon front
-    /*{
-        IllmeshLoader meshLoader("Meshes/Demon/demon0.illmesh");
+    {
+        IllmeshLoader meshLoader("meshes/demon/demon0.illmesh");
 
-        m_demonFront.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+        m_demonFront.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
-        meshLoader.buildMesh(*m_demonFront.m_meshFrontendData);
-        m_demonFront.frontendBackendTransfer(m_engine->m_rendererBackend, false);
-    }*/
+        meshLoader.buildMesh(*m_demonFront.getMeshFrontentData());
+        m_demonFront.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
+    }
 
     //load the skeleton
-    /*{
+    {
         illGraphics::SkeletonLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Demon/demon.illskel";
         m_demonSkeleton.load(loadArgs, NULL);
 		m_boneMatrixBuffer.reserve(m_demonSkeleton.getNumBones());
-    }*/
+    }
 
     //load the animation
-    /*{
+    {
         illGraphics::SkeletonAnimationLoadArgs loadArgs;
         loadArgs.m_path = "Meshes/Demon/demon.illanim";
         m_demonAnimation.load(loadArgs, NULL);
@@ -503,7 +503,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         m_demonController1.queueTransition(&m_demonAnimation, 0.0f, 0.0f, 0.5f);
         m_demonController2.queueTransition(&m_demonAnimation, 0.0f, 0.0f, 0.75f);
         m_demonController3.queueTransition(&m_demonAnimation, 0.0f, 0.0f, 1.00f);
-    }*/
+    }
 
 
 
@@ -525,15 +525,15 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
 		////m_boneMatrixBuffer.reserve(m_billSkeleton.getNumBones());
   //  }
 
-    //load the animation
-    /*{
-        illGraphics::SkeletonAnimationLoadArgs loadArgs;
-        loadArgs.m_path = "Meshes/Bill/flutter.illanim";
-        m_billAnimation.load(loadArgs, NULL);
+  //  //load the animation
+  //  {
+  //      illGraphics::SkeletonAnimationLoadArgs loadArgs;
+  //      loadArgs.m_path = "Meshes/Bill/flutter.illanim";
+  //      m_billAnimation.load(loadArgs, NULL);
 
-		m_billController.setSkeleton(&m_billSkeleton);
-		m_billController.queueTransition(&m_billAnimation, 0.0f, 0.0f);
-    }*/
+		//m_billController.setSkeleton(&m_billSkeleton);
+		//m_billController.queueTransition(&m_billAnimation, 0.0f, 0.0f);
+  //  }
 
 	m_boneMatrixBuffer.reserve(
 		glm::max(
@@ -600,14 +600,14 @@ void SkeletalAnimationDemoController::update(float seconds) {
 
     m_marineController.update(seconds);
 
-    /*m_hellKnightController0.update(seconds);
+    m_hellKnightController0.update(seconds);
     m_hellKnightController1.update(seconds * 0.5f);
     m_hellKnightController2.update(seconds * 0.1f);
 
     m_demonController0.update(seconds);
     m_demonController1.update(seconds * 0.5f);
     m_demonController2.update(seconds * 0.2f);
-    m_demonController3.update(seconds * 0.1f);*/
+    m_demonController3.update(seconds * 0.1f);
 
     m_billController.update(seconds);
     
@@ -701,16 +701,16 @@ void SkeletalAnimationDemoController::render() {
 
     
     xform = glm::translate(glm::vec3(0.0f, 100.0f, 0.0f));
-	//m_hellKnightController0.computeAnimPose(&m_boneMatrixBuffer[0]);
-    //renderMesh(m_hellKnight, m_hellKnightController0, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+	m_hellKnightController0.computeAnimPose(&m_boneMatrixBuffer[0]);
+    renderMesh(m_hellKnight, m_hellKnightController0, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     xform = glm::translate(glm::vec3(-20.0f, -200.0f, 0.0f)) * glm::scale(glm::vec3(2.0f));	
-    //m_hellKnightController1.computeAnimPose(&m_boneMatrixBuffer[0]);
-    //renderMesh(m_hellKnight, m_hellKnightController1, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    m_hellKnightController1.computeAnimPose(&m_boneMatrixBuffer[0]);
+    renderMesh(m_hellKnight, m_hellKnightController1, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     xform = glm::translate(glm::vec3(-500.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(4.0f));
-    //m_hellKnightController2.computeAnimPose(&m_boneMatrixBuffer[0]);
-    //renderMesh(m_hellKnight, m_hellKnightController2, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    m_hellKnightController2.computeAnimPose(&m_boneMatrixBuffer[0]);
+    renderMesh(m_hellKnight, m_hellKnightController2, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     //draw demon
     glActiveTexture(GL_TEXTURE0);
@@ -722,24 +722,24 @@ void SkeletalAnimationDemoController::render() {
     glBindTexture(GL_TEXTURE_2D, texture);
     
     xform = glm::mat4();
-	//m_demonController0.computeAnimPose(&m_boneMatrixBuffer[0]);
-    //renderMesh(m_demon, m_demonController0, &m_boneMatrixBuffer[0], m_camera, xform, prog);
-    //renderMesh(m_demonFront, m_demonController0, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+	m_demonController0.computeAnimPose(&m_boneMatrixBuffer[0]);
+    renderMesh(m_demon, m_demonController0, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    renderMesh(m_demonFront, m_demonController0, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     xform = glm::translate(glm::vec3(0.0f, -100.0f, 0.0f));	
-    //m_demonController1.computeAnimPose(&m_boneMatrixBuffer[0]);
-    //renderMesh(m_demon, m_demonController1, &m_boneMatrixBuffer[0], m_camera, xform, prog);
-    //renderMesh(m_demonFront, m_demonController1, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    m_demonController1.computeAnimPose(&m_boneMatrixBuffer[0]);
+    renderMesh(m_demon, m_demonController1, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    renderMesh(m_demonFront, m_demonController1, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     xform = glm::translate(glm::vec3(0.0f, 300.0f, 0.0f)) * glm::scale(glm::vec3(2.0f));	
-    //m_demonController2.computeAnimPose(&m_boneMatrixBuffer[0]);
-    //renderMesh(m_demon, m_demonController2, &m_boneMatrixBuffer[0], m_camera, xform, prog);
-    //renderMesh(m_demonFront, m_demonController2, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    m_demonController2.computeAnimPose(&m_boneMatrixBuffer[0]);
+    renderMesh(m_demon, m_demonController2, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    renderMesh(m_demonFront, m_demonController2, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     xform = glm::translate(glm::vec3(-400.0f, 600.0f, 0.0f)) * glm::scale(glm::vec3(5.0f));	
-    //m_demonController3.computeAnimPose(&m_boneMatrixBuffer[0]);
-    //renderMesh(m_demon, m_demonController3, &m_boneMatrixBuffer[0], m_camera, xform, prog);
-    //renderMesh(m_demonFront, m_demonController3, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    m_demonController3.computeAnimPose(&m_boneMatrixBuffer[0]);
+    renderMesh(m_demon, m_demonController3, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    renderMesh(m_demonFront, m_demonController3, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     //draw bill
 	//m_billController.computeAnimPose(&m_boneMatrixBuffer[0]);
