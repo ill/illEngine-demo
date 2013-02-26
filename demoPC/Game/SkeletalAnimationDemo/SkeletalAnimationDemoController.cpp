@@ -324,24 +324,23 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     //load the animation
     {
         illGraphics::SkeletonAnimationLoadArgs loadArgs;
-        loadArgs.m_path = "Meshes/Marine/marine.illanim";
+        loadArgs.m_path = "Meshes/Marine/run.illanim";
         m_marineAnimation.load(loadArgs, NULL);
 
         loadArgs.m_path = "Meshes/Marine/strafeLeft.illanim";
         m_marineStrafeAnimation.load(loadArgs, NULL);
 
-        /*loadArgs.m_path = "Meshes/Marine/plasmaAim.illanim";
+        loadArgs.m_path = "Meshes/Marine/plasmaAim.illanim";
         m_marineAimAnimation.load(loadArgs, NULL);
 
         loadArgs.m_path = "Meshes/Marine/plasmaAimUp.illanim";
         m_marineAimUpAnimation.load(loadArgs, NULL);
 
         loadArgs.m_path = "Meshes/Marine/plasmaAimDown.illanim";
-        m_marineAimDownAnimation.load(loadArgs, NULL);*/
+        m_marineAimDownAnimation.load(loadArgs, NULL);
 
         m_marineController.setSkeleton(&m_marineSkeleton);
-		m_marineController.queueTransition(&m_marineAnimation, 0.0f, 0.0f);
-        /*m_marineController.queueTransition(&m_marineAimUpAnimation, 0.0f, 0.0f);
+        m_marineController.queueTransition(&m_marineAimUpAnimation, 0.0f, 0.0f);
         m_marineController.queueTransition(&m_marineAimAnimation, 1.0f, 5.0f);
         m_marineController.queueTransition(&m_marineAimDownAnimation, 1.0f, 2.0f);
         m_marineController.queueTransition(&m_marineAimAnimation, 1.0f, 2.0f);
@@ -364,7 +363,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
 		m_marineController.queueTransition(&m_marineAimUpAnimation, 10.0f, 10.0f);
         m_marineController.queueTransition(&m_marineAimAnimation, 10.0f, 10.0f);
         m_marineController.queueTransition(&m_marineAimDownAnimation, 10.0f, 10.0f);
-        m_marineController.queueTransition(&m_marineAimAnimation, 10.0f, 10.0f);*/
+        m_marineController.queueTransition(&m_marineAimAnimation, 10.0f, 10.0f);
 
 
         //m_marineController.queueTransition(&m_marineAnimation, 2.0f, 5.0f);
