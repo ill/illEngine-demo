@@ -131,11 +131,16 @@ void debugDrawBone(const glm::mat4& xForm, const glm::mat4& prevXform, bool draw
 }
 
 //TODO: this doesn't work at all right now
-void renderSkeleton(const illGraphics::Skeleton& skeleton, const illGraphics::Skeleton::BoneHeirarchy * currNode, const illGraphics::ModelAnimationController& animationController, const glm::mat4& prevXform) {
-	debugDrawBone(animationController.getSkeleton()[currNode->m_boneIndex], prevXform, currNode->m_parent != NULL);
+void renderSkeleton(const illGraphics::Skeleton& skeleton, const illGraphics::Skeleton::BoneHeirarchy * currNode, const illGraphics::ModelAnimationController& animationController, glm::mat4 currXform) {
+	glm::mat4 prevXform = currXform;
+	glm::mat4 boneXform = skeleton.getBone(currNode->m_boneIndex)->m_transform;
+
+	currXform = currXform * boneXform;
+	
+	debugDrawBone(currXform, prevXform, currNode->m_parent != NULL);
 
     for(std::vector<illGraphics::Skeleton::BoneHeirarchy *>::const_iterator iter = currNode->m_children.begin(); iter != currNode->m_children.end(); iter++) {
-        renderSkeleton(skeleton, *iter, animationController, animationController.getSkeleton()[currNode->m_boneIndex]);
+        renderSkeleton(skeleton, *iter, animationController, currXform);
     }
 }
 
@@ -694,10 +699,10 @@ void SkeletalAnimationDemoController::render() {
     glEnd();
 
     //debug draw the skeletons
-    /*renderSkeleton(m_marineSkeleton, m_marineSkeleton.getRootBoneNode(), m_marineController, 
+    renderSkeleton(m_marineSkeleton, m_marineSkeleton.getRootBoneNode(), m_marineController, 
         glm::translate(glm::vec3(500.0f, 0.0f, 0.0f)));
 
-    renderSkeleton(m_hellKnightSkeleton, m_hellKnightSkeleton.getRootBoneNode(), m_hellKnightController0, 
+    /*renderSkeleton(m_hellKnightSkeleton, m_hellKnightSkeleton.getRootBoneNode(), m_hellKnightController0, 
         glm::translate(glm::vec3(0.0f, 100.0f, 0.0f)));
     renderSkeleton(m_hellKnightSkeleton, m_hellKnightSkeleton.getRootBoneNode(), m_hellKnightController1, 
         glm::translate(glm::vec3(-20.0f, -200.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)));
