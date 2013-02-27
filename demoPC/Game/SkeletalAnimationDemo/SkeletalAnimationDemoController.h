@@ -71,6 +71,10 @@ private:
     illGraphics::Texture m_helmetNormal;
     illGraphics::Skeleton m_marineSkeleton;
     illGraphics::SkeletonAnimation m_marineAnimation;
+    illGraphics::SkeletonAnimation m_marineStrafeAnimation;
+    illGraphics::SkeletonAnimation m_marineAimAnimation;
+    illGraphics::SkeletonAnimation m_marineAimUpAnimation;
+    illGraphics::SkeletonAnimation m_marineAimDownAnimation;
     illGraphics::ModelAnimationController m_marineController;
 
     //hell knight
@@ -113,6 +117,9 @@ private:
 
     illGraphics::ShaderProgram m_debugShader;
     illGraphics::ShaderProgramLoader * m_debugShaderLoader;
+
+	//the bone matrix buffer
+	Array<glm::mat4> m_boneMatrixBuffer;
 };
 }
 

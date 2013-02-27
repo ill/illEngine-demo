@@ -54,6 +54,7 @@ int main(int argc, char * argv[]) {
     LOGGER_BEGIN_CATCH
 
     //tests
+	testGeomUtil();
     testVectorManager();
     testPool();
     testEndian();

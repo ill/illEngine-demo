@@ -175,6 +175,8 @@
     <ClCompile Include="illEngine\Console\serial\DeveloperConsole.cpp" />
     <ClCompile Include="illEngine\FileSystem-Physfs\PhysFsFile.cpp" />
     <ClCompile Include="illEngine\FileSystem-Physfs\PhysFsFileSystem.cpp" />
+    <ClCompile Include="illEngine\FileSystem-Stdio\StdioFile.cpp" />
+    <ClCompile Include="illEngine\FileSystem-Stdio\StdioFileSystem.cpp" />
     <ClCompile Include="illEngine\GlCommon\serial\GlRenderer.cpp" />
     <ClCompile Include="illEngine\GlCommon\serial\loadMesh.cpp" />
     <ClCompile Include="illEngine\GlCommon\serial\loadShader.cpp" />
@@ -184,6 +186,7 @@
     <ClCompile Include="illEngine\Graphics\serial\Material\Shader.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Material\ShaderProgram.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Material\Texture.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Model\AnimSet.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Model\Mesh.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Model\ModelAnimationController.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Model\Skeleton.cpp" />
@@ -194,9 +197,11 @@
     <ClCompile Include="illEngine\Input\serial\InputContextStack.cpp" />
     <ClCompile Include="illEngine\Input\serial\InputManager.cpp" />
     <ClCompile Include="illEngine\Logging\serial\SerialLogger.cpp" />
+    <ClCompile Include="illEngine\Logging\StdioLogger.cpp" />
     <ClCompile Include="illEngine\Pc\serial\SdlWindow.cpp" />
     <ClCompile Include="illEngine\Sound\Decoders\WavDecoder.cpp" />
     <ClCompile Include="illEngine\Tests\testEndian.cpp" />
+    <ClCompile Include="illEngine\Tests\testGeomUtil.cpp" />
     <ClCompile Include="illEngine\Tests\testPool.cpp" />
     <ClCompile Include="illEngine\Tests\testRefCountPtr.cpp" />
     <ClCompile Include="illEngine\Tests\testSortDimensions.cpp" />
@@ -219,6 +224,8 @@
     <ClInclude Include="illEngine\Console\serial\VariableManager.h" />
     <ClInclude Include="illEngine\FileSystem-Physfs\PhysFsFile.h" />
     <ClInclude Include="illEngine\FileSystem-Physfs\PhysFsFileSystem.h" />
+    <ClInclude Include="illEngine\FileSystem-Stdio\StdioFile.h" />
+    <ClInclude Include="illEngine\FileSystem-Stdio\StdioFileSystem.h" />
     <ClInclude Include="illEngine\FileSystem\File.h" />
     <ClInclude Include="illEngine\FileSystem\FileSystem.h" />
     <ClInclude Include="illEngine\GlCommon\glLogging.h" />
@@ -235,6 +242,7 @@
     <ClInclude Include="illEngine\Graphics\serial\Material\Shader.h" />
     <ClInclude Include="illEngine\Graphics\serial\Material\ShaderProgram.h" />
     <ClInclude Include="illEngine\Graphics\serial\Material\Texture.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Model\AnimSet.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\LastFrameInfo.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\Mesh.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\ModelAnimationController.h" />
@@ -262,6 +270,7 @@
     <ClInclude Include="illEngine\Logging\Logger.h" />
     <ClInclude Include="illEngine\Logging\logging.h" />
     <ClInclude Include="illEngine\Logging\serial\SerialLogger.h" />
+    <ClInclude Include="illEngine\Logging\StdioLogger.h" />
     <ClInclude Include="illEngine\Pc\serial\sdlInputEnum.h" />
     <ClInclude Include="illEngine\Pc\serial\SdlWindow.h" />
     <ClInclude Include="illEngine\Sound\Decoders\Decoder.h" />

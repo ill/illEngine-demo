@@ -132,6 +132,21 @@
     <ClCompile Include="illEngine\Tests\testPool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="illEngine\FileSystem-Stdio\StdioFileSystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\FileSystem-Stdio\StdioFile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\Graphics\serial\Model\AnimSet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\Logging\StdioLogger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\Tests\testGeomUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demoPC\Game\CameraController.h">
@@ -432,6 +447,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Util\serial\Array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\FileSystem-Stdio\StdioFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\FileSystem-Stdio\StdioFileSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Graphics\serial\Model\AnimSet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Logging\StdioLogger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
