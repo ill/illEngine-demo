@@ -32,10 +32,16 @@ RendererDemoController::RendererDemoController(Engine * engine)
 
     m_cameraController.m_speed = 50.0f;
     m_cameraController.m_rollSpeed = 50.0f;
+
+	m_graphicsScene = new illGraphics::GraphicsScene(glm::vec3(50.0f), glm::uvec3(1000));
+
+	//for now place a bunch of random lights and meshes
 }
 
 RendererDemoController::~RendererDemoController() {
     m_engine->m_inputManager->getInputContextStack(0)->popInputContext();
+
+	delete m_graphicsScene;
 }
 
 void RendererDemoController::update(float seconds) {

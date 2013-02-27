@@ -10,6 +10,7 @@
 #include "illEngine/Graphics/serial/Camera/Camera.h"
 #include "illEngine/Graphics/serial/Camera/CameraTransform.h"
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
+#include "illEngine/Graphics/serial/Scene/GraphicsScene.h"
 
 namespace Demo {
 struct Engine;
@@ -26,6 +27,8 @@ public:
 private:
     
     Engine * m_engine;
+
+	illGraphics::GraphicsScene * m_graphicsScene;
 
     CameraController m_cameraController;
 };

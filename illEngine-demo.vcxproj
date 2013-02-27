@@ -183,6 +183,7 @@
     <ClCompile Include="illEngine\GlCommon\serial\loadShaderProgram.cpp" />
     <ClCompile Include="illEngine\GlCommon\serial\loadTexture.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\BitmapFont.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Material\Material.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Material\Shader.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Material\ShaderProgram.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Material\Texture.cpp" />
@@ -192,6 +193,7 @@
     <ClCompile Include="illEngine\Graphics\serial\Model\Skeleton.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Model\SkeletonAnimation.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\RendererFrontend.cpp" />
+    <ClCompile Include="illEngine\Graphics\serial\Scene\GraphicsEntity.cpp" />
     <ClCompile Include="illEngine\Graphics\serial\Scene\GraphicsScene.cpp" />
     <ClCompile Include="illEngine\Input\serial\InputContext.cpp" />
     <ClCompile Include="illEngine\Input\serial\InputContextStack.cpp" />
@@ -249,7 +251,7 @@
     <ClInclude Include="illEngine\Graphics\serial\Model\Skeleton.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\SkeletonAnimation.h" />
     <ClInclude Include="illEngine\Graphics\serial\RendererFrontend.h" />
-    <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsNode.h" />
+    <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsEntity.h" />
     <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsScene.h" />
     <ClInclude Include="illEngine\Graphics\Window.h" />
     <ClInclude Include="illEngine\Input\serial\inputEnum.h" />
@@ -287,6 +289,7 @@
     <ClInclude Include="illEngine\Util\Geometry\BoundingVolume.h" />
     <ClInclude Include="illEngine\Util\Geometry\Box.h" />
     <ClInclude Include="illEngine\Util\Geometry\BoxIterator.h" />
+    <ClInclude Include="illEngine\Util\Geometry\BoxOmitIterator.h" />
     <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIterator.h" />
     <ClInclude Include="illEngine\Util\Geometry\Frustum.h" />
     <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIteratorDebug.h" />
@@ -299,6 +302,7 @@
     <ClInclude Include="illEngine\Util\Geometry\MeshEdgeList.h" />
     <ClInclude Include="illEngine\Util\Geometry\Plane.h" />
     <ClInclude Include="illEngine\Util\Geometry\Ray.h" />
+    <ClInclude Include="illEngine\Util\Geometry\SceneNode.h" />
     <ClInclude Include="illEngine\Util\Geometry\Sphere.h" />
     <ClInclude Include="illEngine\Util\Geometry\Transform.h" />
     <ClInclude Include="illEngine\Util\Illmesh\IllmeshLoader.h" />

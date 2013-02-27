@@ -37,11 +37,11 @@ void renderTextDebug(const char * text, const glm::mat4& transform, const illGra
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
 
     GLint pos = getProgramAttribLocation(prog, "position");
-    glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, (GLsizei) font.getMesh().m_meshFrontendData->getVertexSize(), (char *)NULL + font.getMesh().m_meshFrontendData->getPositionOffset());
+    glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, (GLsizei) font.getMesh().getMeshFrontentData()->getVertexSize(), (char *)NULL + font.getMesh().getMeshFrontentData()->getPositionOffset());
     glEnableVertexAttribArray(pos);
 
     GLint tex = getProgramAttribLocation(prog, "texCoords");
-    glVertexAttribPointer(tex, 2, GL_FLOAT, GL_FALSE, (GLsizei) font.getMesh().m_meshFrontendData->getVertexSize(), (char *)NULL + font.getMesh().m_meshFrontendData->getTexCoordOffset());
+    glVertexAttribPointer(tex, 2, GL_FLOAT, GL_FALSE, (GLsizei) font.getMesh().getMeshFrontentData()->getVertexSize(), (char *)NULL + font.getMesh().getMeshFrontentData()->getTexCoordOffset());
     glEnableVertexAttribArray(tex);
 
     buffer = *((GLuint *) font.getMesh().getMeshBackendData() + 1);
