@@ -15,6 +15,7 @@
 #include "illEngine/Graphics/serial/Model/SkeletonAnimation.h"
 #include "illEngine/Graphics/serial/Model/ModelAnimationController.h"
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
+#include "illEngine/Graphics/serial/BitmapFont.h"
 
 #include "illEngine/Input/serial/InputContext.h"
 #include "illEngine/Input/serial/Listeners/StateSetListener.h"
@@ -115,7 +116,11 @@ private:
 
     //the skinning shader
 
+    //debug font
+    illGraphics::BitmapFont m_debugFont;
+
     illGraphics::ShaderProgram m_debugShader;
+    illGraphics::ShaderProgram m_fontShader;
     illGraphics::ShaderProgramLoader * m_debugShaderLoader;
 
 	//the bone matrix buffer

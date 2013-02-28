@@ -198,7 +198,7 @@ void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList, const illGraphics::
 
     glEnd();
 
-     //draw the debug text for various things
+    //draw the debug text for various things
     glUseProgram(getProgram(fontShader));
 
     {
