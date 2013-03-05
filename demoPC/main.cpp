@@ -21,7 +21,7 @@ This file needs to be included in the same file that implements the main method.
 #include "illEngine/Graphics/serial/Material/Texture.h"
 #include "illEngine/Graphics/serial/Material/Material.h"
 
-#include "illEngine/GlCommon/serial/GlRenderer.h"
+#include "illEngine/GlCommon/serial/GlBackend.h"
 
 #include "FixedStepController.h"
 #include "Game/MainController.h"
@@ -43,7 +43,7 @@ illInput::InputManager inputManager;
 
 SdlPc::SdlWindow window;
 
-GlCommon::GlRenderer rendererBackend;
+GlCommon::GlBackend graphicsBackend;
 
 Demo::Engine engine;
 
@@ -70,13 +70,13 @@ int main(int argc, char * argv[]) {
     engine.m_developerConsole = &developerConsole;
     engine.m_consoleVariableManager = &consoleVariableManager;
     engine.m_inputManager = &inputManager;
-    engine.m_rendererBackend = &rendererBackend;
+    engine.m_graphicsBackend = &graphicsBackend;
 
-    illGraphics::ShaderManager shaderManager(engine.m_rendererBackend);
+    illGraphics::ShaderManager shaderManager(engine.m_graphicsBackend);
 
-    illGraphics::ShaderProgramLoader shaderProgramLoader(engine.m_rendererBackend, &shaderManager);
+    illGraphics::ShaderProgramLoader shaderProgramLoader(engine.m_graphicsBackend, &shaderManager);
     illGraphics::ShaderProgramManager shaderProgramManager(&shaderProgramLoader);
-    illGraphics::TextureManager textureManager(engine.m_rendererBackend);
+    illGraphics::TextureManager textureManager(engine.m_graphicsBackend);
     //Graphics::MaterialManager materialProgramManager;
 
     engine.m_shaderManager = &shaderManager;
@@ -84,7 +84,7 @@ int main(int argc, char * argv[]) {
     engine.m_textureManager = &textureManager;
     
     //run game loop
-    window.setRenderer(engine.m_rendererBackend);
+    window.setBackend(engine.m_graphicsBackend);
     window.setInputManager(engine.m_inputManager);
     engine.m_window->initialize();
 

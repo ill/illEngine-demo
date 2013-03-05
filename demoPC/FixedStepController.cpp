@@ -6,7 +6,7 @@
 
 #include "Engine.h"
 #include "illEngine/Graphics/Window.h"
-#include "illEngine/Graphics/RendererBackend.h"
+#include "illEngine/Graphics/GraphicsBackend.h"
 #include "illEngine/Logging/logging.h"
 
 namespace Demo {
@@ -52,11 +52,11 @@ void FixedStepController::appLoop() {
         /////////////////////
         //draw screen
         m_engine->m_window->beginFrame();
-        m_engine->m_rendererBackend->beginFrame();
+        m_engine->m_graphicsBackend->beginFrame();
 
         m_gameController->render();
 
-        m_engine->m_rendererBackend->endFrame();
+        m_engine->m_graphicsBackend->endFrame();
         m_engine->m_window->endFrame();
 
         //force delay 1 ms to avoid precision issues

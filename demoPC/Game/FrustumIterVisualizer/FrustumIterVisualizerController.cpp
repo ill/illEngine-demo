@@ -1812,7 +1812,7 @@ FrustumIterVisualizerController::FrustumIterVisualizerController(Engine * engine
         illGraphics::BitmapFontLoadArgs loadArgs;
         loadArgs.m_path = "prototype12.fnt";
 
-        m_debugFont.load(loadArgs, m_engine->m_rendererBackend);
+        m_debugFont.load(loadArgs, m_engine->m_graphicsBackend);
     }
     
     //load the temporary font shader
@@ -1820,16 +1820,16 @@ FrustumIterVisualizerController::FrustumIterVisualizerController(Engine * engine
         std::vector<RefCountPtr<illGraphics::Shader> > shaders;
 
         illGraphics::Shader * shader = new illGraphics::Shader();
-        shader->loadInternal(m_engine->m_rendererBackend, "shaders/tempFont.vert", GL_VERTEX_SHADER, "");
+        shader->loadInternal(m_engine->m_graphicsBackend, "shaders/tempFont.vert", GL_VERTEX_SHADER, "");
 
         shaders.push_back(RefCountPtr<illGraphics::Shader>(shader));
 
         shader = new illGraphics::Shader();
-        shader->loadInternal(m_engine->m_rendererBackend, "shaders/tempFont.frag", GL_FRAGMENT_SHADER, "");
+        shader->loadInternal(m_engine->m_graphicsBackend, "shaders/tempFont.frag", GL_FRAGMENT_SHADER, "");
 
         shaders.push_back(RefCountPtr<illGraphics::Shader>(shader));
 
-        m_debugShaderLoader = new illGraphics::ShaderProgramLoader(m_engine->m_rendererBackend, NULL);
+        m_debugShaderLoader = new illGraphics::ShaderProgramLoader(m_engine->m_graphicsBackend, NULL);
         m_fontShader.loadInternal(m_debugShaderLoader, shaders);
     }
 

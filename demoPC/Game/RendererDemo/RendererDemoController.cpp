@@ -15,6 +15,8 @@
 #include "illEngine/GlCommon/glLogging.h"
 #include "illEngine/GlCommon/serial/glUtil.h"
 
+#include "illEngine/DeferredShadingRenderer/serial/DeferredShadingScene.h"
+
 #include "illEngine/Util/Geometry/GridVolume3D.h"
 
 //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer
@@ -33,7 +35,7 @@ RendererDemoController::RendererDemoController(Engine * engine)
     m_cameraController.m_speed = 50.0f;
     m_cameraController.m_rollSpeed = 50.0f;
 
-	m_graphicsScene = new illGraphics::GraphicsScene(glm::vec3(50.0f), glm::uvec3(1000));
+	m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(glm::vec3(50.0f), glm::uvec3(1000));
 
 	//for now place a bunch of random lights and meshes
 }

@@ -13,11 +13,10 @@ template<typename Id, typename T, typename LoadArgs, typename Loader> class Conf
 
 namespace illGraphics {
 class Window;
-class RendererBackend;
-class RendererFrontend;
+class GraphicsBackend;
 
 class Shader;
-typedef ResourceManager<uint64_t, Shader, RendererBackend> ShaderManager;
+typedef ResourceManager<uint64_t, Shader, GraphicsBackend> ShaderManager;
 
 class ShaderProgram;
 struct ShaderProgramLoader;
@@ -25,7 +24,7 @@ typedef ResourceManager<uint64_t, ShaderProgram, ShaderProgramLoader> ShaderProg
 
 class Texture;
 struct TextureLoadArgs;
-typedef ConfigurableResourceManager<uint32_t, Texture, TextureLoadArgs, RendererBackend> TextureManager;
+typedef ConfigurableResourceManager<uint32_t, Texture, TextureLoadArgs, GraphicsBackend> TextureManager;
 
 class Material;
 class MaterialManager;
@@ -49,8 +48,8 @@ public:
     Console::VariableManager * m_consoleVariableManager;
 
     illGraphics::Window * m_window;
-    illGraphics::RendererFrontend * m_rendererFrontend;
-    illGraphics::RendererBackend * m_rendererBackend;
+    //illGraphics::RendererFrontend * m_rendererFrontend;
+    illGraphics::GraphicsBackend * m_graphicsBackend;
 
     illGraphics::ShaderManager * m_shaderManager;
     illGraphics::ShaderProgramManager * m_shaderProgramManager;

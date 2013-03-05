@@ -42,9 +42,6 @@
     <ClCompile Include="illEngine\FileSystem-Physfs\PhysFsFileSystem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="illEngine\GlCommon\serial\GlRenderer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="illEngine\GlCommon\serial\loadMesh.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -108,9 +105,6 @@
     <ClCompile Include="illEngine\Sound\Decoders\WavDecoder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="illEngine\Graphics\serial\RendererFrontend.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="illEngine\Tests\testSortDimensions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -121,9 +115,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="demoPC\Game\FrustumCullVisualizer\FrustumCullVisualizerController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="illEngine\Graphics\serial\Scene\GraphicsScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="demoPC\Game\RendererDemo\RendererDemoController.cpp">
@@ -145,6 +136,24 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="illEngine\Tests\testGeomUtil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\Graphics\serial\Material\Material.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\GlCommon\serial\GlBackend.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\DeferredShadingRenderer\serial\Gl3_3\DeferredShadingBackendGl3_3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\RendererCommon\serial\GraphicsEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\RendererCommon\serial\GraphicsScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\DeferredShadingRenderer\serial\DeferredShadingScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -254,9 +263,6 @@
     <ClInclude Include="illEngine\FileSystem-Physfs\PhysFsFileSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\GlCommon\serial\GlRenderer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="illEngine\GlCommon\glLogging.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -290,9 +296,6 @@
     <ClInclude Include="illEngine\Graphics\serial\Model\SkeletonAnimation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="illEngine\Graphics\serial\Effect.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -300,9 +303,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Graphics\graphicsLogging.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="illEngine\Graphics\RendererBackend.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Graphics\Window.h">
@@ -371,9 +371,6 @@
     <ClInclude Include="illEngine\Sound\SoundBackend.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\Graphics\serial\RendererFrontend.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="illEngine\GlCommon\serial\glUtil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -440,9 +437,6 @@
     <ClInclude Include="illEngine\Input\serial\inputEnum.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\Graphics\serial\Scene\GraphicsNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="illEngine\Util\serial\Pool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -459,6 +453,33 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Logging\StdioLogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\BoxOmitIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Util\Geometry\SceneNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\Graphics\GraphicsBackend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\GlCommon\serial\GlBackend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\DeferredShadingRenderer\serial\Gl3_3\DeferredShadingBackendGl3_3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\RendererCommon\serial\GraphicsScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\RendererCommon\serial\GraphicsEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\DeferredShadingRenderer\serial\DeferredShadingScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\RendererCommon\RendererBackend.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

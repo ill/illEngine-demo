@@ -254,7 +254,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         m_marine.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
         meshLoader.buildMesh(*m_marine.getMeshFrontentData());
-        m_marine.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
+        m_marine.frontendBackendTransferInternal(m_engine->m_graphicsBackend, false);
     }
 
     //load the diffuse texture
@@ -264,7 +264,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
-        m_marineDiffuse.load(loadArgs, m_engine->m_rendererBackend);
+        m_marineDiffuse.load(loadArgs, m_engine->m_graphicsBackend);
     }
 
     //marine normal map
@@ -274,7 +274,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
-        m_marineNormal.load(loadArgs, m_engine->m_rendererBackend);
+        m_marineNormal.load(loadArgs, m_engine->m_graphicsBackend);
     }
 
 
@@ -287,7 +287,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         m_marineHelmet.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
         meshLoader.buildMesh(*m_marineHelmet.getMeshFrontentData());
-        m_marineHelmet.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
+        m_marineHelmet.frontendBackendTransferInternal(m_engine->m_graphicsBackend, false);
     }
 
     //helmet normal map
@@ -297,7 +297,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
-        m_helmetNormal.load(loadArgs, m_engine->m_rendererBackend);
+        m_helmetNormal.load(loadArgs, m_engine->m_graphicsBackend);
     }
     
     //diffuse helmet texture
@@ -307,7 +307,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
-        m_helmetDiffuse.load(loadArgs, m_engine->m_rendererBackend);
+        m_helmetDiffuse.load(loadArgs, m_engine->m_graphicsBackend);
     }
 
 
@@ -391,7 +391,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         m_hellKnight.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
         meshLoader.buildMesh(*m_hellKnight.getMeshFrontentData());
-        m_hellKnight.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
+        m_hellKnight.frontendBackendTransferInternal(m_engine->m_graphicsBackend, false);
     }
 
     //load the diffuse texture
@@ -401,7 +401,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
-        m_hellKnightDiffuse.load(loadArgs, m_engine->m_rendererBackend);
+        m_hellKnightDiffuse.load(loadArgs, m_engine->m_graphicsBackend);
     }
 
     //marine normal map
@@ -411,7 +411,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
-        m_hellKnightNormal.load(loadArgs, m_engine->m_rendererBackend);
+        m_hellKnightNormal.load(loadArgs, m_engine->m_graphicsBackend);
     }
 
     //load the skeleton
@@ -447,7 +447,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         m_demon.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
         meshLoader.buildMesh(*m_demon.getMeshFrontentData());
-        m_demon.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
+        m_demon.frontendBackendTransferInternal(m_engine->m_graphicsBackend, false);
     }
 
     //load the diffuse texture
@@ -457,7 +457,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
-        m_demonDiffuse.load(loadArgs, m_engine->m_rendererBackend);
+        m_demonDiffuse.load(loadArgs, m_engine->m_graphicsBackend);
     }
 
     //demon normal map
@@ -467,7 +467,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         loadArgs.m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs.m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
 
-        m_demonNormal.load(loadArgs, m_engine->m_rendererBackend);
+        m_demonNormal.load(loadArgs, m_engine->m_graphicsBackend);
     }
     
     //demon front
@@ -477,7 +477,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         m_demonFront.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
         meshLoader.buildMesh(*m_demonFront.getMeshFrontentData());
-        m_demonFront.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
+        m_demonFront.frontendBackendTransferInternal(m_engine->m_graphicsBackend, false);
     }
 
     //load the skeleton
@@ -550,16 +550,16 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         std::vector<RefCountPtr<illGraphics::Shader> > shaders;
 
         illGraphics::Shader * shader = new illGraphics::Shader();
-        shader->loadInternal(m_engine->m_rendererBackend, "shaders/debugShader.vert", GL_VERTEX_SHADER, "");
+        shader->loadInternal(m_engine->m_graphicsBackend, "shaders/debugShader.vert", GL_VERTEX_SHADER, "");
 
         shaders.push_back(RefCountPtr<illGraphics::Shader>(shader));
 
         shader = new illGraphics::Shader();
-        shader->loadInternal(m_engine->m_rendererBackend, "shaders/debugShader.frag", GL_FRAGMENT_SHADER, "");
+        shader->loadInternal(m_engine->m_graphicsBackend, "shaders/debugShader.frag", GL_FRAGMENT_SHADER, "");
 
         shaders.push_back(RefCountPtr<illGraphics::Shader>(shader));
 
-        m_debugShaderLoader = new illGraphics::ShaderProgramLoader(m_engine->m_rendererBackend, NULL);
+        m_debugShaderLoader = new illGraphics::ShaderProgramLoader(m_engine->m_graphicsBackend, NULL);
         m_debugShader.loadInternal(m_debugShaderLoader, shaders);
     }
     
