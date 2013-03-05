@@ -13,6 +13,7 @@
 
 namespace illRendererCommon {
 class GraphicsScene;
+class RendererBackend;
 }
 
 namespace Demo {
@@ -32,6 +33,7 @@ private:
     Engine * m_engine;
 
 	illRendererCommon::GraphicsScene * m_graphicsScene;
+    illRendererCommon::RendererBackend * m_rendererBackend;
 
     CameraController m_cameraController;
 };
