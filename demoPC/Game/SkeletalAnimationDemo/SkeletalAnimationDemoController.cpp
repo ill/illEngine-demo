@@ -18,6 +18,154 @@
 //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer
 #include <GL/glew.h>
 
+enum FontHorzAlign {
+    FN_H_LEFT, FN_H_CENTER, FN_H_RIGHT
+};
+
+enum FontVertAlign {
+    FN_V_TOP, FN_V_CENTER, FN_V_BOTTOM
+};
+
+void renderTextDebug2(const char * text, const glm::mat4& transform, const illGraphics::BitmapFont& font, 
+        const illGraphics::Camera& camera, GLuint prog, 
+        FontHorzAlign horzAlign = FN_H_LEFT, FontVertAlign vertAlign = FN_V_TOP) {
+    glm::vec4 currColor = glm::vec4(1.0f);  //set the color to white initially
+
+    glm::mat4 currentTransform = transform;
+
+    GLuint buffer = *((GLuint *) font.getMesh().getMeshBackendData() + 0);
+    glBindBuffer(GL_ARRAY_BUFFER, buffer);
+
+    GLint pos = getProgramAttribLocation(prog, "position");
+    glVertexAttribPointer(pos, 3, GL_FLOAT, GL_FALSE, (GLsizei) font.getMesh().getMeshFrontentData()->getVertexSize(), (char *)NULL + font.getMesh().getMeshFrontentData()->getPositionOffset());
+    glEnableVertexAttribArray(pos);
+
+    GLint tex = getProgramAttribLocation(prog, "texCoords");
+    glVertexAttribPointer(tex, 2, GL_FLOAT, GL_FALSE, (GLsizei) font.getMesh().getMeshFrontentData()->getVertexSize(), (char *)NULL + font.getMesh().getMeshFrontentData()->getTexCoordOffset());
+    glEnableVertexAttribArray(tex);
+
+    buffer = *((GLuint *) font.getMesh().getMeshBackendData() + 1);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer);
+    
+    if(horzAlign != FN_H_LEFT || vertAlign != FN_V_TOP)  {
+        glm::vec2 printDimensions = font.getPrintDimensions(text);
+        glm::vec2 translate;
+
+        switch (vertAlign) {
+        case FN_V_CENTER:
+            translate.y = printDimensions.y * 0.5f;            
+            break;
+
+        case FN_V_BOTTOM:
+            translate.y = printDimensions.y;
+            break;
+
+        default:
+            translate.y = 0;
+            break;
+        }
+
+        switch (horzAlign) {
+        case FN_H_CENTER: {
+                const char ** textPtr = &text;
+                translate.x = font.getLineWidth(textPtr) * 0.5f;
+            }
+            break;
+
+        case FN_H_RIGHT: {
+                const char ** textPtr = &text;
+                translate.x = font.getLineWidth(textPtr);
+            }
+            break;
+
+        default:
+            translate.x = 0;
+        }
+
+        currentTransform = glm::translate(transform, glm::vec3(translate, 0.0f));
+    }
+
+    while(*text) {
+        //check if color code
+        if(font.getColorCode(&text, currColor)) {
+            continue;
+        }
+
+        //parse special characters
+        switch (*text) {
+        case '\n': {    //newline
+            glm::vec2 translate;
+            
+            text++;
+
+            glm::vec3 currentPosition = getTransformPosition(currentTransform);
+
+            switch (horzAlign) {
+            case FN_H_CENTER: {
+                    const char ** textPtr = &text;
+                    translate.x = font.getLineWidth(textPtr) * 0.5f;
+                }
+                break;
+
+            case FN_H_RIGHT: {
+                    const char ** textPtr = &text;
+                    translate.x = font.getLineWidth(textPtr);
+                }
+                break;
+
+            default:
+                translate.x = 0;
+            }
+
+            translate.y = currentPosition.y - font.getLineHeight();
+
+            currentTransform = glm::translate(transform, glm::vec3(translate, 0.0f));
+
+            continue;
+        }
+
+        case ' ': //space
+            currentTransform = glm::translate(currentTransform, glm::vec3(/*font.getSpacingHorz()*/5.0f, 0.0f, 0.0f));
+            text++;
+            continue;
+
+        case '\t': //tab
+            currentTransform = glm::translate(currentTransform, glm::vec3(font.getSpacingHorz() * 4.0f, 0.0f, 0.0f));
+            text++;
+            continue;
+        }
+
+        //m_backend->renderCharacter(camera, transform, font, currColor, *text);
+        {
+            GLint mvp = getProgramUniformLocation(prog, "modelViewProjectionMatrix");
+            glUniformMatrix4fv(mvp, 1, false, glm::value_ptr(camera.getModelViewProjection() * currentTransform));
+        }
+
+        {
+            GLint color = getProgramUniformLocation(prog, "color");
+            glUniform4fv(color, 1, glm::value_ptr(currColor));
+        }
+
+        {
+            GLuint texture = *((GLuint *) font.getPageTexture(font.getCharData(*text).m_texturePage).getTextureData());
+            glBindTexture(GL_TEXTURE_2D, texture);
+        }
+        
+        if(font.getCharData(*text).m_advance != 0.0f) {
+            glDrawRangeElements(GL_TRIANGLES, 
+                font.getCharData(*text).m_meshIndex, font.getCharData(*text).m_meshIndex + 6, 6, 
+                GL_UNSIGNED_SHORT, (char *)NULL + font.getCharData(*text).m_meshIndex * sizeof(uint16_t));
+            
+            currentTransform = glm::translate(currentTransform, glm::vec3(font.getCharData(*text).m_advance, 0.0f, 0.0f));
+        }
+
+        text++;
+    }
+    
+    glDisableVertexAttribArray(pos);
+    glDisableVertexAttribArray(tex);
+}
+
 void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& controller, const glm::mat4 * boneTransforms, const illGraphics::Camera& camera, const glm::mat4& xform, GLuint prog) {    
     GLint loc = getProgramUniformLocation(prog, "modelViewProjectionMatrix");
     glUniformMatrix4fv(loc, 1, false, glm::value_ptr(camera.getModelViewProjection() * xform));
@@ -74,7 +222,8 @@ void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& 
     //glDisableVertexAttribArray(weights);
 }
 
-void debugDrawBone(const glm::mat4& xForm, const glm::mat4& prevXform, bool drawLine) {
+void debugDrawBone(const glm::mat4& xForm, const glm::mat4& prevXform, bool drawLine, const illGraphics::Skeleton::BoneHeirarchy * currNode,
+                   const illGraphics::Camera& camera, const illGraphics::ShaderProgram& fontShader, const illGraphics::BitmapFont& font) {
     glm::vec4 currPoint(0.0f, 0.0f, 0.0f, 1.0f);
     currPoint = xForm * currPoint;
 
@@ -128,48 +277,76 @@ void debugDrawBone(const glm::mat4& xForm, const glm::mat4& prevXform, bool draw
     glEnd();
     
     glLineWidth(1.0f);
+
+    //draw the debug text for various things
+    glUseProgram(getProgram(fontShader));
+
+    {
+        GLint diff = getProgramUniformLocation(getProgram(fontShader), "diffuseMap");
+        glUniform1i(diff, 0);
+    }
+
+    renderTextDebug2(formatString("%u", currNode->m_boneIndex).c_str(),
+        prevXform,
+        font, camera, getProgram(fontShader));
+
+    glUseProgram(0);
 }
 
-//TODO: this doesn't work at all right now
-void renderSkeleton(const illGraphics::Skeleton& skeleton, const illGraphics::Skeleton::BoneHeirarchy * currNode, const illGraphics::ModelAnimationController& animationController, glm::mat4 currXform, glm::mat4 currBindXform) {
+void renderSkeleton(const illGraphics::Skeleton& skeleton, const illGraphics::Skeleton::BoneHeirarchy * currNode, const illGraphics::ModelAnimationController& animationController, glm::mat4 currXform, glm::mat4 currBindXform,
+                    const illGraphics::Camera& camera, const illGraphics::ShaderProgram& fontShader, const illGraphics::BitmapFont& font) {
 	Transform<> transform[2];
 
 	//for the primary animation
 	if(animationController.m_animations[animationController.m_currentAnimation].m_animation) {
-		transform[0] = animationController.m_animations[animationController.m_currentAnimation].m_animation->getTransform(currNode->m_boneIndex,
-			animationController.m_animations[animationController.m_currentAnimation].m_animTime);
+		//transform[0] = animationController.m_animations[animationController.m_currentAnimation].m_animation->getTransform(currNode->m_boneIndex,
+			//animationController.m_animations[animationController.m_currentAnimation].m_animTime);
+
+        if(!animationController.m_animations[animationController.m_currentAnimation].m_animation->getTransform(currNode->m_boneIndex,
+			animationController.m_animations[animationController.m_currentAnimation].m_animTime,
+            transform[0])) {
+
+            transform[0].set(skeleton.getBone(currNode->m_boneIndex).m_relativeTransform);
+        }
 	}
 	else {
-		new(&transform[0]) Transform<>();
+		//new(&transform[0]) Transform<>();
+        transform[0].set(skeleton.getBone(currNode->m_boneIndex).m_relativeTransform);
 	}
 
 	//for the secondary animation, see if the bone is in the animation
 	if(animationController.m_transitionWeight > 0.0f) {
 		if(animationController.m_animations[!animationController.m_currentAnimation].m_animation) {
-			transform[1] = animationController.m_animations[!animationController.m_currentAnimation].m_animation->getTransform(currNode->m_boneIndex,
-				animationController.m_animations[!animationController.m_currentAnimation].m_animTime);
+			//transform[1] = animationController.m_animations[!animationController.m_currentAnimation].m_animation->getTransform(currNode->m_boneIndex,
+				//animationController.m_animations[!animationController.m_currentAnimation].m_animTime);
+
+            if(!animationController.m_animations[!animationController.m_currentAnimation].m_animation->getTransform(currNode->m_boneIndex,
+			    animationController.m_animations[!animationController.m_currentAnimation].m_animTime,
+                transform[1])) {
+
+                transform[1].set(skeleton.getBone(currNode->m_boneIndex).m_relativeTransform);
+            }
 		}
 		else {
-			new(&transform[1]) Transform<>();
+			//new(&transform[1]) Transform<>();
+            transform[1].set(skeleton.getBone(currNode->m_boneIndex).m_relativeTransform);
 		}
 
 		//now blend them
 		transform[0] = transform[0].interpolate(transform[1], animationController.m_transitionWeight);
 	}
 	
-	
-	
 	glm::mat4 prevXform = currXform;
-	glm::mat4 prevBindXform = currBindXform;
+    glm::mat4 prevBindXform = currBindXform;
 
-	currXform = currXform * skeleton.getBone(currNode->m_boneIndex).m_relativeTransform * transform[0].getMatrix();
-	currBindXform = currBindXform * skeleton.getBone(currNode->m_boneIndex).m_relativeTransform;
-	
-	debugDrawBone(currXform, prevXform, currNode->m_parent != NULL);
-	debugDrawBone(currBindXform, prevBindXform, currNode->m_parent != NULL);
+    currXform = currXform * transform[0].getMatrix();
+    currBindXform = currBindXform * skeleton.getBone(currNode->m_boneIndex).m_relativeTransform;
+    	
+	debugDrawBone(currXform, prevXform, currNode->m_parent != NULL, currNode, camera, fontShader, font);
+	debugDrawBone(currBindXform, prevBindXform, currNode->m_parent != NULL, currNode, camera, fontShader, font);
 
     for(std::vector<illGraphics::Skeleton::BoneHeirarchy *>::const_iterator iter = currNode->m_children.begin(); iter != currNode->m_children.end(); iter++) {
-        renderSkeleton(skeleton, *iter, animationController, currXform, currBindXform);
+        renderSkeleton(skeleton, *iter, animationController, currXform, currBindXform, camera, fontShader, font);
     }
 }
 
@@ -340,7 +517,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
         m_marineAimDownAnimation.load(loadArgs, NULL);
 
         m_marineController.setSkeleton(&m_marineSkeleton);
-        m_marineController.queueTransition(&m_marineAimUpAnimation, 0.0f, 0.0f);
+        /*m_marineController.queueTransition(&m_marineAimUpAnimation, 0.0f, 0.0f);
         m_marineController.queueTransition(&m_marineAimAnimation, 1.0f, 5.0f);
         m_marineController.queueTransition(&m_marineAimDownAnimation, 1.0f, 2.0f);
         m_marineController.queueTransition(&m_marineAimAnimation, 1.0f, 2.0f);
@@ -363,7 +540,7 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
 		m_marineController.queueTransition(&m_marineAimUpAnimation, 10.0f, 10.0f);
         m_marineController.queueTransition(&m_marineAimAnimation, 10.0f, 10.0f);
         m_marineController.queueTransition(&m_marineAimDownAnimation, 10.0f, 10.0f);
-        m_marineController.queueTransition(&m_marineAimAnimation, 10.0f, 10.0f);
+        m_marineController.queueTransition(&m_marineAimAnimation, 10.0f, 10.0f);*/
 
 
         //m_marineController.queueTransition(&m_marineAnimation, 2.0f, 5.0f);
@@ -432,9 +609,9 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
 		m_hellKnightController1.setSkeleton(&m_hellKnightSkeleton);
 		m_hellKnightController2.setSkeleton(&m_hellKnightSkeleton);
 
-        m_hellKnightController0.queueTransition(&m_hellKnightAnimation, 0.0f, 0.0f);
+        /*m_hellKnightController0.queueTransition(&m_hellKnightAnimation, 0.0f, 0.0f);
         m_hellKnightController1.queueTransition(&m_hellKnightAnimation, 0.0f, 0.0f, 1.0f);
-        m_hellKnightController2.queueTransition(&m_hellKnightAnimation, 0.0f, 0.0f, 1.5f);
+        m_hellKnightController2.queueTransition(&m_hellKnightAnimation, 0.0f, 0.0f, 1.5f);*/
     }
 
 
@@ -508,32 +685,32 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
 
 
     //bill
-    /*{
+    {
         IllmeshLoader meshLoader("Meshes/Bill/bill.illmesh");
 
-        m_bill.m_meshFrontendData = new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features);
+        m_bill.setFrontentDataInternal(new MeshData<>(meshLoader.m_numInd / 3, meshLoader.m_numVert, meshLoader.m_features));
     
-        meshLoader.buildMesh(*m_bill.m_meshFrontendData);
-        m_bill.frontendBackendTransfer(m_engine->m_rendererBackend, false);
-    }*/
+        meshLoader.buildMesh(*m_bill.getMeshFrontentData());
+        m_bill.frontendBackendTransferInternal(m_engine->m_rendererBackend, false);
+    }
     
     //load the skeleton
-  //  {
-  //      illGraphics::SkeletonLoadArgs loadArgs;
-  //      loadArgs.m_path = "Meshes/Bill/bill.illskel";
-  //      m_billSkeleton.load(loadArgs, NULL);
-		////m_boneMatrixBuffer.reserve(m_billSkeleton.getNumBones());
-  //  }
+    {
+        illGraphics::SkeletonLoadArgs loadArgs;
+        loadArgs.m_path = "Meshes/Bill/bill.illskel";
+        m_billSkeleton.load(loadArgs, NULL);
+		//m_boneMatrixBuffer.reserve(m_billSkeleton.getNumBones());
+    }
 
-  //  //load the animation
-  //  {
-  //      illGraphics::SkeletonAnimationLoadArgs loadArgs;
-  //      loadArgs.m_path = "Meshes/Bill/flutter.illanim";
-  //      m_billAnimation.load(loadArgs, NULL);
+    //load the animation
+    {
+        illGraphics::SkeletonAnimationLoadArgs loadArgs;
+        loadArgs.m_path = "Meshes/Bill/flutter.illanim";
+        m_billAnimation.load(loadArgs, NULL);
 
-		//m_billController.setSkeleton(&m_billSkeleton);
+		m_billController.setSkeleton(&m_billSkeleton);
 		//m_billController.queueTransition(&m_billAnimation, 0.0f, 0.0f);
-  //  }
+    }
 
 	m_boneMatrixBuffer.reserve(
 		glm::max(
@@ -561,6 +738,32 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
 
         m_debugShaderLoader = new illGraphics::ShaderProgramLoader(m_engine->m_graphicsBackend, NULL);
         m_debugShader.loadInternal(m_debugShaderLoader, shaders);
+    }
+
+    //debug font
+    {
+        illGraphics::BitmapFontLoadArgs loadArgs;
+        loadArgs.m_path = "prototype12.fnt";
+
+        m_debugFont.load(loadArgs, m_engine->m_rendererBackend);
+    }
+    
+    //load the temporary font shader
+    {
+        std::vector<RefCountPtr<illGraphics::Shader> > shaders;
+
+        illGraphics::Shader * shader = new illGraphics::Shader();
+        shader->loadInternal(m_engine->m_rendererBackend, "shaders/tempFont.vert", GL_VERTEX_SHADER, "");
+
+        shaders.push_back(RefCountPtr<illGraphics::Shader>(shader));
+
+        shader = new illGraphics::Shader();
+        shader->loadInternal(m_engine->m_rendererBackend, "shaders/tempFont.frag", GL_FRAGMENT_SHADER, "");
+
+        shaders.push_back(RefCountPtr<illGraphics::Shader>(shader));
+
+        m_debugShaderLoader = new illGraphics::ShaderProgramLoader(m_engine->m_rendererBackend, NULL);
+        m_fontShader.loadInternal(m_debugShaderLoader, shaders);
     }
     
     //initialize the input (this would normally initialize using console variables)
@@ -607,7 +810,7 @@ void SkeletalAnimationDemoController::update(float seconds) {
     m_demonController0.update(seconds);
     m_demonController1.update(seconds * 0.5f);
     m_demonController2.update(seconds * 0.2f);
-    m_demonController3.update(seconds * 0.1f);
+    m_demonController3.update(seconds * 0.01f);
 
     m_billController.update(seconds);
     
@@ -647,7 +850,7 @@ void SkeletalAnimationDemoController::render() {
 
     glUseProgram(prog);
 
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glEnable(GL_DEPTH_TEST);
     glDepthMask(GL_TRUE);
     glCullFace(GL_BACK);
@@ -676,8 +879,8 @@ void SkeletalAnimationDemoController::render() {
     glBindTexture(GL_TEXTURE_2D, texture);
     glUniform1i(loc, 1);
 		
-    m_marineController.computeAnimPose(&m_boneMatrixBuffer[0]);
-    renderMesh(m_marine, m_marineController, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    //m_marineController.computeAnimPose(&m_boneMatrixBuffer[0]);
+    //renderMesh(m_marine, m_marineController, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     //draw marine helmet
     glActiveTexture(GL_TEXTURE0);
@@ -688,7 +891,7 @@ void SkeletalAnimationDemoController::render() {
     texture = *((GLuint *) m_helmetNormal.getTextureData());
     glBindTexture(GL_TEXTURE_2D, texture);
 
-    renderMesh(m_marineHelmet, m_marineController, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    //renderMesh(m_marineHelmet, m_marineController, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     //draw hellknight
     glActiveTexture(GL_TEXTURE0);
@@ -701,16 +904,16 @@ void SkeletalAnimationDemoController::render() {
 
     
     xform = glm::translate(glm::vec3(0.0f, 100.0f, 0.0f));
-	m_hellKnightController0.computeAnimPose(&m_boneMatrixBuffer[0]);
-    renderMesh(m_hellKnight, m_hellKnightController0, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+	//m_hellKnightController0.computeAnimPose(&m_boneMatrixBuffer[0]);
+    //renderMesh(m_hellKnight, m_hellKnightController0, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     xform = glm::translate(glm::vec3(-20.0f, -200.0f, 0.0f)) * glm::scale(glm::vec3(2.0f));	
-    m_hellKnightController1.computeAnimPose(&m_boneMatrixBuffer[0]);
-    renderMesh(m_hellKnight, m_hellKnightController1, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    //m_hellKnightController1.computeAnimPose(&m_boneMatrixBuffer[0]);
+    //renderMesh(m_hellKnight, m_hellKnightController1, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     xform = glm::translate(glm::vec3(-500.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(4.0f));
-    m_hellKnightController2.computeAnimPose(&m_boneMatrixBuffer[0]);
-    renderMesh(m_hellKnight, m_hellKnightController2, &m_boneMatrixBuffer[0], m_camera, xform, prog);
+    //m_hellKnightController2.computeAnimPose(&m_boneMatrixBuffer[0]);
+    //renderMesh(m_hellKnight, m_hellKnightController2, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     //draw demon
     glActiveTexture(GL_TEXTURE0);
@@ -742,10 +945,24 @@ void SkeletalAnimationDemoController::render() {
     renderMesh(m_demonFront, m_demonController3, &m_boneMatrixBuffer[0], m_camera, xform, prog);
 
     //draw bill
-	//m_billController.computeAnimPose(&m_boneMatrixBuffer[0]);
+	m_billController.computeAnimPose(&m_boneMatrixBuffer[0]);
     //renderMesh(m_bill, m_billController, &m_boneMatrixBuffer[0], m_camera, glm::mat4(), prog);
     
     //debug drawing
+    glActiveTexture(GL_TEXTURE0);
+    texture = *((GLuint *) m_debugFont.getPageTexture(0).getTextureData());
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    glDisable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+    glShadeModel(GL_SMOOTH);
+    glDepthMask(GL_FALSE);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     glUseProgram(0);
         
     glMatrixMode(GL_PROJECTION);
@@ -774,23 +991,32 @@ void SkeletalAnimationDemoController::render() {
 
     //debug draw the skeletons
     /*renderSkeleton(m_marineSkeleton, m_marineSkeleton.getRootBoneNode(), m_marineController, 
-        glm::translate(glm::vec3(500.0f, 0.0f, 0.0f)), glm::translate(glm::vec3(500.0f, 0.0f, 0.0f)));*/
+        glm::translate(glm::vec3(500.0f, 0.0f, 0.0f)), glm::translate(glm::vec3(500.0f, 0.0f, 0.0f)));
 
-    /*renderSkeleton(m_hellKnightSkeleton, m_hellKnightSkeleton.getRootBoneNode(), m_hellKnightController0, 
-        glm::translate(glm::vec3(0.0f, 100.0f, 0.0f)));
+    renderSkeleton(m_hellKnightSkeleton, m_hellKnightSkeleton.getRootBoneNode(), m_hellKnightController0, 
+        glm::translate(glm::vec3(0.0f, 100.0f, 0.0f)), glm::translate(glm::vec3(0.0f, 100.0f, 0.0f)));
     renderSkeleton(m_hellKnightSkeleton, m_hellKnightSkeleton.getRootBoneNode(), m_hellKnightController1, 
-        glm::translate(glm::vec3(-20.0f, -200.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)));
+        glm::translate(glm::vec3(-20.0f, -200.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)), glm::translate(glm::vec3(-20.0f, -200.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)));
     renderSkeleton(m_hellKnightSkeleton, m_hellKnightSkeleton.getRootBoneNode(), m_hellKnightController2, 
-        glm::translate(glm::vec3(-500.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(4.0f)));
+        glm::translate(glm::vec3(-500.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(4.0f)), glm::translate(glm::vec3(-500.0f, 0.0f, 0.0f)) * glm::scale(glm::vec3(4.0f)));*/
 
     renderSkeleton(m_demonSkeleton, m_demonSkeleton.getRootBoneNode(), m_demonController0, 
-        glm::mat4());
+        glm::mat4(), glm::mat4(),
+        m_camera, m_fontShader, m_debugFont);
     renderSkeleton(m_demonSkeleton, m_demonSkeleton.getRootBoneNode(), m_demonController1, 
-        glm::translate(glm::vec3(0.0f, -100.0f, 0.0f)));
+        glm::translate(glm::vec3(0.0f, -100.0f, 0.0f)), 
+        glm::translate(glm::vec3(0.0f, -100.0f, 0.0f)),
+        m_camera, m_fontShader, m_debugFont);
     renderSkeleton(m_demonSkeleton, m_demonSkeleton.getRootBoneNode(), m_demonController2, 
-        glm::translate(glm::vec3(0.0f, 300.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)));
+        glm::translate(glm::vec3(0.0f, 300.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)), 
+        glm::translate(glm::vec3(0.0f, 300.0f, 0.0f)) * glm::scale(glm::vec3(2.0f)),
+        m_camera, m_fontShader, m_debugFont);
     renderSkeleton(m_demonSkeleton, m_demonSkeleton.getRootBoneNode(), m_demonController3, 
-        glm::translate(glm::vec3(-400.0f, 600.0f, 0.0f)) * glm::scale(glm::vec3(5.0f)));*/
+        glm::translate(glm::vec3(-400.0f, 600.0f, 0.0f)) * glm::scale(glm::vec3(5.0f)), 
+        glm::translate(glm::vec3(-400.0f, 600.0f, 0.0f)) * glm::scale(glm::vec3(5.0f)),
+        m_camera, m_fontShader, m_debugFont);
+
+    //renderSkeleton(m_billSkeleton, m_billSkeleton.getRootBoneNode(), m_billController, glm::mat4(), glm::mat4());
     
     //debug draw the meshes
     /*xform = glm::translate(glm::vec3(500.0f, 0.0f, 0.0f));
