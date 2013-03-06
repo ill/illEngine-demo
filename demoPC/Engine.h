@@ -15,22 +15,44 @@ namespace illGraphics {
 class Window;
 class GraphicsBackend;
 
+class Material;
+struct MaterialLoadArgs;
+typedef uint32_t MaterialId;
+typedef ConfigurableResourceManager<MaterialId, Material, MaterialLoadArgs, GraphicsBackend> MaterialManager;
+
 class Shader;
-typedef ResourceManager<uint64_t, Shader, GraphicsBackend> ShaderManager;
+typedef uint64_t ShaderId;
+typedef ResourceManager<ShaderId, Shader, GraphicsBackend> ShaderManager;
 
 class ShaderProgram;
 struct ShaderProgramLoader;
-typedef ResourceManager<uint64_t, ShaderProgram, ShaderProgramLoader> ShaderProgramManager;
+typedef uint64_t ShaderProgramId;
+typedef ResourceManager<ShaderProgramId, ShaderProgram, ShaderProgramLoader> ShaderProgramManager;
 
 class Texture;
 struct TextureLoadArgs;
-typedef ConfigurableResourceManager<uint32_t, Texture, TextureLoadArgs, GraphicsBackend> TextureManager;
+typedef uint32_t TextureId;
+typedef ConfigurableResourceManager<TextureId, Texture, TextureLoadArgs, GraphicsBackend> TextureManager;
 
-class Material;
-class MaterialManager;
+class AnimSet;
+struct AnimSetLoadArgs;
+typedef uint32_t AnimSetId;
+typedef ConfigurableResourceManager<AnimSetId, AnimSet, AnimSetLoadArgs, GraphicsBackend> AnimSetManager;
 
-//class Mesh;
-//class MeshManager;
+class Mesh;
+struct MeshLoadArgs;
+typedef uint32_t MeshId;
+typedef ConfigurableResourceManager<MeshId, Mesh, MeshLoadArgs, GraphicsBackend> MeshManager;
+
+class Skeleton;
+struct SkeletonLoadArgs;
+typedef uint32_t SkeletonId;
+typedef ConfigurableResourceManager<SkeletonId, Skeleton, SkeletonLoadArgs, GraphicsBackend> SkeletonManager;
+
+class SkeletonAnimation;
+struct SkeletonAnimationLoadArgs;
+typedef uint32_t SkeletonAnimationId;
+typedef ConfigurableResourceManager<SkeletonAnimationId, SkeletonAnimation, SkeletonAnimationLoadArgs, GraphicsBackend> SkeletonAnimationManager;
 }
 
 namespace illInput {
@@ -48,14 +70,17 @@ public:
     Console::VariableManager * m_consoleVariableManager;
 
     illGraphics::Window * m_window;
-    //illGraphics::RendererFrontend * m_rendererFrontend;
     illGraphics::GraphicsBackend * m_graphicsBackend;
 
+    illGraphics::MaterialManager * m_materialManager;
     illGraphics::ShaderManager * m_shaderManager;
     illGraphics::ShaderProgramManager * m_shaderProgramManager;
     illGraphics::TextureManager * m_textureManager;
-    //illGraphics::MaterialManager * m_materialProgramManager;
-    //illGraphics::MeshManager * m_meshManager;
+    
+    illGraphics::AnimSetManager * m_animSetManager;
+    illGraphics::MeshManager * m_meshManager;
+    illGraphics::SkeletonManager * m_skeletonManager;
+    illGraphics::SkeletonAnimationManager * m_skeletonAnimationManager;
 
     illInput::InputManager * m_inputManager;
 };

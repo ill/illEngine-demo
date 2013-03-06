@@ -36,8 +36,10 @@ RendererDemoController::RendererDemoController(Engine * engine)
 
     m_rendererBackend = new illDeferredShadingRenderer::DeferredShadingBackendGl3_3((GlCommon::GlBackend *)m_engine->m_graphicsBackend);
 
-	m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(m_rendererBackend, glm::vec3(50.0f), glm::uvec3(1000), 
-        glm::vec3(10.0f), glm::uvec3(10000));
+	m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(m_rendererBackend,
+        m_engine->m_meshManager, m_engine->m_materialManager,
+        glm::vec3(200.0f), glm::uvec3(1000), 
+        glm::vec3(50.0f), glm::uvec3(4000));
 
 	//for now place a bunch of random lights and meshes
 }

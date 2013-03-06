@@ -147,13 +147,19 @@
     <ClCompile Include="illEngine\DeferredShadingRenderer\serial\Gl3_3\DeferredShadingBackendGl3_3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="illEngine\RendererCommon\serial\GraphicsEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="illEngine\RendererCommon\serial\GraphicsScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="illEngine\DeferredShadingRenderer\serial\DeferredShadingScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\RendererCommon\serial\GraphicsNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\RendererCommon\serial\StaticMeshNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="illEngine\RendererCommon\serial\LightNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -473,13 +479,25 @@
     <ClInclude Include="illEngine\RendererCommon\serial\GraphicsScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="illEngine\RendererCommon\serial\GraphicsEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="illEngine\DeferredShadingRenderer\serial\DeferredShadingScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\RendererCommon\RendererBackend.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="demoPC\Game\RendererDemo\Entities\TestEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\RendererCommon\serial\GraphicsNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\RendererCommon\serial\StaticMeshNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\RendererCommon\serial\RenderQueues.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\RendererCommon\serial\LightNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

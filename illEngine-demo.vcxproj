@@ -200,8 +200,10 @@
     <ClCompile Include="illEngine\Logging\serial\SerialLogger.cpp" />
     <ClCompile Include="illEngine\Logging\StdioLogger.cpp" />
     <ClCompile Include="illEngine\Pc\serial\SdlWindow.cpp" />
-    <ClCompile Include="illEngine\RendererCommon\serial\GraphicsEntity.cpp" />
+    <ClCompile Include="illEngine\RendererCommon\serial\GraphicsNode.cpp" />
     <ClCompile Include="illEngine\RendererCommon\serial\GraphicsScene.cpp" />
+    <ClCompile Include="illEngine\RendererCommon\serial\LightNode.cpp" />
+    <ClCompile Include="illEngine\RendererCommon\serial\StaticMeshNode.cpp" />
     <ClCompile Include="illEngine\Sound\Decoders\WavDecoder.cpp" />
     <ClCompile Include="illEngine\Tests\testEndian.cpp" />
     <ClCompile Include="illEngine\Tests\testGeomUtil.cpp" />
@@ -219,6 +221,7 @@
     <ClInclude Include="demoPC\Game\FrustumCullVisualizer\FrustumCullVisualizerController.h" />
     <ClInclude Include="demoPC\Game\MainController.h" />
     <ClInclude Include="demoPC\Game\FrustumIterVisualizer\FrustumIterVisualizerController.h" />
+    <ClInclude Include="demoPC\Game\RendererDemo\Entities\TestEntity.h" />
     <ClInclude Include="demoPC\Game\RendererDemo\RendererDemoController.h" />
     <ClInclude Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.h" />
     <ClInclude Include="illEngine\Console\serial\consoleConsole.h" />
@@ -253,7 +256,7 @@
     <ClInclude Include="illEngine\Graphics\serial\Model\Skeleton.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\SkeletonAnimation.h" />
     <ClInclude Include="illEngine\RendererCommon\RendererBackend.h" />
-    <ClInclude Include="illEngine\RendererCommon\serial\GraphicsEntity.h" />
+    <ClInclude Include="illEngine\RendererCommon\serial\GraphicsNode.h" />
     <ClInclude Include="illEngine\DeferredShadingRenderer\serial\DeferredShadingScene.h" />
     <ClInclude Include="illEngine\Graphics\Window.h" />
     <ClInclude Include="illEngine\Input\serial\inputEnum.h" />
@@ -278,6 +281,9 @@
     <ClInclude Include="illEngine\Pc\serial\sdlInputEnum.h" />
     <ClInclude Include="illEngine\Pc\serial\SdlWindow.h" />
     <ClInclude Include="illEngine\RendererCommon\serial\GraphicsScene.h" />
+    <ClInclude Include="illEngine\RendererCommon\serial\LightNode.h" />
+    <ClInclude Include="illEngine\RendererCommon\serial\RenderQueues.h" />
+    <ClInclude Include="illEngine\RendererCommon\serial\StaticMeshNode.h" />
     <ClInclude Include="illEngine\Sound\Decoders\Decoder.h" />
     <ClInclude Include="illEngine\Sound\Decoders\WavDecoder.h" />
     <ClInclude Include="illEngine\Sound\serial\Channel.h" />
