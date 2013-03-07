@@ -795,6 +795,7 @@ SkeletalAnimationDemoController::~SkeletalAnimationDemoController() {
     m_engine->m_inputManager->getInputContextStack(0)->popInputContext();
 
     m_debugShader.unload();
+    m_fontShader.unload();
     delete m_debugShaderLoader;
 }
 

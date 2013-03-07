@@ -96,9 +96,6 @@
     <ClCompile Include="illEngine\Tests\testRefCountPtr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="illEngine\Tests\testVectorManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="illEngine\Graphics\serial\BitmapFont.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -160,6 +157,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="illEngine\RendererCommon\serial\LightNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="demoPC\Game\RendererDemo\Entities\TestEntity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -225,12 +225,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Util\serial\ResourceManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="illEngine\Util\serial\UidGenerator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="illEngine\Util\serial\VectorManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\Util\casting.h">
@@ -498,6 +492,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="illEngine\RendererCommon\serial\LightNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="illEngine\DeferredShadingRenderer\DeferredShadingBackend.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

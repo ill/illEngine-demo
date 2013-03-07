@@ -16,9 +16,10 @@ class Window;
 class GraphicsBackend;
 
 class Material;
+struct MaterialLoader;
 struct MaterialLoadArgs;
 typedef uint32_t MaterialId;
-typedef ConfigurableResourceManager<MaterialId, Material, MaterialLoadArgs, GraphicsBackend> MaterialManager;
+typedef ConfigurableResourceManager<MaterialId, Material, MaterialLoadArgs, MaterialLoader> MaterialManager;
 
 class Shader;
 typedef uint64_t ShaderId;

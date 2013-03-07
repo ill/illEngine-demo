@@ -32,6 +32,8 @@ private:
     
     Engine * m_engine;
 
+    illGraphics::Camera m_camera;
+
 	illRendererCommon::GraphicsScene * m_graphicsScene;
     illRendererCommon::RendererBackend * m_rendererBackend;
 
