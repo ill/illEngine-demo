@@ -7,6 +7,9 @@
 #include "demoPC/GameControllerBase.h"
 #include "demoPC/Game/CameraController.h"
 
+#include "illEngine/Input/serial/InputContext.h"
+#include "illEngine/Input/serial/Listeners/StateListener.h"
+
 #include "illEngine/Graphics/serial/Camera/Camera.h"
 #include "illEngine/Graphics/serial/Camera/CameraTransform.h"
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
@@ -29,7 +32,17 @@ public:
     void render();
 
 private:
-    
+    struct ChangeDebugMode : public illInput::StateListener {
+        ChangeDebugMode()
+            : illInput::StateListener()
+        {}
+
+        void onRelease();
+
+        RendererDemoController * m_controller;
+        int m_mode;
+    };
+
     Engine * m_engine;
 
     illGraphics::Camera m_camera;
@@ -38,6 +51,21 @@ private:
     illRendererCommon::RendererBackend * m_rendererBackend;
 
     CameraController m_cameraController;
+
+    ChangeDebugMode m_noneDebugMode;
+    ChangeDebugMode m_lightPosDebugMode;
+    ChangeDebugMode m_wireDebugMode;
+    ChangeDebugMode m_solidDebugMode;
+
+    ChangeDebugMode m_depthDebugMode;
+    ChangeDebugMode m_normalDebugMode;
+    ChangeDebugMode m_diffuseDebugMode;
+    ChangeDebugMode m_specularDebugMode;
+
+    ChangeDebugMode m_diffuseAccumulationDebugMode;
+    ChangeDebugMode m_specularAccumulationDebugMode;
+
+    illInput::InputContext m_inputContext;
 };
 }
 

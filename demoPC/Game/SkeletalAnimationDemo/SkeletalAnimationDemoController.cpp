@@ -174,7 +174,6 @@ void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& 
     glUniformMatrix4fv(loc, 1, false, glm::value_ptr(camera.getModelView() * xform));
     
     GLuint buffer = *((GLuint *) mesh.getMeshBackendData() + 0);
-
     glBindBuffer(GL_ARRAY_BUFFER, buffer);
 
     loc = getProgramUniformLocation(prog, "bones");
@@ -218,8 +217,8 @@ void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& 
     glDisableVertexAttribArray(tex);
     glDisableVertexAttribArray(tan);
     glDisableVertexAttribArray(bitan);
-    //glDisableVertexAttribArray(bonei);
-    //glDisableVertexAttribArray(weights);
+    glDisableVertexAttribArray(bonei);
+    glDisableVertexAttribArray(weights);
 }
 
 void debugDrawBone(const glm::mat4& xForm, const glm::mat4& prevXform, bool drawLine, const illGraphics::Skeleton::BoneHeirarchy * currNode,

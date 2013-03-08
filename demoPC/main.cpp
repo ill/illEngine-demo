@@ -112,11 +112,11 @@ int main(int argc, char * argv[]) {
 
     configureResourceManagers();
     
-    //run game loop
     window.setBackend(engine.m_graphicsBackend);
     window.setInputManager(engine.m_inputManager);
     engine.m_window->initialize();
 
+    //run game loop
     Demo::FixedStepController loopController(new Demo::MainController(&engine), &engine);
     loopController.appLoop();
 
@@ -144,37 +144,37 @@ void configureResourceManagers() {
         illGraphics::TextureId currRes = 0;
 
         (*nameMap)["MarineDiffuse"] = currRes;
-        loadArgs[currRes].m_path = "mehses/Marine/marine.tga";
+        loadArgs[currRes].m_path = "meshes/Marine/marine.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         ++currRes;
 
         (*nameMap)["MarineNormal"] = currRes;
-        loadArgs[currRes].m_path = "mehses/Marine/marine_local.tga";
+        loadArgs[currRes].m_path = "meshes/Marine/marine_local.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         ++currRes;
 
         (*nameMap)["MarineSpecular"] = currRes;
-        loadArgs[currRes].m_path = "mehses/Marine/marine_s.tga";
+        loadArgs[currRes].m_path = "meshes/Marine/marine_s.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         ++currRes;
 
         (*nameMap)["MarineHelmetDiffuse"] = currRes;
-        loadArgs[currRes].m_path = "mehses/Marine/helmet.tga";
+        loadArgs[currRes].m_path = "meshes/Marine/helmet.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         ++currRes;
 
         (*nameMap)["MarineHelmetNormal"] = currRes;
-        loadArgs[currRes].m_path = "mehses/Marine/helmet_local.tga";
+        loadArgs[currRes].m_path = "meshes/Marine/helmet_local.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         ++currRes;
 
         (*nameMap)["MarineHelmetSpecular"] = currRes;
-        loadArgs[currRes].m_path = "mehses/Marine/helmet_s.tga";
+        loadArgs[currRes].m_path = "meshes/Marine/helmet_s.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         ++currRes;
@@ -193,8 +193,8 @@ void configureResourceManagers() {
         loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("MarineDiffuse");
         loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
         loadArgs[currRes].m_specularTextureIndex = engine.m_textureManager->getIdForName("MarineSpecular");
-        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 5.0f);
-        loadArgs[currRes].m_emissiveTextureIndex = 0;
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
         loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
         loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("MarineNormal");
         loadArgs[currRes].m_normalMultiplier = 1.0f;
@@ -209,8 +209,8 @@ void configureResourceManagers() {
         loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("MarineHelmetDiffuse");
         loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
         loadArgs[currRes].m_specularTextureIndex = engine.m_textureManager->getIdForName("MarineHelmetSpecular");
-        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 5.0f);
-        loadArgs[currRes].m_emissiveTextureIndex = 0;
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
         loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
         loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("MarineHelmetNormal");
         loadArgs[currRes].m_normalMultiplier = 1.0f;

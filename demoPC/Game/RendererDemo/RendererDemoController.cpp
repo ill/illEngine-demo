@@ -20,32 +20,88 @@
 #include <GL/glew.h>
 
 namespace Demo {
-    
+
+void RendererDemoController::ChangeDebugMode::onRelease() {
+    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_controller->m_rendererBackend)->m_debugMode = 
+        static_cast<illDeferredShadingRenderer::DeferredShadingBackend::DebugMode>(m_mode);
+}
+
 RendererDemoController::RendererDemoController(Engine * engine)
     : GameControllerBase(),
     m_engine(engine)
-{
-    //This is all put together to test some stuff, this is in no way how to normally do these things.  Everything should normally be done through the renderer front end when that's done.
-        
+{        
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
 
     m_cameraController.m_speed = 50.0f;
     m_cameraController.m_rollSpeed = 50.0f;
 
+    //set up inputs
+    m_noneDebugMode.m_controller = this;
+    m_noneDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::NONE);
+
+    m_lightPosDebugMode.m_controller = this;
+    m_lightPosDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::LIGHT_POS);
+
+    m_wireDebugMode.m_controller = this;
+    m_wireDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::WIRE);
+
+    m_solidDebugMode.m_controller = this;
+    m_solidDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::SOLID);
+
+    m_depthDebugMode.m_controller = this;
+    m_depthDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DEPTH);
+
+    m_normalDebugMode.m_controller = this;
+    m_normalDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::NORMAL);
+
+    m_diffuseDebugMode.m_controller = this;
+    m_diffuseDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DIFFUSE);
+
+    m_specularDebugMode.m_controller = this;
+    m_specularDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::SPECULAR);
+
+    m_diffuseAccumulationDebugMode.m_controller = this;
+    m_diffuseAccumulationDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DIFFUSE_ACCUMULATION);
+
+    m_specularAccumulationDebugMode.m_controller = this;
+    m_specularAccumulationDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::SPECULAR_ACCUMULATION);
+
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_1), &m_noneDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_2), &m_lightPosDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_3), &m_wireDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_4), &m_solidDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_5), &m_depthDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_6), &m_normalDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_7), &m_diffuseDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_8), &m_specularDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_9), &m_diffuseAccumulationDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_0), &m_specularAccumulationDebugMode);
+
+    m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_inputContext);
+
+    //setup renderer
     m_rendererBackend = new illDeferredShadingRenderer::DeferredShadingBackendGl3_3((GlCommon::GlBackend *)m_engine->m_graphicsBackend);
 
 	m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
         m_engine->m_meshManager, m_engine->m_materialManager,
-        glm::vec3(200.0f), glm::uvec3(20), 
-        glm::vec3(50.0f), glm::uvec3(80));
+        glm::vec3(200.0f), glm::uvec3(1), 
+        glm::vec3(200.0f), glm::uvec3(1));
+        
+        /*glm::vec3(200.0f), glm::uvec3(10), 
+        glm::vec3(50.0f), glm::uvec3(40));*/
 
+    m_rendererBackend->initialize(m_engine->m_window->getResolution());
+    
 	//for now place a bunch of random lights and meshes
-    /*new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+    illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
         m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
-        glm::mat4(), Box<>(glm::vec3(-100.0f), glm::vec3(100.0f)));*/
+        glm::mat4(), Box<>(glm::vec3(-100.0f), glm::vec3(100.0f)));
+
+    node->load(m_engine->m_meshManager, m_engine->m_materialManager);
 }
 
 RendererDemoController::~RendererDemoController() {
+    m_engine->m_inputManager->getInputContextStack(0)->popInputContext();
     m_engine->m_inputManager->getInputContextStack(0)->popInputContext();
 
 	delete m_graphicsScene;
@@ -64,6 +120,8 @@ void RendererDemoController::render() {
     m_camera.setPerspectiveTransform(m_cameraController.m_transform, 
         m_engine->m_window->getAspectRatio(), 
         illGraphics::DEFAULT_FOV * m_cameraController.m_zoom);
+
+    m_camera.setViewport(glm::ivec2(0, 0), glm::ivec2(m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y));
 
     m_graphicsScene->render(m_camera);
 }
