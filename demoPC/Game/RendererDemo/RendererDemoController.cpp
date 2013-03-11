@@ -95,7 +95,7 @@ RendererDemoController::RendererDemoController(Engine * engine)
     m_rendererBackend->initialize(m_engine->m_window->getResolution());
     
 	//for now place a bunch of random lights and meshes
-    for(unsigned int mesh = 0; mesh < 100; mesh++) {
+    for(unsigned int mesh = 0; mesh < 1000; mesh++) {
         glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f));
 
         {
@@ -115,17 +115,21 @@ RendererDemoController::RendererDemoController(Engine * engine)
         }
     }
     
-    /*for(unsigned int light = 0; light < 1; light++) {
-        new illRendererCommon::LightNode(m_graphicsScene,
-            new illGraphics::PointLight(glm::vec3(1.0f), 1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 500.0f)),
-            glm::translate(glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f))), 
-            Box<>(glm::vec3(-500.0f), glm::vec3(500.0f)));
-    }*/
+    for(unsigned int lightInstance = 0; lightInstance < 1000; lightInstance++) {
+        illGraphics::LightBase * lightObj = new illGraphics::PointLight(glm::linearRand(glm::vec3(0.0f), glm::vec3(1.0f)), 1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 100.0f));
 
-    new illRendererCommon::LightNode(m_graphicsScene,
+        for(unsigned int light = 0; light < 1; light++) {
+            new illRendererCommon::LightNode(m_graphicsScene,
+                lightObj,
+                glm::translate(glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f))), 
+                Box<>(glm::vec3(-500.0f), glm::vec3(500.0f)));
+        }
+    }
+
+    /*new illRendererCommon::LightNode(m_graphicsScene,
         new illGraphics::PointLight(glm::vec3(1.0f), 1.0f, 20.0f, 500.0f),
         glm::translate(glm::vec3(500.0f)), 
-        Box<>(glm::vec3(-500.0f), glm::vec3(500.0f)));
+        Box<>(glm::vec3(-500.0f), glm::vec3(500.0f)));*/
 }
 
 RendererDemoController::~RendererDemoController() {

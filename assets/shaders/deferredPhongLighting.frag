@@ -38,6 +38,19 @@ uniform float coneEnd;
 uniform vec3 lightDirection;
 #endif
 
+//decodes normals with that thing Cryengine 3 does
+//http://aras-p.info/texts/CompactNormalStorage.html
+vec3 decodeNormal(vec2 normal) {
+   vec4 res = vec4(-1.0, -1.0, 1.0, -1.0);
+   res.xy += normal * 2.0;
+   
+   float length = dot(res.xyz, -res.xyw);
+   res.z = length;
+   res.xy *= sqrt(length);
+   
+   return res.xyz * 2.0 + vec3(0.0, 0.0, -1.0);
+}
+
 void main(void) {
     //retreive position
     vec3 viewRay = vec3(viewPosition.xy / viewPosition.z, 1.0);   
@@ -45,7 +58,8 @@ void main(void) {
     vec3 position = viewRay * depth;
    
     //convert normal back from [0,1] color space  
-    vec3 normal = texelFetch2D(normalBuffer, ivec2(gl_FragCoord.xy), 0).xyz * 2.0 - 1.0;
+    //vec3 normal = texelFetch2D(normalBuffer, ivec2(gl_FragCoord.xy), 0).xyz * 2.0 - 1.0;    
+    vec3 normal = decodeNormal(texelFetch2D(normalBuffer, ivec2(gl_FragCoord.xy), 0).xy);
       
     //light
     float lightNormDot;
@@ -65,7 +79,7 @@ void main(void) {
    
     vec3 diffuseContribution = max(0.0, lightNormDot) * texelFetch2D(diffuseBuffer, ivec2(gl_FragCoord.xy), 0).rgb * lightColor;
     vec4 specular = texelFetch2D(specularBuffer, ivec2(gl_FragCoord.xy), 0);
-    vec3 specularContribution = pow(max(0.0, dot(halfVec, normal)), specular.a) * specular.rgb * lightColor * clamp(lightNormDot * 4.0, 0.0, 1.0);
+    vec3 specularContribution = pow(max(0.0, dot(halfVec, normal)), specular.a * 1000.0) * specular.rgb * lightColor * clamp(lightNormDot * 4.0, 0.0, 1.0);
    
 #if(defined(POINT_LIGHT) || defined(SPOT_LIGHT))   
     float attenuation = clamp((attenuationEnd - lightDistance) / (attenuationEnd - attenuationStart), 0.0, 1.0);
@@ -81,15 +95,9 @@ void main(void) {
     finalColor = intensity * diffuseContribution;
 #endif
             
-    gl_FragData[0] = vec4(/*clamp(attenuation, 1.0, 1.0)*/attenuation * intensity * diffuseContribution, 1.0);
-		//vec4(attenuation, attenuation, attenuation, 1.0);
-        
+    gl_FragData[0] = vec4(attenuation * intensity * diffuseContribution, 1.0);        
     gl_FragData[1] = vec4(attenuation * intensity * specularContribution, 1.0);
    
     //debug draw slight haze from light volume
     //gl_FragData[0] = vec4(clamp(attenuation * intensity * diffuseContribution, 0.05, 1.0), 1.0);
-   
-    //gl_FragData[1] = //max(vec4(0.0), min(vec4(0.0), gl_FragData[0])) + 1.0;
-        //vec4(clamp(attenuation * intensity * diffuseContribution, 0.05, 1.0), 1.0);
-        //clamp(vec4(attenuation * intensity * diffuseContribution, 1.0) + vec4(attenuation * intensity * specularContribution, 1.0), 0.1, 1.0);
 }

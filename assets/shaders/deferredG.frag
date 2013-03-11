@@ -36,7 +36,10 @@ uniform vec4 specularColor;
 G buffer layout
 render target 0:
 r10, g10, b10, a2
-norm.x, norm.y, norm.z, materialType	TODO: if needed, use the cryengine 3 style normal compression to free up the z slot
+norm.x, norm.y, unused, materialType
+
+Normals are stured using CryEngine 3 style spherical harmonics encoding.  This seems to make them more precise
+and makes specular highlights with high glossiness factors look muuuuch better.
 
 render target 1:
 r8, g8, b8, a8
@@ -47,9 +50,14 @@ r8, g8, b8, a8
 specular.r, specular.g, specular.b, specular power		
 
 TODO: eventually I might eliminate specular color and leave it black and white, this should reduce it to 2 render targets.
-I can use Cryengine 3 normal compression to store only x,y.  Then use the z slot for specular whiteness,
-and the unused alpha component of diffuse for specular power.
+Then use the z slot for specular whiteness, and the unused alpha component of diffuse for specular power.
 */
+
+//encodes normals with that thing Cryengine 3 does
+//http://aras-p.info/texts/CompactNormalStorage.html
+vec2 encodeNormal(vec3 normal) {
+   return normalize(normal.xy) * sqrt(-normal.z * 0.5 + 0.5) * 0.5 + 0.5;
+}
 
 void main(void) {
    //////////////////////////////////
@@ -73,10 +81,12 @@ void main(void) {
       normalize(normalOut);
 #endif
       
-   gl_FragData[0].xyz = finalNormal * 0.5 + 0.5;
-   gl_FragData[0].a = 1.0;
+   /*gl_FragData[0].xyz = finalNormal * 0.5 + 0.5;
+   gl_FragData[0].a = 1.0;*/
+   gl_FragData[0] = vec4(encodeNormal(finalNormal), 0.0, 1.0);
    
    //TODO: the alpha component will store material type
+   //TODO: make use of the unused z slot
    
    //////////////////////////////////
    //diffuse
