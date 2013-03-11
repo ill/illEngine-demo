@@ -57,16 +57,7 @@ RendererDemoController::RendererDemoController(Engine * engine)
     //set up inputs
     m_noneDebugMode.m_controller = this;
     m_noneDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::NONE);
-
-    m_lightPosDebugMode.m_controller = this;
-    m_lightPosDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::LIGHT_POS);
-
-    m_wireDebugMode.m_controller = this;
-    m_wireDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::WIRE);
-
-    m_solidDebugMode.m_controller = this;
-    m_solidDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::SOLID);
-
+    
     m_depthDebugMode.m_controller = this;
     m_depthDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DEPTH);
 
@@ -94,15 +85,15 @@ RendererDemoController::RendererDemoController(Engine * engine)
     m_toggleCamera.m_controller = this;
 
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_1), &m_noneDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_2), &m_lightPosDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_3), &m_wireDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_4), &m_solidDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_5), &m_depthDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_6), &m_normalDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_7), &m_diffuseDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_8), &m_specularDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_9), &m_diffuseAccumulationDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_0), &m_specularAccumulationDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_2), &m_depthDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_3), &m_normalDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_4), &m_diffuseDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_5), &m_specularDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_6), &m_diffuseAccumulationDebugMode);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_7), &m_specularAccumulationDebugMode);
+
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_l), &m_drawLightsToggle);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_b), &m_drawBoundsToggle);
 
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_o), &m_occlusionDebugToggle);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_p), &m_toggleCamera);
@@ -124,6 +115,9 @@ RendererDemoController::RendererDemoController(Engine * engine)
     //setup renderer
     m_rendererBackend = new illDeferredShadingRenderer::DeferredShadingBackendGl3_3((GlCommon::GlBackend *)m_engine->m_graphicsBackend);
 
+    m_drawLightsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugLights;
+    m_drawBoundsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugBounds;
+
 	m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
         m_engine->m_meshManager, m_engine->m_materialManager,
         glm::vec3(200.0f), glm::uvec3(5), 
@@ -143,7 +137,7 @@ RendererDemoController::RendererDemoController(Engine * engine)
         {
             illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
                 m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
-                glm::translate(pos), Box<>(glm::vec3(-100.0f), glm::vec3(100.0f)));
+                glm::translate(pos), Box<>(glm::vec3(-33.0f, -12.0f, -2.0f), glm::vec3(33.0f, 12.0f, 73.0f)));
 
             node->load(m_engine->m_meshManager, m_engine->m_materialManager);
         }
@@ -151,20 +145,20 @@ RendererDemoController::RendererDemoController(Engine * engine)
         {
             illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
                 m_engine->m_meshManager->getIdForName("MarineHelmet"), m_engine->m_materialManager->getIdForName("MarineHelmetSkin"),
-                glm::translate(pos), Box<>(glm::vec3(-100.0f), glm::vec3(100.0f)));
+                glm::translate(pos), Box<>(glm::vec3(-8.0f, -8.0f, 65.0f), glm::vec3(8.0f, 8.0f, 80.0f)));
 
             node->load(m_engine->m_meshManager, m_engine->m_materialManager);
         }
     }
     
     for(unsigned int lightInstance = 0; lightInstance < 1000; lightInstance++) {
-        illGraphics::LightBase * lightObj = new illGraphics::PointLight(glm::linearRand(glm::vec3(0.0f), glm::vec3(1.0f)), 1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 100.0f));
+        illGraphics::PointLight * lightObj = new illGraphics::PointLight(glm::linearRand(glm::vec3(0.0f), glm::vec3(1.0f)), 1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 100.0f));
 
         for(unsigned int light = 0; light < 1; light++) {
             new illRendererCommon::LightNode(m_graphicsScene,
                 lightObj,
                 glm::translate(glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f))), 
-                Box<>(glm::vec3(-500.0f), glm::vec3(500.0f)));
+                Box<>(glm::vec3(-lightObj->m_attenuationEnd), glm::vec3(lightObj->m_attenuationEnd)));
         }
     }
 

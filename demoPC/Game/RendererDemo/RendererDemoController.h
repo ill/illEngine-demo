@@ -66,9 +66,6 @@ private:
     CameraController m_occlusionCameraController;
 
     ChangeDebugMode m_noneDebugMode;
-    ChangeDebugMode m_lightPosDebugMode;
-    ChangeDebugMode m_wireDebugMode;
-    ChangeDebugMode m_solidDebugMode;
 
     ChangeDebugMode m_depthDebugMode;
     ChangeDebugMode m_normalDebugMode;
@@ -85,6 +82,9 @@ private:
     illInput::StateReleaseToggleListener m_topDownToggle;
     illInput::StateReleaseToggleListener m_drawFrustumToggle;
     illInput::StateReleaseToggleListener m_drawGridToggle;
+
+    illInput::StateReleaseToggleListener m_drawLightsToggle;
+    illInput::StateReleaseToggleListener m_drawBoundsToggle;
 
     illInput::InputContext m_inputContext;
 
