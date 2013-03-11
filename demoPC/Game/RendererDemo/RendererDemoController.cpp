@@ -21,6 +21,9 @@
 //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer
 #include <GL/glew.h>
 
+void renderSceneDebug(const GridVolume3D<>& gridVolume);
+void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList);
+
 namespace Demo {
 
 void RendererDemoController::ChangeDebugMode::onRelease() {
@@ -28,15 +31,29 @@ void RendererDemoController::ChangeDebugMode::onRelease() {
         static_cast<illDeferredShadingRenderer::DeferredShadingBackend::DebugMode>(m_mode);
 }
 
+void RendererDemoController::ToggleCamera::onRelease() {
+    m_controller->m_engine->m_inputManager->getInputContextStack(0)->popInputContext();
+
+    if(m_controller->m_whichCamera) {
+        m_controller->m_whichCamera = false;
+        m_controller->m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_controller->m_cameraController.m_inputContext);
+    }
+    else {
+        m_controller->m_whichCamera = true;
+        m_controller->m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_controller->m_occlusionCameraController.m_inputContext);
+    }
+}
+
 RendererDemoController::RendererDemoController(Engine * engine)
     : GameControllerBase(),
-    m_engine(engine)
-{        
-    m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
+    m_engine(engine),
+    m_whichCamera(false),
+    m_occlusionDebug(false),
 
-    m_cameraController.m_speed = 50.0f;
-    m_cameraController.m_rollSpeed = 50.0f;
-
+    m_topDown(false),
+    m_drawFrustum(false),
+    m_drawGrid(false)
+{ 
     //set up inputs
     m_noneDebugMode.m_controller = this;
     m_noneDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::NONE);
@@ -68,6 +85,14 @@ RendererDemoController::RendererDemoController(Engine * engine)
     m_specularAccumulationDebugMode.m_controller = this;
     m_specularAccumulationDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::SPECULAR_ACCUMULATION);
 
+    m_occlusionDebugToggle.m_value = &m_occlusionDebug;
+
+    m_topDownToggle.m_value = &m_topDown;
+    m_drawFrustumToggle.m_value = &m_drawFrustum;
+    m_drawGridToggle.m_value = &m_drawGrid;
+
+    m_toggleCamera.m_controller = this;
+
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_1), &m_noneDebugMode);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_2), &m_lightPosDebugMode);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_3), &m_wireDebugMode);
@@ -79,7 +104,22 @@ RendererDemoController::RendererDemoController(Engine * engine)
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_9), &m_diffuseAccumulationDebugMode);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_0), &m_specularAccumulationDebugMode);
 
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_o), &m_occlusionDebugToggle);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_p), &m_toggleCamera);
+
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_t), &m_topDownToggle);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_f), &m_drawFrustumToggle);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_g), &m_drawGridToggle);
+
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_inputContext);
+
+    m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
+
+    m_cameraController.m_speed = 50.0f;
+    m_cameraController.m_rollSpeed = 50.0f;
+
+    m_occlusionCameraController.m_speed = 50.0f;
+    m_occlusionCameraController.m_rollSpeed = 50.0f;
 
     //setup renderer
     m_rendererBackend = new illDeferredShadingRenderer::DeferredShadingBackendGl3_3((GlCommon::GlBackend *)m_engine->m_graphicsBackend);
@@ -94,6 +134,8 @@ RendererDemoController::RendererDemoController(Engine * engine)
 
     m_rendererBackend->initialize(m_engine->m_window->getResolution());
     
+    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_occlusionCamera = &m_occlusionCamera;
+
 	//for now place a bunch of random lights and meshes
     for(unsigned int mesh = 0; mesh < 1000; mesh++) {
         glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f));
@@ -141,7 +183,8 @@ RendererDemoController::~RendererDemoController() {
 }
 
 void RendererDemoController::update(float seconds) {
-    m_cameraController.update(seconds);        
+    m_cameraController.update(seconds);
+    m_occlusionCameraController.update(seconds);
 }
 
 void RendererDemoController::updateSound(float seconds) {
@@ -150,12 +193,85 @@ void RendererDemoController::updateSound(float seconds) {
  
 void RendererDemoController::render() {
     m_camera.setPerspectiveTransform(m_cameraController.m_transform, 
-        m_engine->m_window->getAspectRatio(), 
-        illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 5000.0f);
+        m_occlusionDebug ? m_engine->m_window->getAspectRatio() * 2.0f : m_engine->m_window->getAspectRatio(), 
+        illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 2000.0f);
+
+    if(m_topDown) {
+        m_occlusionCamera.setOrthoTransform(createTransform(glm::vec3(
+                m_graphicsScene->getGridVolume().getVolumeBounds().m_max.x * 0.5f, 
+                m_graphicsScene->getGridVolume().getVolumeBounds().m_max.y + 50.0f, 
+                m_graphicsScene->getGridVolume().getVolumeBounds().m_max.z * 0.5f),
+                directionToMat3(glm::vec3(0.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f))),
+
+            -(m_graphicsScene->getGridVolume().getVolumeBounds().m_max.x * 0.5f + 50.0f) * m_engine->m_window->getAspectRatio() * 2.0f, 
+            (m_graphicsScene->getGridVolume().getVolumeBounds().m_max.x * 0.5f + 50.0f) * m_engine->m_window->getAspectRatio() * 2.0f,
+
+            -(m_graphicsScene->getGridVolume().getVolumeBounds().m_max.z * 0.5f + 50.0f), 
+            m_graphicsScene->getGridVolume().getVolumeBounds().m_max.z * 0.5f + 50.0f,
+
+            0.0f, 
+            m_graphicsScene->getGridVolume().getVolumeBounds().m_max.y + 100.0f);
+    }
+    else {
+        m_occlusionCamera.setPerspectiveTransform(m_occlusionCameraController.m_transform,
+            m_engine->m_window->getAspectRatio() * 2.0f,
+            illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 5000.0f);
+    }
 
     m_camera.setViewport(glm::ivec2(0, 0), glm::ivec2(m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y));
 
+    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugOcclusion = m_occlusionDebug;
     m_graphicsScene->render(m_camera);
+
+    if(m_occlusionDebug) {
+        glUseProgram(0);
+
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+        glActiveTexture(GL_TEXTURE3);
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        glDisable(GL_CULL_FACE);
+        glEnable(GL_BLEND);
+        glShadeModel(GL_SMOOTH);
+        glDepthMask(GL_FALSE);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        
+        glMatrixMode(GL_PROJECTION);
+        glLoadMatrixf(glm::value_ptr(m_occlusionCamera.getProjection()));
+
+        glMatrixMode(GL_MODELVIEW);
+        glLoadMatrixf(glm::value_ptr(m_occlusionCamera.getModelView()));
+
+        glViewport(m_camera.getViewportCorner().x, m_camera.getViewportCorner().y,
+            m_camera.getViewportDimensions().x, m_camera.getViewportDimensions().y / 2);
+
+        if(m_drawGrid) {
+            renderSceneDebug(m_graphicsScene->getGridVolume());
+        }
+
+        //clip the mesh against the bounds
+        if(m_drawFrustum) {
+            MeshEdgeList<> meshEdgeList = m_camera.getViewFrustum().getMeshEdgeList();
+
+            meshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), -m_graphicsScene->getGridVolume().getVolumeBounds().m_min.x));
+            meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), -m_graphicsScene->getGridVolume().getVolumeBounds().m_min.y));
+            meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), -m_graphicsScene->getGridVolume().getVolumeBounds().m_min.z));
+            meshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), m_graphicsScene->getGridVolume().getVolumeBounds().m_max.x));
+            meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), m_graphicsScene->getGridVolume().getVolumeBounds().m_max.y));
+            meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), m_graphicsScene->getGridVolume().getVolumeBounds().m_max.z));
+
+            renderMeshEdgeListDebug(meshEdgeList);
+        }
+    }
 }
 
 }

@@ -9,6 +9,7 @@
 
 #include "illEngine/Input/serial/InputContext.h"
 #include "illEngine/Input/serial/Listeners/StateListener.h"
+#include "illEngine/Input/serial/Listeners/StateReleaseToggleListener.h"
 
 #include "illEngine/Graphics/serial/Camera/Camera.h"
 #include "illEngine/Graphics/serial/Camera/CameraTransform.h"
@@ -43,14 +44,26 @@ private:
         int m_mode;
     };
 
+    struct ToggleCamera : public illInput::StateListener {
+        ToggleCamera()
+            : illInput::StateListener()
+        {}
+
+        void onRelease();
+
+        RendererDemoController * m_controller;
+    };
+
     Engine * m_engine;
 
     illGraphics::Camera m_camera;
+    illGraphics::Camera m_occlusionCamera;
 
 	illRendererCommon::GraphicsScene * m_graphicsScene;
     illRendererCommon::RendererBackend * m_rendererBackend;
 
     CameraController m_cameraController;
+    CameraController m_occlusionCameraController;
 
     ChangeDebugMode m_noneDebugMode;
     ChangeDebugMode m_lightPosDebugMode;
@@ -65,7 +78,21 @@ private:
     ChangeDebugMode m_diffuseAccumulationDebugMode;
     ChangeDebugMode m_specularAccumulationDebugMode;
 
+    illInput::StateReleaseToggleListener m_occlusionDebugToggle;
+    ToggleCamera m_toggleCamera;
+    bool m_whichCamera;
+
+    illInput::StateReleaseToggleListener m_topDownToggle;
+    illInput::StateReleaseToggleListener m_drawFrustumToggle;
+    illInput::StateReleaseToggleListener m_drawGridToggle;
+
     illInput::InputContext m_inputContext;
+
+    bool m_occlusionDebug;
+
+    bool m_topDown;
+    bool m_drawFrustum;
+    bool m_drawGrid;
 };
 }
 
