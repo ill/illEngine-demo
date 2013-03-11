@@ -1,7 +1,5 @@
 //TODO: rename a bunch of stuff and use structs
-
-#pragma optimize(off)	//TODO: for development only, take this out
-
+//#pragma optimize(off)	//TODO: for development only, take this out
 
 #ifdef NORMAL_ATTRIBUTE
 varying vec3 normalOut;     //called normalOut, because it comes out of the vertex shader and into the fragment shader
@@ -38,15 +36,19 @@ uniform vec4 specularColor;
 G buffer layout
 render target 0:
 r10, g10, b10, a2
-norm.x, norm.y, norm.z, materialType	//TODO: if needed, use the cryengine 3 style normal compression to free up the z slot
+norm.x, norm.y, norm.z, materialType	TODO: if needed, use the cryengine 3 style normal compression to free up the z slot
 
 render target 1:
 r8, g8, b8, a8
-diffuse.r, diffuse.g, diffuse.b, ?
+diffuse.r, diffuse.g, diffuse.b, unused
 
 render target 2:
 r8, g8, b8, a8
-specular.r, specular.g, specular.b, specular power		//TODO: eventually I might eliminate specular color and leave it black and white
+specular.r, specular.g, specular.b, specular power		
+
+TODO: eventually I might eliminate specular color and leave it black and white, this should reduce it to 2 render targets.
+I can use Cryengine 3 normal compression to store only x,y.  Then use the z slot for specular whiteness,
+and the unused alpha component of diffuse for specular power.
 */
 
 void main(void) {
@@ -57,6 +59,7 @@ void main(void) {
 #ifdef NORMAL_MAP
       texture2D(normalMap, texCoordOut).xyz * 2.0 - 1.0;
    
+   //Fix normal map pixels that point away, to create blackness
    //TODO: is this efficient?
    /*if(finalNormal.z <= 0.0) {
       finalNormal = vec3(0.0);
@@ -71,7 +74,6 @@ void main(void) {
 #endif
       
    gl_FragData[0].xyz = finalNormal * 0.5 + 0.5;
-		//max(vec3(0.0), min(vec3(0.0), finalNormal)) + 1.0;
    gl_FragData[0].a = 1.0;
    
    //TODO: the alpha component will store material type
@@ -90,7 +92,6 @@ void main(void) {
    gl_FragData[2]
 #ifdef SPECULAR_MAP
       = specularColor * texture2D(specularMap, texCoordOut);
-		//(min(vec4(1.0), vec4(specularColor.rgb, 1.0)) * texture2D(specularMap, texCoordOut)).rgb;
 #else
       = specularColor;
 #endif

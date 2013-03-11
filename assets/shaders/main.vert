@@ -1,5 +1,5 @@
 #version 120
-#pragma optimize(off)	//TODO: for development only, take this out
+//#pragma optimize(off)	//TODO: for development only, take this out
 
 //TODO: rename a bunch of stuff and use structs
 //TODO: this pretty much only works for deferred shading at the moment
