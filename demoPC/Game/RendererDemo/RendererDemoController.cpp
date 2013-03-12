@@ -94,6 +94,7 @@ RendererDemoController::RendererDemoController(Engine * engine)
 
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_l), &m_drawLightsToggle);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_b), &m_drawBoundsToggle);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_c), &m_performOcclusionToggle);
 
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_o), &m_occlusionDebugToggle);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_p), &m_toggleCamera);
@@ -117,6 +118,7 @@ RendererDemoController::RendererDemoController(Engine * engine)
 
     m_drawLightsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugLights;
     m_drawBoundsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugBounds;
+    m_performOcclusionToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_performCull;
 
 	m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
         m_engine->m_meshManager, m_engine->m_materialManager,
@@ -126,7 +128,10 @@ RendererDemoController::RendererDemoController(Engine * engine)
         /*glm::vec3(200.0f), glm::uvec3(10), 
         glm::vec3(50.0f), glm::uvec3(40));*/
 
-    m_rendererBackend->initialize(m_engine->m_window->getResolution());
+    m_viewport = static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->registerViewport();
+
+    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->initialize(m_engine->m_window->getResolution(), 
+        engine->m_shaderProgramManager);
     
     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_occlusionCamera = &m_occlusionCamera;
 
@@ -215,7 +220,7 @@ void RendererDemoController::render() {
     m_camera.setViewport(glm::ivec2(0, 0), glm::ivec2(m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y));
 
     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugOcclusion = m_occlusionDebug;
-    m_graphicsScene->render(m_camera);
+    m_graphicsScene->render(m_camera, m_viewport);
 
     if(m_occlusionDebug) {
         glUseProgram(0);

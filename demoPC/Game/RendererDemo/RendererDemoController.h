@@ -56,6 +56,8 @@ private:
 
     Engine * m_engine;
 
+    size_t m_viewport;
+
     illGraphics::Camera m_camera;
     illGraphics::Camera m_occlusionCamera;
 
@@ -82,6 +84,7 @@ private:
     illInput::StateReleaseToggleListener m_topDownToggle;
     illInput::StateReleaseToggleListener m_drawFrustumToggle;
     illInput::StateReleaseToggleListener m_drawGridToggle;
+    illInput::StateReleaseToggleListener m_performOcclusionToggle;
 
     illInput::StateReleaseToggleListener m_drawLightsToggle;
     illInput::StateReleaseToggleListener m_drawBoundsToggle;

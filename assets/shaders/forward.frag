@@ -32,5 +32,5 @@ uniform vec4 specularColor;
 //TODO: normal multiplier
 
 void main(void) {
-   gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+   /*gl_FragColor*/gl_FragData[0] = vec4(1.0, 1.0, 1.0, 1.0);
 }
