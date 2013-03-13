@@ -91,6 +91,7 @@ private:
 
     illInput::InputContext m_inputContext;
 
+    bool m_performCull;
     bool m_occlusionDebug;
 
     bool m_topDown;

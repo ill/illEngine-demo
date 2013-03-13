@@ -49,6 +49,7 @@ RendererDemoController::RendererDemoController(Engine * engine)
     m_engine(engine),
     m_whichCamera(false),
     m_occlusionDebug(false),
+    m_performCull(true),
 
     m_topDown(false),
     m_drawFrustum(false),
@@ -81,6 +82,7 @@ RendererDemoController::RendererDemoController(Engine * engine)
     m_topDownToggle.m_value = &m_topDown;
     m_drawFrustumToggle.m_value = &m_drawFrustum;
     m_drawGridToggle.m_value = &m_drawGrid;
+    m_performOcclusionToggle.m_value = &m_performCull;
 
     m_toggleCamera.m_controller = this;
 
@@ -118,13 +120,15 @@ RendererDemoController::RendererDemoController(Engine * engine)
 
     m_drawLightsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugLights;
     m_drawBoundsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugBounds;
-    m_performOcclusionToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_performCull;
 
 	m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
         m_engine->m_meshManager, m_engine->m_materialManager,
-        glm::vec3(200.0f), glm::uvec3(5), 
-        glm::vec3(200.0f), glm::uvec3(5));
+        /*glm::vec3(200.0f), glm::uvec3(5), 
+        glm::vec3(200.0f), glm::uvec3(5));*/
         
+        glm::vec3(100.0f), glm::uvec3(10), 
+        glm::vec3(25.0f), glm::uvec3(40));
+
         /*glm::vec3(200.0f), glm::uvec3(10), 
         glm::vec3(50.0f), glm::uvec3(40));*/
 
@@ -136,6 +140,30 @@ RendererDemoController::RendererDemoController(Engine * engine)
     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_occlusionCamera = &m_occlusionCamera;
 
 	//for now place a bunch of random lights and meshes
+    /*for(unsigned int x = 0; x < 5; x++) {
+        for(unsigned int y = 0; y < 5; y++) {
+            for(unsigned int z = 0; z < 5; z++) {
+                glm::vec3 pos(100.0f + 200.0f * x, 100.0f + 200.0f * y, 100.0f + 200.0f * z);
+
+                {
+                    illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                        m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
+                        glm::translate(pos), Box<>(glm::vec3(-33.0f, -12.0f, -2.0f), glm::vec3(33.0f, 12.0f, 73.0f)));
+
+                    node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+                }
+
+                {
+                    illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                        m_engine->m_meshManager->getIdForName("MarineHelmet"), m_engine->m_materialManager->getIdForName("MarineHelmetSkin"),
+                        glm::translate(pos), Box<>(glm::vec3(-8.0f, -8.0f, 65.0f), glm::vec3(8.0f, 8.0f, 80.0f)));
+
+                    node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+                }
+            }
+        }
+    }*/
+
     for(unsigned int mesh = 0; mesh < 1000; mesh++) {
         glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f));
 
@@ -220,6 +248,11 @@ void RendererDemoController::render() {
     m_camera.setViewport(glm::ivec2(0, 0), glm::ivec2(m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y));
 
     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugOcclusion = m_occlusionDebug;
+    
+    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_performCull = m_performCull;
+    static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_performCull = m_performCull;
+
+    m_graphicsScene->setupFrame();
     m_graphicsScene->render(m_camera, m_viewport);
 
     if(m_occlusionDebug) {
