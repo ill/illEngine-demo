@@ -25,7 +25,13 @@ struct Engine;
 
 class RendererDemoController : public GameControllerBase {
 public:
-    RendererDemoController(Engine * engine);
+    enum class Scene {
+        CHAOS,
+        SHORT_CHAOS,
+        ORGANIZED
+    };
+
+    RendererDemoController(Engine * engine, Scene scene);
     virtual ~RendererDemoController();
 
     void update(float seconds);

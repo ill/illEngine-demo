@@ -39,7 +39,9 @@ public:
     void startSkeletalAnimationDemo();
     void startFrustumIterVisualizer();
     void startFrustumCullVisualizer();
-    void startRendererDemo();
+    void startRendererDemoOrganized();
+    void startRendererDemoShortChaos();
+    void startRendererDemoChaos();
 
 private:
     inline void setSubGame(GameControllerBase * subGame) {        
@@ -67,7 +69,9 @@ private:
     SetGame m_startSkeletalAnimationDemoListener;    
     SetGame m_startFrustumIterVisualizerListener;
     SetGame m_startFrustumCullVisualizerListener;
-    SetGame m_startRendererDemoListener;
+    SetGame m_startRendererDemoOrganizedListener;
+    SetGame m_startRendererDemoShortChaosListener;
+    SetGame m_startRendererDemoChaosListener;
 
     Engine * m_engine;
     State m_state;

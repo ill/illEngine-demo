@@ -44,7 +44,7 @@ void RendererDemoController::ToggleCamera::onRelease() {
     }
 }
 
-RendererDemoController::RendererDemoController(Engine * engine)
+RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     : GameControllerBase(),
     m_engine(engine),
     m_whichCamera(false),
@@ -109,7 +109,7 @@ RendererDemoController::RendererDemoController(Engine * engine)
 
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
 
-    m_cameraController.m_speed = 50.0f;
+    m_cameraController.m_speed = 10.0f;
     m_cameraController.m_rollSpeed = 50.0f;
 
     m_occlusionCameraController.m_speed = 50.0f;
@@ -121,16 +121,450 @@ RendererDemoController::RendererDemoController(Engine * engine)
     m_drawLightsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugLights;
     m_drawBoundsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugBounds;
 
-	m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
-        m_engine->m_meshManager, m_engine->m_materialManager,
-        /*glm::vec3(200.0f), glm::uvec3(5), 
-        glm::vec3(200.0f), glm::uvec3(5));*/
-        
-        glm::vec3(100.0f), glm::uvec3(10), 
-        glm::vec3(25.0f), glm::uvec3(40));
+    switch(scene) {
+    case Scene::ORGANIZED:
 
-        /*glm::vec3(200.0f), glm::uvec3(10), 
-        glm::vec3(50.0f), glm::uvec3(40));*/
+        m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
+            m_engine->m_meshManager, m_engine->m_materialManager,        
+            glm::vec3(100.0f), glm::uvec3(20, 2, 20), 
+            glm::vec3(25.0f), glm::uvec3(80, 8, 80));
+        
+        //marines
+        for(unsigned int mesh = 0; mesh < 200; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(500.0f, 200.0f, 500.0f));
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-33.0f, -12.0f, -2.0f), glm::vec3(33.0f, 12.0f, 73.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("MarineHelmet"), m_engine->m_materialManager->getIdForName("MarineHelmetSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-8.0f, -8.0f, 65.0f), glm::vec3(8.0f, 8.0f, 80.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+        }
+
+        //small walls
+        for(unsigned int mesh = 0; mesh < 500; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(500.0f, 200.0f, 500.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(0.7f, 5.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+
+        //huge walls
+        for(unsigned int mesh = 0; mesh < 3; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(500.0f, 200.0f, 500.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(30.0f, 100.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+
+        //gooby pls
+        {
+            glm::vec3 pos(1000.0f, 400.0f, 1000.0f);
+            glm::mediump_float scale(200.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("GoobyPlsMaterial"),
+                glm::scale(glm::translate(pos), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+
+            new illRendererCommon::LightNode(m_graphicsScene,
+                new illGraphics::PointLight(glm::vec3(1.0f),
+                    1.0f, 100.0f, 400.0f),
+                glm::translate(glm::vec3(1000.0f, 500.0f, 900.0f)), 
+                Box<>(glm::vec3(-400.0f), glm::vec3(400.0f)));
+        }
+
+        //lights
+        for(unsigned int lightInstance = 0; lightInstance < 200; lightInstance++) {
+            illGraphics::PointLight * lightObj = new illGraphics::PointLight(glm::linearRand(glm::vec3(0.0f), glm::vec3(1.0f)),
+                1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 100.0f));
+
+            for(unsigned int light = 0; light < 1; light++) {
+                new illRendererCommon::LightNode(m_graphicsScene,
+                    lightObj,
+                    glm::translate(glm::linearRand(glm::vec3(0.0f), glm::vec3(500.0f, 200.0f, 500.0f))), 
+                    Box<>(glm::vec3(-lightObj->m_attenuationEnd), glm::vec3(lightObj->m_attenuationEnd)));
+            }
+        }
+
+        //marines
+        for(unsigned int mesh = 0; mesh < 100; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(700.0f, 0.0f, 700.0f), glm::vec3(900.0f, 200.0f, 900.0f));
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-33.0f, -12.0f, -2.0f), glm::vec3(33.0f, 12.0f, 73.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("MarineHelmet"), m_engine->m_materialManager->getIdForName("MarineHelmetSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-8.0f, -8.0f, 65.0f), glm::vec3(8.0f, 8.0f, 80.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+        }
+
+        //small walls
+        for(unsigned int mesh = 0; mesh < 500; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(700.0f, 0.0f, 700.0f), glm::vec3(900.0f, 200.0f, 900.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(0.7f, 5.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+
+        //huge walls
+        for(unsigned int mesh = 0; mesh < 3; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(700.0f, 0.0f, 700.0f), glm::vec3(900.0f, 200.0f, 900.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(30.0f, 100.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+
+        //lights
+        for(unsigned int lightInstance = 0; lightInstance < 200; lightInstance++) {
+            illGraphics::PointLight * lightObj = new illGraphics::PointLight(glm::linearRand(glm::vec3(0.0f), glm::vec3(1.0f)),
+                1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 100.0f));
+
+            for(unsigned int light = 0; light < 1; light++) {
+                new illRendererCommon::LightNode(m_graphicsScene,
+                    lightObj,
+                    glm::translate(glm::linearRand(glm::vec3(700.0f, 0.0f, 700.0f), glm::vec3(900.0f, 200.0f, 900.0f))), 
+                    Box<>(glm::vec3(-lightObj->m_attenuationEnd), glm::vec3(lightObj->m_attenuationEnd)));
+            }
+        }
+
+        //marines
+        for(unsigned int mesh = 0; mesh < 100; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(300.0f, 0.0f, 700.0f), glm::vec3(500.0f, 200.0f, 900.0f));
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-33.0f, -12.0f, -2.0f), glm::vec3(33.0f, 12.0f, 73.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("MarineHelmet"), m_engine->m_materialManager->getIdForName("MarineHelmetSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-8.0f, -8.0f, 65.0f), glm::vec3(8.0f, 8.0f, 80.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+        }
+
+        //small walls
+        for(unsigned int mesh = 0; mesh < 500; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(300.0f, 0.0f, 700.0f), glm::vec3(500.0f, 200.0f, 900.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(0.7f, 5.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+
+        //huge walls
+        for(unsigned int mesh = 0; mesh < 3; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(300.0f, 0.0f, 700.0f), glm::vec3(500.0f, 200.0f, 900.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(30.0f, 100.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+
+        //lights
+        for(unsigned int lightInstance = 0; lightInstance < 200; lightInstance++) {
+            illGraphics::PointLight * lightObj = new illGraphics::PointLight(glm::linearRand(glm::vec3(0.0f), glm::vec3(1.0f)),
+                1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 100.0f));
+
+            for(unsigned int light = 0; light < 1; light++) {
+                new illRendererCommon::LightNode(m_graphicsScene,
+                    lightObj,
+                    glm::translate(glm::linearRand(glm::vec3(300.0f, 0.0f, 700.0f), glm::vec3(500.0f, 200.0f, 900.0f))), 
+                    Box<>(glm::vec3(-lightObj->m_attenuationEnd), glm::vec3(lightObj->m_attenuationEnd)));
+            }
+        }
+
+        //marines
+        for(unsigned int mesh = 0; mesh < 300; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(1500.0f, 0.0f, 1000.0f), glm::vec3(1600.0f, 200.0f, 1500.0f));
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-33.0f, -12.0f, -2.0f), glm::vec3(33.0f, 12.0f, 73.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("MarineHelmet"), m_engine->m_materialManager->getIdForName("MarineHelmetSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-8.0f, -8.0f, 65.0f), glm::vec3(8.0f, 8.0f, 80.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+        }
+
+        //small walls
+        for(unsigned int mesh = 0; mesh < 500; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(1500.0f, 0.0f, 1000.0f), glm::vec3(1600.0f, 200.0f, 1500.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(0.7f, 5.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+
+        //huge walls
+        for(unsigned int mesh = 0; mesh < 3; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(1500.0f, 0.0f, 1000.0f), glm::vec3(1600.0f, 200.0f, 1500.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(30.0f, 100.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+
+        //lights
+        for(unsigned int lightInstance = 0; lightInstance < 200; lightInstance++) {
+            illGraphics::PointLight * lightObj = new illGraphics::PointLight(glm::linearRand(glm::vec3(0.0f), glm::vec3(1.0f)),
+                1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 100.0f));
+
+            for(unsigned int light = 0; light < 1; light++) {
+                new illRendererCommon::LightNode(m_graphicsScene,
+                    lightObj,
+                    glm::translate(glm::linearRand(glm::vec3(1500.0f, 0.0f, 1000.0f), glm::vec3(1600.0f, 200.0f, 1500.0f))), 
+                    Box<>(glm::vec3(-lightObj->m_attenuationEnd), glm::vec3(lightObj->m_attenuationEnd)));
+            }
+        }
+
+        break;
+
+    case Scene::SHORT_CHAOS:
+
+        m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
+            m_engine->m_meshManager, m_engine->m_materialManager,        
+            glm::vec3(100.0f), glm::uvec3(20, 2, 20), 
+            glm::vec3(25.0f), glm::uvec3(80, 8, 80));
+        
+        //marines
+        for(unsigned int mesh = 0; mesh < 500; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(2000.0f, 200.0f, 2000.0f));
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-33.0f, -12.0f, -2.0f), glm::vec3(33.0f, 12.0f, 73.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("MarineHelmet"), m_engine->m_materialManager->getIdForName("MarineHelmetSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-8.0f, -8.0f, 65.0f), glm::vec3(8.0f, 8.0f, 80.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+        }
+
+        //small walls
+        for(unsigned int mesh = 0; mesh < 500; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(2000.0f, 200.0f, 2000.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(0.7f, 5.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+
+        //huge walls
+        for(unsigned int mesh = 0; mesh < 3; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(2000.0f, 200.0f, 2000.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(30.0f, 100.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+    
+        //lights
+        for(unsigned int lightInstance = 0; lightInstance < 500; lightInstance++) {
+            illGraphics::PointLight * lightObj = new illGraphics::PointLight(glm::linearRand(glm::vec3(0.0f), glm::vec3(1.0f)),
+                1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 100.0f));
+
+            for(unsigned int light = 0; light < 1; light++) {
+                new illRendererCommon::LightNode(m_graphicsScene,
+                    lightObj,
+                    glm::translate(glm::linearRand(glm::vec3(0.0f), glm::vec3(2000.0f, 200.0f, 2000.0f))), 
+                    Box<>(glm::vec3(-lightObj->m_attenuationEnd), glm::vec3(lightObj->m_attenuationEnd)));
+            }
+        }
+
+        break;
+
+    case Scene::CHAOS:
+
+        m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
+            m_engine->m_meshManager, m_engine->m_materialManager,        
+            glm::vec3(100.0f), glm::uvec3(10), 
+            glm::vec3(25.0f), glm::uvec3(40));
+                
+        //marines
+        for(unsigned int mesh = 0; mesh < 1000; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f));
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-33.0f, -12.0f, -2.0f), glm::vec3(33.0f, 12.0f, 73.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+
+            {
+                illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                    m_engine->m_meshManager->getIdForName("MarineHelmet"), m_engine->m_materialManager->getIdForName("MarineHelmetSkin"),
+                    glm::translate(pos), Box<>(glm::vec3(-8.0f, -8.0f, 65.0f), glm::vec3(8.0f, 8.0f, 80.0f)));
+
+                node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+            }
+        }
+
+        //small walls
+        for(unsigned int mesh = 0; mesh < 995; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(0.7f, 5.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+
+        //huge walls
+        for(unsigned int mesh = 0; mesh < 5; mesh++) {
+            glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f));
+            glm::vec3 rotAxis = glm::sphericalRand(1.0f);
+            glm::mediump_float rotAngle = glm::linearRand(0.0f, 360.0f);
+            glm::mediump_float scale = glm::linearRand(30.0f, 100.0f);
+
+            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                m_engine->m_meshManager->getIdForName("Wall"), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                glm::scale(glm::rotate(glm::translate(pos), rotAngle, rotAxis), glm::vec3(scale)),
+
+                Box<>(glm::vec3(-4.0f * scale), glm::vec3(4.0f * scale)));
+
+            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+        }
+    
+        //lights
+        for(unsigned int lightInstance = 0; lightInstance < 1000; lightInstance++) {
+            illGraphics::PointLight * lightObj = new illGraphics::PointLight(glm::linearRand(glm::vec3(0.0f), glm::vec3(1.0f)),
+                1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 100.0f));
+
+            for(unsigned int light = 0; light < 1; light++) {
+                new illRendererCommon::LightNode(m_graphicsScene,
+                    lightObj,
+                    glm::translate(glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f))), 
+                    Box<>(glm::vec3(-lightObj->m_attenuationEnd), glm::vec3(lightObj->m_attenuationEnd)));
+            }
+        }
+
+        break;
+    }
 
     m_viewport = static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->registerViewport();
 
@@ -138,67 +572,6 @@ RendererDemoController::RendererDemoController(Engine * engine)
         engine->m_shaderProgramManager);
     
     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_occlusionCamera = &m_occlusionCamera;
-
-	//for now place a bunch of random lights and meshes
-    /*for(unsigned int x = 0; x < 5; x++) {
-        for(unsigned int y = 0; y < 5; y++) {
-            for(unsigned int z = 0; z < 5; z++) {
-                glm::vec3 pos(100.0f + 200.0f * x, 100.0f + 200.0f * y, 100.0f + 200.0f * z);
-
-                {
-                    illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
-                        m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
-                        glm::translate(pos), Box<>(glm::vec3(-33.0f, -12.0f, -2.0f), glm::vec3(33.0f, 12.0f, 73.0f)));
-
-                    node->load(m_engine->m_meshManager, m_engine->m_materialManager);
-                }
-
-                {
-                    illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
-                        m_engine->m_meshManager->getIdForName("MarineHelmet"), m_engine->m_materialManager->getIdForName("MarineHelmetSkin"),
-                        glm::translate(pos), Box<>(glm::vec3(-8.0f, -8.0f, 65.0f), glm::vec3(8.0f, 8.0f, 80.0f)));
-
-                    node->load(m_engine->m_meshManager, m_engine->m_materialManager);
-                }
-            }
-        }
-    }*/
-
-    for(unsigned int mesh = 0; mesh < 1000; mesh++) {
-        glm::vec3 pos = glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f));
-
-        {
-            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
-                m_engine->m_meshManager->getIdForName("Marine"), m_engine->m_materialManager->getIdForName("MarineSkin"),
-                glm::translate(pos), Box<>(glm::vec3(-33.0f, -12.0f, -2.0f), glm::vec3(33.0f, 12.0f, 73.0f)));
-
-            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
-        }
-
-        {
-            illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
-                m_engine->m_meshManager->getIdForName("MarineHelmet"), m_engine->m_materialManager->getIdForName("MarineHelmetSkin"),
-                glm::translate(pos), Box<>(glm::vec3(-8.0f, -8.0f, 65.0f), glm::vec3(8.0f, 8.0f, 80.0f)));
-
-            node->load(m_engine->m_meshManager, m_engine->m_materialManager);
-        }
-    }
-    
-    for(unsigned int lightInstance = 0; lightInstance < 1000; lightInstance++) {
-        illGraphics::PointLight * lightObj = new illGraphics::PointLight(glm::linearRand(glm::vec3(0.0f), glm::vec3(1.0f)), 1.0f, glm::linearRand(1.0f, 50.0f), glm::linearRand(60.0f, 100.0f));
-
-        for(unsigned int light = 0; light < 1; light++) {
-            new illRendererCommon::LightNode(m_graphicsScene,
-                lightObj,
-                glm::translate(glm::linearRand(glm::vec3(0.0f), glm::vec3(1000.0f))), 
-                Box<>(glm::vec3(-lightObj->m_attenuationEnd), glm::vec3(lightObj->m_attenuationEnd)));
-        }
-    }
-
-    /*new illRendererCommon::LightNode(m_graphicsScene,
-        new illGraphics::PointLight(glm::vec3(1.0f), 1.0f, 20.0f, 500.0f),
-        glm::translate(glm::vec3(500.0f)), 
-        Box<>(glm::vec3(-500.0f), glm::vec3(500.0f)));*/
 }
 
 RendererDemoController::~RendererDemoController() {
@@ -255,28 +628,52 @@ void RendererDemoController::render() {
     m_graphicsScene->setupFrame();
     m_graphicsScene->render(m_camera, m_viewport);
 
+    glUseProgram(0);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glActiveTexture(GL_TEXTURE2);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glActiveTexture(GL_TEXTURE3);
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    glDisable(GL_CULL_FACE);
+    glEnable(GL_BLEND);
+    glShadeModel(GL_SMOOTH);
+    glDepthMask(GL_FALSE);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
+    glMatrixMode(GL_PROJECTION);
+    glLoadMatrixf(glm::value_ptr(m_camera.getProjection()));
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadMatrixf(glm::value_ptr(m_camera.getModelView()));
+
+    //debug draw the axes
+    glBegin(GL_LINES);
+    //x Red
+        glColor4f(1.0f, 0.0f, 0.0f, 0.5f);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(5.0f, 0.0f, 0.0f);
+
+    //y Green
+        glColor4f(0.0f, 1.0f, 0.0f, 0.5f);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(0.0f, 5.0f, 0.0f);
+
+    //z Blue
+        glColor4f(0.0f, 0.0f, 1.0f, 0.5f);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(0.0f, 0.0f, 5.0f);
+    glEnd();
+
     if(m_occlusionDebug) {
-        glUseProgram(0);
-
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, 0);
-
-        glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, 0);
-
-        glActiveTexture(GL_TEXTURE2);
-        glBindTexture(GL_TEXTURE_2D, 0);
-
-        glActiveTexture(GL_TEXTURE3);
-        glBindTexture(GL_TEXTURE_2D, 0);
-
-        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-        glDisable(GL_CULL_FACE);
-        glEnable(GL_BLEND);
-        glShadeModel(GL_SMOOTH);
-        glDepthMask(GL_FALSE);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        
         glMatrixMode(GL_PROJECTION);
         glLoadMatrixf(glm::value_ptr(m_occlusionCamera.getProjection()));
 
@@ -285,6 +682,24 @@ void RendererDemoController::render() {
 
         glViewport(m_camera.getViewportCorner().x, m_camera.getViewportCorner().y,
             m_camera.getViewportDimensions().x, m_camera.getViewportDimensions().y / 2);
+
+        //debug draw the axes
+        glBegin(GL_LINES);
+        //x Red
+            glColor4f(1.0f, 0.0f, 0.0f, 0.5f);
+            glVertex3f(0.0f, 0.0f, 0.0f);
+            glVertex3f(5.0f, 0.0f, 0.0f);
+
+        //y Green
+            glColor4f(0.0f, 1.0f, 0.0f, 0.5f);
+            glVertex3f(0.0f, 0.0f, 0.0f);
+            glVertex3f(0.0f, 5.0f, 0.0f);
+
+        //z Blue
+            glColor4f(0.0f, 0.0f, 1.0f, 0.5f);
+            glVertex3f(0.0f, 0.0f, 0.0f);
+            glVertex3f(0.0f, 0.0f, 5.0f);
+        glEnd();
 
         if(m_drawGrid) {
             renderSceneDebug(m_graphicsScene->getGridVolume());

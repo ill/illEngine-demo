@@ -128,9 +128,9 @@ int main(int argc, char * argv[]) {
     return 0;
 }
 
-const size_t NUM_TEXTURES = 6;
-const size_t NUM_MATERIALS = 2;
-const size_t NUM_MESHES = 2;
+const size_t NUM_TEXTURES = 7;
+const size_t NUM_MATERIALS = 4;
+const size_t NUM_MESHES = 3;
 const size_t NUM_ANIMSET = 1;
 const size_t NUM_SKELETONS = 1;
 const size_t NUM_ANIMATIONS = 4;
@@ -179,6 +179,12 @@ void configureResourceManagers() {
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         ++currRes;
 
+        (*nameMap)["GoobyPls"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Wall/goobyPls.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        ++currRes;
+
         engine.m_textureManager->initialize(loadArgs, nameMap);
     }
 
@@ -221,6 +227,38 @@ void configureResourceManagers() {
         loadArgs[currRes].m_forceForwardRendering = false;
         ++currRes;
 
+        (*nameMap)["WallMaterial"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = -1;
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = -1;
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = -1;
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
+        (*nameMap)["GoobyPlsMaterial"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("GoobyPls");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = 6;
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = -1;
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
         engine.m_materialManager->initialize(loadArgs, nameMap);
     }
 
@@ -237,6 +275,10 @@ void configureResourceManagers() {
 
         (*nameMap)["MarineHelmet"] = currRes;
         loadArgs[currRes].m_path = "meshes/Marine/marine.illmesh";
+        ++currRes;
+
+        (*nameMap)["Wall"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Wall/wall.illmesh";
         ++currRes;
 
         engine.m_meshManager->initialize(loadArgs, nameMap);

@@ -33,13 +33,21 @@ MainController::MainController(Engine * engine)
     m_startFrustumCullVisualizerListener.m_controller = this;
     m_startFrustumCullVisualizerListener.m_startFunc = &MainController::startFrustumCullVisualizer;
 
-    m_startRendererDemoListener.m_controller = this;
-    m_startRendererDemoListener.m_startFunc = &MainController::startRendererDemo;
+    m_startRendererDemoOrganizedListener.m_controller = this;
+    m_startRendererDemoOrganizedListener.m_startFunc = &MainController::startRendererDemoOrganized;
+
+    m_startRendererDemoShortChaosListener.m_controller = this;
+    m_startRendererDemoShortChaosListener.m_startFunc = &MainController::startRendererDemoShortChaos;
+
+    m_startRendererDemoChaosListener.m_controller = this;
+    m_startRendererDemoChaosListener.m_startFunc = &MainController::startRendererDemoChaos;
 
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F9), &m_startSkeletalAnimationDemoListener);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F10), &m_startFrustumIterVisualizerListener);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F11), &m_startFrustumCullVisualizerListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F8), &m_startRendererDemoListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F6), &m_startRendererDemoOrganizedListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F7), &m_startRendererDemoShortChaosListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F8), &m_startRendererDemoChaosListener);
 
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_inputContext);
 
@@ -71,9 +79,19 @@ void MainController::startFrustumCullVisualizer() {
     setSubGame(new FrustumCullVisualizerController(m_engine));
 }
 
-void MainController::startRendererDemo() {
+void MainController::startRendererDemoOrganized() {
     delete m_subGame;
-    setSubGame(new RendererDemoController(m_engine));
+    setSubGame(new RendererDemoController(m_engine, RendererDemoController::Scene::ORGANIZED));
+}
+
+void MainController::startRendererDemoShortChaos() {
+    delete m_subGame;
+    setSubGame(new RendererDemoController(m_engine, RendererDemoController::Scene::SHORT_CHAOS));
+}
+
+void MainController::startRendererDemoChaos() {
+    delete m_subGame;
+    setSubGame(new RendererDemoController(m_engine, RendererDemoController::Scene::CHAOS));
 }
 
 }
