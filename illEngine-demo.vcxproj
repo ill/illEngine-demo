@@ -302,11 +302,11 @@
     <ClInclude Include="illEngine\Util\endian.h" />
     <ClInclude Include="illEngine\Util\Geometry\BoundingVolume.h" />
     <ClInclude Include="illEngine\Util\Geometry\Box.h" />
-    <ClInclude Include="illEngine\Util\Geometry\BoxIterator.h" />
-    <ClInclude Include="illEngine\Util\Geometry\BoxOmitIterator.h" />
-    <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIterator.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Iterators\BoxIterator.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Iterators\BoxOmitIterator.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Iterators\ConvexMeshIterator.h" />
     <ClInclude Include="illEngine\Util\Geometry\Frustum.h" />
-    <ClInclude Include="illEngine\Util\Geometry\ConvexMeshIteratorDebug.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Iterators\ConvexMeshIteratorDebug.h" />
     <ClInclude Include="illEngine\Util\Geometry\geomUtil.h" />
     <ClInclude Include="illEngine\Util\Geometry\GridVolume3D.h" />
     <ClInclude Include="illEngine\Util\Geometry\Line.h" />
@@ -314,6 +314,7 @@
     <ClInclude Include="illEngine\Util\Geometry\LineIterator.h" />
     <ClInclude Include="illEngine\Util\Geometry\MeshData.h" />
     <ClInclude Include="illEngine\Util\Geometry\MeshEdgeList.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Iterators\MultiConvexMeshIterator.h" />
     <ClInclude Include="illEngine\Util\Geometry\Plane.h" />
     <ClInclude Include="illEngine\Util\Geometry\Ray.h" />
     <ClInclude Include="illEngine\Util\Geometry\SceneNode.h" />

@@ -18,6 +18,9 @@
 //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer
 #include <GL/glew.h>
 
+const glm::vec3 cellBounds(20.0f, 40.0f, 60.0f);
+const glm::ivec3 cellNumber(20, 16, 8);
+
 enum FontHorzAlign {
     FN_H_LEFT, FN_H_CENTER, FN_H_RIGHT
 };
@@ -268,7 +271,7 @@ void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList, const illGraphics::
 void renderSceneDebug(const Box<>&sceneBounds, const glm::vec3& chunkDimensions, const glm::uvec3& chunkNumber) {
     //render cells, including some outside of the scene
     glColor4f(1.0f, 1.0f, 1.0f, 0.15f);
-    glBegin(GL_LINES);
+    /*glBegin(GL_LINES);
     for (int z = -3; z <= (int)chunkNumber.z + 3; z++) {
         for (int x = -3; x <= (int)chunkNumber.x + 3; x ++) {
             glVertex3f(chunkDimensions.x * x, -chunkDimensions.y * 3, chunkDimensions.z * z);
@@ -289,7 +292,7 @@ void renderSceneDebug(const Box<>&sceneBounds, const glm::vec3& chunkDimensions,
             glVertex3f(chunkDimensions.x * x, chunkDimensions.y * y, sceneBounds.m_max.z + chunkDimensions.z * 3);
         }
     }
-    glEnd();
+    glEnd();*/
 
     //render scene bounds
     glColor4f(1.0f, 1.0f, 0.0f, .25);
@@ -1781,20 +1784,22 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
     //controller.m_planeIndex = 0;
 
     //clip the mesh edge list against some planes
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), 500.0f));
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), 500.0f));
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), 500.0f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), cellBounds.x * (float)cellNumber.x * 0.5f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), cellBounds.y * (float)cellNumber.y * 0.5f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), cellBounds.z * (float)cellNumber.z * 0.5f));
 
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), 499.999f));
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), 499.999f));
-    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), 499.999f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), (cellBounds.x * (float)cellNumber.x * 0.5f) - 0.001f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), (cellBounds.y * (float)cellNumber.y * 0.5f) - 0.001f));
+    m_testMeshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), (cellBounds.z * (float)cellNumber.z * 0.5f) - 0.001f));
     
     if(!m_testMeshEdgeList.m_points.empty()) {
-        m_testMeshEdgeList.computeBounds(Box<>(glm::vec3(-500.0f), glm::vec3(499.999f)));
+        m_testMeshEdgeList.computeBounds(Box<>(
+            (-cellBounds * vec3cast<int, float>(cellNumber)) * 0.5f, 
+            (cellBounds * vec3cast<int, float>(cellNumber) * 0.5f) - 0.001f));
 
         //get intersection of frustum and bounds
-        Box<int> iterBounds(glm::ivec3(-10), glm::ivec3(10));
-        Box<int> frustumGrid(m_testMeshEdgeList.m_bounds.grid<int>(glm::vec3(50.0f)));
+        Box<int> iterBounds(-cellNumber / 2, cellNumber * 2);
+        Box<int> frustumGrid(m_testMeshEdgeList.m_bounds.grid<int>(cellBounds));
 
         if(iterBounds.intersects(frustumGrid)) {
             //figure out the ordering based on view direction
@@ -1802,14 +1807,16 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
             //glm::detail::tvec3<int8_t> directionSign = vec3cast<glm::mediump_float, int8_t>(signO(m_testFrustumCamera.getViewFrustum().m_direction));
             
             //find the origin point
-            glm::vec3 splitOrigin = glm::vec3(50.0f) 
-                * gridVec<glm::mediump_float, glm::mediump_float>(m_testFrustumCamera.getViewFrustum().m_nearTipPoint, 
-                    glm::vec3(50.0f));
+            glm::vec3 splitOrigin = cellBounds 
+                * gridVec<glm::mediump_float, glm::mediump_float>(m_testFrustumCamera.getViewFrustum().m_nearPoint, 
+                    cellBounds);
             
-            m_frustumNearTip = m_testFrustumCamera.getViewFrustum().m_nearTipPoint;
+            m_frustumNearTip = m_testFrustumCamera.getViewFrustum().m_nearPoint;
             m_debugSplitOrigin = splitOrigin;
 
             //split into 8
+
+
             for(int iter = 0; iter < 8; iter++) {
                 glm::detail::tvec3<int8_t> directionSign;
 
@@ -1819,7 +1826,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
                 m_iteratedMeshEdgeList[iter] = m_testMeshEdgeList;
 
                 //now clip it based on the cell where the camera center point is
-                if(iter == 2 || iter == 3 || iter == 6 || iter == 7) {  //couldn't think of a clever pattern for this one
+                if(iter == 0 || iter == 1 || iter == 4 || iter == 5) {  //couldn't think of a clever pattern for this one
                     //primary positive
                     directionSign[0] = 1;
 
@@ -1829,7 +1836,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
                     m_iteratedMeshEdgeList[iter].convexClip(Plane<>(planeNormal, -splitOrigin[0]));
 
                     bounds.m_min[0] = splitOrigin[0];
-                    bounds.m_max[0] = 499.999f;
+                    bounds.m_max[0] = (cellBounds.x * (float)cellNumber.x * 0.5f) - 0.001f;
 
                     m_primarySplitPos = Plane<>(planeNormal, -splitOrigin[0]);
                 }
@@ -1842,7 +1849,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
 
                     m_iteratedMeshEdgeList[iter].convexClip(Plane<>(planeNormal, splitOrigin[0] - 0.001f));
 
-                    bounds.m_min[0] = -500.0f;
+                    bounds.m_min[0] = -cellBounds.x * (float)cellNumber.x * 0.5f;
                     bounds.m_max[0] = splitOrigin[0] - 0.001f;
 
                     m_primarySplitNeg = Plane<>(planeNormal, splitOrigin[0] - 0.001f);
@@ -1858,7 +1865,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
                     m_iteratedMeshEdgeList[iter].convexClip(Plane<>(planeNormal, -splitOrigin[1]));
 
                     bounds.m_min[1] = splitOrigin[1];
-                    bounds.m_max[1] = 499.999f;
+                    bounds.m_max[1] = (cellBounds.y * (float)cellNumber.y * 0.5f) - 0.001f;
 
                     m_secondarySplitPos = Plane<>(planeNormal, -splitOrigin[1]);
                 }
@@ -1871,7 +1878,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
 
                     m_iteratedMeshEdgeList[iter].convexClip(Plane<>(planeNormal, splitOrigin[1] - 0.001f));
 
-                    bounds.m_min[1] = -500.0f;
+                    bounds.m_min[1] = -cellBounds.y * (float)cellNumber.y * 0.5f;
                     bounds.m_max[1] = splitOrigin[1] - 0.001f;
 
                     m_secondarySplitNeg = Plane<>(planeNormal, splitOrigin[1] - 0.001f);
@@ -1887,7 +1894,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
                     m_iteratedMeshEdgeList[iter].convexClip(Plane<>(planeNormal, -splitOrigin[2]));
 
                     bounds.m_min[2] = splitOrigin[2];
-                    bounds.m_max[2] = 499.999f;
+                    bounds.m_max[2] = (cellBounds.z * (float)cellNumber.z * 0.5f) - 0.001f;
 
                     m_tertiarySplitPos = Plane<>(planeNormal, -splitOrigin[2]);
                 }
@@ -1900,7 +1907,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
 
                     m_iteratedMeshEdgeList[iter].convexClip(Plane<>(planeNormal, splitOrigin[2] - 0.001f));
 
-                    bounds.m_min[2] = -500.0f;
+                    bounds.m_min[2] = -cellBounds.z * (float)cellNumber.z * 0.5f;
                     bounds.m_max[2] = splitOrigin[2] - 0.001f;
 
                     m_tertiarySplitNeg = Plane<>(planeNormal, splitOrigin[2] - 0.001f);
@@ -1908,7 +1915,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
                 
                 if(!m_iteratedMeshEdgeList[iter].m_points.empty()) {
                     m_iteratedMeshEdgeList[iter].computeBounds(bounds);
-                    Box<int> thisFrustumGrid(m_iteratedMeshEdgeList[iter].m_bounds.grid<int>(glm::vec3(50.0f)));
+                    Box<int> thisFrustumGrid(m_iteratedMeshEdgeList[iter].m_bounds.grid<int>(cellBounds));
 
                     if(iterBounds.intersects(thisFrustumGrid)) {
                         iterBounds.constrain(thisFrustumGrid);
@@ -1916,7 +1923,7 @@ void FrustumIterVisualizerController::setupTestFrustumIterator() {
                         m_testFrustumIter[iter] = new ConvexMeshIteratorDebug<>(&m_iteratedMeshEdgeList[iter], 
                             dimensionOrder, directionSign, 
                             thisFrustumGrid,
-                            glm::vec3(50.0f));
+                            cellBounds);
                     }
                     else {
                         delete m_testFrustumIter[iter];
@@ -2044,7 +2051,7 @@ void FrustumIterVisualizerController::update(float seconds) {
     m_advanceHoldTimer -= seconds;
 
     if(m_testFrustumIter && m_advanceHold && m_advanceHoldTimer < 0) {
-        m_advanceHoldTimer = 0.0f;//0.05f;
+        m_advanceHoldTimer = 0.1f;
 
         for(unsigned int times = 0; times < 1; times++) {
             if(!advance()) {
@@ -2121,7 +2128,8 @@ void FrustumIterVisualizerController::render() {
     renderMeshEdgeListDebug(m_testUnclippedMeshEdgeList, m_camera, m_fontShader, m_debugFont);
     //renderMeshEdgeListDebug(m_testUnclippedMeshEdgeList);
 
-    //renderSceneDebug(Box<>(glm::vec3(3.0f * -20.0f), glm::vec3(3.0f * 20.0f - 0.1f)), glm::vec3(20.0f), glm::uvec3(6));
+    renderSceneDebug(Box<>(-cellBounds * vec3cast<int, float>(cellNumber) * 0.5f, cellBounds * vec3cast<int, float>(cellNumber) * 0.5f), 
+        cellBounds, glm::uvec3(20, 16, 8));
 
     for(int iter = 0; iter < 8; iter++) {
         if(m_testFrustumIter[iter]) {

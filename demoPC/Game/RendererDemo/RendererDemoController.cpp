@@ -794,6 +794,8 @@ void RendererDemoController::render() {
             glVertex3f(0.0f, 0.0f, 5.0f);
         glEnd();
 
+        glEnable(GL_DEPTH_TEST);
+
         if(m_drawGrid) {
             renderSceneDebug(m_graphicsScene->getGridVolume());
         }

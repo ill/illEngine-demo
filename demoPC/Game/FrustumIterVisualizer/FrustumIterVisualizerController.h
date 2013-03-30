@@ -12,7 +12,7 @@
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
 #include "illEngine/Graphics/serial/BitmapFont.h"
 
-#include "illEngine/Util/Geometry/ConvexMeshIteratorDebug.h"
+#include "illEngine/Util/Geometry/Iterators/ConvexMeshIteratorDebug.h"
 #include "illEngine/Util/Geometry/MeshEdgeList.h"
 
 #include "illEngine/Input/serial/InputContext.h"

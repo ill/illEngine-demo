@@ -11,7 +11,7 @@
 #include "illEngine/Graphics/serial/Camera/CameraTransform.h"
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
 
-#include "illEngine/Util/Geometry/ConvexMeshIterator.h"
+#include "illEngine/Util/Geometry/Iterators/ConvexMeshIterator.h"
 
 #include "illEngine/Input/serial/InputContext.h"
 #include "illEngine/Input/serial/Listeners/StateListener.h"
