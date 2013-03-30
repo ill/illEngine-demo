@@ -39,6 +39,7 @@ public:
     void startSkeletalAnimationDemo();
     void startFrustumIterVisualizer();
     void startFrustumCullVisualizer();
+    void startRendererDemoTheGrid();
     void startRendererDemoOrganized();
     void startRendererDemoShortChaos();
     void startRendererDemoChaos();
@@ -69,6 +70,7 @@ private:
     SetGame m_startSkeletalAnimationDemoListener;    
     SetGame m_startFrustumIterVisualizerListener;
     SetGame m_startFrustumCullVisualizerListener;
+    SetGame m_startRendererDemoTheGridListener;
     SetGame m_startRendererDemoOrganizedListener;
     SetGame m_startRendererDemoShortChaosListener;
     SetGame m_startRendererDemoChaosListener;

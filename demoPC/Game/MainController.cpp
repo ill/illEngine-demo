@@ -33,6 +33,9 @@ MainController::MainController(Engine * engine)
     m_startFrustumCullVisualizerListener.m_controller = this;
     m_startFrustumCullVisualizerListener.m_startFunc = &MainController::startFrustumCullVisualizer;
 
+    m_startRendererDemoTheGridListener.m_controller = this;
+    m_startRendererDemoTheGridListener.m_startFunc = &MainController::startRendererDemoTheGrid;
+
     m_startRendererDemoOrganizedListener.m_controller = this;
     m_startRendererDemoOrganizedListener.m_startFunc = &MainController::startRendererDemoOrganized;
 
@@ -45,13 +48,14 @@ MainController::MainController(Engine * engine)
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F9), &m_startSkeletalAnimationDemoListener);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F10), &m_startFrustumIterVisualizerListener);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F11), &m_startFrustumCullVisualizerListener);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F5), &m_startRendererDemoTheGridListener);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F6), &m_startRendererDemoOrganizedListener);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F7), &m_startRendererDemoShortChaosListener);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F8), &m_startRendererDemoChaosListener);
 
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_inputContext);
 
-    startSkeletalAnimationDemo();
+    startFrustumIterVisualizer();
 }
 
 /*void MainController::startMainMenu() {
@@ -77,6 +81,11 @@ void MainController::startFrustumIterVisualizer() {
 void MainController::startFrustumCullVisualizer() {
     delete m_subGame;
     setSubGame(new FrustumCullVisualizerController(m_engine));
+}
+
+void MainController::startRendererDemoTheGrid() {
+    delete m_subGame;
+    setSubGame(new RendererDemoController(m_engine, RendererDemoController::Scene::THE_GRID));
 }
 
 void MainController::startRendererDemoOrganized() {

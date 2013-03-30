@@ -26,6 +26,7 @@ struct Engine;
 class RendererDemoController : public GameControllerBase {
 public:
     enum class Scene {
+        THE_GRID,
         CHAOS,
         SHORT_CHAOS,
         ORGANIZED

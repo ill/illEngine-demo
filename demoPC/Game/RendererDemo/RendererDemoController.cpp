@@ -18,6 +18,8 @@
 #include "illEngine/RendererCommon/serial/StaticMeshNode.h"
 #include "illEngine/RendererCommon/serial/LightNode.h"
 
+#include <fstream>
+
 //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer
 #include <GL/glew.h>
 
@@ -122,6 +124,97 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     m_drawBoundsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugBounds;
 
     switch(scene) {
+    case Scene::THE_GRID:
+
+        //at the moment, just parse the hack file exported from 3DS max, illscene parsing coming soon
+        {
+            m_cameraController.m_speed = 2.0f;
+            m_cameraController.m_rollSpeed = 50.0f;
+
+            std::ifstream openFile("..\\..\\..\\assets\\maps\\TheGrid.txt");
+
+            //read number of static meshes
+            int numMeshes;
+            openFile >> numMeshes;
+            
+            m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
+                m_engine->m_meshManager, m_engine->m_materialManager,        
+                glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42), 
+                glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42));
+
+            //for now just add these as dynamic meshes, later they will be static meshes
+            for(int mesh = 0; mesh < numMeshes; mesh++) {
+                //read mesh name
+                std::string meshName;
+                openFile >> meshName;
+
+                bool isLight = false;
+
+                if(meshName.compare("PointLight") == 0) {
+                    isLight = true;
+                }
+
+                glm::mat4 transform;
+
+                //read the 3x4 transform                
+                for(unsigned int row = 0; row < 3; row++) {
+                    for(unsigned int column = 0; column < 4; column++) {
+                        openFile >> transform[column][row];
+                    }
+                }
+        
+                if(isLight) {
+                    //light color
+                    glm::vec3 color;
+
+                    for(unsigned int vec = 0; vec < 3; vec++) {
+                        openFile >> color[vec];
+                    }
+
+                    //light intensity
+                    float intensity;
+                    openFile >> intensity;
+
+                    //near attenuation
+                    float nearAtten;
+                    openFile >> nearAtten;
+
+                    //far attenuation
+                    float farAtten;
+                    openFile >> farAtten;
+
+                    illGraphics::PointLight * lightObj = new illGraphics::PointLight(color, intensity, nearAtten, farAtten);
+
+                    for(unsigned int light = 0; light < 1; light++) {
+                        new illRendererCommon::LightNode(m_graphicsScene,
+                            lightObj,
+                            transform, 
+                            Box<>(glm::vec3(-lightObj->m_attenuationEnd), glm::vec3(lightObj->m_attenuationEnd)));
+                    }
+                }
+                else {
+                    Box<> bounds;
+
+                    //read the bounding box
+                    for(unsigned int vec = 0; vec < 3; vec++) {
+                        openFile >> bounds.m_min[vec];
+                    }
+
+                    for(unsigned int vec = 0; vec < 3; vec++) {
+                        openFile >> bounds.m_max[vec];
+                    }
+
+                    illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene, 
+                        m_engine->m_meshManager->getIdForName(meshName.c_str()), m_engine->m_materialManager->getIdForName("WallMaterial"),
+                        transform, bounds);
+
+                    node->load(m_engine->m_meshManager, m_engine->m_materialManager);
+                }
+            }
+        }
+
+        break;
+
     case Scene::ORGANIZED:
 
         m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),

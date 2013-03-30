@@ -74,9 +74,7 @@ private:
                 break;
             }*/
             
-            if(m_controller->m_testFrustumIter && !m_controller->m_testFrustumIter->atEnd()) {
-                m_controller->m_testFrustumIter->forward();
-            }
+            m_controller->advance();
         }
 
         FrustumIterVisualizerController * m_controller;
@@ -111,6 +109,30 @@ private:
 
         FrustumIterVisualizerController * m_controller;
     };
+
+    inline bool advance() {
+        if(m_currentIter < 8) {
+            if(!m_testFrustumIter[m_currentIter] || m_testFrustumIter[m_currentIter]->atEnd()) {
+                while(true) {
+                    m_currentIter++;
+
+                    if(m_currentIter >= 8) {
+                        return false;
+                    }
+
+                    if(m_testFrustumIter[m_currentIter]) {
+                        break;
+                    }
+                }
+            }
+            else {
+                m_testFrustumIter[m_currentIter]->forward();
+            }
+            return true;
+        }
+
+        return false;
+    }
     
     Engine * m_engine;
 
@@ -120,11 +142,20 @@ private:
     illGraphics::CameraTransform m_cameraTransform;
     
     //frustum iterator debugging
-    ConvexMeshIteratorDebug<> * m_testFrustumIter;
+    int m_currentIter;
+    ConvexMeshIteratorDebug<> * m_testFrustumIter[8];
     illGraphics::Camera m_testFrustumCamera;    //for easy resetting
-    MeshEdgeList<> m_iteratedMeshEdgeList;
+    MeshEdgeList<> m_iteratedMeshEdgeList[8];
     MeshEdgeList<> m_testMeshEdgeList;
     MeshEdgeList<> m_testUnclippedMeshEdgeList;
+    glm::vec3 m_frustumNearTip;
+    glm::vec3 m_debugSplitOrigin;
+    Plane<> m_primarySplitPos;      //this should be an array of planes in the real version
+    Plane<> m_primarySplitNeg;
+    Plane<> m_secondarySplitPos;
+    Plane<> m_secondarySplitNeg;
+    Plane<> m_tertiarySplitPos;
+    Plane<> m_tertiarySplitNeg;
 
     //unsigned int m_planeIndex;
 

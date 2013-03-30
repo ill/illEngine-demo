@@ -72,6 +72,8 @@ int main(int argc, char * argv[]) {
     testEndian();
     testSortDimensions();
 
+    glm::mat4 trollLOL = glm::rotate(90.0f, glm::vec3(1.0f, 0.0f, 0.0f)); 
+
     thisFileSystem.init(argv[0]);
 
     //TODO: make the game moddable and able to load the archives from the mod folder
@@ -130,7 +132,7 @@ int main(int argc, char * argv[]) {
 
 const size_t NUM_TEXTURES = 7;
 const size_t NUM_MATERIALS = 4;
-const size_t NUM_MESHES = 3;
+const size_t NUM_MESHES = 16;
 const size_t NUM_ANIMSET = 1;
 const size_t NUM_SKELETONS = 1;
 const size_t NUM_ANIMATIONS = 4;
@@ -279,6 +281,58 @@ void configureResourceManagers() {
 
         (*nameMap)["Wall"] = currRes;
         loadArgs[currRes].m_path = "meshes/Wall/wall.illmesh";
+        ++currRes;
+
+        (*nameMap)["Beam"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/Beam.illmesh";
+        ++currRes;
+
+        (*nameMap)["DoorBorderArch"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/DoorBorderArch.illmesh";
+        ++currRes;
+
+        (*nameMap)["DoorBorderInner"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/DoorBorderInner.illmesh";
+        ++currRes;
+
+        (*nameMap)["DoorBorderOuter"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/DoorBorderOuter.illmesh";
+        ++currRes;
+
+        (*nameMap)["Hall"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/Hall.illmesh";
+        ++currRes;
+
+        (*nameMap)["InnerSanctum"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/InnerSanctum.illmesh";
+        ++currRes;
+
+        (*nameMap)["LargeSupport"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/LargeSupport.illmesh";
+        ++currRes;
+
+        (*nameMap)["OuterHall"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/OuterHall.illmesh";
+        ++currRes;
+
+        (*nameMap)["OuterHallCorner"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/OuterHallCorner.illmesh";
+        ++currRes;
+
+        (*nameMap)["Shaft"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/Shaft.illmesh";
+        ++currRes;
+
+        (*nameMap)["ShaftCover"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/ShaftCover.illmesh";
+        ++currRes;
+
+        (*nameMap)["SideRoom"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/SideRoom.illmesh";
+        ++currRes;
+
+        (*nameMap)["SmallSupport"] = currRes;
+        loadArgs[currRes].m_path = "meshes/TheGridMap/SmallSupport.illmesh";
         ++currRes;
 
         engine.m_meshManager->initialize(loadArgs, nameMap);
