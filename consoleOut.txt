@@ -1,24 +1,5 @@
-c:\resources\illengine\illengine-demo\illengine\tests\testendian.cpp, 20: 
-16Bit: 1234
- swap: 3412
-  res: 1234
- swap: 3412
-c:\resources\illengine\illengine-demo\illengine\tests\testendian.cpp, 25: 
-32Bit: 12345678
- swap: 78563412
-  res: 12345678
- swap: 78563412
-c:\resources\illengine\illengine-demo\illengine\tests\testendian.cpp, 30: 
-64Bit: 123456789abcdef
- swap: efcdab8967452301
-  res: 123456789abcdef
- swap: efcdab8967452301
-c:\resources\illengine\illengine-demo\illengine\tests\testendian.cpp, 35: 
-float: 1.2800781250e+002
- swap: 1.8376487931e-040
-  res: 1.2800781250e+002
-c:\resources\illengine\illengine-demo\illengine\tests\testendian.cpp, 42: 
-doubl: 1.2800781250e+002
- swap: 5.3051112152e-315
-  res: 1.2800781250e+002
-FATAL ERROR: c:\resources\illengine\illengine-demo\illengine\filesystem-physfs\physfsfilesystem.cpp, 22: Failed to add search path ..\..\..\assets. Error File not found
+1
+Box
+1.0 0.0 0.0 5.53259
+0.0 1.0 0.0 -1.91045
+0.0 0.0 1.0 7.82638
