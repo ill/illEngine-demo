@@ -92,6 +92,7 @@ private:
     illInput::StateReleaseToggleListener m_drawFrustumToggle;
     illInput::StateReleaseToggleListener m_drawGridToggle;
     illInput::StateReleaseToggleListener m_performOcclusionToggle;
+    illInput::StateReleaseToggleListener m_objectOcclusionToggle;
 
     illInput::StateReleaseToggleListener m_drawLightsToggle;
     illInput::StateReleaseToggleListener m_drawBoundsToggle;
@@ -100,6 +101,7 @@ private:
 
     bool m_performCull;
     bool m_occlusionDebug;
+    bool m_perObjectOcclusion;
 
     bool m_topDown;
     bool m_drawFrustum;

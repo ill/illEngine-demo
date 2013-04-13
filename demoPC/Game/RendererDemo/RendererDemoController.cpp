@@ -53,6 +53,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     m_occlusionDebug(false),
     m_performCull(true),
 
+    m_perObjectOcclusion(false),
     m_topDown(false),
     m_drawFrustum(false),
     m_drawGrid(false)
@@ -85,6 +86,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     m_drawFrustumToggle.m_value = &m_drawFrustum;
     m_drawGridToggle.m_value = &m_drawGrid;
     m_performOcclusionToggle.m_value = &m_performCull;
+    m_objectOcclusionToggle.m_value = &m_perObjectOcclusion;
 
     m_toggleCamera.m_controller = this;
 
@@ -99,6 +101,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_l), &m_drawLightsToggle);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_b), &m_drawBoundsToggle);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_c), &m_performOcclusionToggle);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_l), &m_objectOcclusionToggle);
 
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_o), &m_occlusionDebugToggle);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_p), &m_toggleCamera);
@@ -717,6 +720,8 @@ void RendererDemoController::render() {
     
     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_performCull = m_performCull;
     static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_performCull = m_performCull;
+    
+    static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugPerObjectCull = m_perObjectOcclusion;
 
     m_graphicsScene->setupFrame();
     m_graphicsScene->render(m_camera, m_viewport);
