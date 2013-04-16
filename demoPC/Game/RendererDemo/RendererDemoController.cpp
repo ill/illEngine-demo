@@ -98,11 +98,12 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_6), &m_diffuseAccumulationDebugMode);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_7), &m_specularAccumulationDebugMode);
 
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_l), &m_drawLightsToggle);
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_n), &m_drawLightsToggle);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_b), &m_drawBoundsToggle);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_c), &m_performOcclusionToggle);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_l), &m_objectOcclusionToggle);
 
+    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_z), &m_stencilLightingPassToggle);    
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_o), &m_occlusionDebugToggle);
     m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_p), &m_toggleCamera);
 
@@ -125,6 +126,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
 
     m_drawLightsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugLights;
     m_drawBoundsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugBounds;
+    m_stencilLightingPassToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_stencilLightingPass;
 
     switch(scene) {
     case Scene::THE_GRID:

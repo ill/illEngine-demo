@@ -13,6 +13,8 @@ Accumulates a light's contribution to the scene after the G Buffer stage
 
 varying vec3 viewPosition;
 
+uniform bool noLighting;
+
 uniform sampler2D depthBuffer;
 uniform sampler2D normalBuffer;
 uniform sampler2D diffuseBuffer;
@@ -52,52 +54,58 @@ vec3 decodeNormal(vec2 normal) {
 }
 
 void main(void) {
-    //retreive position
-    vec3 viewRay = vec3(viewPosition.xy / viewPosition.z, 1.0);   
-    float depth = planes.y / (texelFetch2D(depthBuffer, ivec2(gl_FragCoord.xy), 0).x - planes.x);
-    vec3 position = viewRay * depth;
-   
-    //convert normal back from [0,1] color space  
-    //vec3 normal = texelFetch2D(normalBuffer, ivec2(gl_FragCoord.xy), 0).xyz * 2.0 - 1.0;    
-    vec3 normal = decodeNormal(texelFetch2D(normalBuffer, ivec2(gl_FragCoord.xy), 0).xy);
-      
-    //light
-    float lightNormDot;
-    vec3 halfVec;   
+	//noLighting for the stencil volume prepass
+	if(noLighting) {
+		gl_FragData[0] = vec4(1.0);
+	}
+	else {
+		//retreive position
+		vec3 viewRay = vec3(viewPosition.xy / viewPosition.z, 1.0);   
+		float depth = planes.y / (texelFetch2D(depthBuffer, ivec2(gl_FragCoord.xy), 0).x - planes.x);
+		vec3 position = viewRay * depth;
+	   
+		//convert normal back from [0,1] color space  
+		//vec3 normal = texelFetch2D(normalBuffer, ivec2(gl_FragCoord.xy), 0).xyz * 2.0 - 1.0;    
+		vec3 normal = decodeNormal(texelFetch2D(normalBuffer, ivec2(gl_FragCoord.xy), 0).xy);
+		  
+		//light
+		float lightNormDot;
+		vec3 halfVec;   
    
 #if(defined(POINT_LIGHT) || defined(SPOT_LIGHT))
-    vec3 lightVector = lightPosition - position;
-    float lightDistance = length(lightVector);   
-    lightVector = normalize(lightVector);   
-   
-    lightNormDot = dot(lightVector, normal);
-    halfVec = normalize(lightVector + normalize(viewRay));
+		vec3 lightVector = lightPosition - position;
+		float lightDistance = length(lightVector);   
+		lightVector = normalize(lightVector);   
+	   
+		lightNormDot = dot(lightVector, normal);
+		halfVec = normalize(lightVector + normalize(viewRay));
 #elif(defined(DIRECTIONAL_LIGHT))
-    lightNormDot = dot(lightDirection, normal);
-    halfVec = normalize(lightDirection + normalize(viewRay));
+		lightNormDot = dot(lightDirection, normal);
+		halfVec = normalize(lightDirection + normalize(viewRay));
 #endif
    
-    vec3 diffuseContribution = max(0.0, lightNormDot) * texelFetch2D(diffuseBuffer, ivec2(gl_FragCoord.xy), 0).rgb * lightColor;
-    vec4 specular = texelFetch2D(specularBuffer, ivec2(gl_FragCoord.xy), 0);
-    vec3 specularContribution = pow(max(0.0, dot(halfVec, normal)), specular.a * 1000.0) * specular.rgb * lightColor * clamp(lightNormDot * 4.0, 0.0, 1.0);
+		vec3 diffuseContribution = max(0.0, lightNormDot) * texelFetch2D(diffuseBuffer, ivec2(gl_FragCoord.xy), 0).rgb * lightColor;
+		vec4 specular = texelFetch2D(specularBuffer, ivec2(gl_FragCoord.xy), 0);
+		vec3 specularContribution = pow(max(0.0, dot(halfVec, normal)), specular.a * 1000.0) * specular.rgb * lightColor * clamp(lightNormDot * 4.0, 0.0, 1.0);
    
 #if(defined(POINT_LIGHT) || defined(SPOT_LIGHT))   
-    float attenuation = clamp((attenuationEnd - lightDistance) / (attenuationEnd - attenuationStart), 0.0, 1.0);
+		float attenuation = clamp((attenuationEnd - lightDistance) / (attenuationEnd - attenuationStart), 0.0, 1.0);
    
 #if(defined(SPOT_LIGHT))
-    float coneThis = dot(-lightDirection, lightVector);   
-    float spotAttenuation = clamp((coneThis - coneEnd) / (coneStart - coneEnd), 0.0, 1.0);
-   
-    attenuation *= spotAttenuation;
+		float coneThis = dot(-lightDirection, lightVector);   
+		float spotAttenuation = clamp((coneThis - coneEnd) / (coneStart - coneEnd), 0.0, 1.0);
+	   
+		attenuation *= spotAttenuation;
 #endif
       
 #elif(defined(DIRECTIONAL_LIGHT))
-    finalColor = intensity * diffuseContribution;
+		finalColor = intensity * diffuseContribution;
 #endif
             
-    gl_FragData[0] = vec4(attenuation * intensity * diffuseContribution, 1.0);        
-    gl_FragData[1] = vec4(attenuation * intensity * specularContribution, 1.0);
-   
-    //debug draw slight haze from light volume
-    //gl_FragData[0] = vec4(clamp(attenuation * intensity * diffuseContribution, 0.05, 1.0), 1.0);
+		gl_FragData[0] = vec4(attenuation * intensity * diffuseContribution, 1.0);        
+		gl_FragData[1] = vec4(attenuation * intensity * specularContribution, 1.0);
+	   
+		//debug draw slight haze from light volume
+		//gl_FragData[0] = vec4(clamp(attenuation * intensity * diffuseContribution, 0.05, 1.0), 1.0);
+	}
 }

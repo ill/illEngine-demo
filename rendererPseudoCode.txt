@@ -1,0 +1,624 @@
+scene::setup frame
+	retreive cell queries
+	retreive node queries
+	
+	renderer::setup frame
+		renderer::setup G buffer
+			bind gbuffer FBO
+			setup MRT for normal, diffuse, specular buffers
+		
+		depthMask true
+		colorMask true
+		
+		clear color and depth
+		
+		== State
+			Gbuffer FBO is bound
+			MRT for normal, diffuse, specular is set
+			
+			depthmask true
+			colormask true		
+		==
+		
+	currentFrame++
+	
+scene::render
+	renderer::setupViewport
+		set viewport dimensions
+		disable blend
+		colormask false
+		enable depth test
+		depth func less
+		set cull face to back
+		
+		renderer::setup G buffer
+			bind gbuffer FBO
+			setup MRT for normal, diffuse, specular buffers
+		
+		== State
+			Gbuffer FBO bound
+			MRT for normal, diffuse, specular is set
+			
+			viewport dimensions set
+			
+			blend disabled
+			
+			depth test enabled
+			depth func less
+			
+			cullface back
+			
+			depthmask true
+			colormask false
+		==
+		
+	for each cell returned by VFC
+		renderer::setupQuery
+			disable face cull
+			depthmask false
+			
+			set shader prog to volume rendering prog
+			
+			bind query box mesh VBO
+			bind query box mesh IBO
+			
+			enable shader prog position attribute array
+			set mesh position attrib array data
+			
+			== State
+				Gbuffer FBO bound
+				MRT for normal, diffuse, specular is set
+				
+				viewport dimensions set
+				
+				blend disabled
+				
+				depth test enabled
+				depth func less
+				
+				cullface back
+				cullface off
+				
+				depthmask false
+				colormask false
+				
+				shader prog: volume rendering
+				
+				querybox mesh VBO bound
+				querybox mesh IBO bound			
+				shader prog position attribute array enabled
+				mesh position attrib array data set
+			==
+			
+		renderer::occlusion query cell
+			renderer::renderQueryBox
+				== Expected State
+					Gbuffer FBO bound
+					MRT for normal, diffuse, specular is set
+					
+					viewport dimensions set
+					
+					blend disabled
+					
+					depth test enabled
+					depth func less
+					
+					cullface off
+					
+					depthmask false
+					colormask false
+					
+					shader prog: volume rendering
+					
+					querybox mesh VBO bound
+					querybox mesh IBO bound			
+					shader prog position attribute array enabled
+					mesh position attrib array data set
+				==
+			
+				set program modelViewProjection to transform of box
+				begin occlusion query
+				draw box
+				end occlusion query
+				
+				== State
+					Gbuffer FBO bound
+					MRT for normal, diffuse, specular is set
+					
+					viewport dimensions set
+					
+					blend disabled
+					
+					depth test enabled
+					depth func less
+					
+					cullface back
+					cullface off
+					
+					depthmask false
+					colormask false
+					
+					shader prog: volume rendering
+					
+					querybox mesh VBO bound
+					querybox mesh IBO bound			
+					shader prog position attribute array enabled
+					mesh position attrib array data set
+					
+					shader prog modelViewProjection set to transform of box
+				==
+				
+		for each node in cell
+			if node needs occlusion query and failed a query last frame
+				renderer::occlusion query node
+					renderer::renderQueryBox
+					== Expected State
+						Gbuffer FBO bound
+						MRT for normal, diffuse, specular is set
+						
+						viewport dimensions set
+						
+						blend disabled
+						
+						depth test enabled
+						depth func less
+						
+						cullface off
+						
+						depthmask false
+						colormask false
+						
+						shader prog: volume rendering
+						
+						querybox mesh VBO bound
+						querybox mesh IBO bound			
+						shader prog position attribute array enabled
+						mesh position attrib array data set
+					==
+				
+					set program modelViewProjection to transform of box
+					begin occlusion query
+					draw box
+					end occlusion query
+					
+					== State
+						Gbuffer FBO bound
+						MRT for normal, diffuse, specular is set
+						
+						viewport dimensions set
+						
+						blend disabled
+						
+						depth test enabled
+						depth func less
+						
+						cullface back
+						cullface off
+						
+						depthmask false
+						colormask false
+						
+						shader prog: volume rendering
+						
+						querybox mesh VBO bound
+						querybox mesh IBO bound			
+						shader prog position attribute array enabled
+						mesh position attrib array data set
+						
+						shader prog modelViewProjection set to transform of box
+					==
+			else
+				add node to render queue
+				
+		renderer::end query
+			disable shader prog position attribute array
+			unbind mesh VBO
+			unbind mesh IBO
+			
+			== State
+				Gbuffer FBO bound
+				MRT for normal, diffuse, specular is set
+				
+				viewport dimensions set
+				
+				blend disabled
+				
+				depth test enabled
+				depth func less
+				
+				cullface back
+				cullface off
+				
+				depthmask false
+				colormask false
+				
+				shader prog: volume rendering
+				
+				mesh VBO unbound
+				mesh IBO unbound
+				
+				shader prog modelViewProjection set to transform of box
+			==
+		
+		renderer::depth pass
+			enable depth write
+			enable face culling
+			
+			begin conditional render using cell query
+			
+			for each mesh in depth pass queue
+				set program to the mesh rendering program
+				enable mesh program position attrib array
+				
+				bind mesh VBO
+				bind mesh IBO
+				
+				set program position array data from mesh
+				
+				set program modelViewProjection mat to transform of mesh
+				
+				if node needs occlusion query
+					create new occlusion query
+					begin occlusion query
+					
+				== State
+					Gbuffer FBO bound
+					MRT for normal, diffuse, specular is set
+					
+					viewport dimensions set
+					
+					blend disabled
+					
+					depth test enabled
+					depth func less
+					
+					cullface back
+					cullface on
+					
+					depthmask true
+					colormask false
+					
+					shader prog: depth pass for mesh
+										
+					mesh VBO bound
+					mesh IBO bound
+					shader prog position attribute array enabled
+					mesh position attrib array data set
+					
+					shader prog modelViewProjection set to transform
+				==
+					
+				== Expected State
+					Gbuffer FBO bound
+					MRT for normal, diffuse, specular is set
+					
+					viewport dimensions set
+					
+					blend disabled
+					
+					depth test enabled
+					depth func less
+					
+					cullface back
+					cullface on
+					
+					depthmask true
+					colormask false
+					
+					shader prog: depth pass for mesh
+										
+					mesh VBO bound
+					mesh IBO bound
+					shader prog position attribute array enabled
+					mesh position attrib array data set
+					
+					shader prog modelViewProjection set to transform
+				==
+					
+				draw mesh
+				
+				if node needs occlusion query
+					end occlusion query
+				
+				disable mesh program position attrib array
+				
+			end conditional render from cell query
+			
+			unbind mesh VBO
+			unbind mesh IBO
+			
+			== State
+				Gbuffer FBO bound
+				MRT for normal, diffuse, specular is set
+				
+				viewport dimensions set
+				
+				blend disabled
+				
+				depth test enabled
+				depth func less
+				
+				cullface back
+				cullface on
+				
+				depthmask true
+				colormask false
+				
+				shader prog: depth pass for mesh
+									
+				mesh VBO unbound
+				mesh IBO unbound
+				
+				shader prog modelViewProjection set to transform
+			==
+			
+	renderer::render
+		depth mask false
+		color mask true
+		depth func equal
+		enable cull face
+		
+		renderer::renderGbuffer
+			for each mesh			
+				set program to the mesh rendering program
+				enable mesh program position attrib array
+				enable mesh program normal attrib array
+				set material diffuse color
+				set material specular color
+				
+				bind diffuse map to texture0			
+				bind specular map to texture1
+				bind normal map to texture2
+				
+				enable tex coord attrib array
+				enable tangent attrib array
+				enable bitangent attrib array
+				
+				bind mesh VBO
+				bind mesh IBO
+				
+				set position data
+				set texCoord data
+				set normals data
+				set tangents data
+				
+				set modelViewProjection			
+				set normalMat
+				
+				== Expected State
+					Gbuffer FBO bound
+					MRT for normal, diffuse, specular is set
+					
+					viewport dimensions set
+					
+					blend disabled
+					
+					depth test enabled
+					depth func equal
+					
+					cullface back
+					cullface on
+					
+					depthmask false
+					colormask true
+					
+					shader prog: mesh rendering
+										
+					mesh VBO bound
+					mesh IBO bound
+					
+					position attrib array
+					normal attrib array
+					tex coord array
+					tangent array
+					bitangent array
+				==
+				
+				== State
+					Gbuffer FBO bound
+					MRT for normal, diffuse, specular is set
+					
+					viewport dimensions set
+					
+					blend disabled
+					
+					depth test enabled
+					depth func equal
+					
+					cullface back
+					cullface on
+					
+					depthmask false
+					colormask true
+					
+					shader prog: mesh rendering
+										
+					mesh VBO bound
+					mesh IBO bound
+					
+					position attrib array
+					normal attrib array
+					tex coord array
+					tangent array
+					bitangent array
+				==
+				
+				draw mesh
+				
+				disable tex coord attrib array
+				disable tangent attrib array
+				disable bitangent attrib array
+				disable position attrib array
+				disable normal attrib array
+				
+				unbind VBO
+				unbind IBO
+				
+				== State
+					Gbuffer FBO bound
+					MRT for normal, diffuse, specular is set
+					
+					viewport dimensions set
+					
+					blend disabled
+					
+					depth test enabled
+					depth func equal
+					
+					cullface back
+					cullface on
+					
+					depthmask false
+					colormask true
+					
+					shader prog: mesh rendering
+										
+					mesh VBO unbound
+					mesh IBO unbound
+				==
+				
+		set MRT for diffuse accumulation
+		clear color
+		disable depth test
+		
+		== State
+			Gbuffer FBO bound
+			MRT for diffuse accumulation
+			
+			viewport dimensions set
+			
+			blend disabled
+			
+			depth test disabled
+			depth func equal
+			
+			cullface back
+			cullface on
+			
+			depthmask false
+			colormask true
+			
+			shader prog: mesh rendering
+								
+			mesh VBO unbound
+			mesh IBO unbound
+		==
+		
+		renderer::render ambient pass
+			TODO
+			
+		set MRT for specular accumulation
+		clear color
+		
+		enable blend
+		set blend func additive
+		
+		enable depth test
+		depth func lequal
+		
+		== State
+			Gbuffer FBO bound
+			MRT for specular accumulation
+			
+			viewport dimensions set
+			
+			blend enabled
+			blend func additive
+			
+			depth test enabled
+			depth func lequal
+			
+			cullface back
+			cullface on
+			
+			depthmask false
+			colormask true
+			
+			shader prog: mesh rendering
+								
+			mesh VBO unbound
+			mesh IBO unbound
+		==
+		
+		renderer::render emissive pass
+			TODO
+			
+		set MRT for diffuse and specular accumulation
+				
+		renderer::render lights
+			compute planes normalizing things
+			
+			set depth texture to texture 0
+			set normal texture to texture 1
+			set diffuse texture to texture 2
+			set specular texture to texture 3
+			
+			for each light
+				set the light program
+				if light volume intersects far plane
+					cull back face
+				else
+					cull front face
+				
+				if light should be occlusion culled
+					create query
+					begin query
+					
+				== State
+					Gbuffer FBO bound
+					MRT for diffuse specular accumulation
+					
+					viewport dimensions set
+					
+					blend enabled
+					blend func additive
+					
+					depth test enabled
+					depth func lequal
+					
+					cullface back/front depending on if light volume intersects far plane
+					cullface on
+					
+					depthmask false
+					colormask true
+					
+					shader prog: light program
+										
+					mesh VBO unbound
+					mesh IBO unbound
+				==
+				
+				== Expected state
+					Gbuffer FBO bound
+					MRT for diffuse specular accumulation
+					
+					viewport dimensions set
+					
+					blend enabled
+					blend func additive
+					
+					depth test enabled
+					depth func lequal
+					
+					cullface back/front depending on if light volume intersects far plane
+					cullface on
+					
+					depthmask false
+					colormask true
+					
+					shader prog: light program
+										
+					mesh VBO unbound
+					mesh IBO unbound
+				==
+					
+				draw light volume
+				
+				if light should be occlusion culled
+					end query
+			
+		disable face cull
+		disable depth test
+		unbind frame buffer
+		
+		renderer::render finish

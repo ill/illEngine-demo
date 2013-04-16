@@ -89,6 +89,7 @@ private:
     bool m_whichCamera;
 
     illInput::StateReleaseToggleListener m_topDownToggle;
+    illInput::StateReleaseToggleListener m_stencilLightingPassToggle;
     illInput::StateReleaseToggleListener m_drawFrustumToggle;
     illInput::StateReleaseToggleListener m_drawGridToggle;
     illInput::StateReleaseToggleListener m_performOcclusionToggle;
