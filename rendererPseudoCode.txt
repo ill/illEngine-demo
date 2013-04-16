@@ -103,6 +103,8 @@ scene::render
 					depth test enabled
 					depth func less
 					
+					stencil test disabled
+					
 					cullface off
 					
 					depthmask false
@@ -162,6 +164,8 @@ scene::render
 						
 						depth test enabled
 						depth func less
+						
+						stencil test disabled
 						
 						cullface off
 						
@@ -299,6 +303,8 @@ scene::render
 					depth test enabled
 					depth func less
 					
+					stencil test disabled
+					
 					cullface back
 					cullface on
 					
@@ -395,6 +401,8 @@ scene::render
 					
 					depth test enabled
 					depth func equal
+					
+					stencil test disabled
 					
 					cullface back
 					cullface on
@@ -546,6 +554,8 @@ scene::render
 		set MRT for diffuse and specular accumulation
 				
 		renderer::render lights
+			enable stencil test
+		
 			compute planes normalizing things
 			
 			set depth texture to texture 0
@@ -555,70 +565,210 @@ scene::render
 			
 			for each light
 				set the light program
+				
+				bind mesh VBO
+				bind mesh IBO
+				
+				set position data
+				
+				generate occlusion query
+				begin query
+				
+				enable depth test
+				disable face cull
+				color mask false
+				
+				stencil func Always, 0, Mask 0x00
+				stencil op backFacing: keep, increment wrap, keep
+				stencil op frontFacing: keep, decrement wrap, keep
+				
+				== State
+					Gbuffer FBO bound
+					MRT for specular and diffuse accumulation
+					
+					viewport dimensions set
+										
+					depth test enabled
+					depth func lequal
+					
+					stencil test enabled
+					stencil func Always, 0, 0x00
+					stencil op backFacing: keep, increment wrap, keep
+					stencil op frontFacing: keep, decrement wrap, keep
+					
+					cullface off
+					
+					depthmask false
+					colormask false
+					
+					shader prog: light volume rendering
+										
+					mesh VBO bound
+					mesh IBO bound
+					
+					position data set
+				==
+				
+				== Expected state
+					Gbuffer FBO bound
+					MRT for specular and diffuse accumulation
+					
+					viewport dimensions set
+					
+					blend enabled
+					blend func additive
+					
+					depth test enabled
+					depth func lequal
+					
+					stencil test enabled
+					stencil func Always, 0, 0x00
+					stencil op backFacing: keep, increment wrap, keep
+					stencil op frontFacing: keep, decrement wrap, keep
+									
+					cullface off
+					
+					depthmask false
+					colormask false
+					
+					shader prog: light volume rendering
+										
+					mesh VBO bound
+					mesh IBO bound
+					
+					position data set
+				==
+				
+				draw light volume
+				
+				end query
+				
 				if light volume intersects far plane
 					cull back face
 				else
 					cull front face
 				
-				if light should be occlusion culled
-					create query
-					begin query
-					
+				begin conditional render
+				
+				disable depth test
+				enable cull face
+				color mask true
+				
+				stencil func Not Equal, 0, 0xFF
+				stencil op Replace, Replace, Replace (A clever way to clear the stencil buffer)
+									
 				== State
 					Gbuffer FBO bound
-					MRT for diffuse specular accumulation
+					MRT for specular and diffuse accumulation
 					
 					viewport dimensions set
 					
 					blend enabled
 					blend func additive
 					
-					depth test enabled
+					depth test disabled
 					depth func lequal
 					
-					cullface back/front depending on if light volume intersects far plane
+					stencil test enabled
+					stencil func Not Equal, 0, 0xFF
+					stencil op Replace, Replace, Replace (A clever way to clear the stencil buffer)
+									
+					cullface back/front depending on conditions
 					cullface on
 					
 					depthmask false
 					colormask true
 					
-					shader prog: light program
+					shader prog: light volume rendering
 										
-					mesh VBO unbound
-					mesh IBO unbound
+					mesh VBO bound
+					mesh IBO bound
+					
+					position data set
 				==
 				
 				== Expected state
 					Gbuffer FBO bound
-					MRT for diffuse specular accumulation
+					MRT for specular and diffuse accumulation
 					
 					viewport dimensions set
 					
 					blend enabled
 					blend func additive
 					
-					depth test enabled
-					depth func lequal
+					depth test disabled
 					
-					cullface back/front depending on if light volume intersects far plane
+					stencil test enabled
+					stencil func Not Equal, 0, 0xFF
+					stencil op Replace, Replace, Replace (A clever way to clear the stencil buffer)
+									
+					cullface back/front depending on conditions
 					cullface on
 					
 					depthmask false
 					colormask true
 					
-					shader prog: light program
+					shader prog: light volume rendering
 										
-					mesh VBO unbound
-					mesh IBO unbound
+					mesh VBO bound
+					mesh IBO bound
+					
+					position data set
 				==
 					
 				draw light volume
 				
-				if light should be occlusion culled
-					end query
-			
+				end conditional render
+				
+				disable IBO
+				disable VBO
+				disable position attrib array
+		
+		disable stencil test			
 		disable face cull
-		disable depth test
 		unbind frame buffer
 		
+		== State
+			Regular FBO bound
+			
+			viewport dimensions set
+			
+			blend enabled
+			blend func additive
+			
+			depth test disabled
+			depth func lequal
+			
+			stencil test disabled
+			stencil func Not Equal, 0, 0xFF
+			stencil op Replace, Replace, Replace (A clever way to clear the stencil buffer)
+							
+			cullface back/front depending on conditions
+			cullface off
+			
+			depthmask false
+			colormask true
+			
+			shader prog: light volume rendering
+								
+			VBO unbound
+			IBO unbound
+		==
+		
+		== Expected state
+			Regular FBO bound
+			
+			viewport dimensions set
+			
+			blend enabled
+			blend func additive
+			
+			depth test disabled
+			stencil test disabled
+			
+			depthmask false
+			colormask true
+		==
+		
 		renderer::render finish
+		
