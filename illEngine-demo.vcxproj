@@ -309,6 +309,7 @@
     <ClInclude Include="illEngine\Util\Geometry\Iterators\ConvexMeshIteratorDebug.h" />
     <ClInclude Include="illEngine\Util\Geometry\geomUtil.h" />
     <ClInclude Include="illEngine\Util\Geometry\GridVolume3D.h" />
+    <ClInclude Include="illEngine\Util\Geometry\Iterators\OrderedBoxIterator.h" />
     <ClInclude Include="illEngine\Util\Geometry\Line.h" />
     <ClInclude Include="illEngine\Util\Geometry\Line2.h" />
     <ClInclude Include="illEngine\Util\Geometry\LineIterator.h" />

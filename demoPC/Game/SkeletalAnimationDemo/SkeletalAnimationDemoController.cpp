@@ -210,7 +210,7 @@ void renderMesh(illGraphics::Mesh& mesh, illGraphics::ModelAnimationController& 
     buffer = *((GLuint *) mesh.getMeshBackendData() + 1);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer);
 
-    glDrawRangeElements(GL_TRIANGLES, 0, mesh.getMeshFrontentData()->getNumTri() * 3, mesh.getMeshFrontentData()->getNumTri() * 3, GL_UNSIGNED_SHORT, (char *)NULL);
+    glDrawRangeElements(GL_TRIANGLES, 0, mesh.getMeshFrontentData()->getNumInd(), mesh.getMeshFrontentData()->getNumInd(), GL_UNSIGNED_SHORT, (char *)NULL);
 
     glDisableVertexAttribArray(pos);
     glDisableVertexAttribArray(norm);
