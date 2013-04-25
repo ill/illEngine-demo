@@ -143,9 +143,11 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             openFile >> numMeshes;
             
             m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
-                m_engine->m_meshManager, m_engine->m_materialManager,        
-                glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42), 
-                glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42));
+                m_engine->m_meshManager, m_engine->m_materialManager,
+                glm::vec3(70.0f, 25.0f, 70.0f), glm::uvec3(10, 4, 10), 
+                glm::vec3(70.0f, 25.0f, 70.0f), glm::uvec3(10, 4, 10));
+                //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42), 
+                //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42));
 
             //for now just add these as dynamic meshes, later they will be static meshes
             for(int mesh = 0; mesh < numMeshes; mesh++) {
