@@ -130,9 +130,9 @@ int main(int argc, char * argv[]) {
     return 0;
 }
 
-const size_t NUM_TEXTURES = 9;
-const size_t NUM_MATERIALS = 5;
-const size_t NUM_MESHES = 17;
+const size_t NUM_TEXTURES = 16;
+const size_t NUM_MATERIALS = 8;
+const size_t NUM_MESHES = 18;
 const size_t NUM_ANIMSET = 1;
 const size_t NUM_SKELETONS = 1;
 const size_t NUM_ANIMATIONS = 4;
@@ -185,6 +185,48 @@ void configureResourceManagers() {
         loadArgs[currRes].m_path = "meshes/Wall/goobyPls.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_CLAMP_TO_EDGE;
+        ++currRes;
+
+        (*nameMap)["bluetex3k2_d"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/bluetex3k2_d.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["bluetex3k2_s"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/bluetex3k2_s.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["bluetex3k2_local"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/bluetex3k2_local.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["sflgrate2_d"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/sflgrate2_d.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["sflgrate2_s"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/sflgrate2_s.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["sflgrate2_local"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/sflgrate2_local.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["conc_panel02_d"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/conc_panel02_d.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
         ++currRes;
 
         (*nameMap)["mcityc7"] = currRes;
@@ -273,14 +315,62 @@ void configureResourceManagers() {
         loadArgs[currRes].m_forceForwardRendering = false;
         ++currRes;
 
+        (*nameMap)["bluetex3k2"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("bluetex3k2_d");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = engine.m_textureManager->getIdForName("bluetex3k2_s");
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 0.1f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("bluetex3k2_local");
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
+        (*nameMap)["sflgrate2"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("sflgrate2_d");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = engine.m_textureManager->getIdForName("sflgrate2_s");
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 0.3f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("sflgrate2_local");
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
+        (*nameMap)["conc_panel02"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("conc_panel02_d");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = -1;
+        loadArgs[currRes].m_specularBlend = glm::vec4(0.2f, 0.2f, 0.2f, 0.01f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = -1;
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
         (*nameMap)["mcityc7"] = currRes;
         loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("mcityc7");
         loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
         loadArgs[currRes].m_specularTextureIndex = -1;
-        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 0.3f);
-        loadArgs[currRes].m_emissiveTextureIndex = engine.m_textureManager->getIdForName("mcityc7_local");
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 0.01f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
         loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
-        loadArgs[currRes].m_normalTextureIndex = -1;
+        loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("mcityc7_local");
         loadArgs[currRes].m_normalMultiplier = 1.0f;
         loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
         loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
@@ -365,6 +455,10 @@ void configureResourceManagers() {
 
         (*nameMap)["HangarHallA"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/HangarHallA.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarHallB"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarHallB.illmesh";
         ++currRes;
 
         engine.m_meshManager->initialize(loadArgs, nameMap);

@@ -46,6 +46,25 @@ if selection.count > 0 then (
 				--swap y and z, and negate the z			
 				format "% % %\n" box[1][1] box[1][3] -box[2][2] to:output_file
 				format "% % %\n" box[2][1] box[2][3] -box[1][2] to:output_file
+				
+				--materials
+				if getNumSubMtls i.material > 0 then (
+					
+					--number of materials
+					format "%\n" (getNumSubMtls i.material) to:output_file
+					
+					--material names
+					for subMat = 1 to (getNumSubMtls i.material) do (
+						format "%\n" (getSubMtl i.material subMat).name to:output_file
+					)
+				)
+				else (
+					--number of materials
+					format "1\n" to:output_file
+					
+					--material names
+					format "%\n" i.material.name to:output_file
+				)
 			)
 		)
 		

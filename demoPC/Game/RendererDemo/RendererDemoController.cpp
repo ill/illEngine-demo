@@ -136,7 +136,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             m_cameraController.m_speed = 2.0f;
             m_cameraController.m_rollSpeed = 50.0f;
 
-            std::ifstream openFile("..\\..\\..\\assets\\maps\\TheGrid.txt");
+            std::ifstream openFile("..\\..\\..\\assets\\maps\\HangarTest.txt");
 
             //read number of static meshes
             int numMeshes;
@@ -214,9 +214,21 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                         transform, bounds);
                     
                     node->m_meshId = m_engine->m_meshManager->getIdForName(meshName.c_str());
-                    node->m_primitiveGroups.resize(1);
-                    node->m_primitiveGroups[0].m_materialId = m_engine->m_materialManager->getIdForName("WallMaterial");
-                    node->m_primitiveGroups[0].m_visible = true;
+
+                    //read number of primitive groups
+                    int numGroups;
+                    openFile >> numGroups;
+
+                    node->m_primitiveGroups.resize(numGroups);
+
+                    //read material names
+                    for(int group = 0; group < numGroups; group++) {
+                        std::string matName;
+                        openFile >> matName;
+
+                        node->m_primitiveGroups[group].m_materialId = m_engine->m_materialManager->getIdForName(matName.c_str());
+                        node->m_primitiveGroups[group].m_visible = true;
+                    }
 
                     node->load(m_engine->m_meshManager, m_engine->m_materialManager);
                 }
@@ -243,13 +255,13 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             node->m_primitiveGroups[0].m_materialId = m_engine->m_materialManager->getIdForName("mcityc7");
             node->m_primitiveGroups[0].m_visible = true;
 
-            node->m_primitiveGroups[1].m_materialId = m_engine->m_materialManager->getIdForName("mcityc7");
+            node->m_primitiveGroups[1].m_materialId = m_engine->m_materialManager->getIdForName("GoobyPlsMaterial");
             node->m_primitiveGroups[1].m_visible = true;
 
-            node->m_primitiveGroups[2].m_materialId = m_engine->m_materialManager->getIdForName("mcityc7");
+            node->m_primitiveGroups[2].m_materialId = m_engine->m_materialManager->getIdForName("MarineHelmetSkin");
             node->m_primitiveGroups[2].m_visible = true;
 
-            node->m_primitiveGroups[3].m_materialId = m_engine->m_materialManager->getIdForName("mcityc7");
+            node->m_primitiveGroups[3].m_materialId = m_engine->m_materialManager->getIdForName("MarineSkin");
             node->m_primitiveGroups[3].m_visible = true;
 
             node->load(m_engine->m_meshManager, m_engine->m_materialManager);
