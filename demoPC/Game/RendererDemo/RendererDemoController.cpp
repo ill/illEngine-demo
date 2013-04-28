@@ -136,7 +136,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             m_cameraController.m_speed = 2.0f;
             m_cameraController.m_rollSpeed = 50.0f;
 
-            std::ifstream openFile("..\\..\\..\\assets\\maps\\HangarTest.txt");
+            std::ifstream openFile("..\\..\\..\\assets\\maps\\HangarTest2.txt");
 
             //read number of static meshes
             int numMeshes;
