@@ -613,7 +613,7 @@ void configureResourceManagers() {
         loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("FighterBayBorderDiffuse");
         loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
         loadArgs[currRes].m_specularTextureIndex = -1;
-        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 0.3f);
+        loadArgs[currRes].m_specularBlend = glm::vec4(0.1f, 0.1f, 0.1f, 0.01f);
         loadArgs[currRes].m_emissiveTextureIndex = -1;
         loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
         loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("FighterBayBorderNormal");
@@ -629,7 +629,7 @@ void configureResourceManagers() {
         loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("yelhaz2dif");
         loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
         loadArgs[currRes].m_specularTextureIndex = -1;
-        loadArgs[currRes].m_specularBlend = glm::vec4(0.2f, 0.2f, 0.2f, 0.01f);
+        loadArgs[currRes].m_specularBlend = glm::vec4(0.1f, 0.1f, 0.1f, 0.01f);
         loadArgs[currRes].m_emissiveTextureIndex = -1;
         loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
         loadArgs[currRes].m_normalTextureIndex = -1;
