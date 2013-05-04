@@ -1,0 +1,6055 @@
+548
+HangarHallCorner
+1.0 0.0 0.0 -95.0
+0.0 1.0 0.0 -156.0
+0.0 0.0 1.0 95.0
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallA
+0.0 0.0 1.0 -88.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -84.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -80.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -76.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -72.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -68.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -64.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -60.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -56.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -52.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -48.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -44.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -40.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -36.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -32.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -28.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -24.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -20.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -16.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -12.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -8.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -4.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 2.38419e-007
+0.0 1.0 0.0 -155.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 4.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 8.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 12.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 16.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 20.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 24.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 28.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 32.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 36.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 44.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 48.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 52.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 56.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 60.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 64.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 68.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 72.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 76.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 80.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 84.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 88.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 88.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 84.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 80.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 76.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 72.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 68.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 64.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 60.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 56.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 52.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 48.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 44.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 -96.0
+0.0 1.0 0.0 -155.998
+-1.50996e-007 0.0 -1.0 40.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 36.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 32.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 28.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 24.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 20.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -4.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -16.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 8.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 4.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 -96.0
+0.0 1.0 0.0 -155.998
+-1.50996e-007 0.0 -1.0 0.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -20.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -8.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -12.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 16.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 12.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -44.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -56.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -32.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -36.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 -96.0
+0.0 1.0 0.0 -155.998
+-1.50996e-007 0.0 -1.0 -40.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -60.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -48.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -52.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -24.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -28.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -76.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -80.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -72.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -68.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -64.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -88.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -155.998
+0.0 0.0 1.0 -84.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallCorner
+0.0 0.0 -1.0 -95.0
+0.0 1.0 0.0 -156.0
+1.0 0.0 0.0 -95.0
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallB
+-1.62921e-007 0.0 1.0 2.38419e-007
+0.0 1.0 0.0 -155.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 84.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -80.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -76.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -72.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -68.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -64.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -60.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -56.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -52.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -48.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -44.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -40.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -36.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -32.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -28.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -24.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -20.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -16.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -12.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -8.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -4.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 88.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 4.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 8.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 12.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 16.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 20.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 24.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 28.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 32.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 36.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 40.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 44.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 48.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 52.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 56.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 60.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 64.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 68.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 72.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 76.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 80.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -88.0
+0.0 1.0 0.0 -155.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -84.0
+0.0 1.0 0.0 -155.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallCorner
+1.0 0.0 0.0 -95.0
+0.0 1.0 0.0 -136.0
+0.0 0.0 1.0 95.0
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallA
+0.0 0.0 1.0 -88.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -84.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -80.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -76.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -72.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -68.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -64.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -60.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -56.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -52.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -48.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -44.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -40.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -36.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -32.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -28.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -24.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -20.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -16.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -12.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -8.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -4.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 2.38419e-007
+0.0 1.0 0.0 -135.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 4.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 8.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 12.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 16.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 20.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 24.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 28.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 32.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 36.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 44.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 48.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 52.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 56.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 60.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 64.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 68.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 72.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 76.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 80.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 84.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 88.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 88.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 84.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 80.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 76.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 72.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 68.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 64.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 60.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 56.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 52.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 48.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 44.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 -96.0
+0.0 1.0 0.0 -135.998
+-1.50996e-007 0.0 -1.0 40.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 36.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 32.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 28.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 24.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 20.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -4.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -16.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 8.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 4.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 -96.0
+0.0 1.0 0.0 -135.998
+-1.50996e-007 0.0 -1.0 0.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -20.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -8.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -12.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 16.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 12.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -44.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -56.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -32.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -36.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 -96.0
+0.0 1.0 0.0 -135.998
+-1.50996e-007 0.0 -1.0 -40.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -60.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -48.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -52.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -24.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -28.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -76.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -80.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -72.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -68.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -64.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -88.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -135.998
+0.0 0.0 1.0 -84.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallCorner
+0.0 0.0 -1.0 -95.0
+0.0 1.0 0.0 -136.0
+1.0 0.0 0.0 -95.0
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallB
+-1.62921e-007 0.0 1.0 2.38419e-007
+0.0 1.0 0.0 -135.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 84.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -80.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -76.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -72.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -68.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -64.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -60.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -56.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -52.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -48.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -44.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -40.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -36.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -32.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -28.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -24.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -20.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -16.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -12.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -8.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -4.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 88.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 4.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 8.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 12.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 16.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 20.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 24.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 28.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 32.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 36.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 40.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 44.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 48.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 52.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 56.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 60.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 64.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 68.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 72.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 76.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 80.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -88.0
+0.0 1.0 0.0 -135.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -84.0
+0.0 1.0 0.0 -135.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallCorner
+1.0 0.0 0.0 -95.0
+0.0 1.0 0.0 -116.0
+0.0 0.0 1.0 95.0
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallA
+0.0 0.0 1.0 -88.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -84.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -80.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -76.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -72.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -68.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -64.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -60.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -56.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -52.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -48.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -44.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 -40.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -36.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -32.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -28.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -24.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -20.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -16.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -12.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -8.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 -4.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 2.38419e-007
+0.0 1.0 0.0 -115.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 4.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 8.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 12.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 16.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 20.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 24.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 28.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 32.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 36.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 44.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 48.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 52.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 56.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 60.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 64.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 68.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 72.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 76.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 80.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 84.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 88.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 0.0 96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 88.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 84.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 80.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 76.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 72.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 68.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 64.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 60.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 56.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 52.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 48.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 44.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 -96.0
+0.0 1.0 0.0 -115.998
+-1.50996e-007 0.0 -1.0 40.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 36.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 32.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 28.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 24.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 20.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -4.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -16.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 8.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 4.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 -96.0
+0.0 1.0 0.0 -115.998
+-1.50996e-007 0.0 -1.0 0.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -20.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -8.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -12.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 16.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 12.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -44.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -56.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -32.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -36.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 -96.0
+0.0 1.0 0.0 -115.998
+-1.50996e-007 0.0 -1.0 -40.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -60.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -48.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -52.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -24.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -28.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -76.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -80.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -72.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -68.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -64.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -88.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 -96.0
+0.0 1.0 0.0 -115.998
+0.0 0.0 1.0 -84.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallCorner
+0.0 0.0 -1.0 -95.0
+0.0 1.0 0.0 -116.0
+1.0 0.0 0.0 -95.0
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallB
+-1.62921e-007 0.0 1.0 2.38419e-007
+0.0 1.0 0.0 -115.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 84.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -80.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -76.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -72.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -68.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -64.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -60.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -56.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -52.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -48.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -44.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -40.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -36.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -32.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -28.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -24.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -20.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -16.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -12.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -8.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -4.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 88.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 4.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 8.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 12.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 16.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 20.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 24.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 28.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 32.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 36.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 40.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 44.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 48.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 52.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 56.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 60.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 64.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 68.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 72.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 76.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 80.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 -88.0
+0.0 1.0 0.0 -115.998
+1.0 0.0 1.94707e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 -84.0
+0.0 1.0 0.0 -115.998
+-1.0 0.0 -1.62921e-007 -96.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+FighterBay
+1.0 0.0 0.0 -40.0
+0.0 1.0 0.0 -156.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+1.0 0.0 0.0 -40.0
+0.0 1.0 0.0 -156.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 -40.0
+0.0 1.0 0.0 -136.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBay
+1.0 0.0 0.0 -40.0
+0.0 1.0 0.0 -136.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+1.0 0.0 0.0 -40.0
+0.0 1.0 0.0 -116.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBay
+1.0 0.0 0.0 -40.0
+0.0 1.0 0.0 -116.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+1.0 0.0 0.0 0.0
+0.0 1.0 0.0 -116.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBay
+1.0 0.0 0.0 0.0
+0.0 1.0 0.0 -116.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+1.0 0.0 0.0 40.0
+0.0 1.0 0.0 -116.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBay
+1.0 0.0 0.0 40.0
+0.0 1.0 0.0 -116.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+1.0 0.0 0.0 80.0
+0.0 1.0 0.0 -116.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBay
+1.0 0.0 0.0 80.0
+0.0 1.0 0.0 -116.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 0.0
+0.0 1.0 0.0 -136.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 0.0
+0.0 1.0 0.0 -156.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 40.0
+0.0 1.0 0.0 -136.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 40.0
+0.0 1.0 0.0 -156.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 80.0
+0.0 1.0 0.0 -136.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 80.0
+0.0 1.0 0.0 -156.0
+0.0 0.0 1.0 60.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -116.0
+1.0 0.0 0.0 0.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -136.0
+1.0 0.0 0.0 0.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -116.0
+1.0 0.0 0.0 0.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBay
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -156.0
+1.0 0.0 0.0 0.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -116.0
+1.0 0.0 0.0 -40.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBay
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -116.0
+1.0 0.0 0.0 -40.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -136.0
+1.0 0.0 0.0 -40.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBay
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -156.0
+1.0 0.0 0.0 -40.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -116.0
+1.0 0.0 0.0 40.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBay
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -116.0
+1.0 0.0 0.0 40.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -156.0
+1.0 0.0 0.0 -40.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBay
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -136.0
+1.0 0.0 0.0 -40.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -136.0
+1.0 0.0 0.0 40.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -156.0
+1.0 0.0 0.0 40.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 80.0
+0.0 1.0 0.0 -156.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 80.0
+0.0 1.0 0.0 -136.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 80.0
+0.0 1.0 0.0 -116.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 40.0
+0.0 1.0 0.0 -116.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 3.8147e-006
+0.0 1.0 0.0 -116.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 -40.0
+0.0 1.0 0.0 -116.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 40.0
+0.0 1.0 0.0 -136.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 40.0
+0.0 1.0 0.0 -156.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 3.8147e-006
+0.0 1.0 0.0 -136.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 3.8147e-006
+0.0 1.0 0.0 -156.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 -40.0
+0.0 1.0 0.0 -136.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 -40.0
+0.0 1.0 0.0 -156.0
+1.50996e-007 0.0 -1.0 -60.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -136.0
+1.0 0.0 0.0 0.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBayBorder
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -156.0
+1.0 0.0 0.0 0.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBayBorder
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -136.0
+1.0 0.0 0.0 40.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBayBorder
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -156.0
+1.0 0.0 0.0 40.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 0.0
+0.0 1.0 0.0 -136.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 0.0
+0.0 1.0 0.0 -156.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 40.0
+0.0 1.0 0.0 -136.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 40.0
+0.0 1.0 0.0 -156.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 80.0
+0.0 1.0 0.0 -136.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 80.0
+0.0 1.0 0.0 -156.0
+0.0 0.0 1.0 60.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 -40.0
+0.0 1.0 0.0 -116.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 -40.0
+0.0 1.0 0.0 -136.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 -40.0
+0.0 1.0 0.0 -156.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 0.0
+0.0 1.0 0.0 -156.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 0.0
+0.0 1.0 0.0 -136.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 0.0
+0.0 1.0 0.0 -116.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 40.0
+0.0 1.0 0.0 -116.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 40.0
+0.0 1.0 0.0 -136.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 40.0
+0.0 1.0 0.0 -156.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 80.0
+0.0 1.0 0.0 -156.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 80.0
+0.0 1.0 0.0 -136.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 80.0
+0.0 1.0 0.0 -116.0
+1.50996e-007 0.0 -1.0 -60.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+HangarFloor
+1.0 0.0 0.0 -40.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 -40.0
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 0.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 -40.0
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 40.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 -40.0
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 80.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 -40.0
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 0.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 -7.62939e-006
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 40.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 -7.62939e-006
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 80.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 -7.62939e-006
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 -40.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 -7.62939e-006
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 0.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 40.0
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 40.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 40.0
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 80.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 40.0
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 -40.0
+0.0 1.0 0.0 -165.0
+0.0 0.0 1.0 40.0
+-20.0 6.91414e-006 -20.0
+20.0 5.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarRoofTrim
+1.0 0.0 0.0 -40.0
+0.0 -1.62921e-007 -1.0 -95.0
+0.0 1.0 -1.62921e-007 60.0
+-20.0 -5.0 -2.5
+20.0 5.0 8.14603e-007
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+1.0 0.0 0.0 0.0
+0.0 -1.62921e-007 -1.0 -95.0
+0.0 1.0 -1.62921e-007 60.0
+-20.0 -5.0 -2.5
+20.0 5.0 8.14603e-007
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+1.0 0.0 0.0 40.0
+0.0 -1.62921e-007 -1.0 -95.0
+0.0 1.0 -1.62921e-007 60.0
+-20.0 -5.0 -2.5
+20.0 5.0 8.14603e-007
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+1.0 0.0 0.0 80.0
+0.0 -1.62921e-007 -1.0 -95.0
+0.0 1.0 -1.62921e-007 60.0
+-20.0 -5.0 -2.5
+20.0 5.0 8.14603e-007
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+0.0 1.0 -1.62921e-007 100.0
+0.0 -1.62921e-007 -1.0 -95.0
+-1.0 0.0 0.0 40.0
+-2.5 -5.0 -20.0
+1.68883e-006 5.0 20.0
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+0.0 1.0 -1.62921e-007 100.0
+0.0 -1.62921e-007 -1.0 -95.0
+-1.0 0.0 0.0 0.0
+-2.5 -5.0 -20.0
+1.68883e-006 5.0 20.0
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+0.0 1.0 -1.62921e-007 100.0
+0.0 -1.62921e-007 -1.0 -95.0
+-1.0 0.0 0.0 -40.0
+-2.5 -5.0 -20.0
+1.68883e-006 5.0 20.0
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.0 0.0 0.0 80.0
+0.0 -1.62921e-007 -1.0 -95.0
+0.0 -1.0 1.62921e-007 -60.0
+-20.0 -5.0 -2.56306e-006
+20.0 5.0 2.5
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.0 0.0 0.0 40.0
+0.0 -1.62921e-007 -1.0 -95.0
+0.0 -1.0 1.62921e-007 -60.0
+-20.0 -5.0 -2.56306e-006
+20.0 5.0 2.5
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.0 0.0 0.0 0.0
+0.0 -1.62921e-007 -1.0 -95.0
+0.0 -1.0 1.62921e-007 -60.0
+-20.0 -5.0 -2.56306e-006
+20.0 5.0 2.5
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.0 0.0 0.0 -40.0
+0.0 -1.62921e-007 -1.0 -95.0
+0.0 -1.0 1.62921e-007 -60.0
+-20.0 -5.0 -2.56306e-006
+20.0 5.0 2.5
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+0.0 -1.0 1.62921e-007 -60.0
+0.0 -1.62921e-007 -1.0 -95.0
+1.0 0.0 0.0 -40.0
+-1.0531e-006 -5.0 -20.0
+2.5 5.0 20.0
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+0.0 -1.0 1.62921e-007 -60.0
+0.0 -1.62921e-007 -1.0 -95.0
+1.0 0.0 0.0 0.0
+-1.0531e-006 -5.0 -20.0
+2.5 5.0 20.0
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+0.0 -1.0 1.62921e-007 -60.0
+0.0 -1.62921e-007 -1.0 -95.0
+1.0 0.0 0.0 40.0
+-1.0531e-006 -5.0 -20.0
+2.5 5.0 20.0
+2
+mchangar10
+mcityc27b
+HangarCeiling
+1.0 0.0 0.0 0.0
+0.0 -1.62921e-007 -1.0 -75.0
+0.0 1.0 -1.62921e-007 50.0
+-20.0 -15.0 -30.0
+20.0 15.0 10.0
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeiling
+1.0 0.0 0.0 40.0
+0.0 -1.62921e-007 -1.0 -75.0
+0.0 1.0 -1.62921e-007 50.0
+-20.0 -15.0 -30.0
+20.0 15.0 10.0
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeiling
+0.0 1.0 -1.62921e-007 90.0
+0.0 -1.62921e-007 -1.0 -75.0
+-1.0 0.0 0.0 4.37114e-007
+-30.0 -15.0 -20.0
+10.0 15.0 20.0
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeiling
+-1.0 0.0 0.0 40.0
+0.0 -1.62921e-007 -1.0 -75.0
+0.0 -1.0 1.62921e-007 -50.0
+-20.0 -15.0 -10.0
+20.0 15.0 30.0
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeiling
+-1.0 0.0 0.0 8.74228e-007
+0.0 -1.62921e-007 -1.0 -75.0
+0.0 -1.0 1.62921e-007 -50.0
+-20.0 -15.0 -10.0
+20.0 15.0 30.0
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeiling
+0.0 -1.0 1.62921e-007 -50.0
+0.0 -1.62921e-007 -1.0 -75.0
+1.0 0.0 0.0 -1.19249e-007
+-10.0 -15.0 -20.0
+30.0 15.0 20.0
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeilingCorner
+1.0 0.0 1.74846e-007 -60.0
+0.0 1.0 0.0 -90.0
+-1.74846e-007 0.0 1.0 60.0
+-1.79609e-005 -9.53674e-007 -40.0
+40.0 30.0 -3.02007e-006
+5
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+sflgrate2adiag
+HangarCeilingCorner
+0.0 0.0 -1.0 -60.0
+0.0 1.0 0.0 -90.0
+1.0 0.0 0.0 -60.0
+3.02007e-006 -9.53674e-007 -1.14441e-005
+40.0 30.0 40.0
+5
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+sflgrate2adiag
+HangarCeilingCorner
+-1.0 0.0 1.50996e-007 100.0
+0.0 1.0 0.0 -90.0
+-1.50996e-007 0.0 -1.0 -60.0
+-40.0 -9.53674e-007 3.02007e-006
+4.92727e-006 30.0 40.0
+5
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+sflgrate2adiag
+HangarCeilingCorner
+1.94707e-007 0.0 1.0 100.0
+0.0 1.0 0.0 -90.0
+-1.0 0.0 1.94707e-007 60.0
+-40.0 -9.53674e-007 -40.0
+-3.02007e-006 30.0 3.17881e-006
+5
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+sflgrate2adiag
+HangarCommandWindow
+1.0 0.0 1.74846e-007 35.0
+0.0 1.0 0.0 -60.0
+-1.74846e-007 0.0 1.0 -20.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+1.0 0.0 1.74846e-007 25.0
+0.0 1.0 0.0 -60.0
+-1.74846e-007 0.0 1.0 -20.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+1.0 0.0 1.74846e-007 45.0
+0.0 1.0 0.0 -60.0
+-1.74846e-007 0.0 1.0 -20.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+1.0 0.0 1.74846e-007 15.0
+0.0 1.0 0.0 -60.0
+-1.74846e-007 0.0 1.0 -20.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+1.0 0.0 1.74846e-007 5.0
+0.0 1.0 0.0 -60.0
+-1.74846e-007 0.0 1.0 -20.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+1.0 0.0 1.74846e-007 -5.0
+0.0 1.0 0.0 -60.0
+-1.74846e-007 0.0 1.0 -20.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 35.0
+0.0 1.0 0.0 -60.0
+3.25841e-007 0.0 -1.0 20.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 45.0
+0.0 1.0 0.0 -60.0
+3.25841e-007 0.0 -1.0 20.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 25.0
+0.0 1.0 0.0 -60.0
+3.25841e-007 0.0 -1.0 20.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 15.0
+0.0 1.0 0.0 -60.0
+3.25841e-007 0.0 -1.0 20.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 -5.0
+0.0 1.0 0.0 -60.0
+3.25841e-007 0.0 -1.0 20.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 5.0
+0.0 1.0 0.0 -60.0
+3.25841e-007 0.0 -1.0 20.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+0.0 0.0 -1.0 60.0
+0.0 1.0 0.0 -60.0
+1.0 0.0 0.0 -5.0
+-10.0 -10.0 -5.00001
+1.19011e-005 -4.76837e-007 5.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+0.0 0.0 -1.0 60.0
+0.0 1.0 0.0 -60.0
+1.0 0.0 0.0 5.0
+-10.0 -10.0 -5.00001
+1.19011e-005 -4.76837e-007 5.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.62921e-007 0.0 1.0 -20.0
+0.0 1.0 0.0 -60.0
+-1.0 0.0 -1.62921e-007 5.0
+-1.11462e-005 -10.0 -5.0
+10.0 -4.76837e-007 5.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.62921e-007 0.0 1.0 -20.0
+0.0 1.0 0.0 -60.0
+-1.0 0.0 -1.62921e-007 -5.0
+-1.11462e-005 -10.0 -5.0
+10.0 -4.76837e-007 5.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindowCorner
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 -60.0
+0.0 0.0 1.0 -20.0
+-10.0 -10.0 -9.53674e-007
+9.53674e-007 0.0 10.0
+1
+conc_panel02
+HangarCommandWindowCorner
+0.0 0.0 1.0 -20.0
+0.0 1.0 0.0 -60.0
+-1.0 0.0 0.0 -20.0
+-5.1656e-007 -10.0 -9.53674e-007
+10.0 0.0 10.0
+1
+conc_panel02
+HangarCommandWindowCorner
+-1.0 0.0 0.0 -20.0
+0.0 1.0 0.0 -60.0
+0.0 0.0 -1.0 20.0
+-1.35107e-006 -10.0 -10.0
+10.0 0.0 0.0
+1
+conc_panel02
+HangarCommandWindowCorner
+0.0 0.0 -1.0 60.0
+0.0 1.0 0.0 -60.0
+1.0 0.0 0.0 20.0
+-10.0 -10.0 -10.0
+8.34426e-007 0.0 9.53674e-007
+1
+conc_panel02
+HangarCommandFl
+-1.0 1.50996e-007 0.0 20.0
+0.0 0.0 -1.0 -69.75
+-1.50996e-007 -1.0 0.0 -1.30041e-006
+-30.0 -0.25 -10.0
+30.0 0.25 10.0
+1
+sofloor3
+HangarCommandFlo
+-1.0 1.50996e-007 0.0 20.0
+0.0 0.0 -1.0 -65.0
+-1.50996e-007 -1.0 0.0 -1.30041e-006
+-32.0 -0.25 -12.0
+32.0 0.25 12.0
+1
+sofloor3
+HangarCommandFloor
+-1.0 1.50996e-007 0.0 20.0
+0.0 0.0 -1.0 -59.75
+-1.50996e-007 -1.0 0.0 -1.30041e-006
+-32.0 -0.25 -12.0
+32.0 0.25 12.0
+1
+sofloor3
+HangarTunnel
+0.0 0.0 -1.0 100.0
+0.0 1.0 0.0 -156.0
+1.0 0.0 0.0 0.0
+-6.23063e-006 -5.72205e-006 -40.0
+42.0 52.0 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 170.533
+0.0 0.939693 -0.34202 -150.0
+1.0 0.0 0.0 -2.71927e-006
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 210.0
+0.0 0.939693 -0.34202 -135.635
+1.0 0.0 0.0 -2.09136e-006
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 249.467
+0.0 0.939693 -0.34202 -121.27
+1.0 0.0 0.0 -1.46346e-006
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 288.934
+0.0 0.939693 -0.34202 -106.905
+1.0 0.0 0.0 -8.3555e-007
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 328.401
+0.0 0.939693 -0.34202 -92.5406
+1.0 0.0 0.0 -2.07643e-007
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 367.868
+0.0 0.939693 -0.34202 -78.1758
+1.0 0.0 0.0 4.20265e-007
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 407.335
+0.0 0.939693 -0.34202 -63.8109
+1.0 0.0 0.0 1.04817e-006
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 446.803
+0.0 0.939693 -0.34202 -49.4461
+1.0 0.0 0.0 1.67608e-006
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnelElbow
+0.0 0.0 -1.0 158.0
+0.0 1.0 0.0 -158.0
+1.0 0.0 0.0 0.0
+-26.6022 -0.920713 -43.7278
+22.5 59.6728 43.3183
+1
+lanrock1
+HangarOpeningWall
+0.0 0.0 -1.0 100.0
+0.0 1.0 0.0 -160.0
+1.0 0.0 0.0 0.0
+-1.46637e-005 0.0 -60.0
+1.46617e-005 60.0 60.0
+1
+mchangar10
+HangarOpeningBorder
+0.0 0.0 -1.0 100.0
+0.0 1.0 0.0 -156.0
+1.0 0.0 0.0 0.0
+-1.0 -2.0 -42.0
+2.00267e-006 54.0 42.0
+1
+Yellow

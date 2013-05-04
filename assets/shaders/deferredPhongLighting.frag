@@ -18,7 +18,10 @@ uniform bool noLighting;
 uniform sampler2D depthBuffer;
 uniform sampler2D normalBuffer;
 uniform sampler2D diffuseBuffer;
+
+#ifdef SPECULAR
 uniform sampler2D specularBuffer;
+#endif
 
 uniform vec2 planes;
 
@@ -70,7 +73,10 @@ void main(void) {
 		  
 		//light
 		float lightNormDot;
-		vec3 halfVec;   
+		
+#ifdef SPECULAR
+		vec3 halfVec;
+#endif		
    
 #if(defined(POINT_LIGHT) || defined(SPOT_LIGHT))
 		vec3 lightVector = lightPosition - position;
@@ -78,15 +84,26 @@ void main(void) {
 		lightVector = normalize(lightVector);   
 	   
 		lightNormDot = dot(lightVector, normal);
+		
+#ifdef SPECULAR
 		halfVec = normalize(lightVector + normalize(viewRay));
+#endif
+		
 #elif(defined(DIRECTIONAL_LIGHT))
 		lightNormDot = dot(lightDirection, normal);
+		
+#ifdef SPECULAR
 		halfVec = normalize(lightDirection + normalize(viewRay));
+#endif
+		
 #endif
    
 		vec3 diffuseContribution = max(0.0, lightNormDot) * texelFetch2D(diffuseBuffer, ivec2(gl_FragCoord.xy), 0).rgb * lightColor;
+		
+#ifdef SPECULAR
 		vec4 specular = texelFetch2D(specularBuffer, ivec2(gl_FragCoord.xy), 0);
 		vec3 specularContribution = pow(max(0.0, dot(halfVec, normal)), specular.a * 1000.0) * specular.rgb * lightColor * clamp(lightNormDot * 4.0, 0.0, 1.0);
+#endif
    
 #if(defined(POINT_LIGHT) || defined(SPOT_LIGHT))   
 		float attenuation = clamp((attenuationEnd - lightDistance) / (attenuationEnd - attenuationStart), 0.0, 1.0);
@@ -102,8 +119,13 @@ void main(void) {
 		finalColor = intensity * diffuseContribution;
 #endif
             
-		gl_FragData[0] = vec4(attenuation * intensity * diffuseContribution, 1.0);        
+		gl_FragData[0] = vec4(attenuation * intensity * diffuseContribution, 1.0);
+		
+#ifdef SPECULAR
 		gl_FragData[1] = vec4(attenuation * intensity * specularContribution, 1.0);
+#else
+		gl_FragData[1] = vec4(0.0);
+#endif
 	   
 		//debug draw slight haze from light volume
 		//gl_FragData[0] = vec4(clamp(attenuation * intensity * diffuseContribution, 0.05, 1.0), 1.0);

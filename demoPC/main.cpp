@@ -130,9 +130,9 @@ int main(int argc, char * argv[]) {
     return 0;
 }
 
-const size_t NUM_TEXTURES = 41;
-const size_t NUM_MATERIALS = 17;
-const size_t NUM_MESHES = 21;
+const size_t NUM_TEXTURES = 46;
+const size_t NUM_MATERIALS = 20;
+const size_t NUM_MESHES = 35;
 const size_t NUM_ANIMSET = 1;
 const size_t NUM_SKELETONS = 1;
 const size_t NUM_ANIMATIONS = 4;
@@ -387,6 +387,36 @@ void configureResourceManagers() {
 
         (*nameMap)["sofloor3_local"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/sofloor3_local.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["Yellow"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Yellow.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["lanrock1_d"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/lanrock1_d.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["lanrock1_s"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/lanrock1_s.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["lanrock1_local"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/lanrock1_local.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["FighterTexture"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/FighterTexture.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
         ++currRes;
@@ -673,6 +703,54 @@ void configureResourceManagers() {
         loadArgs[currRes].m_forceForwardRendering = false;
         ++currRes;
 
+        (*nameMap)["Yellow"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("Yellow");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = -1;
+        loadArgs[currRes].m_specularBlend = glm::vec4(0.1f, 0.1f, 0.1f, 0.01f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = -1;
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
+        (*nameMap)["lanrock1"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("lanrock1_d");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = engine.m_textureManager->getIdForName("lanrock1_s");
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 0.3f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("lanrock1_local");
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
+        (*nameMap)["FighterSkin"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("FighterTexture");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = -1;
+        loadArgs[currRes].m_specularBlend = glm::vec4(0.1f, 0.1f, 0.1f, 0.01f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = -1;
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
         engine.m_materialManager->initialize(loadArgs, nameMap);
     }
 
@@ -765,6 +843,62 @@ void configureResourceManagers() {
 
         (*nameMap)["FighterBayBorder"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/FighterBayBorder.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarCommandFloor"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarCommandFloor.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarCommandFloor2"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarCommandFloor2.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarFloor"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarFloor.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarOpeningBorder"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarOpeningBorder.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarRoofTrim"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarRoofTrim.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarOpeningWall"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarOpeningWall.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarTunnel"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarTunnel.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarCommandWindowCorner"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarCommandWindowCorner.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarCommandWindow"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarCommandWindow.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarTunnelElbow"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarTunnelElbow.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarCeiling"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarCeiling.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarCeilingCorner"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarCeilingCorner.illmesh";
+        ++currRes;
+
+        (*nameMap)["FighterClamp"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/FighterClamp.illmesh";
+        ++currRes;
+
+        (*nameMap)["Fighter"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Fighter.illmesh";
         ++currRes;
 
         engine.m_meshManager->initialize(loadArgs, nameMap);

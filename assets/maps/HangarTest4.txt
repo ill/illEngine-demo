@@ -1,0 +1,9083 @@
+HangarHallCorner
+1.0 0.0 0.0 5.0
+0.0 1.0 0.0 8.99817
+0.0 0.0 1.0 195.0
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallA
+0.0 0.0 1.0 12.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 16.0
+0.0 1.0 0.0 9.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 20.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 24.0
+0.0 1.0 0.0 9.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 28.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 32.0
+0.0 1.0 0.0 9.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 36.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 40.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 44.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 48.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 52.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 56.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 60.0
+0.0 1.0 0.0 9.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 64.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 68.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 72.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 76.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 80.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 84.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 88.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 92.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 96.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 100.0
+0.0 1.0 0.0 9.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 104.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 108.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 112.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 116.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 120.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 124.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 128.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 132.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 136.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 140.0
+0.0 1.0 0.0 9.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 144.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 148.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 152.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 156.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 160.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 164.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 168.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 172.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 176.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 180.0
+0.0 1.0 0.0 9.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 184.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 188.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 188.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 184.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 180.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 176.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 172.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 168.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 164.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 160.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 156.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 152.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 148.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 144.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 4.0
+0.0 1.0 0.0 9.0
+-1.50996e-007 0.0 -1.0 140.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 136.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 132.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 128.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 124.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 120.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 96.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 84.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 108.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 104.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 4.0
+0.0 1.0 0.0 9.0
+-1.50996e-007 0.0 -1.0 100.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 80.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 92.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 88.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 116.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 112.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 56.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 44.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 68.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 64.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 4.0
+0.0 1.0 0.0 9.0
+-1.50996e-007 0.0 -1.0 60.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 40.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 52.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 48.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 76.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 72.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 24.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 20.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 28.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 32.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 36.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 12.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 16.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallCorner
+0.0 0.0 -1.0 5.0
+0.0 1.0 0.0 8.99817
+1.0 0.0 0.0 5.00001
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallB
+-1.62921e-007 0.0 1.0 100.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 184.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 20.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 24.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 28.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 32.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 36.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 40.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 44.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 48.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 52.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 56.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 60.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 64.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 68.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 72.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 76.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 80.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 84.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 88.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 92.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 96.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 188.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 104.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 108.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 112.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 116.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 120.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 124.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 128.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 132.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 136.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 140.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 144.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 148.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 152.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 156.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 160.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 164.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 168.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 172.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 176.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 180.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 12.0
+0.0 1.0 0.0 9.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 16.0
+0.0 1.0 0.0 9.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallCorner
+1.0 0.0 0.0 5.0
+0.0 1.0 0.0 28.9982
+0.0 0.0 1.0 195.0
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallA
+0.0 0.0 1.0 12.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 16.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 20.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 24.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 28.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 32.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 36.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 40.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 44.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 48.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 52.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 56.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 60.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 64.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 68.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 72.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 76.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 80.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 84.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 88.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 92.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 96.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 100.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 104.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 108.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 112.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 116.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 120.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 124.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 128.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 132.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 136.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 140.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 144.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 148.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 152.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 156.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 160.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 164.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 168.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 172.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 176.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 180.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 184.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 188.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 188.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 184.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 180.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 176.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 172.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 168.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 164.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 160.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 156.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 152.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 148.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 144.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 4.0
+0.0 1.0 0.0 29.0
+-1.50996e-007 0.0 -1.0 140.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 136.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 132.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 128.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 124.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 120.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 96.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 84.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 108.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 104.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 4.0
+0.0 1.0 0.0 29.0
+-1.50996e-007 0.0 -1.0 100.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 80.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 92.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 88.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 116.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 112.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 56.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 44.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 68.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 64.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 4.0
+0.0 1.0 0.0 29.0
+-1.50996e-007 0.0 -1.0 60.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 40.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 52.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 48.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 76.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 72.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 24.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 20.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 28.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 32.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 36.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 12.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 16.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallCorner
+0.0 0.0 -1.0 5.0
+0.0 1.0 0.0 28.9982
+1.0 0.0 0.0 5.00001
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallB
+-1.62921e-007 0.0 1.0 100.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 184.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 20.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 24.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 28.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 32.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 36.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 40.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 44.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 48.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 52.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 56.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 60.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 64.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 68.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 72.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 76.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 80.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 84.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 88.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 92.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 96.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 188.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 104.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 108.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 112.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 116.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 120.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 124.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 128.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 132.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 136.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 140.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 144.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 148.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 152.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 156.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 160.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 164.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 168.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 172.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 176.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 180.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 12.0
+0.0 1.0 0.0 29.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 16.0
+0.0 1.0 0.0 29.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallCorner
+1.0 0.0 0.0 5.0
+0.0 1.0 0.0 48.9982
+0.0 0.0 1.0 195.0
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallA
+0.0 0.0 1.0 12.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 16.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 20.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 24.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 28.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 32.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 36.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 40.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 44.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 48.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 52.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 56.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 60.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 64.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 68.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 72.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 76.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 80.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 84.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 88.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 92.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 96.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 100.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 104.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 108.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 112.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 116.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 120.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 124.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 128.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 132.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 136.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 140.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 144.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 148.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 152.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 156.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 160.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 164.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 168.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 172.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 176.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+0.0 0.0 -1.0 180.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 184.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+0.0 0.0 1.0 188.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 0.0 196.0
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 188.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 184.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 180.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 176.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 172.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 168.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 164.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 160.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 156.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 152.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 148.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 144.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 4.0
+0.0 1.0 0.0 49.0
+-1.50996e-007 0.0 -1.0 140.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 136.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 142.871
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 128.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 124.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 120.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 96.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 84.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 108.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 104.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 4.0
+0.0 1.0 0.0 49.0
+-1.50996e-007 0.0 -1.0 100.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 80.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 92.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 88.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 116.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 112.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 56.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 44.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 68.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 64.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.0 0.0 1.50996e-007 4.0
+0.0 1.0 0.0 49.0
+-1.50996e-007 0.0 -1.0 60.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 40.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 52.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 48.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 76.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 72.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 24.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 20.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 28.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 32.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 36.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 12.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 16.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallCorner
+0.0 0.0 -1.0 5.0
+0.0 1.0 0.0 48.9982
+1.0 0.0 0.0 5.00001
+-5.0 -2.14577e-006 -5.0
+5.0 5.0 5.0
+6
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+sflgrate2adiag
+bluetex3k
+HangarHallB
+-1.62921e-007 0.0 1.0 100.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 184.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 20.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 24.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 28.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 32.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 36.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 40.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 44.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 48.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 52.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 56.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 60.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 64.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 68.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 72.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 76.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 80.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 84.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 88.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 92.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 96.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 188.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 104.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 108.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 112.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 116.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 120.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 124.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 128.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 132.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 136.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 140.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 144.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 148.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 152.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 156.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 160.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 164.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 168.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 172.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 176.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 180.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallA
+1.94707e-007 0.0 -1.0 12.0
+0.0 1.0 0.0 49.0
+1.0 0.0 1.94707e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+HangarHallB
+-1.62921e-007 0.0 1.0 16.0
+0.0 1.0 0.0 49.0
+-1.0 0.0 -1.62921e-007 4.00001
+-2.0 -0.00182915 -4.0
+2.0 4.99817 4.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+FighterBay
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBay
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBay
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBay
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBay
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+1.0 0.0 0.0 180.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBay
+1.0 0.0 0.0 180.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 180.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+1.0 0.0 0.0 180.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 156.0
+-20.0 -3.99999 -9.53674e-006
+20.0 16.0 30.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 96.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 96.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 96.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBay
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 8.99998
+1.0 0.0 0.0 96.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 56.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBay
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 56.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 56.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBay
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 8.99998
+1.0 0.0 0.0 56.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 136.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBay
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 49.0
+1.0 0.0 0.0 136.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 8.99998
+1.0 0.0 0.0 56.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBay
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 56.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 136.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 8.99998
+1.0 0.0 0.0 136.0
+-30.0 -3.99999 -20.0
+1.0411e-005 16.0 20.0
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 180.0
+0.0 1.0 0.0 9.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 180.0
+0.0 1.0 0.0 29.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 180.0
+0.0 1.0 0.0 49.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 140.0
+0.0 1.0 0.0 49.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 100.0
+0.0 1.0 0.0 49.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 60.0
+0.0 1.0 0.0 49.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 140.0
+0.0 1.0 0.0 29.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 140.0
+0.0 1.0 0.0 9.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 100.0
+0.0 1.0 0.0 29.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 100.0
+0.0 1.0 0.0 9.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 60.0
+0.0 1.0 0.0 29.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBay
+-1.0 0.0 -1.50996e-007 60.0
+0.0 1.0 0.0 9.0
+1.50996e-007 0.0 -1.0 36.0
+-20.0 -3.99999 -30.0
+20.0 16.0 1.25567e-005
+9
+sflgrate2a
+sofloor3
+enwall5
+yelhaz2
+conc_panel02
+mchangar10
+mcityc7a
+mcityc27b
+bluetex3k
+FighterBayBorder
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 96.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBayBorder
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 8.99998
+1.0 0.0 0.0 96.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBayBorder
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 29.0
+1.0 0.0 0.0 136.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBayBorder
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 8.99998
+1.0 0.0 0.0 136.0
+-2.47957e-006 -1.5 -16.5
+0.999999 13.5 16.5
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 180.0
+0.0 1.0 0.0 29.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+1.0 0.0 0.0 180.0
+0.0 1.0 0.0 9.0
+0.0 0.0 1.0 156.0
+-16.5 -1.5 -0.999998
+16.5 13.5 1.75834e-006
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 60.0
+0.0 1.0 0.0 49.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 60.0
+0.0 1.0 0.0 29.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 60.0
+0.0 1.0 0.0 9.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 100.0
+0.0 1.0 0.0 9.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 100.0
+0.0 1.0 0.0 29.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 100.0
+0.0 1.0 0.0 49.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 140.0
+0.0 1.0 0.0 49.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 140.0
+0.0 1.0 0.0 29.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 140.0
+0.0 1.0 0.0 9.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 180.0
+0.0 1.0 0.0 9.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 180.0
+0.0 1.0 0.0 29.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+FighterBayBorder
+-1.0 0.0 -1.50996e-007 180.0
+0.0 1.0 0.0 49.0
+1.50996e-007 0.0 -1.0 36.0
+-16.5 -1.5 -4.24977e-006
+16.5 13.5 1.0
+1
+FighterBayBorder
+HangarCeilingCorner
+1.0 0.0 1.74846e-007 40.0
+0.0 1.0 0.0 75.0
+-1.74846e-007 0.0 1.0 156.0
+-1.79609e-005 -9.53674e-007 -40.0
+40.0 30.0 -3.02007e-006
+5
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+sflgrate2adiag
+HangarCeilingCorner
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 75.0
+1.0 0.0 0.0 36.0
+3.02007e-006 -9.53674e-007 -1.14441e-005
+40.0 30.0 40.0
+5
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+sflgrate2adiag
+HangarCeilingCorner
+-1.0 0.0 1.50996e-007 200.0
+0.0 1.0 0.0 75.0
+-1.50996e-007 0.0 -1.0 36.0
+-40.0 -9.53674e-007 3.02007e-006
+4.92727e-006 30.0 40.0
+5
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+sflgrate2adiag
+HangarCeilingCorner
+1.94707e-007 0.0 1.0 200.0
+0.0 1.0 0.0 75.0
+-1.0 0.0 1.94707e-007 156.0
+-40.0 -9.53674e-007 -40.0
+-3.02007e-006 30.0 3.17881e-006
+5
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+sflgrate2adiag
+HangarCommandWindow
+1.0 0.0 1.74846e-007 135.0
+0.0 1.0 0.0 105.0
+-1.74846e-007 0.0 1.0 76.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+1.0 0.0 1.74846e-007 125.0
+0.0 1.0 0.0 105.0
+-1.74846e-007 0.0 1.0 76.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+1.0 0.0 1.74846e-007 145.0
+0.0 1.0 0.0 105.0
+-1.74846e-007 0.0 1.0 76.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+1.0 0.0 1.74846e-007 115.0
+0.0 1.0 0.0 105.0
+-1.74846e-007 0.0 1.0 76.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+1.0 0.0 1.74846e-007 105.0
+0.0 1.0 0.0 105.0
+-1.74846e-007 0.0 1.0 76.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+1.0 0.0 1.74846e-007 95.0
+0.0 1.0 0.0 105.0
+-1.74846e-007 0.0 1.0 76.0
+-5.0 -10.0 -1.10865e-005
+5.0 -4.76837e-007 10.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 135.0
+0.0 1.0 0.0 105.0
+3.25841e-007 0.0 -1.0 116.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 145.0
+0.0 1.0 0.0 105.0
+3.25841e-007 0.0 -1.0 116.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 125.0
+0.0 1.0 0.0 105.0
+3.25841e-007 0.0 -1.0 116.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 115.0
+0.0 1.0 0.0 105.0
+3.25841e-007 0.0 -1.0 116.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 95.0
+0.0 1.0 0.0 105.0
+3.25841e-007 0.0 -1.0 116.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.0 0.0 -3.25841e-007 105.0
+0.0 1.0 0.0 105.0
+3.25841e-007 0.0 -1.0 116.0
+-5.0 -10.0 -10.0
+5.0 -4.76837e-007 1.03316e-005
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+0.0 0.0 -1.0 160.0
+0.0 1.0 0.0 105.0
+1.0 0.0 0.0 91.0
+-10.0 -10.0 -5.00001
+1.19011e-005 -4.76837e-007 5.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+0.0 0.0 -1.0 160.0
+0.0 1.0 0.0 105.0
+1.0 0.0 0.0 101.0
+-10.0 -10.0 -5.00001
+1.19011e-005 -4.76837e-007 5.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.62921e-007 0.0 1.0 80.0
+0.0 1.0 0.0 105.0
+-1.0 0.0 -1.62921e-007 101.0
+-1.11462e-005 -10.0 -5.0
+10.0 -4.76837e-007 5.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarCommandWindow
+-1.62921e-007 0.0 1.0 80.0
+0.0 1.0 0.0 105.0
+-1.0 0.0 -1.62921e-007 91.0
+-1.11462e-005 -10.0 -5.0
+10.0 -4.76837e-007 5.0
+3
+conc_panel02
+bluetex3k
+bluetex3k2
+HangarTunnel
+0.0 0.0 -1.0 200.0
+0.0 1.0 0.0 5.0
+1.0 0.0 0.0 96.0
+-6.23063e-006 -5.72205e-006 -40.0
+42.0 52.0 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 270.533
+0.0 0.939693 -0.34202 11.0
+1.0 0.0 0.0 96.0
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 310.0
+0.0 0.939693 -0.34202 25.3648
+1.0 0.0 0.0 96.0
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 349.467
+0.0 0.939693 -0.34202 39.7297
+1.0 0.0 0.0 96.0
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 388.934
+0.0 0.939693 -0.34202 54.0945
+1.0 0.0 0.0 96.0
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 428.401
+0.0 0.939693 -0.34202 68.4594
+1.0 0.0 0.0 96.0
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 467.868
+0.0 0.939693 -0.34202 82.8242
+1.0 0.0 0.0 96.0
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 507.335
+0.0 0.939693 -0.34202 97.1891
+1.0 0.0 0.0 96.0
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnel
+0.0 -0.34202 -0.939693 546.803
+0.0 0.939693 -0.34202 111.554
+1.0 0.0 0.0 96.0
+-17.7851 -4.87618e-007 -40.0
+39.4671 63.2289 40.0
+6
+yelhaz2
+enwall5
+mchangar10
+mcityc27b
+sflgrate2a
+bluetex3k
+HangarTunnelElbow
+0.0 0.0 -1.0 258.0
+0.0 1.0 0.0 3.0
+1.0 0.0 0.0 96.0
+-26.6022 -0.920713 -43.7278
+22.5 59.6728 43.3183
+1
+lanrock1
+HangarOpeningWall
+0.0 0.0 -1.0 200.0
+0.0 1.0 0.0 5.0
+1.0 0.0 0.0 96.0
+-1.46637e-005 0.0 -60.0
+1.46617e-005 60.0 60.0
+1
+mchangar10
+HangarOpeningBorder
+0.0 0.0 -1.0 200.0
+0.0 1.0 0.0 9.0
+1.0 0.0 0.0 96.0
+-1.0 -2.0 -42.0
+2.00267e-006 54.0 42.0
+1
+Yellow
+HangarCeiling
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 75.0
+0.0 0.0 1.0 156.0
+-20.0 -9.53674e-007 -40.0
+20.0 30.0 9.53674e-007
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeiling
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 75.0
+0.0 0.0 1.0 156.0
+-20.0 -9.53674e-007 -40.0
+20.0 30.0 9.53674e-007
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeiling
+0.0 0.0 1.0 200.0
+0.0 1.0 0.0 75.0
+-1.0 0.0 0.0 96.0
+-40.0 -9.53674e-007 -20.0
+1.8279e-006 30.0 20.0
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeiling
+-1.0 0.0 0.0 140.0
+0.0 1.0 0.0 75.0
+0.0 0.0 -1.0 36.0
+-20.0 -9.53674e-007 -2.70213e-006
+20.0 30.0 40.0
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeiling
+-1.0 0.0 0.0 100.0
+0.0 1.0 0.0 75.0
+0.0 0.0 -1.0 36.0
+-20.0 -9.53674e-007 -2.70213e-006
+20.0 30.0 40.0
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCeiling
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 75.0
+1.0 0.0 0.0 96.0
+-1.19217e-006 -9.53674e-007 -20.0
+40.0 30.0 20.0
+4
+yelhaz2
+sflgrate2a
+mchangar10
+bluetex3k2
+HangarCommandWindowCorner
+1.0 0.0 0.0 160.0
+0.0 1.0 0.0 105.0
+0.0 0.0 1.0 76.0
+-10.0 -10.0 -9.53674e-007
+9.53674e-007 0.0 10.0
+1
+conc_panel02
+HangarCommandWindowCorner
+0.0 0.0 -1.0 160.0
+0.0 1.0 0.0 105.0
+1.0 0.0 0.0 116.0
+-10.0 -10.0 -10.0
+1.39079e-006 0.0 9.53674e-007
+1
+conc_panel02
+HangarCommandWindowCorner
+-1.0 0.0 0.0 80.0
+0.0 1.0 0.0 105.0
+0.0 0.0 -1.0 116.0
+-9.53674e-007 -10.0 -10.0
+10.0 0.0 1.8279e-006
+1
+conc_panel02
+HangarCommandWindowCorner
+0.0 0.0 1.0 80.0
+0.0 1.0 0.0 105.0
+-1.0 0.0 0.0 76.0
+-1.07292e-006 -10.0 -9.53674e-007
+10.0 0.0 10.0
+1
+conc_panel02
+HangarRoofTrim
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 65.0
+0.0 0.0 1.0 156.0
+-20.0 -2.86102e-006 -2.5
+20.0 10.0 8.14603e-007
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 65.0
+0.0 0.0 1.0 156.0
+-20.0 -2.86102e-006 -2.5
+20.0 10.0 8.14603e-007
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 65.0
+0.0 0.0 1.0 156.0
+-20.0 -2.86102e-006 -2.5
+20.0 10.0 8.14603e-007
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+1.0 0.0 0.0 180.0
+0.0 1.0 0.0 65.0
+0.0 0.0 1.0 156.0
+-20.0 -2.86102e-006 -2.5
+20.0 10.0 8.14603e-007
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.0 0.0 1.50996e-007 140.0
+0.0 1.0 0.0 65.0
+-1.50996e-007 0.0 -1.0 36.0
+-20.0 -2.86102e-006 -3.83452e-006
+20.0 10.0 2.50001
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.0 0.0 1.50996e-007 100.0
+0.0 1.0 0.0 65.0
+-1.50996e-007 0.0 -1.0 36.0
+-20.0 -2.86102e-006 -3.83452e-006
+20.0 10.0 2.50001
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.0 0.0 1.50996e-007 60.0
+0.0 1.0 0.0 65.0
+-1.50996e-007 0.0 -1.0 36.0
+-20.0 -2.86102e-006 -3.83452e-006
+20.0 10.0 2.50001
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.0 0.0 1.50996e-007 180.0
+0.0 1.0 0.0 65.0
+-1.50996e-007 0.0 -1.0 36.0
+-20.0 -2.86102e-006 -3.83452e-006
+20.0 10.0 2.50001
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 65.0
+1.0 0.0 0.0 56.0
+-1.0531e-006 -2.86102e-006 -20.0
+2.5 10.0 20.0
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 65.0
+1.0 0.0 0.0 96.0
+-1.0531e-006 -2.86102e-006 -20.0
+2.5 10.0 20.0
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+0.0 0.0 -1.0 40.0
+0.0 1.0 0.0 65.0
+1.0 0.0 0.0 136.0
+-1.0531e-006 -2.86102e-006 -20.0
+2.5 10.0 20.0
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.62921e-007 0.0 1.0 200.0
+0.0 1.0 0.0 65.0
+-1.0 0.0 -1.62921e-007 136.0
+-2.50001 -2.86102e-006 -20.0
+4.07302e-006 10.0 20.0
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.62921e-007 0.0 1.0 200.0
+0.0 1.0 0.0 65.0
+-1.0 0.0 -1.62921e-007 96.0
+-2.50001 -2.86102e-006 -20.0
+4.07302e-006 10.0 20.0
+2
+mchangar10
+mcityc27b
+HangarRoofTrim
+-1.62921e-007 0.0 1.0 200.0
+0.0 1.0 0.0 65.0
+-1.0 0.0 -1.62921e-007 56.0
+-2.50001 -2.86102e-006 -20.0
+4.07302e-006 10.0 20.0
+2
+mchangar10
+mcityc27b
+HangarFloor
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 56.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 56.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 56.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 180.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 56.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 96.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 96.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 96.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 180.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 96.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 136.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 100.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 136.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 140.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 136.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarFloor
+1.0 0.0 0.0 180.0
+0.0 1.0 0.0 5.0
+0.0 0.0 1.0 136.0
+-20.0 -4.99999 -20.0
+20.0 0.0 20.0
+4
+sflgrate2a
+yelhaz2
+bluetex3k2
+enwall5
+HangarCommandFloor
+1.0 0.0 0.0 120.0
+0.0 1.0 0.0 95.0
+0.0 0.0 1.0 96.0
+-30.0 -1.49012e-007 -10.0
+30.0 0.5 10.0
+1
+sofloor3
+HangarCommandFloor2
+1.0 0.0 0.0 120.0
+0.0 1.0 0.0 105.0
+0.0 0.0 1.0 96.0
+-32.0 -2.68221e-007 -12.0
+32.0 0.5 12.0
+1
+sofloor3
+HangarCommandFloor2
+1.0 0.0 0.0 120.0
+0.0 1.0 0.0 100.0
+0.0 0.0 1.0 96.0
+-32.0 -2.68221e-007 -12.0
+32.0 0.5 12.0
+1
+sofloor3
+PointLight
+1.0 0.0 0.0 188.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 176.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 164.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 152.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 140.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 128.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 116.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 104.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 92.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 80.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 68.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 56.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 44.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 32.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 20.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 8.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 190.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 178.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 166.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 154.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 142.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 130.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 118.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 106.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 94.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 82.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 70.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 58.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 46.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 34.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 22.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 53.0
+1.0 0.0 0.0 10.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 188.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 176.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 164.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 152.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 140.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 128.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 116.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 104.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 92.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 80.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 68.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 56.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 44.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 32.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 20.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 8.0
+0.0 0.0 1.0 53.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 188.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 176.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 164.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 152.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 140.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 128.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 116.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 104.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 92.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 80.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 68.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 56.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 44.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 32.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 20.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 8.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 190.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 178.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 166.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 154.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 142.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 130.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 118.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 106.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 94.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 82.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 70.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 58.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 46.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 34.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 22.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 33.0
+1.0 0.0 0.0 10.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 188.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 176.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 164.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 152.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 140.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 128.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 116.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 104.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 92.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 80.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 68.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 56.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 44.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 32.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 20.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 8.0
+0.0 0.0 1.0 33.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 188.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 176.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 164.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 152.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 140.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 128.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 116.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 104.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 92.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 80.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 68.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 56.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 44.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 32.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 20.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 8.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 4.00003
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 190.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 178.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 166.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 154.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 142.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 130.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 118.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 106.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 94.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 82.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 70.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 58.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 46.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 34.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 22.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+0.0 1.0 0.0 4.0
+0.0 0.0 1.0 13.0
+1.0 0.0 0.0 10.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 188.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 176.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 164.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 152.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 140.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 128.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 116.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 104.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 92.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 80.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 68.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 56.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 44.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 32.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 20.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+PointLight
+1.0 0.0 0.0 8.0
+0.0 0.0 1.0 13.0
+0.0 -1.0 0.0 196.0
+1.0 1.0 1.0
+1.0
+1
+6.0
+12.0
+SpotLight
+1.0 0.0 0.0 180.0
+0.0 0.512637 0.858605 54.0
+0.0 -0.858605 0.512637 7.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+1.0 0.0 0.0 140.0
+0.0 0.512637 0.858605 54.0
+0.0 -0.858605 0.512637 7.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+1.0 0.0 0.0 100.0
+0.0 0.512637 0.858605 54.0
+0.0 -0.858605 0.512637 7.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+1.0 0.0 0.0 60.0
+0.0 0.512637 0.858605 54.0
+0.0 -0.858605 0.512637 7.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 140.0
+0.0 0.198888 0.980022 34.0
+0.0 0.980022 -0.198888 3.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+1.0 0.0 0.0 100.0
+0.0 0.512637 0.858605 34.0
+0.0 -0.858605 0.512637 7.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+1.0 0.0 0.0 60.0
+0.0 0.512637 0.858605 34.0
+0.0 -0.858605 0.512637 7.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+1.0 0.0 0.0 180.0
+0.0 0.512637 0.858605 34.0
+0.0 -0.858605 0.512637 7.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 140.0
+0.0 0.198888 0.980022 14.0
+0.0 0.980022 -0.198888 3.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+1.0 0.0 0.0 100.0
+0.0 0.512637 0.858605 14.0
+0.0 -0.858605 0.512637 7.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+1.0 0.0 0.0 60.0
+0.0 0.512637 0.858605 14.0
+0.0 -0.858605 0.512637 7.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+1.0 0.0 0.0 180.0
+0.0 0.512637 0.858605 14.0
+0.0 -0.858605 0.512637 7.00002
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 180.0
+0.0 0.514496 0.857493 54.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 140.0
+0.0 0.514496 0.857493 54.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 100.0
+0.0 0.514496 0.857493 54.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 60.0
+0.0 0.514496 0.857493 54.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 140.0
+0.0 0.514496 0.857493 34.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 100.0
+0.0 0.514496 0.857493 34.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 60.0
+0.0 0.514496 0.857493 34.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 180.0
+0.0 0.514496 0.857493 34.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 140.0
+0.0 0.514496 0.857493 14.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 100.0
+0.0 0.514496 0.857493 14.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 60.0
+0.0 0.514496 0.857493 14.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-1.0 0.0 0.0 180.0
+0.0 0.514496 0.857493 14.0
+0.0 0.857493 -0.514496 189.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-0.186304 -0.837009 0.514496 7.0
+0.111782 0.502206 0.857493 54.0
+-0.976112 0.217266 0.0 136.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-0.836099 -0.19035 0.514496 7.0
+0.501659 0.11421 0.857493 54.0
+-0.221985 0.97505 0.0 96.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-0.836099 -0.19035 0.514496 7.0
+0.501659 0.11421 0.857493 34.0
+-0.221985 0.97505 0.0 96.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-0.192282 -0.835657 0.514496 7.0
+0.115369 0.501394 0.857493 14.0
+-0.974535 0.224237 0.0 96.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-0.836099 -0.19035 0.514496 7.0
+0.501659 0.11421 0.857493 34.0
+-0.221985 0.97505 0.0 136.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-0.836099 -0.19035 0.514496 7.0
+0.501659 0.11421 0.857493 14.0
+-0.221985 0.97505 0.0 136.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-0.836099 -0.19035 0.514496 7.0
+0.501659 0.11421 0.857493 14.0
+-0.221985 0.97505 0.0 56.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-0.836099 -0.19035 0.514496 7.0
+0.501659 0.11421 0.857493 54.0
+-0.221985 0.97505 0.0 56.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+SpotLight
+-0.836099 -0.19035 0.514496 7.0
+0.501659 0.11421 0.857493 34.0
+-0.221985 0.97505 0.0 56.0
+0.235294 0.835294 0.0
+3.0
+0
+2.88
+10.2
+0.94235
+0.797057
+HangarHallA
+1.0 0.0 0.0 4.0
+0.0 1.0 0.0 49.0
+0.0 0.0 1.0 132.0
+-4.0 -0.00182915 -2.0
+4.0 4.99817 2.0
+4
+bluetex3k2
+mcityc7
+sflgrate2a
+conc_panel02
+PointLight
+1.0 0.0 0.0 80.0
+0.0 0.0 1.0 31.0
+0.0 -1.0 0.0 76.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 80.0
+0.0 0.0 1.0 69.0
+0.0 -1.0 0.0 76.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 80.0
+0.0 0.0 1.0 69.0
+0.0 -1.0 0.0 116.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 80.0
+0.0 0.0 1.0 31.0
+0.0 -1.0 0.0 116.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 120.0
+0.0 0.0 1.0 69.0
+0.0 -1.0 0.0 76.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 120.0
+0.0 0.0 1.0 69.0
+0.0 -1.0 0.0 116.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 120.0
+0.0 0.0 1.0 31.0
+0.0 -1.0 0.0 116.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 120.0
+0.0 0.0 1.0 31.0
+0.0 -1.0 0.0 76.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 160.0
+0.0 0.0 1.0 69.0
+0.0 -1.0 0.0 76.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 160.0
+0.0 0.0 1.0 69.0
+0.0 -1.0 0.0 116.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 160.0
+0.0 0.0 1.0 31.0
+0.0 -1.0 0.0 116.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 160.0
+0.0 0.0 1.0 31.0
+0.0 -1.0 0.0 76.0
+0.709804 0.584314 0.360784
+3.0
+0
+25.0
+45.0
+PointLight
+1.0 0.0 0.0 90.25
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 86.25
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 100.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 86.25
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 110.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 86.25
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 120.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 86.25
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 130.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 86.25
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 140.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 86.25
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 149.75
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 86.25
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 100.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 105.75
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 110.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 105.75
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 120.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 105.75
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 130.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 105.75
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 140.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 105.75
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 149.75
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 105.75
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 90.25
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 105.75
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 110.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 96.0
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 120.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 96.0
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 130.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 96.0
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 140.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 96.0
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 149.75
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 96.0
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 90.25
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 96.0
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+PointLight
+1.0 0.0 0.0 100.0
+0.0 0.0 1.0 94.75
+0.0 -1.0 0.0 96.0
+1.0 0.0 0.0
+2.0
+0
+1.0
+2.0
+SpotLight
+0.0 -0.597823 0.801628 74.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 56.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 74.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 48.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 60.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 70.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 74.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 64.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 45.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 64.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 45.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 56.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 60.0
+0.0 0.801628 0.597823 4.5
+0.0 0.597823 -0.801628 41.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 45.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 48.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 114.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 56.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 85.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 56.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 114.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 64.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 85.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 64.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 114.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 48.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 100.0
+0.0 0.801628 0.597823 4.5
+0.0 0.597823 -0.801628 41.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 85.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 48.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 100.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 70.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 154.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 56.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 125.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 56.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 154.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 64.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 125.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 64.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 154.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 48.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 140.0
+0.0 0.801628 0.597823 4.5
+0.0 0.597823 -0.801628 41.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 125.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 48.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 140.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 70.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 194.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 56.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 165.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 56.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 194.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 64.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 165.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 64.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 194.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 48.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 180.0
+0.0 0.801628 0.597823 4.5
+0.0 0.597823 -0.801628 41.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 165.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 48.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 180.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 70.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 74.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 88.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 60.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 110.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 74.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 104.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 74.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 96.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 45.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 104.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 45.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 96.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 60.0
+0.0 0.801628 0.597823 4.5
+0.0 0.597823 -0.801628 81.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 45.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 88.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 114.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 96.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 85.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 96.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 114.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 104.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 85.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 104.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 114.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 88.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 100.0
+0.0 0.801628 0.597823 4.5
+0.0 0.597823 -0.801628 81.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 85.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 88.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 100.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 110.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 154.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 96.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 125.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 96.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 154.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 104.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 125.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 104.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 154.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 88.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 140.0
+0.0 0.801628 0.597823 4.5
+0.0 0.597823 -0.801628 81.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 125.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 88.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 140.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 110.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 114.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 136.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 85.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 136.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 114.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 144.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 85.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 144.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 114.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 128.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 100.0
+0.0 0.801628 0.597824 4.5
+0.0 0.597824 -0.801628 121.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 85.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 128.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 100.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 150.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 74.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 136.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 74.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 128.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 60.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 150.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 74.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 144.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 45.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 144.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 45.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 136.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 60.0
+0.0 0.801628 0.597824 4.5
+0.0 0.597824 -0.801628 121.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 45.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 128.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 154.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 136.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 125.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 136.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 154.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 144.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 125.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 144.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 154.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 128.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 140.0
+0.0 0.801628 0.597824 4.5
+0.0 0.597824 -0.801628 121.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 125.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 128.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 140.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 150.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 194.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 136.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 165.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 136.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 194.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 144.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 165.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 144.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 194.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 128.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 180.0
+0.0 0.801628 0.597824 4.5
+0.0 0.597824 -0.801628 121.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 165.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 128.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 180.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 150.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 194.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 96.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 165.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 96.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 194.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 104.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 165.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 104.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 -0.597823 0.801628 194.75
+0.0 0.801628 0.597823 4.5
+-1.0 0.0 0.0 88.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+-1.0 0.0 0.0 180.0
+0.0 0.801628 0.597823 4.5
+0.0 0.597823 -0.801628 81.25
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+0.0 0.597823 -0.801628 165.25
+0.0 0.801628 0.597823 4.5
+1.0 0.0 0.0 88.0
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+SpotLight
+1.0 0.0 0.0 180.0
+0.0 0.801628 0.597823 4.5
+0.0 -0.597823 0.801628 110.75
+0.0 0.368627 0.709804
+5.0
+0
+0.0
+12.0
+0.965926
+0.906308
+HangarBayLig
+1.0 0.0 0.0 60.0
+0.0 1.0 0.0 54.25
+0.0 0.0 1.0 170.75
+-16.0 -12.75 -21.25
+16.0 12.75 21.25

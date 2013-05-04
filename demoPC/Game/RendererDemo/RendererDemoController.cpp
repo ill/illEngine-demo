@@ -136,11 +136,11 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             m_cameraController.m_speed = 2.0f;
             m_cameraController.m_rollSpeed = 50.0f;
 
-            std::ifstream openFile("..\\..\\..\\assets\\maps\\HangarTest2.txt");
+            std::ifstream openFile("..\\..\\..\\assets\\maps\\HangarTest.txt");
 
             //read number of static meshes
-            int numMeshes;
-            openFile >> numMeshes;
+            //int numMeshes;
+            //openFile >> numMeshes;
             
             m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
                 m_engine->m_meshManager, m_engine->m_materialManager,
@@ -150,15 +150,27 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42));
 
             //for now just add these as dynamic meshes, later they will be static meshes
-            for(int mesh = 0; mesh < numMeshes; mesh++) {
+            //for(int mesh = 0; mesh < numMeshes; mesh++) {
+            while(!openFile.eof()) {
                 //read mesh name
                 std::string meshName;
                 openFile >> meshName;
 
-                bool isLight = false;
+                if(openFile.eof()) {
+                    break;
+                }
 
+                enum class ObjectType {
+                    MESH,
+                    POINT_LIGHT,
+                    SPOT_LIGHT
+                } objectType = ObjectType::MESH;
+                
                 if(meshName.compare("PointLight") == 0) {
-                    isLight = true;
+                    objectType = ObjectType::POINT_LIGHT;
+                }
+                else if(meshName.compare("SpotLight") == 0) {
+                    objectType = ObjectType::SPOT_LIGHT;
                 }
 
                 glm::mat4 transform;
@@ -170,7 +182,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                     }
                 }
         
-                if(isLight) {
+                if(objectType == ObjectType::POINT_LIGHT || objectType == ObjectType::SPOT_LIGHT) {
                     //light color
                     glm::vec3 color;
 
@@ -182,6 +194,10 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                     float intensity;
                     openFile >> intensity;
 
+                    //whether or not using specular
+                    bool specular;
+                    openFile >> specular;
+
                     //near attenuation
                     float nearAtten;
                     openFile >> nearAtten;
@@ -190,14 +206,51 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                     float farAtten;
                     openFile >> farAtten;
 
-                    illGraphics::PointLight * lightObj = new illGraphics::PointLight(color, intensity, nearAtten, farAtten);
+                    if(objectType == ObjectType::POINT_LIGHT) {
+                        illGraphics::PointLight * lightObj = new illGraphics::PointLight(color, intensity, specular, nearAtten, farAtten);
 
-                    for(unsigned int light = 0; light < 1; light++) {
-                        auto newLight = new illRendererCommon::LightNode(m_graphicsScene,
-                            transform, 
-                            Box<>(glm::vec3(-lightObj->m_attenuationEnd), glm::vec3(lightObj->m_attenuationEnd)));
+                        for(unsigned int light = 0; light < 1; light++) {
+                            auto newLight = new illRendererCommon::LightNode(m_graphicsScene, transform, Box<>(glm::vec3(-farAtten), glm::vec3(farAtten)));
 
-                        newLight->m_light = RefCountPtr<illGraphics::LightBase>(lightObj);
+                            newLight->m_light = RefCountPtr<illGraphics::LightBase>(lightObj);
+                        }
+                    }
+                    else {
+                        float coneStart;
+                        openFile >> coneStart;
+
+                        float coneEnd;
+                        openFile >> coneEnd;
+
+                        illGraphics::SpotLight * lightObj = new illGraphics::SpotLight(color, intensity, specular, nearAtten, farAtten, coneStart, coneEnd);
+
+                        Box<> bounds(glm::vec3(0.0f));
+
+                        //Computing bounding box of light cone
+                        //TODO: move this to the util geometry code somewhere
+                        {
+                            glm::vec3 direction = glm::mat3(transform) * glm::vec3(0.0f, 0.0f, -1.0f);
+                            glm::vec3 endPos = direction * farAtten;
+                            glm::mediump_float coneDir = glm::degrees(glm::acos(coneEnd));
+
+                            bounds.addPoint(endPos);
+
+                            bounds.addPoint(glm::mat3(glm::rotate(coneDir, glm::vec3(1.0f, 0.0f, 0.0f))) * endPos);
+                            bounds.addPoint(glm::mat3(glm::rotate(-coneDir, glm::vec3(1.0f, 0.0f, 0.0f))) * endPos);
+
+                            bounds.addPoint(glm::mat3(glm::rotate(coneDir, glm::vec3(0.0f, 1.0f, 0.0f))) * endPos);
+                            bounds.addPoint(glm::mat3(glm::rotate(-coneDir, glm::vec3(0.0f, 1.0f, 0.0f))) * endPos);
+
+                            bounds.addPoint(glm::mat3(glm::rotate(coneDir, glm::vec3(0.0f, 0.0f, 1.0f))) * endPos);
+                            bounds.addPoint(glm::mat3(glm::rotate(-coneDir, glm::vec3(0.0f, 0.0f, 1.0f))) * endPos);
+                        }
+
+                        for(unsigned int light = 0; light < 1; light++) {
+                            auto newLight = new illRendererCommon::LightNode(m_graphicsScene,
+                                transform, bounds);
+
+                            newLight->m_light = RefCountPtr<illGraphics::LightBase>(lightObj);
+                        }
                     }
                 }
                 else {
