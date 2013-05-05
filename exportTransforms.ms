@@ -62,12 +62,12 @@ if selection.count > 0 then (
 			illTransform = i.objectTransform
 			
 			if classof i == OmniLight then (
-				format "PointLight\n" to:output_file
+				format "__PointLight__\n" to:output_file
 				
 				illTransform = illTransform * yzSwap
 			)
 			else if classof i == FreeSpot or classof i == TargetSpot then (
-				format "SpotLight\n" to:output_file
+				format "__SpotLight__\n" to:output_file
 				
 				illTransform = illTransform * yzSwap
 			)

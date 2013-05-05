@@ -130,9 +130,9 @@ int main(int argc, char * argv[]) {
     return 0;
 }
 
-const size_t NUM_TEXTURES = 46;
-const size_t NUM_MATERIALS = 20;
-const size_t NUM_MESHES = 35;
+const size_t NUM_TEXTURES = 49;
+const size_t NUM_MATERIALS = 23;
+const size_t NUM_MESHES = 41;
 const size_t NUM_ANIMSET = 1;
 const size_t NUM_SKELETONS = 1;
 const size_t NUM_ANIMATIONS = 4;
@@ -397,6 +397,12 @@ void configureResourceManagers() {
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
         ++currRes;
 
+        (*nameMap)["Gray"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Gray.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
         (*nameMap)["lanrock1_d"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/lanrock1_d.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
@@ -417,6 +423,18 @@ void configureResourceManagers() {
 
         (*nameMap)["FighterTexture"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/FighterTexture.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["CeilingLightDiffuse"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/CeilingLightDiffuse.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["SpotLightDiffuse"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/SpotLightDiffuse.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
         ++currRes;
@@ -719,6 +737,22 @@ void configureResourceManagers() {
         loadArgs[currRes].m_forceForwardRendering = false;
         ++currRes;
 
+        (*nameMap)["Gray"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("Gray");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = -1;
+        loadArgs[currRes].m_specularBlend = glm::vec4(0.1f, 0.1f, 0.1f, 0.01f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = -1;
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
         (*nameMap)["lanrock1"] = currRes;
         loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("lanrock1_d");
         loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
@@ -737,6 +771,38 @@ void configureResourceManagers() {
 
         (*nameMap)["FighterSkin"] = currRes;
         loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("FighterTexture");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = -1;
+        loadArgs[currRes].m_specularBlend = glm::vec4(0.1f, 0.1f, 0.1f, 0.01f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = -1;
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
+        (*nameMap)["CeilingLight"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("CeilingLightDiffuse");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = -1;
+        loadArgs[currRes].m_specularBlend = glm::vec4(0.1f, 0.1f, 0.1f, 0.01f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = -1;
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
+        (*nameMap)["SpotLight"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("SpotLightDiffuse");
         loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
         loadArgs[currRes].m_specularTextureIndex = -1;
         loadArgs[currRes].m_specularBlend = glm::vec4(0.1f, 0.1f, 0.1f, 0.01f);
@@ -778,15 +844,23 @@ void configureResourceManagers() {
         ++currRes;
 
         (*nameMap)["DoorBorderArch"] = currRes;
-        loadArgs[currRes].m_path = "meshes/TheGridMap/DoorBorderArch.illmesh";
+        loadArgs[currRes].m_path = "meshes/Hangar/DoorBorderArch.illmesh";
         ++currRes;
 
         (*nameMap)["DoorBorderInner"] = currRes;
-        loadArgs[currRes].m_path = "meshes/TheGridMap/DoorBorderInner.illmesh";
+        loadArgs[currRes].m_path = "meshes/Hangar/DoorBorderInner.illmesh";
         ++currRes;
 
         (*nameMap)["DoorBorderOuter"] = currRes;
-        loadArgs[currRes].m_path = "meshes/TheGridMap/DoorBorderOuter.illmesh";
+        loadArgs[currRes].m_path = "meshes/Hangar/DoorBorderOuter.illmesh";
+        ++currRes;
+
+        (*nameMap)["DoorA"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/DoorA.illmesh";
+        ++currRes;
+
+        (*nameMap)["DoorB"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/DoorB.illmesh";
         ++currRes;
 
         (*nameMap)["Hall"] = currRes;
@@ -831,6 +905,10 @@ void configureResourceManagers() {
 
         (*nameMap)["HangarHallB"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/HangarHallB.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarHallEnd"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarHallEnd.illmesh";
         ++currRes;
 
         (*nameMap)["HangarHallCorner"] = currRes;
@@ -899,6 +977,18 @@ void configureResourceManagers() {
 
         (*nameMap)["Fighter"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/Fighter.illmesh";
+        ++currRes;
+
+        (*nameMap)["CeilingLight"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/CeilingLight.illmesh";
+        ++currRes;
+
+        (*nameMap)["SpotLight"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/SpotLight.illmesh";
+        ++currRes;
+
+        (*nameMap)["SpotlightMount"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/SpotlightMount.illmesh";
         ++currRes;
 
         engine.m_meshManager->initialize(loadArgs, nameMap);

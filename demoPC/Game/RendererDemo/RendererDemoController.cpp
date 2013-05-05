@@ -115,7 +115,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
 
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
 
-    m_cameraController.m_speed = 10.0f;
+    m_cameraController.m_speed = 50.0f;
     m_cameraController.m_rollSpeed = 50.0f;
 
     m_occlusionCameraController.m_speed = 50.0f;
@@ -133,7 +133,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
 
         //at the moment, just parse the hack file exported from 3DS max, illscene parsing coming soon
         {
-            m_cameraController.m_speed = 2.0f;
+            m_cameraController.m_speed = 10.0f;
             m_cameraController.m_rollSpeed = 50.0f;
 
             std::ifstream openFile("..\\..\\..\\assets\\maps\\HangarTest.txt");
@@ -144,8 +144,8 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             
             m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
                 m_engine->m_meshManager, m_engine->m_materialManager,
-                glm::vec3(70.0f, 25.0f, 70.0f), glm::uvec3(10, 4, 10), 
-                glm::vec3(70.0f, 25.0f, 70.0f), glm::uvec3(10, 4, 10));
+                glm::vec3(70.0f, 25.0f, 70.0f), glm::uvec3(10, 5, 10), 
+                glm::vec3(70.0f, 25.0f, 70.0f), glm::uvec3(10, 5, 10));
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42), 
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42));
 
@@ -166,10 +166,10 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                     SPOT_LIGHT
                 } objectType = ObjectType::MESH;
                 
-                if(meshName.compare("PointLight") == 0) {
+                if(meshName.compare("__PointLight__") == 0) {
                     objectType = ObjectType::POINT_LIGHT;
                 }
-                else if(meshName.compare("SpotLight") == 0) {
+                else if(meshName.compare("__SpotLight__") == 0) {
                     objectType = ObjectType::SPOT_LIGHT;
                 }
 
