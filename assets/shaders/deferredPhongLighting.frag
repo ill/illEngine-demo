@@ -28,10 +28,17 @@ uniform vec2 planes;
 uniform float intensity;
 uniform vec3 lightColor;
 
-#if(defined(POINT_LIGHT) || defined(SPOT_LIGHT))
-uniform vec3 lightPosition;			//light position in eye space not world space
+#ifdef VOLUME_LIGHT
+#define MAX_PLANES 12
+uniform vec4 attenuationPlanes[MAX_PLANES];
+uniform float attenuationStarts[MAX_PLANES];	//these are the reciprocal so the shader can multiply instead of divide
+#else
 uniform float attenuationStart;
 uniform float attenuationEnd;
+#endif
+
+#if(defined(POINT_LIGHT) || defined(SPOT_LIGHT))
+uniform vec3 lightPosition;			//light position in eye space not world space
 #endif
 
 #if(defined(SPOT_LIGHT))
@@ -73,6 +80,7 @@ void main(void) {
 		  
 		//light
 		float lightNormDot;
+		float attenuation;
 		
 #ifdef SPECULAR
 		vec3 halfVec;
@@ -90,10 +98,10 @@ void main(void) {
 #endif
 		
 #elif(defined(DIRECTIONAL_LIGHT))
-		lightNormDot = dot(lightDirection, normal);
+		lightNormDot = dot(-lightDirection, normal);
 		
 #ifdef SPECULAR
-		halfVec = normalize(lightDirection + normalize(viewRay));
+		halfVec = normalize(normalize(viewRay) - lightDirection);
 #endif
 		
 #endif
@@ -104,19 +112,58 @@ void main(void) {
 		vec4 specular = texelFetch2D(specularBuffer, ivec2(gl_FragCoord.xy), 0);
 		vec3 specularContribution = pow(max(0.0, dot(halfVec, normal)), specular.a * 1000.0) * specular.rgb * lightColor * clamp(lightNormDot * 4.0, 0.0, 1.0);
 #endif
-   
-#if(defined(POINT_LIGHT) || defined(SPOT_LIGHT))   
-		float attenuation = clamp((attenuationEnd - lightDistance) / (attenuationEnd - attenuationStart), 0.0, 1.0);
+
+#ifdef VOLUME_LIGHT		
+		//attenuation = clamp((dot(attenuationPlanes[0].xyz, position) + attenuationPlanes[0].w) * attenuationStarts[0], 0.0, 1.0);		
+		/*attenuation = clamp((dot(attenuationPlanes[0].xyz, position) + attenuationPlanes[0].w) * attenuationStarts[0], 1.0, 1.0);
+				
+		if((dot(attenuationPlanes[0].xyz, position) + attenuationPlanes[0].w) < 0.0) {
+			diffuseContribution = vec3(1.0, 0.0, 1.0);
+		}
+		
+		if((dot(attenuationPlanes[1].xyz, position) + attenuationPlanes[1].w) < 0.0) {
+			diffuseContribution = vec3(0.0, 1.0, 0.0);
+		}
+		
+		if((dot(attenuationPlanes[2].xyz, position) + attenuationPlanes[2].w) < 0.0) {
+			diffuseContribution = vec3(1.0, 0.0, 1.0);
+		}
+		
+		if((dot(attenuationPlanes[3].xyz, position) + attenuationPlanes[3].w) < 0.0) {
+			diffuseContribution = vec3(0.0, 1.0, 0.0);
+		}
+		
+		if((dot(attenuationPlanes[4].xyz, position) + attenuationPlanes[4].w) < 0.0) {
+			diffuseContribution = vec3(0.0, 1.0, 0.0);
+		}
+		
+		if((dot(attenuationPlanes[5].xyz, position) + attenuationPlanes[5].w) < 0.0) {
+			diffuseContribution = vec3(1.0, 0.0, 1.0);
+		}*/
+				
+		//I'm really REALLY making sure the loop is unrolled...  Now let's hope MAX_PLANES never changes
+		attenuation = min(min(min(min(min(min(min(min(min(min(min(
+			clamp((dot(attenuationPlanes[0].xyz, position) + attenuationPlanes[0].w) * attenuationStarts[0], 0.0, 1.0),
+			clamp((dot(attenuationPlanes[1].xyz, position) + attenuationPlanes[1].w) * attenuationStarts[1], 0.0, 1.0)),
+			clamp((dot(attenuationPlanes[2].xyz, position) + attenuationPlanes[2].w) * attenuationStarts[2], 0.0, 1.0)),
+			clamp((dot(attenuationPlanes[3].xyz, position) + attenuationPlanes[3].w) * attenuationStarts[3], 0.0, 1.0)),
+			clamp((dot(attenuationPlanes[4].xyz, position) + attenuationPlanes[4].w) * attenuationStarts[4], 0.0, 1.0)),
+			clamp((dot(attenuationPlanes[5].xyz, position) + attenuationPlanes[5].w) * attenuationStarts[5], 0.0, 1.0)),
+			clamp((dot(attenuationPlanes[6].xyz, position) + attenuationPlanes[6].w) * attenuationStarts[6], 0.0, 1.0)),
+			clamp((dot(attenuationPlanes[7].xyz, position) + attenuationPlanes[7].w) * attenuationStarts[7], 0.0, 1.0)),
+			clamp((dot(attenuationPlanes[8].xyz, position) + attenuationPlanes[8].w) * attenuationStarts[8], 0.0, 1.0)),
+			clamp((dot(attenuationPlanes[9].xyz, position) + attenuationPlanes[9].w) * attenuationStarts[9], 0.0, 1.0)),
+			clamp((dot(attenuationPlanes[10].xyz, position) + attenuationPlanes[10].w) * attenuationStarts[10], 0.0, 1.0)),
+			clamp((dot(attenuationPlanes[11].xyz, position) + attenuationPlanes[11].w) * attenuationStarts[11], 0.0, 1.0));
+#else
+		attenuation = clamp((attenuationEnd - lightDistance) / (attenuationEnd - attenuationStart), 0.0, 1.0);
+#endif
    
 #if(defined(SPOT_LIGHT))
 		float coneThis = dot(-lightDirection, lightVector);   
 		float spotAttenuation = clamp((coneThis - coneEnd) / (coneStart - coneEnd), 0.0, 1.0);
 	   
 		attenuation *= spotAttenuation;
-#endif
-      
-#elif(defined(DIRECTIONAL_LIGHT))
-		finalColor = intensity * diffuseContribution;
 #endif
             
 		gl_FragData[0] = vec4(attenuation * intensity * diffuseContribution, 1.0);

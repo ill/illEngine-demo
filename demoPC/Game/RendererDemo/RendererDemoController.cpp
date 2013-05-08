@@ -144,8 +144,8 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             
             m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
                 m_engine->m_meshManager, m_engine->m_materialManager,
-                glm::vec3(70.0f, 25.0f, 70.0f), glm::uvec3(10, 5, 10), 
-                glm::vec3(70.0f, 25.0f, 70.0f), glm::uvec3(10, 5, 10));
+                glm::vec3(50.0f, 100.0f, 50.0f), glm::uvec3(25, 5, 25), 
+                glm::vec3(50.0f, 100.0f, 50.0f), glm::uvec3(25, 5, 25));
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42), 
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42));
 
@@ -163,7 +163,9 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                 enum class ObjectType {
                     MESH,
                     POINT_LIGHT,
-                    SPOT_LIGHT
+                    SPOT_LIGHT,
+                    VOLUME_LIGHT,
+                    START
                 } objectType = ObjectType::MESH;
                 
                 if(meshName.compare("__PointLight__") == 0) {
@@ -171,6 +173,12 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                 }
                 else if(meshName.compare("__SpotLight__") == 0) {
                     objectType = ObjectType::SPOT_LIGHT;
+                }
+                else if(meshName.compare("__VolumeLight__") == 0) {
+                    objectType = ObjectType::VOLUME_LIGHT;
+                }
+                else if(meshName.compare("__Start__") == 0) {
+                    objectType = ObjectType::START;
                 }
 
                 glm::mat4 transform;
@@ -181,8 +189,26 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                         openFile >> transform[column][row];
                     }
                 }
+
+                if(objectType == ObjectType::START) {
+                    m_cameraController.m_transform = transform;
+                    continue;
+                }
         
-                if(objectType == ObjectType::POINT_LIGHT || objectType == ObjectType::SPOT_LIGHT) {
+                if(objectType == ObjectType::POINT_LIGHT || objectType == ObjectType::SPOT_LIGHT || objectType == ObjectType::VOLUME_LIGHT) {
+                    Box<> bounds;
+
+                    if(objectType == ObjectType::VOLUME_LIGHT) {
+                        //read the bounding box
+                        for(unsigned int vec = 0; vec < 3; vec++) {
+                            openFile >> bounds.m_min[vec];
+                        }
+
+                        for(unsigned int vec = 0; vec < 3; vec++) {
+                            openFile >> bounds.m_max[vec];
+                        }
+                    }
+                    
                     //light color
                     glm::vec3 color;
 
@@ -198,64 +224,98 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                     bool specular;
                     openFile >> specular;
 
-                    //near attenuation
-                    float nearAtten;
-                    openFile >> nearAtten;
+                    if(objectType == ObjectType::POINT_LIGHT || objectType == ObjectType::SPOT_LIGHT) {
+                        //near attenuation
+                        float nearAtten;
+                        openFile >> nearAtten;
 
-                    //far attenuation
-                    float farAtten;
-                    openFile >> farAtten;
+                        //far attenuation
+                        float farAtten;
+                        openFile >> farAtten;
 
-                    if(objectType == ObjectType::POINT_LIGHT) {
-                        illGraphics::PointLight * lightObj = new illGraphics::PointLight(color, intensity, specular, nearAtten, farAtten);
+                        if(objectType == ObjectType::POINT_LIGHT) {
+                            illGraphics::PointLight * lightObj = new illGraphics::PointLight(color, intensity, specular, nearAtten, farAtten);
 
-                        for(unsigned int light = 0; light < 1; light++) {
                             auto newLight = new illRendererCommon::LightNode(m_graphicsScene, transform, Box<>(glm::vec3(-farAtten), glm::vec3(farAtten)));
+                            newLight->m_light = RefCountPtr<illGraphics::LightBase>(lightObj);
+                        }
+                        else {
+                            float coneStart;
+                            openFile >> coneStart;
 
+                            float coneEnd;
+                            openFile >> coneEnd;
+
+                            illGraphics::SpotLight * lightObj = new illGraphics::SpotLight(color, intensity, specular, nearAtten, farAtten, coneStart, coneEnd);
+
+                            Box<> bounds(glm::vec3(0.0f));
+
+                            //Computing bounding box of light cone
+                            //TODO: move this to the util geometry code somewhere
+                            {
+                                glm::vec3 direction = glm::mat3(transform) * glm::vec3(0.0f, 0.0f, -1.0f);
+                                glm::vec3 endPos = direction * farAtten;
+                                glm::mediump_float coneDir = glm::degrees(glm::acos(coneEnd));
+
+                                bounds.addPoint(endPos);
+
+                                bounds.addPoint(glm::mat3(glm::rotate(coneDir, glm::vec3(1.0f, 0.0f, 0.0f))) * endPos);
+                                bounds.addPoint(glm::mat3(glm::rotate(-coneDir, glm::vec3(1.0f, 0.0f, 0.0f))) * endPos);
+
+                                bounds.addPoint(glm::mat3(glm::rotate(coneDir, glm::vec3(0.0f, 1.0f, 0.0f))) * endPos);
+                                bounds.addPoint(glm::mat3(glm::rotate(-coneDir, glm::vec3(0.0f, 1.0f, 0.0f))) * endPos);
+
+                                bounds.addPoint(glm::mat3(glm::rotate(coneDir, glm::vec3(0.0f, 0.0f, 1.0f))) * endPos);
+                                bounds.addPoint(glm::mat3(glm::rotate(-coneDir, glm::vec3(0.0f, 0.0f, 1.0f))) * endPos);
+                            }
+
+                            auto newLight = new illRendererCommon::LightNode(m_graphicsScene, transform, bounds);
                             newLight->m_light = RefCountPtr<illGraphics::LightBase>(lightObj);
                         }
                     }
                     else {
-                        float coneStart;
-                        openFile >> coneStart;
+                        bool directional;
+                        openFile >> directional;
 
-                        float coneEnd;
-                        openFile >> coneEnd;
+                        glm::vec3 vector;
 
-                        illGraphics::SpotLight * lightObj = new illGraphics::SpotLight(color, intensity, specular, nearAtten, farAtten, coneStart, coneEnd);
-
-                        Box<> bounds(glm::vec3(0.0f));
-
-                        //Computing bounding box of light cone
-                        //TODO: move this to the util geometry code somewhere
-                        {
-                            glm::vec3 direction = glm::mat3(transform) * glm::vec3(0.0f, 0.0f, -1.0f);
-                            glm::vec3 endPos = direction * farAtten;
-                            glm::mediump_float coneDir = glm::degrees(glm::acos(coneEnd));
-
-                            bounds.addPoint(endPos);
-
-                            bounds.addPoint(glm::mat3(glm::rotate(coneDir, glm::vec3(1.0f, 0.0f, 0.0f))) * endPos);
-                            bounds.addPoint(glm::mat3(glm::rotate(-coneDir, glm::vec3(1.0f, 0.0f, 0.0f))) * endPos);
-
-                            bounds.addPoint(glm::mat3(glm::rotate(coneDir, glm::vec3(0.0f, 1.0f, 0.0f))) * endPos);
-                            bounds.addPoint(glm::mat3(glm::rotate(-coneDir, glm::vec3(0.0f, 1.0f, 0.0f))) * endPos);
-
-                            bounds.addPoint(glm::mat3(glm::rotate(coneDir, glm::vec3(0.0f, 0.0f, 1.0f))) * endPos);
-                            bounds.addPoint(glm::mat3(glm::rotate(-coneDir, glm::vec3(0.0f, 0.0f, 1.0f))) * endPos);
+                        for(unsigned int vec = 0; vec < 3; vec++) {
+                            openFile >> vector[vec];
                         }
 
-                        for(unsigned int light = 0; light < 1; light++) {
-                            auto newLight = new illRendererCommon::LightNode(m_graphicsScene,
-                                transform, bounds);
+                        illGraphics::VolumeLight * lightObj = new illGraphics::VolumeLight(color, intensity, specular, directional, vector);
 
-                            newLight->m_light = RefCountPtr<illGraphics::LightBase>(lightObj);
+                        int numPlanes;
+                        openFile >> numPlanes;
+
+                        Plane<> lastPlane;
+                        glm::mediump_float lastAttenuation;
+
+                        for(int plane = 0; plane < numPlanes; plane++) {
+                            openFile >> lastPlane.m_normal.x;
+                            openFile >> lastPlane.m_normal.y;
+                            openFile >> lastPlane.m_normal.z;
+                            openFile >> lastPlane.m_distance;
+
+                            openFile >> lastAttenuation;
+
+                            lightObj->m_planes[plane] = lastPlane;
+                            lightObj->m_planeFalloff[plane] = lastAttenuation;
                         }
+
+                        //pad the remaining planes with the previously read plane
+                        for(unsigned int plane = numPlanes; plane < illGraphics::MAX_LIGHT_VOLUME_PLANES; plane++) {
+                            lightObj->m_planes[plane] = lastPlane;
+                            lightObj->m_planeFalloff[plane] = lastAttenuation;
+                        }
+
+                        auto newLight = new illRendererCommon::LightNode(m_graphicsScene, transform, bounds);
+                        newLight->m_light = RefCountPtr<illGraphics::LightBase>(lightObj);
                     }
                 }
                 else {
                     Box<> bounds;
-
+                    
                     //read the bounding box
                     for(unsigned int vec = 0; vec < 3; vec++) {
                         openFile >> bounds.m_min[vec];

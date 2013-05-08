@@ -130,9 +130,9 @@ int main(int argc, char * argv[]) {
     return 0;
 }
 
-const size_t NUM_TEXTURES = 49;
-const size_t NUM_MATERIALS = 23;
-const size_t NUM_MESHES = 41;
+const size_t NUM_TEXTURES = 55;
+const size_t NUM_MATERIALS = 25;
+const size_t NUM_MESHES = 44 + 100;
 const size_t NUM_ANIMSET = 1;
 const size_t NUM_SKELETONS = 1;
 const size_t NUM_ANIMATIONS = 4;
@@ -435,6 +435,42 @@ void configureResourceManagers() {
 
         (*nameMap)["SpotLightDiffuse"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/SpotLightDiffuse.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["boney"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/boney.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["boney_s"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/boney_s.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["boney_local"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/boney_local.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["anustubescroll"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/anustubescroll.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["anustubescroll_s"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/anustubescroll_s.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["anustubescroll_local"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/anustubescroll_local.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
         ++currRes;
@@ -817,6 +853,38 @@ void configureResourceManagers() {
         loadArgs[currRes].m_forceForwardRendering = false;
         ++currRes;
 
+        (*nameMap)["anustubescroll"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("anustubescroll");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = engine.m_textureManager->getIdForName("anustubescroll_s");
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 0.3f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("anustubescroll_local");
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
+        (*nameMap)["boney"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("boney");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = engine.m_textureManager->getIdForName("boney_s");
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 0.3f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("boney_local");
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
         engine.m_materialManager->initialize(loadArgs, nameMap);
     }
 
@@ -989,6 +1057,418 @@ void configureResourceManagers() {
 
         (*nameMap)["SpotlightMount"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/SpotlightMount.illmesh";
+        ++currRes;
+
+        (*nameMap)["CaveEntrance"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/CaveEntrance.illmesh";
+        ++currRes;
+
+        (*nameMap)["CaveOutside"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/CaveOutside.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_0_0_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_0_0_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_1_0_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_1_0_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_2_0_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_2_0_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_3_0_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_3_0_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_4_0_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_4_0_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_5_0_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_5_0_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_6_0_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_6_0_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_7_0_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_7_0_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_8_0_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_8_0_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_9_0_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_9_0_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_0_1_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_0_1_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_1_1_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_1_1_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_2_1_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_2_1_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_3_1_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_3_1_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_4_1_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_4_1_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_5_1_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_5_1_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_6_1_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_6_1_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_7_1_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_7_1_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_8_1_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_8_1_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_9_1_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_9_1_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_0_2_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_0_2_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_1_2_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_1_2_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_2_2_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_2_2_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_3_2_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_3_2_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_4_2_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_4_2_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_5_2_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_5_2_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_6_2_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_6_2_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_7_2_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_7_2_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_8_2_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_8_2_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_9_2_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_9_2_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_0_3_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_0_3_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_1_3_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_1_3_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_2_3_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_2_3_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_3_3_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_3_3_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_4_3_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_4_3_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_5_3_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_5_3_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_6_3_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_6_3_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_7_3_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_7_3_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_8_3_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_8_3_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_9_3_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_9_3_.illmesh";
+        ++currRes;
+        
+        (*nameMap)["Terrain_0_4_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_0_4_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_1_4_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_1_4_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_2_4_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_2_4_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_3_4_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_3_4_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_4_4_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_4_4_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_5_4_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_5_4_.illmesh";
+        ++currRes;
+        
+        (*nameMap)["Terrain_6_4_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_6_4_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_7_4_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_7_4_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_8_4_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_8_4_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_9_4_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_9_4_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_0_5_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_0_5_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_1_5_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_1_5_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_2_5_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_2_5_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_3_5_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_3_5_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_4_5_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_4_5_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_5_5_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_5_5_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_6_5_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_6_5_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_7_5_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_7_5_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_8_5_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_8_5_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_9_5_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_9_5_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_0_6_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_0_6_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_1_6_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_1_6_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_2_6_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_2_6_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_3_6_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_3_6_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_4_6_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_4_6_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_5_6_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_5_6_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_6_6_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_6_6_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_7_6_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_7_6_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_8_6_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_8_6_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_9_6_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_9_6_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_0_7_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_0_7_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_1_7_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_1_7_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_2_7_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_2_7_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_3_7_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_3_7_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_4_7_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_4_7_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_5_7_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_5_7_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_6_7_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_6_7_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_7_7_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_7_7_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_8_7_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_8_7_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_9_7_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_9_7_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_0_8_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_0_8_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_1_8_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_1_8_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_2_8_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_2_8_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_3_8_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_3_8_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_4_8_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_4_8_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_5_8_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_5_8_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_6_8_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_6_8_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_7_8_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_7_8_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_8_8_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_8_8_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_9_8_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_9_8_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_0_9_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_0_9_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_1_9_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_1_9_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_2_9_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_2_9_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_3_9_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_3_9_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_4_9_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_4_9_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_5_9_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_5_9_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_6_9_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_6_9_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_7_9_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_7_9_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_8_9_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_8_9_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Terrain_9_9_"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Terrain_9_9_.illmesh";
+        ++currRes;
+
+        (*nameMap)["Teapot"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/Teapot.illmesh";
         ++currRes;
 
         engine.m_meshManager->initialize(loadArgs, nameMap);

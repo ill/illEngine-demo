@@ -8,7 +8,7 @@ __VolumeLight__
 1.0 1.0 1.0
 1.0
 0
-Num Planes 6
+6
 1
 1
 51
