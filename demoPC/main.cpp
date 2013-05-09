@@ -130,9 +130,9 @@ int main(int argc, char * argv[]) {
     return 0;
 }
 
-const size_t NUM_TEXTURES = 55;
-const size_t NUM_MATERIALS = 25;
-const size_t NUM_MESHES = 44 + 100;
+const size_t NUM_TEXTURES = 58;
+const size_t NUM_MATERIALS = 26;
+const size_t NUM_MESHES = 45 + 100;
 const size_t NUM_ANIMSET = 1;
 const size_t NUM_SKELETONS = 1;
 const size_t NUM_ANIMATIONS = 4;
@@ -471,6 +471,24 @@ void configureResourceManagers() {
 
         (*nameMap)["anustubescroll_local"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/anustubescroll_local.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["outfactory11_d"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/outfactory11_d.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["outfactory11_s"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/outfactory11_s.tga";
+        loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
+        ++currRes;
+
+        (*nameMap)["outfactory11_local"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/outfactory11_local.tga";
         loadArgs[currRes].m_wrapS = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
         loadArgs[currRes].m_wrapT = illGraphics::TextureLoadArgs::Wrap::W_REPEAT;
         ++currRes;
@@ -877,6 +895,22 @@ void configureResourceManagers() {
         loadArgs[currRes].m_emissiveTextureIndex = -1;
         loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
         loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("boney_local");
+        loadArgs[currRes].m_normalMultiplier = 1.0f;
+        loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
+        loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
+        loadArgs[currRes].m_noLighting = false;
+        loadArgs[currRes].m_skinning = false;
+        loadArgs[currRes].m_forceForwardRendering = false;
+        ++currRes;
+
+        (*nameMap)["outfactory11"] = currRes;
+        loadArgs[currRes].m_diffuseTextureIndex = engine.m_textureManager->getIdForName("outfactory11_d");
+        loadArgs[currRes].m_diffuseBlend = glm::vec4(1.0f);
+        loadArgs[currRes].m_specularTextureIndex = engine.m_textureManager->getIdForName("outfactory11_s");
+        loadArgs[currRes].m_specularBlend = glm::vec4(1.0f, 1.0f, 1.0f, 0.3f);
+        loadArgs[currRes].m_emissiveTextureIndex = -1;
+        loadArgs[currRes].m_emissiveBlend = glm::vec4(0.0f);
+        loadArgs[currRes].m_normalTextureIndex = engine.m_textureManager->getIdForName("outfactory11_local");
         loadArgs[currRes].m_normalMultiplier = 1.0f;
         loadArgs[currRes].m_blendMode = illGraphics::MaterialLoadArgs::BlendMode::NONE;
         loadArgs[currRes].m_billboardMode = illGraphics::MaterialLoadArgs::BillboardMode::NONE;
@@ -1469,6 +1503,10 @@ void configureResourceManagers() {
 
         (*nameMap)["Teapot"] = currRes;
         loadArgs[currRes].m_path = "meshes/Hangar/Teapot.illmesh";
+        ++currRes;
+
+        (*nameMap)["HangarEntrance"] = currRes;
+        loadArgs[currRes].m_path = "meshes/Hangar/HangarEntrance.illmesh";
         ++currRes;
 
         engine.m_meshManager->initialize(loadArgs, nameMap);
