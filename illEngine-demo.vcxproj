@@ -173,7 +173,6 @@
     <ClCompile Include="demoPC\Game\RendererDemo\RendererDemoController.cpp" />
     <ClCompile Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.cpp" />
     <ClCompile Include="demoPC\main.cpp" />
-    <ClCompile Include="illEngine\Console\serial\consoleConsole.cpp" />
     <ClCompile Include="illEngine\Console\serial\DeveloperConsole.cpp" />
     <ClCompile Include="illEngine\DeferredShadingRenderer\serial\Gl3_3\DeferredShadingBackendGl3_3.cpp" />
     <ClCompile Include="illEngine\FileSystem-Physfs\PhysFsFile.cpp" />
@@ -215,6 +214,9 @@
     <ClCompile Include="illEngine\Util\util.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="demoPC\Cvars\consoleVars.h" />
+    <ClInclude Include="demoPC\Cvars\graphicsVars.h" />
+    <ClInclude Include="demoPC\Cvars\inputVars.h" />
     <ClInclude Include="demoPC\Engine.h" />
     <ClInclude Include="demoPC\FixedStepController.h" />
     <ClInclude Include="demoPC\GameControllerBase.h" />
@@ -228,8 +230,7 @@
     <ClInclude Include="demoPC\Game\RendererDemo\Entities\EntityManager.h" />
     <ClInclude Include="demoPC\Game\RendererDemo\RendererDemoController.h" />
     <ClInclude Include="demoPC\Game\SkeletalAnimationDemo\SkeletalAnimationDemoController.h" />
-    <ClInclude Include="illEngine\Console\serial\consoleConsole.h" />
-    <ClInclude Include="illEngine\Console\serial\ConsoleVariable.h" />
+    <ClInclude Include="illEngine\Console\serial\CommandManager.h" />
     <ClInclude Include="illEngine\Console\serial\DeveloperConsole.h" />
     <ClInclude Include="illEngine\Console\serial\VariableManager.h" />
     <ClInclude Include="illEngine\DeferredShadingRenderer\DeferredShadingBackend.h" />

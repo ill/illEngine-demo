@@ -12,9 +12,9 @@ This file needs to be included in the same file that implements the main method.
 #include "illEngine/Pc/serial/SdlWindow.h"
 #include "illEngine/Input/serial/InputManager.h"
 
-#include "illEngine/Console/serial/consoleConsole.h"
 #include "illEngine/Console/serial/DeveloperConsole.h"
 #include "illEngine/Console/serial/VariableManager.h"
+#include "illEngine/Console/serial/CommandManager.h"
 
 #include "illEngine/Graphics/serial/Material/Shader.h"
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
@@ -31,6 +31,10 @@ This file needs to be included in the same file that implements the main method.
 #include "FixedStepController.h"
 #include "Game/MainController.h"
 
+#include "Cvars/consoleVars.h"
+#include "Cvars/graphicsVars.h"
+#include "Cvars/inputVars.h"
+
 //tests
 #include "Tests/tests.h"
 
@@ -41,8 +45,9 @@ illLogging::Logger * illLogging::logger = &thisLogger;
 illPhysFs::PhysFsFileSystem thisFileSystem;
 illFileSystem::FileSystem * illFileSystem::fileSystem = &thisFileSystem;
 
-Console::VariableManager consoleVariableManager;
-Console::DeveloperConsole developerConsole;
+illConsole::VariableManager consoleVariableManager;
+illConsole::CommandManager consoleCommandManager;
+illConsole::DeveloperConsole developerConsole;
 
 illInput::InputManager inputManager;
 
@@ -52,6 +57,147 @@ GlCommon::GlBackend graphicsBackend;
 
 Demo::Engine engine;
 
+//The console variables and commands
+illConsole::ConsoleVariable cv_con_consoleOutput("", CON_CONSOLE_OUTPUT_DESC,
+    [&] (illConsole::ConsoleVariable * var, const char * value) {
+        developerConsole.setOutputFile(value);
+        return true;
+    });
+
+illConsole::ConsoleVariable cv_con_maxLines("255", CON_MAX_LINES_DESC,
+    [&] (illConsole::ConsoleVariable * var, const char * value) {
+        std::istringstream stream(value);
+                
+        int dest;
+        if(developerConsole.getParamInt(stream, dest) 
+                && developerConsole.checkParamEnd(stream)) {
+            developerConsole.setMaxLines((size_t) dest);
+            return true;
+        }
+        
+        return false;
+    });
+
+//TODO: implement
+illConsole::ConsoleVariable cv_con_logScreen("0", CON_LOG_SCREEN_DESC,
+    [&] (illConsole::ConsoleVariable * var, const char * value) {
+        developerConsole.printMessage(illLogging::LogDestination::MT_ERROR, "I still need to implement this.");
+        return true;
+    });
+
+illConsole::ConsoleCommand cm_set(SET_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        std::istringstream stream(params);
+
+        std::string varName;
+        std::string value;
+
+        if(developerConsole.getParamString(stream, varName)
+                && developerConsole.getParamString(stream, value)
+                && developerConsole.checkParamEnd(stream)) {
+            illConsole::ConsoleVariable * var = developerConsole.m_variableManager->getVariable(varName.c_str());
+
+            if(var) {
+                var->setValue(value.c_str());
+            }
+            else {
+                developerConsole.printMessage(illLogging::LogDestination::MT_INFO, formatString("Adding new console variable %s", varName).c_str());
+                developerConsole.m_variableManager->addVariable(varName.c_str(), new illConsole::ConsoleVariable(value.c_str()));
+            }
+        }
+    });
+
+//TODO: implement
+illConsole::ConsoleCommand cm_save(SAVE_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        developerConsole.printMessage(illLogging::LogDestination::MT_ERROR, "I still need to implement this.");
+    });
+
+illConsole::ConsoleCommand cm_description(DESCRIPTION_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        std::istringstream stream(params);
+
+        std::string name;
+
+        if(developerConsole.getParamString(stream, name)
+                && developerConsole.checkParamEnd(stream)) {
+            illConsole::ConsoleVariable * var = developerConsole.m_variableManager->getVariable(name.c_str());
+
+            if(var) {
+                developerConsole.printMessage(illLogging::LogDestination::MT_INFO, var->getDescription());
+                return;
+            }
+
+            const illConsole::ConsoleCommand * cmd = developerConsole.m_commandManager->getCommand(name.c_str());
+
+            if(cmd) {
+                developerConsole.printMessage(illLogging::LogDestination::MT_INFO, cmd->getDescription());
+                return;
+            }
+
+            developerConsole.printMessage(illLogging::LogDestination::MT_ERROR, formatString("No variable or command with name %s.", name.c_str()).c_str());
+        }
+    });
+
+illConsole::ConsoleCommand cm_toggle(TOGGLE_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        std::istringstream stream(params);
+
+        std::string varName;
+
+        if(developerConsole.getParamString(stream, varName)
+                && developerConsole.checkParamEnd(stream)) {
+            illConsole::ConsoleVariable * var = developerConsole.m_variableManager->getVariable(varName.c_str());
+
+            if(var) {
+                const char * value = var->getValue();
+
+                if(strncmp(value, "0", 1) == 0) {
+                    var->setValue("1");
+                }
+                else {
+                    var->setValue("0");
+                }
+            }
+            else {
+                developerConsole.printMessage(illLogging::LogDestination::MT_ERROR, formatString("No variable with name %s.", varName.c_str()).c_str());
+            }
+        }
+    });
+
+illConsole::ConsoleCommand cm_conDump(CON_DUMP_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        std::istringstream stream(params);
+
+        std::string path;
+
+        if(developerConsole.getParamString(stream, path)
+                && developerConsole.checkParamEnd(stream)) {
+            developerConsole.consoleDump(path.c_str());
+        }
+    });
+
+illConsole::ConsoleCommand cm_exec(EXEC_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        std::istringstream stream(params);
+
+        std::string path;
+
+        if(developerConsole.getParamString(stream, path)
+                && developerConsole.checkParamEnd(stream)) {
+            developerConsole.consoleInput(path.c_str());
+        }
+    });
+
+illConsole::ConsoleCommand cm_clear(CLEAR_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        std::istringstream stream(params);
+
+        if(developerConsole.checkParamEnd(stream)) {
+            developerConsole.clearLines();
+        }
+    });
+
 /**
 I'm still up in the air if I want to do XML again for resource configuration.
 Maybe I'll use some kind of engine tools instead and the file will be a binary blob.
@@ -60,19 +206,24 @@ For now this will be hardcoded, ugh...
 */
 inline void configureResourceManagers();
 
+inline void initConsole();
+
 int main(int argc, char * argv[]) {
-    Console::initConsoleConsole(&consoleVariableManager);    
     illLogging::logger->addLogDestination(&developerConsole);
 
     LOGGER_BEGIN_CATCH
+
+    developerConsole.m_commandManager = &consoleCommandManager;
+    developerConsole.m_variableManager = &consoleVariableManager;
 
     //tests
 	testGeomUtil();
     testPool();
     testEndian();
     testSortDimensions();
-
-    glm::mat4 trollLOL = glm::rotate(90.0f, glm::vec3(1.0f, 0.0f, 0.0f)); 
+    
+    //init developer console
+    initConsole();
 
     thisFileSystem.init(argv[0]);
 
@@ -82,7 +233,6 @@ int main(int argc, char * argv[]) {
 
     engine.m_window = &window;
     engine.m_developerConsole = &developerConsole;
-    engine.m_consoleVariableManager = &consoleVariableManager;
     engine.m_inputManager = &inputManager;
     engine.m_graphicsBackend = &graphicsBackend;
 
@@ -128,6 +278,21 @@ int main(int argc, char * argv[]) {
     LOGGER_END_CATCH(illLogging::logger)
         
     return 0;
+}
+
+void initConsole() {
+    consoleVariableManager.addVariable(CON_CONSOLE_OUTPUT_NAME, &cv_con_consoleOutput);
+    consoleVariableManager.addVariable(CON_MAX_LINES_NAME, &cv_con_maxLines);
+    consoleVariableManager.addVariable(CON_LOG_SCREEN_NAME, &cv_con_logScreen);
+
+    consoleCommandManager.addCommand(SET_NAME, &cm_set);
+    consoleCommandManager.addCommand(SAVE_NAME, &cm_save);
+    consoleCommandManager.addCommand(DESCRIPTION_NAME, &cm_description);
+    consoleCommandManager.addCommand(HELP_NAME, &cm_description);
+    consoleCommandManager.addCommand(TOGGLE_NAME, &cm_toggle);
+    consoleCommandManager.addCommand(CON_DUMP_NAME, &cm_conDump);
+    consoleCommandManager.addCommand(EXEC_NAME, &cm_exec);
+    consoleCommandManager.addCommand(CLEAR_NAME, &cm_clear);
 }
 
 const size_t NUM_TEXTURES = 58;

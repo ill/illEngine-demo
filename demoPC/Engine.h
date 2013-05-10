@@ -1,11 +1,10 @@
-#ifndef __ENGINE_H__
-#define __ENGINE_H__
+#ifndef ILL_ENGINE_H_
+#define ILL_ENGINE_H_
 
 #include <stdint.h>
 
-namespace Console {
+namespace illConsole {
 class DeveloperConsole;
-class VariableManager;
 }
 
 template <typename Key, typename T, typename Loader> class ResourceManager;
@@ -67,8 +66,7 @@ TODO: this is generally a good struct for any simple game with a single window s
 */
 struct Engine {
 public:
-    Console::DeveloperConsole * m_developerConsole;
-    Console::VariableManager * m_consoleVariableManager;
+    illConsole::DeveloperConsole * m_developerConsole;
 
     illGraphics::Window * m_window;
     illGraphics::GraphicsBackend * m_graphicsBackend;
