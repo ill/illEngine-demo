@@ -76,4 +76,8 @@ const char * CLEAR_NAME = "clear";
 const char * CLEAR_DESC = "Clears all lines in the developer console.";
 extern illConsole::ConsoleCommand cm_clear;
 
+const char * ECHO_NAME = "echo";
+const char * ECHO_DESC = "Prints a message to the console. echo <some message>";
+extern illConsole::ConsoleCommand cm_echo;
+
 #endif

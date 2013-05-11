@@ -64,7 +64,7 @@ illConsole::ConsoleVariable cv_con_consoleOutput("", CON_CONSOLE_OUTPUT_DESC,
         return true;
     });
 
-illConsole::ConsoleVariable cv_con_maxLines("255", CON_MAX_LINES_DESC,
+illConsole::ConsoleVariable cv_con_maxLines("256", CON_MAX_LINES_DESC,
     [&] (illConsole::ConsoleVariable * var, const char * value) {
         std::istringstream stream(value);
                 
@@ -198,6 +198,115 @@ illConsole::ConsoleCommand cm_clear(CLEAR_DESC,
         }
     });
 
+illConsole::ConsoleCommand cm_echo(ECHO_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        developerConsole.printMessage(illLogging::LogDestination::MessageLevel::MT_INFO, params);
+    });
+
+illConsole::ConsoleVariable cv_vid_screenWidth("640", VID_SCREEN_WIDTH_DESC,
+    [&] (illConsole::ConsoleVariable * var, const char * value) {
+        std::istringstream stream(value);
+                
+        int dest;
+        if(developerConsole.getParamInt(stream, dest) 
+                && developerConsole.checkParamEnd(stream)) {
+            window.m_screenWidth = dest;
+            return true;
+        }
+
+        return false;
+    });
+
+illConsole::ConsoleVariable cv_vid_screenHeight("480", VID_SCREEN_HEIGHT_DESC,
+    [&] (illConsole::ConsoleVariable * var, const char * value) {
+        std::istringstream stream(value);
+                
+        int dest;
+        if(developerConsole.getParamInt(stream, dest) 
+                && developerConsole.checkParamEnd(stream)) {
+            window.m_screenHeight = dest;
+            return true;
+        }
+
+        return false;
+    });
+
+illConsole::ConsoleVariable cv_vid_colorDepth("16", VID_COLOR_DEPTH_DESC,
+    [&] (illConsole::ConsoleVariable * var, const char * value) {
+        std::istringstream stream(value);
+                
+        int dest;
+        if(developerConsole.getParamInt(stream, dest) 
+                && developerConsole.checkParamEnd(stream)) {
+            window.m_screenBPP = dest;
+            return true;
+        }
+
+        return false;
+    });
+
+illConsole::ConsoleVariable cv_vid_fullScreen("0", VID_FULL_SCREEN_DESC,
+    [&] (illConsole::ConsoleVariable * var, const char * value) {
+        std::istringstream stream(value);
+                
+        bool dest;
+        if(developerConsole.getParamBool(stream, dest) 
+                && developerConsole.checkParamEnd(stream)) {
+            window.m_fullScreen = dest;
+            return true;
+        }
+
+        return false;
+    });
+
+illConsole::ConsoleVariable cv_vid_aspect("0", VID_ASPECT_DESC,
+    [&] (illConsole::ConsoleVariable * var, const char * value) {
+        std::istringstream stream(value);
+                
+        std::string dest;
+        if(developerConsole.getParamString(stream, dest) 
+                && developerConsole.checkParamEnd(stream)) {
+            if(dest == "4:3") {
+                window.setApsectRatio(illGraphics::ASPECT_4_3);
+            }
+            else if(dest == "16:9") {
+                window.setApsectRatio(illGraphics::ASPECT_16_9);
+            }
+            else if(dest == "16:10") {
+                window.setApsectRatio(illGraphics::ASPECT_16_10);
+            }
+            else {
+                float floatAspect;
+                std::istringstream floatStream(dest);
+
+                //TODO: this is kinda shitty, I may need a proper tokenizer for this kind of thing
+                bool floatSuccess = floatStream >> floatAspect;
+                floatStream >> dest;
+
+                if(floatSuccess && floatStream.eof() && floatAspect >= 0.0f) {
+                    window.setApsectRatio(floatAspect);
+                }
+                else {
+                    developerConsole.printMessage(illLogging::LogDestination::MT_ERROR, "Expecting either 4:3, 16:9, 16:10, 0, or some arbitrary fractional number greater than 0.");
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        return false;
+    });
+
+illConsole::ConsoleCommand cm_vid_applyResolution(VID_APPLY_RESOLUTION_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        std::istringstream stream(params);
+
+        if(developerConsole.checkParamEnd(stream)) {
+            window.resize();
+        }
+    });
+
 /**
 I'm still up in the air if I want to do XML again for resource configuration.
 Maybe I'll use some kind of engine tools instead and the file will be a binary blob.
@@ -216,14 +325,14 @@ int main(int argc, char * argv[]) {
     developerConsole.m_commandManager = &consoleCommandManager;
     developerConsole.m_variableManager = &consoleVariableManager;
 
+    //init developer console
+    initConsole();
+
     //tests
 	testGeomUtil();
     testPool();
     testEndian();
     testSortDimensions();
-    
-    //init developer console
-    initConsole();
 
     thisFileSystem.init(argv[0]);
 
@@ -293,6 +402,17 @@ void initConsole() {
     consoleCommandManager.addCommand(CON_DUMP_NAME, &cm_conDump);
     consoleCommandManager.addCommand(EXEC_NAME, &cm_exec);
     consoleCommandManager.addCommand(CLEAR_NAME, &cm_clear);
+    consoleCommandManager.addCommand(ECHO_NAME, &cm_echo);
+
+    consoleVariableManager.addVariable(VID_SCREEN_WIDTH_NAME, &cv_vid_screenWidth);
+    consoleVariableManager.addVariable(VID_SCREEN_HEIGHT_NAME, &cv_vid_screenHeight);
+    consoleVariableManager.addVariable(VID_COLOR_DEPTH_NAME, &cv_vid_colorDepth);
+    consoleVariableManager.addVariable(VID_FULL_SCREEN_NAME, &cv_vid_fullScreen);
+    consoleVariableManager.addVariable(VID_ASPECT_NAME, &cv_vid_aspect);
+
+    consoleCommandManager.addCommand(VID_APPLY_RESOLUTION_NAME, &cm_vid_applyResolution);
+
+    developerConsole.consoleInput("..\\..\\..\\config.cfg");
 }
 
 const size_t NUM_TEXTURES = 58;

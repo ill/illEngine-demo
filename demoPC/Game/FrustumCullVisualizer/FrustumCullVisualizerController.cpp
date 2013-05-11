@@ -155,7 +155,7 @@ void FrustumCullVisualizerController::render() {
     m_camera.setPerspectiveTransform(m_cameraController.m_transform, m_engine->m_window->getAspectRatio() * 2.0f, illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR,
         m_hold ? 5000.0f : 1500.0f);
     
-    glViewport(0, m_engine->m_window->getResolution().y / 2, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y / 2);
+    glViewport(0, m_engine->m_window->m_screenHeight / 2, m_engine->m_window->m_screenWidth, m_engine->m_window->m_screenHeight / 2);
 
     //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer   
 
@@ -241,7 +241,7 @@ void FrustumCullVisualizerController::render() {
         
     //////////////
     //top down view
-    glViewport(0, 0, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y / 2);
+    glViewport(0, 0, m_engine->m_window->m_screenWidth, m_engine->m_window->m_screenHeight / 2);
 
     illGraphics::Camera topCamera;
     topCamera.setOrthoTransform(createTransform(glm::vec3(5000.0f, 10000.0f, 5000.0f), directionToMat3(glm::vec3(0.0f, -1.0f, 0.0f), glm::vec3(0.0f, 0.0f, 1.0f))),
@@ -294,7 +294,7 @@ void FrustumCullVisualizerController::render() {
     glDepthMask(GL_TRUE);
 
     //put viewport back
-    glViewport(0, 0, m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y);
+    glViewport(0, 0, m_engine->m_window->m_screenWidth, m_engine->m_window->m_screenHeight);
 
     ERROR_CHECK_OPENGL;
 }

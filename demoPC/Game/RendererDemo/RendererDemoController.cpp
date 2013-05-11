@@ -830,7 +830,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
 
     m_viewport = static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->registerViewport();
 
-    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->initialize(m_engine->m_window->getResolution(), 
+    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->initialize(glm::uvec2(m_engine->m_window->m_screenWidth, m_engine->m_window->m_screenHeight), 
         engine->m_shaderProgramManager);
     
     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_occlusionCamera = &m_occlusionCamera;
@@ -880,7 +880,7 @@ void RendererDemoController::render() {
             illGraphics::DEFAULT_FOV * m_cameraController.m_zoom, illGraphics::DEFAULT_NEAR, 5000.0f);
     }
 
-    m_camera.setViewport(glm::ivec2(0, 0), glm::ivec2(m_engine->m_window->getResolution().x, m_engine->m_window->getResolution().y));
+    m_camera.setViewport(glm::ivec2(0, 0), glm::ivec2(m_engine->m_window->m_screenWidth, m_engine->m_window->m_screenHeight));
 
     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugOcclusion = m_occlusionDebug;
     
