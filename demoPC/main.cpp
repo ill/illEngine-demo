@@ -109,7 +109,7 @@ illConsole::ConsoleVariable cv_con_logScreen("0", CON_LOG_SCREEN_DESC,
 
 illConsole::ConsoleCommand cm_set(SET_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
-        std::istringstream stream(params);
+        std::istringstream stream(params ? params : "");
 
         std::string varName;
         std::string value;
@@ -137,7 +137,7 @@ illConsole::ConsoleCommand cm_save(SAVE_DESC,
 
 illConsole::ConsoleCommand cm_description(DESCRIPTION_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
-        std::istringstream stream(params);
+        std::istringstream stream(params ? params : "");
 
         std::string name;
 
@@ -163,7 +163,7 @@ illConsole::ConsoleCommand cm_description(DESCRIPTION_DESC,
 
 illConsole::ConsoleCommand cm_toggle(TOGGLE_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
-        std::istringstream stream(params);
+        std::istringstream stream(params ? params : "");
 
         std::string varName;
 
@@ -189,7 +189,7 @@ illConsole::ConsoleCommand cm_toggle(TOGGLE_DESC,
 
 illConsole::ConsoleCommand cm_conDump(CON_DUMP_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
-        std::istringstream stream(params);
+        std::istringstream stream(params ? params : "");
 
         std::string path;
 
@@ -201,7 +201,7 @@ illConsole::ConsoleCommand cm_conDump(CON_DUMP_DESC,
 
 illConsole::ConsoleCommand cm_exec(EXEC_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
-        std::istringstream stream(params);
+        std::istringstream stream(params ? params : "");
 
         std::string path;
 
@@ -213,7 +213,7 @@ illConsole::ConsoleCommand cm_exec(EXEC_DESC,
 
 illConsole::ConsoleCommand cm_clear(CLEAR_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
-        std::istringstream stream(params);
+        std::istringstream stream(params ? params : "");
 
         if(developerConsole.checkParamEnd(stream)) {
             developerConsole.clearLines();
@@ -323,7 +323,7 @@ illConsole::ConsoleVariable cv_vid_aspect("0", VID_ASPECT_DESC,
 
 illConsole::ConsoleCommand cm_vid_applyResolution(VID_APPLY_RESOLUTION_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
-        std::istringstream stream(params);
+        std::istringstream stream(params ? params : "");
 
         if(developerConsole.checkParamEnd(stream)) {
             window.resize();
@@ -332,7 +332,7 @@ illConsole::ConsoleCommand cm_vid_applyResolution(VID_APPLY_RESOLUTION_DESC,
 
 illConsole::ConsoleCommand cm_bind(BIND_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
-        std::istringstream stream(params);
+        std::istringstream stream(params ? params : "");
 
         std::string input;
         std::string command;
@@ -371,7 +371,7 @@ illConsole::ConsoleCommand cm_bind(BIND_DESC,
 
 illConsole::ConsoleCommand cm_unbind(UNBIND_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
-        std::istringstream stream(params);
+        std::istringstream stream(params ? params : "");
 
         std::string input;
 
