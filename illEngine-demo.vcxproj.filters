@@ -162,6 +162,18 @@
     <ClCompile Include="illEngine\Console\serial\DeveloperConsole.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="demoPC\Cvars\inputVars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="demoPC\Cvars\consoleVars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="demoPC\Cvars\graphicsVars.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="demoPC\PcConsole.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="demoPC\Game\CameraController.h">
@@ -516,6 +528,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="demoPC\Cvars\inputVars.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="demoPC\PcConsole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

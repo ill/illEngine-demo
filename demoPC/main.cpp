@@ -11,6 +11,8 @@ This file needs to be included in the same file that implements the main method.
 
 #include "illEngine/Pc/serial/SdlWindow.h"
 #include "illEngine/Input/serial/InputManager.h"
+#include "illEngine/Pc/serial/sdlInputEnum.h"
+#include "PcConsole.h"
 
 #include "illEngine/Console/serial/DeveloperConsole.h"
 #include "illEngine/Console/serial/VariableManager.h"
@@ -56,9 +58,29 @@ SdlPc::SdlWindow window;
 GlCommon::GlBackend graphicsBackend;
 
 Demo::Engine engine;
+illPc::PcConsole console(&engine, &developerConsole);
 
 //The console variables and commands
-illConsole::ConsoleVariable cv_con_consoleOutput("", CON_CONSOLE_OUTPUT_DESC,
+illConsole::ConsoleVariable cv_con_visible("0", CON_VISIBLE_DESC,
+    [&] (illConsole::ConsoleVariable * var, const char * value) {
+        std::istringstream stream(value);
+
+        bool dest;
+        if(developerConsole.getParamBool(stream, dest) 
+                && developerConsole.checkParamEnd(stream)) {
+            if(dest) {
+                console.show();
+            }
+            else {
+                console.hide();
+            }
+            return true;
+        }
+
+        return false;
+    });
+
+illConsole::ConsoleVariable cv_con_output("", CON_OUTPUT_DESC,
     [&] (illConsole::ConsoleVariable * var, const char * value) {
         developerConsole.setOutputFile(value);
         return true;
@@ -200,6 +222,7 @@ illConsole::ConsoleCommand cm_clear(CLEAR_DESC,
 
 illConsole::ConsoleCommand cm_echo(ECHO_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
+        //TODO: remove the white space that occurs before the text to echo
         developerConsole.printMessage(illLogging::LogDestination::MessageLevel::MT_INFO, params);
     });
 
@@ -280,7 +303,7 @@ illConsole::ConsoleVariable cv_vid_aspect("0", VID_ASPECT_DESC,
                 std::istringstream floatStream(dest);
 
                 //TODO: this is kinda shitty, I may need a proper tokenizer for this kind of thing
-                bool floatSuccess = floatStream >> floatAspect;
+                bool floatSuccess = (floatStream >> floatAspect).fail();
                 floatStream >> dest;
 
                 if(floatSuccess && floatStream.eof() && floatAspect >= 0.0f) {
@@ -307,6 +330,80 @@ illConsole::ConsoleCommand cm_vid_applyResolution(VID_APPLY_RESOLUTION_DESC,
         }
     });
 
+illConsole::ConsoleCommand cm_bind(BIND_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        std::istringstream stream(params);
+
+        std::string input;
+        std::string command;
+
+        if(developerConsole.getParamString(stream, input)
+                && developerConsole.getParamString(stream, command)) {
+            //see if input is a valid input type
+            illInput::InputBinding binding = consoleInputToBinding(input.c_str());
+
+            if(binding.m_deviceType == (int) SdlPc::InputType::INVALID) {
+                developerConsole.printMessage(illLogging::LogDestination::MT_ERROR, formatString("Invalid input name %s.", input.c_str()).c_str());
+                return;
+            }
+
+            //see if command is a command name
+            if(developerConsole.m_commandManager->commandExists(command.c_str())) {
+                //ugh...
+                char commandArgs[256];
+                commandArgs[0] = ' ';
+                stream.get(commandArgs + 1, 255);
+                command.append(commandArgs); 
+
+                //TODO: make the command take a player number
+                inputManager.bindAction(0, binding, command.c_str(), illInput::InputManager::ActionType::CONSOLE_COMMAND);
+            }
+            else {
+                if(developerConsole.checkParamEnd(stream)) {
+                    inputManager.bindAction(0, binding, command.c_str(), illInput::InputManager::ActionType::CONTROL);
+                }
+                else {
+                    developerConsole.printMessage(illLogging::LogDestination::MT_ERROR, "Unexpected parameters when binding input action name.");
+                }
+            }
+        }
+    });
+
+illConsole::ConsoleCommand cm_unbind(UNBIND_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        std::istringstream stream(params);
+
+        std::string input;
+
+        if(developerConsole.getParamString(stream, input)) {
+            //see if input is a valid input type
+            illInput::InputBinding binding = consoleInputToBinding(input.c_str());
+
+            if(binding.m_deviceType == (int) SdlPc::InputType::INVALID) {
+                developerConsole.printMessage(illLogging::LogDestination::MT_ERROR, formatString("Invalid input name %s.", input.c_str()).c_str());
+                return;
+            }
+
+            //ugh...
+            char action[256];
+            stream.get(action, 256);
+
+            inputManager.unbindAction(0, binding, action);
+        }
+    });
+
+//TODO: implement
+illConsole::ConsoleCommand cm_saveBind(SAVE_BIND_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        developerConsole.printMessage(illLogging::LogDestination::MT_ERROR, "I still need to implement this.");
+    });
+
+//TODO: implement
+illConsole::ConsoleCommand cm_printInputBinds(PRINT_INPUT_BINDS_DESC,
+    [&] (const illConsole::ConsoleCommand *, const char * params) {
+        developerConsole.printMessage(illLogging::LogDestination::MT_ERROR, "I still need to implement this.");
+    });
+
 /**
 I'm still up in the air if I want to do XML again for resource configuration.
 Maybe I'll use some kind of engine tools instead and the file will be a binary blob.
@@ -325,8 +422,25 @@ int main(int argc, char * argv[]) {
     developerConsole.m_commandManager = &consoleCommandManager;
     developerConsole.m_variableManager = &consoleVariableManager;
 
+    //init inputs
+    inputManager.addPlayer(0);
+    inputManager.bindDevice((int) SdlPc::InputType::PC_KEYBOARD, 0);
+    inputManager.bindDevice((int) SdlPc::InputType::PC_MOUSE, 0);
+    inputManager.bindDevice((int) SdlPc::InputType::PC_MOUSE_BUTTON, 0);
+    inputManager.bindDevice((int) SdlPc::InputType::PC_MOUSE_WHEEL, 0);
+
+    //bind some console text input related things
+    inputManager.bindAction(0, illInput::InputBinding((int) SdlPc::InputType::PC_KEYBOARD, SDLK_LEFT), "Cons_CursLeft", illInput::InputManager::ActionType::CONTROL);
+    inputManager.bindAction(0, illInput::InputBinding((int) SdlPc::InputType::PC_KEYBOARD, SDLK_RIGHT), "Cons_CursRight", illInput::InputManager::ActionType::CONTROL);
+    inputManager.bindAction(0, illInput::InputBinding((int) SdlPc::InputType::PC_KEYBOARD, SDLK_UP), "Cons_HistoryUp", illInput::InputManager::ActionType::CONTROL);
+    inputManager.bindAction(0, illInput::InputBinding((int) SdlPc::InputType::PC_KEYBOARD, SDLK_DOWN), "Cons_HistoryDown", illInput::InputManager::ActionType::CONTROL);
+    inputManager.bindAction(0, illInput::InputBinding((int) SdlPc::InputType::PC_KEYBOARD, SDLK_RETURN), "Cons_CommandEnter", illInput::InputManager::ActionType::CONTROL);
+
     //init developer console
     initConsole();
+
+    LOG_INFO("Test test");
+    LOG_INFO("Test test 2\nHello New line but same message\n");
 
     //tests
 	testGeomUtil();
@@ -340,6 +454,7 @@ int main(int argc, char * argv[]) {
     //TODO: set up creating of the game archive as part of the build
     illFileSystem::fileSystem->addPath("..\\..\\..\\assets");
 
+    window.m_developerConsole = &developerConsole;
     engine.m_window = &window;
     engine.m_developerConsole = &developerConsole;
     engine.m_inputManager = &inputManager;
@@ -376,12 +491,15 @@ int main(int argc, char * argv[]) {
     window.setBackend(engine.m_graphicsBackend);
     window.setInputManager(engine.m_inputManager);
     engine.m_window->initialize();
+    
+    console.init();
 
     //run game loop
-    Demo::FixedStepController loopController(new Demo::MainController(&engine), &engine);
+    Demo::FixedStepController loopController(new Demo::MainController(&engine), &engine, &console);
     loopController.appLoop();
 
     //uninitialize things
+    console.uninit();
     engine.m_window->uninitialize();
     
     LOGGER_END_CATCH(illLogging::logger)
@@ -390,7 +508,8 @@ int main(int argc, char * argv[]) {
 }
 
 void initConsole() {
-    consoleVariableManager.addVariable(CON_CONSOLE_OUTPUT_NAME, &cv_con_consoleOutput);
+    consoleVariableManager.addVariable(CON_VISIBLE_NAME, &cv_con_visible);
+    consoleVariableManager.addVariable(CON_OUTPUT_NAME, &cv_con_output);
     consoleVariableManager.addVariable(CON_MAX_LINES_NAME, &cv_con_maxLines);
     consoleVariableManager.addVariable(CON_LOG_SCREEN_NAME, &cv_con_logScreen);
 
@@ -411,6 +530,11 @@ void initConsole() {
     consoleVariableManager.addVariable(VID_ASPECT_NAME, &cv_vid_aspect);
 
     consoleCommandManager.addCommand(VID_APPLY_RESOLUTION_NAME, &cm_vid_applyResolution);
+
+    consoleCommandManager.addCommand(BIND_NAME, &cm_bind);
+    consoleCommandManager.addCommand(UNBIND_NAME, &cm_unbind);
+    consoleCommandManager.addCommand(SAVE_BIND_NAME, &cm_saveBind);
+    consoleCommandManager.addCommand(PRINT_INPUT_BINDS_NAME, &cm_printInputBinds);
 
     developerConsole.consoleInput("..\\..\\..\\config.cfg");
 }

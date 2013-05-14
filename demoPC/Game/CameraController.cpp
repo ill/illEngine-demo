@@ -41,24 +41,22 @@ CameraController::CameraController()
     m_zoomDefaultListener.m_zoom = &m_zoom;
     
     //TODO: this should normally be configured externally
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_MOUSE, illInput::AX_X), &m_horzLookListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_MOUSE, illInput::AX_Y), &m_vertLookListener);   
+    m_inputContext.bindInput("HorizontalLook", &m_horzLookListener);
+    m_inputContext.bindInput("VerticalLook", &m_vertLookListener);   
 
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_w), &m_forwardListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_s), &m_backListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_a), &m_leftListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_d), &m_rightListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_SPACE), &m_upListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LCTRL), &m_downListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_q), &m_rollLeftListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_e), &m_rollRightListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LSHIFT), &m_sprintListener);
-
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_r), &m_lookModeListener);
-
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_MOUSE_WHEEL, illInput::AX_Y_POS), &m_zoomInListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_MOUSE_WHEEL, illInput::AX_Y_NEG), &m_zoomOutListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_MOUSE_BUTTON, 2), &m_zoomDefaultListener);
+    m_inputContext.bindInput("Forward", &m_forwardListener);
+    m_inputContext.bindInput("Back", &m_backListener);
+    m_inputContext.bindInput("Left", &m_leftListener);
+    m_inputContext.bindInput("Right", &m_rightListener);
+    m_inputContext.bindInput("Up", &m_upListener);
+    m_inputContext.bindInput("Down", &m_downListener);
+    m_inputContext.bindInput("RollLeft", &m_rollLeftListener);
+    m_inputContext.bindInput("RollRight", &m_rollRightListener);
+    m_inputContext.bindInput("Sprint", &m_sprintListener);
+    
+    m_inputContext.bindInput("Cam_ZoomIn", &m_zoomInListener);
+    m_inputContext.bindInput("Cam_ZoomOut", &m_zoomOutListener);
+    m_inputContext.bindInput("Cam_ZoomDefault", &m_zoomDefaultListener);
 }
 
 void CameraController::update(double seconds) {

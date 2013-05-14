@@ -17,13 +17,6 @@ MainController::MainController(Engine * engine)
     m_engine(engine),
     m_subGame(NULL)
 {
-    //initialize input
-    m_engine->m_inputManager->addPlayer(0);
-    m_engine->m_inputManager->bindDevice(SdlPc::PC_KEYBOARD, 0);
-    m_engine->m_inputManager->bindDevice(SdlPc::PC_MOUSE, 0);
-    m_engine->m_inputManager->bindDevice(SdlPc::PC_MOUSE_BUTTON, 0);
-    m_engine->m_inputManager->bindDevice(SdlPc::PC_MOUSE_WHEEL, 0);
-
     m_startSkeletalAnimationDemoListener.m_controller = this;
     m_startSkeletalAnimationDemoListener.m_startFunc = &MainController::startSkeletalAnimationDemo;
 
@@ -44,15 +37,7 @@ MainController::MainController(Engine * engine)
 
     m_startRendererDemoChaosListener.m_controller = this;
     m_startRendererDemoChaosListener.m_startFunc = &MainController::startRendererDemoChaos;
-
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F9), &m_startSkeletalAnimationDemoListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F10), &m_startFrustumIterVisualizerListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F11), &m_startFrustumCullVisualizerListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F5), &m_startRendererDemoTheGridListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F6), &m_startRendererDemoOrganizedListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F7), &m_startRendererDemoShortChaosListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_F8), &m_startRendererDemoChaosListener);
-
+    
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_inputContext);
 
     startRendererDemoTheGrid();

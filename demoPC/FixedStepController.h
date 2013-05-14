@@ -1,16 +1,21 @@
 #ifndef __FIXED_STEP_CONTROLLER_H__
 #define __FIXED_STEP_CONTROLLER_H__
 
+namespace illPc {
+class PcConsole;
+}
+
 namespace Demo {
 class GameControllerBase;
 struct Engine;
 
 class FixedStepController {
 public:
-    FixedStepController(GameControllerBase * gameController, Engine * engine) 
+    FixedStepController(GameControllerBase * gameController, Engine * engine, illPc::PcConsole * pcConsole) 
         : m_state(APPST_INITIALIZED),
         m_gameController(gameController),
-        m_engine(engine)
+        m_engine(engine),
+        m_console(pcConsole)
     {}
 
     ~FixedStepController() {}
@@ -31,6 +36,7 @@ private:
     State m_state;
     GameControllerBase * m_gameController;
     Engine * m_engine;
+    illPc::PcConsole * m_console;
 };
 
 }

@@ -70,14 +70,13 @@ void renderTextDebug(const char * text, const glm::mat4& transform, const illGra
 
         switch (horzAlign) {
         case FN_H_CENTER: {
-                const char ** textPtr = &text;
-                translate.x = font.getLineWidth(textPtr) * 0.5f;
+                //font.getLineWidth(text, translate.x);
+                translate.x *= 0.5f;
             }
             break;
 
         case FN_H_RIGHT: {
-                const char ** textPtr = &text;
-                translate.x = font.getLineWidth(textPtr);
+                //font.getLineWidth(text, translate.x);
             }
             break;
 
@@ -90,8 +89,12 @@ void renderTextDebug(const char * text, const glm::mat4& transform, const illGra
 
     while(*text) {
         //check if color code
-        if(font.getColorCode(&text, currColor)) {
-            continue;
+        {
+            const char * newPos = font.getColorCode(text, currColor);
+            if(newPos != text) {
+                text = newPos;
+                continue;
+            }
         }
 
         //parse special characters
@@ -105,14 +108,13 @@ void renderTextDebug(const char * text, const glm::mat4& transform, const illGra
 
             switch (horzAlign) {
             case FN_H_CENTER: {
-                    const char ** textPtr = &text;
-                    translate.x = font.getLineWidth(textPtr) * 0.5f;
+                    //font.getLineWidth(text, translate.x);
+                    translate.x *= 0.5f;
                 }
                 break;
 
             case FN_H_RIGHT: {
-                    const char ** textPtr = &text;
-                    translate.x = font.getLineWidth(textPtr);
+                    //font.getLineWidth(text, translate.x);
                 }
                 break;
 
@@ -2015,12 +2017,12 @@ FrustumIterVisualizerController::FrustumIterVisualizerController(Engine * engine
     m_completeFrustumIteratorListener.m_controller = this;
     m_mapToWorldListener.m_value = &m_mapToWorld;
     
-    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_RIGHT), &m_advanceFrustumIteratorListener);
-    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_UP), &m_advanceFrustumIteratorHoldListener);
-    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_LEFT), &m_restartFrustumIteratorListener);
-    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_DOWN), &m_resetFrustumIteratorListener);
-    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_END), &m_completeFrustumIteratorListener);
-    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_HOME), &m_mapToWorldListener);
+    m_frustumInputContext.bindInput("FrustumIterAdvance", &m_advanceFrustumIteratorListener);
+    m_frustumInputContext.bindInput("FrustumIterAdvanceHold", &m_advanceFrustumIteratorHoldListener);
+    m_frustumInputContext.bindInput("FrustumIterRestart", &m_restartFrustumIteratorListener);
+    m_frustumInputContext.bindInput("FrustumIterReset", &m_resetFrustumIteratorListener);
+    m_frustumInputContext.bindInput("FrustumIterComplete", &m_completeFrustumIteratorListener);
+    m_frustumInputContext.bindInput("FrustumIterMapToWorld", &m_mapToWorldListener);
     
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_frustumInputContext);

@@ -3,7 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <BoostPath>$(ProgramFiles)\boost\boost_1_47</BoostPath>
-    <SdlPath>..\dependancies\SDL-1.3.0-6248</SdlPath>
+    <SdlPath>..\dependancies\SDL-2.0.0-7140</SdlPath>
     <GlmPath>..\dependancies\glm-0.9.4.1</GlmPath>
     <GlewPath>..\dependancies\glew-1.9.0</GlewPath>
     <PhysFsPath>..\dependancies\physfs-2.0.2</PhysFsPath>

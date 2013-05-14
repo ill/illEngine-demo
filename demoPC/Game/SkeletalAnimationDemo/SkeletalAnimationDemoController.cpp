@@ -67,14 +67,13 @@ void renderTextDebug2(const char * text, const glm::mat4& transform, const illGr
 
         switch (horzAlign) {
         case FN_H_CENTER: {
-                const char ** textPtr = &text;
-                translate.x = font.getLineWidth(textPtr) * 0.5f;
+                //font.getLineWidth(text, translate.x);
+                translate.x *= 0.5f;
             }
             break;
 
         case FN_H_RIGHT: {
-                const char ** textPtr = &text;
-                translate.x = font.getLineWidth(textPtr);
+                //font.getLineWidth(text, translate.x);
             }
             break;
 
@@ -87,8 +86,12 @@ void renderTextDebug2(const char * text, const glm::mat4& transform, const illGr
 
     while(*text) {
         //check if color code
-        if(font.getColorCode(&text, currColor)) {
-            continue;
+        {
+            const char * newPos = font.getColorCode(text, currColor);
+            if(newPos != text) {
+                text = newPos;
+                continue;
+            }
         }
 
         //parse special characters
@@ -102,14 +105,13 @@ void renderTextDebug2(const char * text, const glm::mat4& transform, const illGr
 
             switch (horzAlign) {
             case FN_H_CENTER: {
-                    const char ** textPtr = &text;
-                    translate.x = font.getLineWidth(textPtr) * 0.5f;
+                    //font.getLineWidth(text, translate.x);
+                    translate.x *= 0.5f;
                 }
                 break;
 
             case FN_H_RIGHT: {
-                    const char ** textPtr = &text;
-                    translate.x = font.getLineWidth(textPtr);
+                    //font.getLineWidth(text, translate.x);
                 }
                 break;
 
@@ -773,12 +775,12 @@ SkeletalAnimationDemoController::SkeletalAnimationDemoController(Engine * engine
     m_upListener.m_value = &m_up;
     m_downListener.m_value = &m_down;
 
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_8), &m_forwardListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_5), &m_backListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_4), &m_leftListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_6), &m_rightListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_0), &m_upListener);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_KP_ENTER), &m_downListener);
+    m_inputContext.bindInput("SkelLightForward", &m_forwardListener);
+    m_inputContext.bindInput("SkelLightBack", &m_backListener);
+    m_inputContext.bindInput("SkelLightLeft", &m_leftListener);
+    m_inputContext.bindInput("SkelLightRight", &m_rightListener);
+    m_inputContext.bindInput("SkelLightUp", &m_upListener);
+    m_inputContext.bindInput("SkelLightDown", &m_downListener);
 
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_inputContext);

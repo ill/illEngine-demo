@@ -89,28 +89,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     m_objectOcclusionToggle.m_value = &m_perObjectOcclusion;
 
     m_toggleCamera.m_controller = this;
-
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_1), &m_noneDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_2), &m_depthDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_3), &m_normalDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_4), &m_diffuseDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_5), &m_specularDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_6), &m_diffuseAccumulationDebugMode);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_7), &m_specularAccumulationDebugMode);
-
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_n), &m_drawLightsToggle);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_b), &m_drawBoundsToggle);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_c), &m_performOcclusionToggle);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_l), &m_objectOcclusionToggle);
-
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_z), &m_stencilLightingPassToggle);    
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_o), &m_occlusionDebugToggle);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_p), &m_toggleCamera);
-
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_t), &m_topDownToggle);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_f), &m_drawFrustumToggle);
-    m_inputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_g), &m_drawGridToggle);
-
+    
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_inputContext);
 
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);

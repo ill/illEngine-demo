@@ -163,6 +163,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="demoPC\Cvars\consoleVars.cpp" />
+    <ClCompile Include="demoPC\Cvars\graphicsVars.cpp" />
+    <ClCompile Include="demoPC\Cvars\inputVars.cpp" />
     <ClCompile Include="demoPC\FixedStepController.cpp" />
     <ClCompile Include="demoPC\Game\CameraController.cpp" />
     <ClCompile Include="demoPC\Game\FrustumCullVisualizer\FrustumCullVisualizerController.cpp" />
@@ -200,6 +203,7 @@
     <ClCompile Include="illEngine\Input\serial\InputManager.cpp" />
     <ClCompile Include="illEngine\Logging\serial\SerialLogger.cpp" />
     <ClCompile Include="illEngine\Logging\StdioLogger.cpp" />
+    <ClCompile Include="demoPC\PcConsole.cpp" />
     <ClCompile Include="illEngine\Pc\serial\SdlWindow.cpp" />
     <ClCompile Include="illEngine\RendererCommon\serial\GraphicsNode.cpp" />
     <ClCompile Include="illEngine\RendererCommon\serial\GraphicsScene.cpp" />
@@ -261,6 +265,7 @@
     <ClInclude Include="illEngine\Graphics\serial\Model\ModelAnimationController.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\Skeleton.h" />
     <ClInclude Include="illEngine\Graphics\serial\Model\SkeletonAnimation.h" />
+    <ClInclude Include="demoPC\PcConsole.h" />
     <ClInclude Include="illEngine\RendererCommon\RendererBackend.h" />
     <ClInclude Include="illEngine\RendererCommon\serial\GraphicsNode.h" />
     <ClInclude Include="illEngine\DeferredShadingRenderer\serial\DeferredShadingScene.h" />

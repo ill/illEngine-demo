@@ -126,7 +126,7 @@ FrustumCullVisualizerController::FrustumCullVisualizerController(Engine * engine
     //initialize the input (this would normally initialize using console variables)    
     m_holdFrustumIteratorCallback.m_controller = this;
     
-    m_frustumInputContext.bindInput(illInput::InputBinding(SdlPc::PC_KEYBOARD, SDLK_END), &m_holdFrustumIteratorCallback);
+    m_frustumInputContext.bindInput("FrustumCullHoldIter", &m_holdFrustumIteratorCallback);
     
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_frustumInputContext);

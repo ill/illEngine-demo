@@ -8,6 +8,7 @@
 #include "illEngine/Graphics/Window.h"
 #include "illEngine/Graphics/GraphicsBackend.h"
 #include "illEngine/Logging/logging.h"
+#include "PcConsole.h"
 
 namespace Demo {
 
@@ -38,6 +39,9 @@ void FixedStepController::appLoop() {
         
         int steps = 0;
 
+        //update developer console
+        m_console->update(milliseconds / 1000.0f);
+
         //run the game loop with a fixed step
         while(timeAccumulator > STEP_SIZE && steps++ < MAX_STEPS) {
             timeAccumulator -= STEP_SIZE;
@@ -53,8 +57,9 @@ void FixedStepController::appLoop() {
         //draw screen
         m_engine->m_window->beginFrame();
         m_engine->m_graphicsBackend->beginFrame();
-
+                
         m_gameController->render();
+        m_console->render();
 
         m_engine->m_graphicsBackend->endFrame();
         m_engine->m_window->endFrame();
