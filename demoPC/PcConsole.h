@@ -138,6 +138,9 @@ private:
                     m_console->m_commandHistory.pop_back();
                 }
 
+                //Print command just typed to the console
+                m_console->m_console->printMessage(illLogging::LogDestination::MessageLevel::MT_INFO,
+                    ("^2>^7 " + std::string(m_console->m_typingInfo.m_destination)).c_str());   //LOL
                 //RUN!!!!
                 m_console->m_console->parseInput(m_console->m_typingInfo.m_destination);
 

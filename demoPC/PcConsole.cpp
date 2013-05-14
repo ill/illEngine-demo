@@ -194,7 +194,7 @@ void PcConsole::render() {
 
         glm::mediump_float currY = consoleDimensions.y;
                 
-        char prompt[CONS_ENTRY_SIZE + 6] = "^3>^7 ";        //yellow prompt arrow followed by white text
+        char prompt[CONS_ENTRY_SIZE + 6] = "^2>^7 ";        //lime green prompt arrow followed by white text
         strncat(prompt, m_entry, CONS_ENTRY_SIZE + 6);
 
         //cursor
