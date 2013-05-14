@@ -50,7 +50,7 @@ private:
     illGraphics::ShaderProgram m_fontShader;
     illGraphics::ShaderProgramLoader * m_internalShaderProgramLoader;
 
-    std::list<std::string>::iterator m_commandHistoryIter;
+    std::list<std::string>::reverse_iterator m_commandHistoryIter;
     std::list<std::string> m_commandHistory;
     char m_entry[CONS_ENTRY_SIZE];
     
@@ -92,13 +92,14 @@ private:
                 return;
             }
 
-            if(++m_console->m_commandHistoryIter == m_console->m_commandHistory.end()) {
+            if(m_console->m_commandHistoryIter != m_console->m_commandHistory.rbegin()) {
                 --m_console->m_commandHistoryIter;
             }
 
             const std::string& commandText = *m_console->m_commandHistoryIter;
             memcpy(m_console->m_typingInfo.m_destination, commandText.c_str(), commandText.length());
             m_console->m_typingInfo.m_destination[commandText.length()] = 0;
+            m_console->m_typingInfo.m_selectionStart = commandText.length();
         }
 
         PcConsole * m_console;
@@ -110,13 +111,20 @@ private:
                 return;
             }
 
-            if(m_console->m_commandHistoryIter != m_console->m_commandHistory.begin()) {
-                m_console->m_commandHistoryIter--;
+            if(m_console->m_commandHistoryIter != m_console->m_commandHistory.rend()) {
+                ++m_console->m_commandHistoryIter;
             }
 
-            const std::string& commandText = *m_console->m_commandHistoryIter;
-            memcpy(m_console->m_typingInfo.m_destination, commandText.c_str(), commandText.length());
-            m_console->m_typingInfo.m_destination[commandText.length()] = 0;
+            if(m_console->m_commandHistoryIter == m_console->m_commandHistory.rend()) {
+                m_console->m_typingInfo.m_destination[0] = 0;
+                m_console->m_typingInfo.m_selectionStart = 0;
+            }
+            else {
+                const std::string& commandText = *m_console->m_commandHistoryIter;
+                memcpy(m_console->m_typingInfo.m_destination, commandText.c_str(), commandText.length());
+                m_console->m_typingInfo.m_destination[commandText.length()] = 0;
+                m_console->m_typingInfo.m_selectionStart = commandText.length();
+            }
         }
 
         PcConsole * m_console;
@@ -134,7 +142,7 @@ private:
                 m_console->m_console->parseInput(m_console->m_typingInfo.m_destination);
 
                 m_console->m_commandHistory.emplace_front(m_console->m_typingInfo.m_destination);
-                m_console->m_commandHistoryIter = m_console->m_commandHistory.begin();
+                m_console->m_commandHistoryIter = m_console->m_commandHistory.rend();
                 m_console->m_typingInfo.m_destination[0] = 0;
                 m_console->m_typingInfo.m_selectionStart = 0;
             }

@@ -26,6 +26,7 @@ PcConsole::PcConsole(Demo::Engine * engine, illConsole::DeveloperConsole * conso
     m_cursorBlinkTimer(0.0f)
 {
     m_entry[0] = 0;
+    m_commandHistoryIter = m_commandHistory.rend();
 }
 
 void PcConsole::init() {
@@ -241,7 +242,7 @@ void PcConsole::update(float seconds) {
     m_cursorBlinkTimer -= seconds;
     
     if(m_cursorBlinkTimer < 0.0f) {
-        m_cursorBlinkTimer = 0.5f;
+        m_cursorBlinkTimer = 0.25f;
         m_cursorVisible = !m_cursorVisible;
     }
 
