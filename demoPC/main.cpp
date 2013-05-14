@@ -124,7 +124,7 @@ illConsole::ConsoleCommand cm_set(SET_DESC,
             }
             else {
                 developerConsole.printMessage(illLogging::LogDestination::MT_INFO, formatString("Adding new console variable %s", varName).c_str());
-                developerConsole.m_variableManager->addVariable(varName.c_str(), new illConsole::ConsoleVariable(value.c_str()));
+                developerConsole.m_variableManager->addVariable(varName.c_str(), new illConsole::ConsoleVariable(value.c_str(), "Newly created variable by setting a previously undefined variable name."));
             }
         }
     });
