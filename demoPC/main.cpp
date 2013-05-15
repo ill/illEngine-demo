@@ -37,6 +37,8 @@ This file needs to be included in the same file that implements the main method.
 #include "Cvars/graphicsVars.h"
 #include "Cvars/inputVars.h"
 
+#include "Util/CrappyBmFontRenderer.h"
+
 //tests
 #include "Tests/tests.h"
 
@@ -224,6 +226,21 @@ illConsole::ConsoleCommand cm_echo(ECHO_DESC,
     [&] (const illConsole::ConsoleCommand *, const char * params) {
         //TODO: remove the white space that occurs before the text to echo
         developerConsole.printMessage(illLogging::LogDestination::MessageLevel::MT_INFO, params);
+    });
+
+illConsole::ConsoleVariable cv_vid_showFps("0", VID_SHOW_FPS_DESC,
+    [&] (illConsole::ConsoleVariable * var, const char * value) {
+        std::istringstream stream(value);
+                
+        bool dest;
+        if(developerConsole.getParamBool(stream, dest) 
+                && developerConsole.checkParamEnd(stream)) {            
+            engine.m_showingFps = dest;
+
+            return true;
+        }
+
+        return false;
     });
 
 illConsole::ConsoleVariable cv_vid_screenWidth("640", VID_SCREEN_WIDTH_DESC,
@@ -491,15 +508,16 @@ int main(int argc, char * argv[]) {
     window.setBackend(engine.m_graphicsBackend);
     window.setInputManager(engine.m_inputManager);
     engine.m_window->initialize();
-    
+   
     console.init();
+    CrappyBmFontRenderer fontRenderer(&engine);
+    engine.m_crappyFontRenderer = &fontRenderer;
 
     //run game loop
     Demo::FixedStepController loopController(new Demo::MainController(&engine), &engine, &console);
     loopController.appLoop();
 
     //uninitialize things
-    console.uninit();
     engine.m_window->uninitialize();
     
     LOGGER_END_CATCH(illLogging::logger)
@@ -523,6 +541,7 @@ void initConsole() {
     consoleCommandManager.addCommand(CLEAR_NAME, &cm_clear);
     consoleCommandManager.addCommand(ECHO_NAME, &cm_echo);
 
+    consoleVariableManager.addVariable(VID_SHOW_FPS_NAME, &cv_vid_showFps);
     consoleVariableManager.addVariable(VID_SCREEN_WIDTH_NAME, &cv_vid_screenWidth);
     consoleVariableManager.addVariable(VID_SCREEN_HEIGHT_NAME, &cv_vid_screenHeight);
     consoleVariableManager.addVariable(VID_COLOR_DEPTH_NAME, &cv_vid_colorDepth);

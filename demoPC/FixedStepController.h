@@ -1,6 +1,8 @@
 #ifndef __FIXED_STEP_CONTROLLER_H__
 #define __FIXED_STEP_CONTROLLER_H__
 
+#include "Util/Graph.h"
+
 namespace illPc {
 class PcConsole;
 }
@@ -11,13 +13,7 @@ struct Engine;
 
 class FixedStepController {
 public:
-    FixedStepController(GameControllerBase * gameController, Engine * engine, illPc::PcConsole * pcConsole) 
-        : m_state(APPST_INITIALIZED),
-        m_gameController(gameController),
-        m_engine(engine),
-        m_console(pcConsole)
-    {}
-
+    FixedStepController(GameControllerBase * gameController, Engine * engine, illPc::PcConsole * pcConsole);
     ~FixedStepController() {}
 
     void appLoop();
@@ -32,6 +28,10 @@ private:
         APPST_RUNNING,
         APPST_EXITING
     };
+
+    //TODO: take this out for a real game and use the renderer backend, this makes raw GL calls
+    void renderFpsGraph();
+    Graph m_fpsGraph;
 
     State m_state;
     GameControllerBase * m_gameController;

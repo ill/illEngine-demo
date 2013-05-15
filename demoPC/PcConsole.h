@@ -5,8 +5,6 @@
 #include <cstring>
 #include <string>
 
-#include "illEngine/Graphics/serial/BitmapFont.h"
-#include "illEngine/Graphics/serial/material/ShaderProgram.h"
 #include "Engine.h"
 #include "illEngine/Graphics/Window.h"
 
@@ -28,13 +26,8 @@ public:
     };
 
     PcConsole(Demo::Engine * engine, illConsole::DeveloperConsole * console);
-
-    ~PcConsole() {
-        delete m_internalShaderProgramLoader;
-    }
-
+    
     void init();
-    void uninit();
 
     void hide();
     void show();
@@ -45,11 +38,7 @@ public:
     ///Whether or not the console messages still show up even when hidden
     bool m_showOnscreen;
 
-private:    
-    illGraphics::BitmapFont m_font;
-    illGraphics::ShaderProgram m_fontShader;
-    illGraphics::ShaderProgramLoader * m_internalShaderProgramLoader;
-
+private:  
     std::list<std::string>::reverse_iterator m_commandHistoryIter;
     std::list<std::string> m_commandHistory;
     char m_entry[CONS_ENTRY_SIZE];

@@ -1,5 +1,8 @@
 #include "graphicsVars.h"
 
+const char * VID_SHOW_FPS_DESC = "Shows a frames per second graph if enabled";
+const char * VID_SHOW_FPS_NAME = "vid_showFPS";
+
 const char * VID_SCREEN_WIDTH_DESC = "Screen resolution width in pixels. Call vid_applyResolution to make changes take place after setting.";
 const char * VID_SCREEN_WIDTH_NAME = "vid_screenWidth";
 

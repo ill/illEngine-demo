@@ -4,6 +4,10 @@
 #include "illEngine/Console/serial/VariableManager.h"
 #include "illEngine/Console/serial/CommandManager.h"
 
+extern const char * VID_SHOW_FPS_DESC;
+extern const char * VID_SHOW_FPS_NAME;
+extern illConsole::ConsoleVariable cv_vid_showFps;
+
 extern const char * VID_SCREEN_WIDTH_DESC;
 extern const char * VID_SCREEN_WIDTH_NAME;
 extern illConsole::ConsoleVariable cv_vid_screenWidth;

@@ -59,6 +59,8 @@ namespace illInput {
 class InputManager;
 }
 
+struct CrappyBmFontRenderer;
+
 namespace Demo {
 
 /**
@@ -66,6 +68,14 @@ TODO: this is generally a good struct for any simple game with a single window s
 */
 struct Engine {
 public:
+    Engine()
+        : m_showingFps(false),
+        m_showingRendererPerf(false)
+    {}
+
+    //TODO: think of a cleverer way to protect these with getters, or not...  What idiot programmer would ever use these unsafely anyway?  (hint, hint... don't try to change these, just use them)
+    //just don't mess with these, do you really want me to go in and write getters when I can just leave them public?
+    //I have to set them from main() somehow anyway and I'd have to do PIMPL or make the constructor take them or something.  meh...
     illConsole::DeveloperConsole * m_developerConsole;
 
     illGraphics::Window * m_window;
@@ -82,6 +92,12 @@ public:
     illGraphics::SkeletonAnimationManager * m_skeletonAnimationManager;
 
     illInput::InputManager * m_inputManager;
+
+    CrappyBmFontRenderer * m_crappyFontRenderer;
+    
+    //some debugging vars, TODO: think of a cleverer way to do this later
+    bool m_showingFps;
+    bool m_showingRendererPerf;
 };
 
 }

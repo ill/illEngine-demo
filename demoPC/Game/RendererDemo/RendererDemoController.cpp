@@ -18,6 +18,8 @@
 #include "illEngine/RendererCommon/serial/StaticMeshNode.h"
 #include "illEngine/RendererCommon/serial/LightNode.h"
 
+#include "../../Util/CrappyBmFontRenderer.h"
+
 #include <fstream>
 
 //TODO: for now I'm testing a bunch of stuff, normally all rendering is done through the renderer
@@ -53,11 +55,29 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     m_occlusionDebug(false),
     m_performCull(true),
 
+    m_showPerformance(true),
     m_perObjectOcclusion(false),
     m_topDown(false),
     m_drawFrustum(false),
     m_drawGrid(false)
 { 
+    //set up graphs
+    m_numTraversedCellsGraph.m_name.assign("Traversed Cells");
+    m_numRenderedCellsGraph.m_name.assign("Rendered Cells");
+    m_numEmptyCellsGraph.m_name.assign("Empty Cells");
+    m_numCulledCellsGraph.m_name.assign("Culled Cells");
+    m_numProcessedNodesGraph.m_name.assign("Processed Nodes");
+    m_numRenderedNodesGraph.m_name.assign("Rendered Nodes");
+    m_numCulledNodesGraph.m_name.assign("Culled Nodes");
+
+    m_numTraversedCellsGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numRenderedCellsGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numEmptyCellsGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numCulledCellsGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numProcessedNodesGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numRenderedNodesGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numCulledNodesGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+
     //set up inputs
     m_noneDebugMode.m_controller = this;
     m_noneDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::NONE);
@@ -123,8 +143,15 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             
             m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
                 m_engine->m_meshManager, m_engine->m_materialManager,
-                glm::vec3(50.0f, 100.0f, 50.0f), glm::uvec3(25, 5, 25), 
-                glm::vec3(50.0f, 100.0f, 50.0f), glm::uvec3(25, 5, 25));
+                
+                glm::vec3(50.0f), glm::uvec3(25, 10, 25), 
+                glm::vec3(50.0f), glm::uvec3(25, 10, 25));
+
+
+                //glm::vec3(50.0f, 100.0f, 50.0f), glm::uvec3(25, 5, 25), 
+                //glm::vec3(50.0f, 100.0f, 50.0f), glm::uvec3(25, 5, 25));
+
+                
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42), 
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42));
 
@@ -871,6 +898,19 @@ void RendererDemoController::render() {
     m_graphicsScene->setupFrame();
     m_graphicsScene->render(m_camera, m_viewport);
 
+    if(m_showPerformance) {
+        m_numTraversedCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumTraversedCells);
+        m_numRenderedCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumTraversedCells
+            - static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumEmptyCells
+            - static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumCulledCells);
+        m_numEmptyCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumEmptyCells);
+        m_numCulledCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumCulledCells);
+        m_numProcessedNodesGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumRenderedNodes
+            + static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumCulledNodes);
+        m_numRenderedNodesGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumRenderedNodes);
+        m_numCulledNodesGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumCulledNodes);
+    }
+
     glUseProgram(0);
 
     glActiveTexture(GL_TEXTURE0);
@@ -915,6 +955,120 @@ void RendererDemoController::render() {
         glVertex3f(0.0f, 0.0f, 0.0f);
         glVertex3f(0.0f, 0.0f, 5.0f);
     glEnd();
+    
+    if(m_showPerformance) {
+        illGraphics::Camera graphCam;
+        graphCam.setOrthoTransform(glm::mat4(), 0.0f, m_engine->m_window->m_screenWidth, 0.0f, m_engine->m_window->m_screenHeight);
+
+        float currY = m_engine->m_window->m_screenHeight - GRAPH_HEIGHT;
+        m_numTraversedCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        currY -= GRAPH_HEIGHT + 5.0f;
+        m_numRenderedCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        currY -= GRAPH_HEIGHT + 5.0f;
+        m_numEmptyCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        currY -= GRAPH_HEIGHT + 5.0f;
+        m_numCulledCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        currY -= GRAPH_HEIGHT + 5.0f;
+        m_numProcessedNodesGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        currY -= GRAPH_HEIGHT + 5.0f;
+        m_numRenderedNodesGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        currY -= GRAPH_HEIGHT + 5.0f;
+        m_numCulledNodesGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        m_numCulledNodesGraph.m_fontRenderer->setupRender();
+
+        int numTotalBytes = 0;
+
+        {
+            auto vol = m_graphicsScene->getGridVolume();
+            int numCells = vol.getCellNumber().x * vol.getCellNumber().y * vol.getCellNumber().z;
+            int numBytes = numCells * sizeof(illRendererCommon::GraphicsScene::NodeContainer);
+            numTotalBytes += numBytes;
+
+            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+
+            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Scene Grid: (%u x %u x %u) (%u cells total).",
+                    vol.getCellNumber().x, 
+                    vol.getCellNumber().y, 
+                    vol.getCellNumber().z, 
+                    numCells
+                ).c_str(), 
+                glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+
+            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Dynamic Scene Cells: %u bytes per cell. %u bytes / %f megabytes total.",                    
+                    sizeof(illRendererCommon::GraphicsScene::NodeContainer),
+                    numBytes,
+                    (float) (numBytes) / 1024.0f / 1024.0f
+                ).c_str(), 
+                glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+
+            numBytes = numCells * sizeof(illRendererCommon::GraphicsScene::StaticNodeContainer);
+            numTotalBytes += numBytes;
+
+            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Static Scene Cells: %u bytes per cell. %u bytes / %f megabytes total.",
+                    sizeof(illRendererCommon::GraphicsScene::StaticNodeContainer),
+                    numBytes,
+                    (float) (numBytes) / 1024.0f / 1024.0f
+                ).c_str(), 
+                glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+        }
+
+        {
+            auto vol = m_graphicsScene->getInteractionGridVolume();
+            int numCells = vol.getCellNumber().x * vol.getCellNumber().y * vol.getCellNumber().z;
+            int numBytes = numCells * sizeof(illRendererCommon::GraphicsScene::LightNodeContainer);
+            numTotalBytes += numBytes;
+
+            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+
+            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Interaction Grid: (%u x %u x %u) (%u total).",
+                    vol.getCellNumber().x, 
+                    vol.getCellNumber().y, 
+                    vol.getCellNumber().z, 
+                    numCells                    
+                ).c_str(), 
+                glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+
+            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Dynamic Light Cells: %u bytes per cell. %u bytes / %f megabytes total.",                    
+                    sizeof(illRendererCommon::GraphicsScene::NodeContainer),
+                    numBytes,
+                    (float) (numBytes) / 1024.0f / 1024.0f
+                ).c_str(), 
+                glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+
+            numBytes = numCells * sizeof(illRendererCommon::GraphicsScene::StaticLightNodeContainer);
+            numTotalBytes += numBytes;
+
+            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Static Light Cells: %u bytes per cell. %u bytes / %f megabytes total.",
+                    sizeof(illRendererCommon::GraphicsScene::StaticNodeContainer),
+                    numBytes,
+                    (float) (numBytes) / 1024.0f / 1024.0f
+                ).c_str(), 
+                glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+        }
+
+        currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+
+         m_numCulledNodesGraph.m_fontRenderer->render(formatString("Total Cell Memory: %u bytes / %f megabytes.",
+                    numTotalBytes,
+                    (float) (numTotalBytes) / 1024.0f / 1024.0f
+                ).c_str(), 
+                glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+    }
 
     if(m_occlusionDebug) {
         glMatrixMode(GL_PROJECTION);

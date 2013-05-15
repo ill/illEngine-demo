@@ -15,6 +15,8 @@
 #include "illEngine/Graphics/serial/Camera/CameraTransform.h"
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
 
+#include "../../Util/Graph.h"
+
 namespace illRendererCommon {
 class GraphicsScene;
 class RendererBackend;
@@ -99,6 +101,15 @@ private:
     illInput::StateReleaseToggleListener m_drawBoundsToggle;
 
     illInput::InputContext m_inputContext;
+    
+    bool m_showPerformance;
+    Graph m_numTraversedCellsGraph;
+    Graph m_numRenderedCellsGraph;
+    Graph m_numEmptyCellsGraph;
+    Graph m_numCulledCellsGraph;
+    Graph m_numProcessedNodesGraph;
+    Graph m_numRenderedNodesGraph;
+    Graph m_numCulledNodesGraph;
 
     bool m_performCull;
     bool m_occlusionDebug;
