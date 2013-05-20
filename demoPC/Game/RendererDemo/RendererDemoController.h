@@ -103,13 +103,16 @@ private:
     illInput::InputContext m_inputContext;
     
     bool m_showPerformance;
-    Graph m_numTraversedCellsGraph;
-    Graph m_numRenderedCellsGraph;
+    Graph m_numTraversedCellsGraph;    
     Graph m_numEmptyCellsGraph;
+    Graph m_numNonEmptyCellsGraph;
+    Graph m_numCellQueriesGraph;
+    Graph m_numCellsUnqueriedGraph;
+    Graph m_numRenderedCellsGraph;    
     Graph m_numCulledCellsGraph;
+    Graph m_cellRequeryDurationGraph;
     Graph m_numProcessedNodesGraph;
-    Graph m_numRenderedNodesGraph;
-    Graph m_numCulledNodesGraph;
+    Graph m_numOverflowedQueriesGraph;
 
     bool m_performCull;
     bool m_occlusionDebug;

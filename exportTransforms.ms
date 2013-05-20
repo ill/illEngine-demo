@@ -315,7 +315,23 @@ if selection.count > 0 then (
 						)
 					)
 				)
-				else (				
+				else (
+					--occluder mode
+					occluderModeStr = getUserProp i "occluder"
+					
+					if occluderModeStr == undefined or occluderModeStr == "always" then (
+						format "0\n" to:output_file
+					)
+					else if occluderModeStr == "limited" then (
+						format "1\n" to:output_file
+					)
+					else if occluderModeStr == "never" then (
+						format "2\n" to:output_file
+					)
+					else (
+						format "999\n" to:output_file	--error on load, it's hard for me to catch errors in script, they don't seem to pop up
+					)
+					
 					--materials
 					if getNumSubMtls i.material > 0 then (
 						

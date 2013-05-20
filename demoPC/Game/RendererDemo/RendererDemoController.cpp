@@ -63,20 +63,26 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
 { 
     //set up graphs
     m_numTraversedCellsGraph.m_name.assign("Traversed Cells");
-    m_numRenderedCellsGraph.m_name.assign("Rendered Cells");
     m_numEmptyCellsGraph.m_name.assign("Empty Cells");
+    m_numNonEmptyCellsGraph.m_name.assign("Non-Empty Cells");
+    m_numCellQueriesGraph.m_name.assign("Cell Queries");
+    m_numCellsUnqueriedGraph.m_name.assign("Cells Unqueried");
+    m_numRenderedCellsGraph.m_name.assign("Rendered Cells");
     m_numCulledCellsGraph.m_name.assign("Culled Cells");
+    m_cellRequeryDurationGraph.m_name.assign("Cell Requry Frames");
     m_numProcessedNodesGraph.m_name.assign("Processed Nodes");
-    m_numRenderedNodesGraph.m_name.assign("Rendered Nodes");
-    m_numCulledNodesGraph.m_name.assign("Culled Nodes");
+    m_numOverflowedQueriesGraph.m_name.assign("Overflowed Queries");
 
     m_numTraversedCellsGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
-    m_numRenderedCellsGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
     m_numEmptyCellsGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numNonEmptyCellsGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numCellQueriesGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numCellsUnqueriedGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numRenderedCellsGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;    
     m_numCulledCellsGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_cellRequeryDurationGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
     m_numProcessedNodesGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
-    m_numRenderedNodesGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
-    m_numCulledNodesGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
+    m_numOverflowedQueriesGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
 
     //set up inputs
     m_noneDebugMode.m_controller = this;
@@ -144,8 +150,11 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
                 m_engine->m_meshManager, m_engine->m_materialManager,
                 
-                glm::vec3(50.0f), glm::uvec3(25, 10, 25), 
-                glm::vec3(50.0f), glm::uvec3(25, 10, 25));
+                //glm::vec3(25.0f), glm::uvec3(3, 1, 4), 
+                //glm::vec3(25.0f), glm::uvec3(2, 1, 25));
+
+                glm::vec3(25.0f), glm::uvec3(50, 30, 50), 
+                glm::vec3(25.0f), glm::uvec3(50, 30, 50));
 
 
                 //glm::vec3(50.0f, 100.0f, 50.0f), glm::uvec3(25, 5, 25), 
@@ -331,8 +340,16 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                         openFile >> bounds.m_max[vec];
                     }
 
+                    //read occluder type
+                    int occluderType;
+                    openFile >> occluderType;
+
+                    if(occluderType > 2) {
+                        LOG_FATAL_ERROR("Invalid occluder type %d for mesh %s", occluderType, meshName.c_str());
+                    }
+
                     illRendererCommon::StaticMeshNode * node = new illRendererCommon::StaticMeshNode(m_graphicsScene,
-                        transform, bounds);
+                        transform, bounds, (illRendererCommon::StaticMeshNode::OccluderType) occluderType);
                     
                     node->m_meshId = m_engine->m_meshManager->getIdForName(meshName.c_str());
 
@@ -355,6 +372,8 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                 }
             }
         }
+
+        LOG_INFO("Scene done loading");
 
         break;
 
@@ -900,15 +919,27 @@ void RendererDemoController::render() {
 
     if(m_showPerformance) {
         m_numTraversedCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumTraversedCells);
+
+        m_numEmptyCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumEmptyCells);
+
+        m_numNonEmptyCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumTraversedCells
+            - static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumEmptyCells);
+
+        m_numCellQueriesGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumQueries);
+
+        m_numCellsUnqueriedGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumUnqueried);
+
         m_numRenderedCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumTraversedCells
             - static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumEmptyCells
             - static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumCulledCells);
-        m_numEmptyCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumEmptyCells);
+
         m_numCulledCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumCulledCells);
-        m_numProcessedNodesGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumRenderedNodes
-            + static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumCulledNodes);
-        m_numRenderedNodesGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumRenderedNodes);
-        m_numCulledNodesGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumCulledNodes);
+        
+        m_cellRequeryDurationGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugRequeryDuration);
+
+        m_numProcessedNodesGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumRenderedNodes);
+
+        m_numOverflowedQueriesGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumOverflowedQueries);
     }
 
     glUseProgram(0);
@@ -964,24 +995,33 @@ void RendererDemoController::render() {
         m_numTraversedCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
 
         currY -= GRAPH_HEIGHT + 5.0f;
-        m_numRenderedCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+        m_numEmptyCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
 
         currY -= GRAPH_HEIGHT + 5.0f;
-        m_numEmptyCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+        m_numNonEmptyCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        currY -= GRAPH_HEIGHT + 5.0f;
+        m_numCellQueriesGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        currY -= GRAPH_HEIGHT + 5.0f;
+        m_numCellsUnqueriedGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        currY -= GRAPH_HEIGHT + 5.0f;
+        m_numRenderedCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
 
         currY -= GRAPH_HEIGHT + 5.0f;
         m_numCulledCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
 
         currY -= GRAPH_HEIGHT + 5.0f;
+        m_cellRequeryDurationGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+
+        currY -= GRAPH_HEIGHT + 5.0f;
         m_numProcessedNodesGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
 
         currY -= GRAPH_HEIGHT + 5.0f;
-        m_numRenderedNodesGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
-
-        currY -= GRAPH_HEIGHT + 5.0f;
-        m_numCulledNodesGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
-
-        m_numCulledNodesGraph.m_fontRenderer->setupRender();
+        m_numOverflowedQueriesGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+        
+        m_numOverflowedQueriesGraph.m_fontRenderer->setupRender();
 
         int numTotalBytes = 0;
 
@@ -991,9 +1031,9 @@ void RendererDemoController::render() {
             int numBytes = numCells * sizeof(illRendererCommon::GraphicsScene::NodeContainer);
             numTotalBytes += numBytes;
 
-            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+            currY -= m_numOverflowedQueriesGraph.m_fontRenderer->m_font.getLineHeight();
 
-            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Scene Grid: (%u x %u x %u) (%u cells total).",
+            m_numOverflowedQueriesGraph.m_fontRenderer->render(formatString("Scene Grid: (%u x %u x %u) (%u cells total).",
                     vol.getCellNumber().x, 
                     vol.getCellNumber().y, 
                     vol.getCellNumber().z, 
@@ -1001,21 +1041,21 @@ void RendererDemoController::render() {
                 ).c_str(), 
                 glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
 
-            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+            currY -= m_numOverflowedQueriesGraph.m_fontRenderer->m_font.getLineHeight();
 
-            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Dynamic Scene Cells: %u bytes per cell. %u bytes / %f megabytes total.",                    
+            m_numOverflowedQueriesGraph.m_fontRenderer->render(formatString("Dynamic Scene Cells: %u bytes per cell. %u bytes / %f megabytes total.",                    
                     sizeof(illRendererCommon::GraphicsScene::NodeContainer),
                     numBytes,
                     (float) (numBytes) / 1024.0f / 1024.0f
                 ).c_str(), 
                 glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
 
-            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+            currY -= m_numOverflowedQueriesGraph.m_fontRenderer->m_font.getLineHeight();
 
             numBytes = numCells * sizeof(illRendererCommon::GraphicsScene::StaticNodeContainer);
             numTotalBytes += numBytes;
 
-            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Static Scene Cells: %u bytes per cell. %u bytes / %f megabytes total.",
+            m_numOverflowedQueriesGraph.m_fontRenderer->render(formatString("Static Scene Cells: %u bytes per cell. %u bytes / %f megabytes total.",
                     sizeof(illRendererCommon::GraphicsScene::StaticNodeContainer),
                     numBytes,
                     (float) (numBytes) / 1024.0f / 1024.0f
@@ -1029,9 +1069,9 @@ void RendererDemoController::render() {
             int numBytes = numCells * sizeof(illRendererCommon::GraphicsScene::LightNodeContainer);
             numTotalBytes += numBytes;
 
-            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+            currY -= m_numOverflowedQueriesGraph.m_fontRenderer->m_font.getLineHeight();
 
-            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Interaction Grid: (%u x %u x %u) (%u total).",
+            m_numOverflowedQueriesGraph.m_fontRenderer->render(formatString("Interaction Grid: (%u x %u x %u) (%u total).",
                     vol.getCellNumber().x, 
                     vol.getCellNumber().y, 
                     vol.getCellNumber().z, 
@@ -1039,21 +1079,21 @@ void RendererDemoController::render() {
                 ).c_str(), 
                 glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
 
-            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+            currY -= m_numOverflowedQueriesGraph.m_fontRenderer->m_font.getLineHeight();
 
-            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Dynamic Light Cells: %u bytes per cell. %u bytes / %f megabytes total.",                    
+            m_numOverflowedQueriesGraph.m_fontRenderer->render(formatString("Dynamic Light Cells: %u bytes per cell. %u bytes / %f megabytes total.",                    
                     sizeof(illRendererCommon::GraphicsScene::NodeContainer),
                     numBytes,
                     (float) (numBytes) / 1024.0f / 1024.0f
                 ).c_str(), 
                 glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
 
-            currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+            currY -= m_numOverflowedQueriesGraph.m_fontRenderer->m_font.getLineHeight();
 
             numBytes = numCells * sizeof(illRendererCommon::GraphicsScene::StaticLightNodeContainer);
             numTotalBytes += numBytes;
 
-            m_numCulledNodesGraph.m_fontRenderer->render(formatString("Static Light Cells: %u bytes per cell. %u bytes / %f megabytes total.",
+            m_numOverflowedQueriesGraph.m_fontRenderer->render(formatString("Static Light Cells: %u bytes per cell. %u bytes / %f megabytes total.",
                     sizeof(illRendererCommon::GraphicsScene::StaticNodeContainer),
                     numBytes,
                     (float) (numBytes) / 1024.0f / 1024.0f
@@ -1061,9 +1101,9 @@ void RendererDemoController::render() {
                 glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
         }
 
-        currY -= m_numCulledNodesGraph.m_fontRenderer->m_font.getLineHeight();
+        currY -= m_numOverflowedQueriesGraph.m_fontRenderer->m_font.getLineHeight();
 
-         m_numCulledNodesGraph.m_fontRenderer->render(formatString("Total Cell Memory: %u bytes / %f megabytes.",
+        m_numOverflowedQueriesGraph.m_fontRenderer->render(formatString("Total Cell Memory: %u bytes / %f megabytes.",
                     numTotalBytes,
                     (float) (numTotalBytes) / 1024.0f / 1024.0f
                 ).c_str(), 
