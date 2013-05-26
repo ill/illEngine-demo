@@ -15,6 +15,9 @@
 #include "illEngine/Graphics/serial/Camera/CameraTransform.h"
 #include "illEngine/Graphics/serial/Material/ShaderProgram.h"
 
+#include "illEngine/Console/serial/VariableManager.h"
+#include "illEngine/Console/serial/CommandManager.h"
+
 #include "../../Util/Graph.h"
 
 namespace illRendererCommon {
@@ -41,28 +44,7 @@ public:
     void updateSound(float seconds);
     void render();
 
-private:
-    struct ChangeDebugMode : public illInput::StateListener {
-        ChangeDebugMode()
-            : illInput::StateListener()
-        {}
-
-        void onRelease();
-
-        RendererDemoController * m_controller;
-        int m_mode;
-    };
-
-    struct ToggleCamera : public illInput::StateListener {
-        ToggleCamera()
-            : illInput::StateListener()
-        {}
-
-        void onRelease();
-
-        RendererDemoController * m_controller;
-    };
-
+private: 
     Engine * m_engine;
 
     size_t m_viewport;
@@ -74,34 +56,23 @@ private:
     illRendererCommon::RendererBackend * m_rendererBackend;
 
     CameraController m_cameraController;
-    CameraController m_occlusionCameraController;
-
-    ChangeDebugMode m_noneDebugMode;
-
-    ChangeDebugMode m_depthDebugMode;
-    ChangeDebugMode m_normalDebugMode;
-    ChangeDebugMode m_diffuseDebugMode;
-    ChangeDebugMode m_specularDebugMode;
-
-    ChangeDebugMode m_diffuseAccumulationDebugMode;
-    ChangeDebugMode m_specularAccumulationDebugMode;
-
-    illInput::StateReleaseToggleListener m_occlusionDebugToggle;
-    ToggleCamera m_toggleCamera;
+    CameraController m_occlusionCameraController;    
     bool m_whichCamera;
-
-    illInput::StateReleaseToggleListener m_topDownToggle;
-    illInput::StateReleaseToggleListener m_stencilLightingPassToggle;
-    illInput::StateReleaseToggleListener m_drawFrustumToggle;
-    illInput::StateReleaseToggleListener m_drawGridToggle;
-    illInput::StateReleaseToggleListener m_performOcclusionToggle;
-    illInput::StateReleaseToggleListener m_objectOcclusionToggle;
-
-    illInput::StateReleaseToggleListener m_drawLightsToggle;
-    illInput::StateReleaseToggleListener m_drawBoundsToggle;
-
+    
     illInput::InputContext m_inputContext;
     
+    illConsole::ConsoleVariable * m_cv_ren_deferredDebugMode;
+    illConsole::ConsoleVariable * m_cv_ren_showPerf;
+    illConsole::ConsoleVariable * m_cv_ren_stencilLighting;    
+    illConsole::ConsoleVariable * m_cv_ren_occlusionCull;
+    illConsole::ConsoleVariable * m_cv_ren_showLights;
+    illConsole::ConsoleVariable * m_cv_ren_showBounds;
+
+    illConsole::ConsoleVariable * m_cv_ren_showGrid;
+    illConsole::ConsoleVariable * m_cv_ren_showCullDebug;
+    illConsole::ConsoleVariable * m_cv_ren_controlCullCamera;
+    illConsole::ConsoleVariable * m_cv_ren_showFrustum;
+
     bool m_showPerformance;
     Graph m_numTraversedCellsGraph;    
     Graph m_numEmptyCellsGraph;

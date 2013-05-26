@@ -6,6 +6,7 @@
 
 #include "../../Engine.h"
 #include "illEngine/Graphics/Window.h"
+#include "illEngine/Console/serial/DeveloperConsole.h"
 
 #include "RendererDemoController.h"
 #include "illEngine/Graphics/serial/Model/Mesh.h"
@@ -30,7 +31,7 @@ void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList);
 
 namespace Demo {
 
-void RendererDemoController::ChangeDebugMode::onRelease() {
+/*void RendererDemoController::ChangeDebugMode::onRelease() {
     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_controller->m_rendererBackend)->m_debugMode = 
         static_cast<illDeferredShadingRenderer::DeferredShadingBackend::DebugMode>(m_mode);
 }
@@ -46,7 +47,7 @@ void RendererDemoController::ToggleCamera::onRelease() {
         m_controller->m_whichCamera = true;
         m_controller->m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_controller->m_occlusionCameraController.m_inputContext);
     }
-}
+}*/
 
 RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     : GameControllerBase(),
@@ -84,38 +85,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     m_numProcessedNodesGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
     m_numOverflowedQueriesGraph.m_fontRenderer = m_engine->m_crappyFontRenderer;
 
-    //set up inputs
-    m_noneDebugMode.m_controller = this;
-    m_noneDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::NONE);
-    
-    m_depthDebugMode.m_controller = this;
-    m_depthDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DEPTH);
-
-    m_normalDebugMode.m_controller = this;
-    m_normalDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::NORMAL);
-
-    m_diffuseDebugMode.m_controller = this;
-    m_diffuseDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DIFFUSE);
-
-    m_specularDebugMode.m_controller = this;
-    m_specularDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::SPECULAR);
-
-    m_diffuseAccumulationDebugMode.m_controller = this;
-    m_diffuseAccumulationDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DIFFUSE_ACCUMULATION);
-
-    m_specularAccumulationDebugMode.m_controller = this;
-    m_specularAccumulationDebugMode.m_mode = static_cast<int>(illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::SPECULAR_ACCUMULATION);
-
-    m_occlusionDebugToggle.m_value = &m_occlusionDebug;
-
-    m_topDownToggle.m_value = &m_topDown;
-    m_drawFrustumToggle.m_value = &m_drawFrustum;
-    m_drawGridToggle.m_value = &m_drawGrid;
-    m_performOcclusionToggle.m_value = &m_performCull;
-    m_objectOcclusionToggle.m_value = &m_perObjectOcclusion;
-
-    m_toggleCamera.m_controller = this;
-    
+    //set up inputs        
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_inputContext);
 
     m_engine->m_inputManager->getInputContextStack(0)->pushInputContext(&m_cameraController.m_inputContext);
@@ -128,10 +98,213 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
 
     //setup renderer
     m_rendererBackend = new illDeferredShadingRenderer::DeferredShadingBackendGl3_3((GlCommon::GlBackend *)m_engine->m_graphicsBackend);
+    
+    m_cv_ren_deferredDebugMode = new illConsole::ConsoleVariable("NONE", "Which aspect of the deferred shading engine is being visualized.",
+        [&] (illConsole::ConsoleVariable * var, const char * value) {
+            std::istringstream stream(value);
 
-    m_drawLightsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugLights;
-    m_drawBoundsToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugBounds;
-    m_stencilLightingPassToggle.m_value = &static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_stencilLightingPass;
+            std::string dest;
+            if(m_engine->m_developerConsole->getParamString(stream, dest) 
+                    && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                if(dest.compare("NONE") == 0) {
+                    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugMode = 
+                        illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::NONE;
+                    return true;
+                }
+                else if(dest.compare("DEPTH") == 0) {
+                    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugMode = 
+                        illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DEPTH;
+                    return true;
+                }
+                else if(dest.compare("NORMAL") == 0) {
+                    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugMode = 
+                        illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::NORMAL;
+                    return true;
+                }
+                else if(dest.compare("DIFFUSE") == 0) {
+                    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugMode = 
+                        illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DIFFUSE;
+                    return true;
+                }
+                else if(dest.compare("SPECULAR") == 0) {
+                    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugMode = 
+                        illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::SPECULAR;
+                    return true;
+                }
+                else if(dest.compare("DIFFUSE_ACCUMULATION") == 0) {
+                    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugMode = 
+                        illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DIFFUSE_ACCUMULATION;
+                    return true;
+                }
+                else if(dest.compare("SPECULAR_ACCUMULATION") == 0) {
+                    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugMode = 
+                        illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::SPECULAR_ACCUMULATION;
+                    return true;
+                }
+                
+                return false;
+            }
+
+            return false;
+        });
+
+    m_engine->m_developerConsole->m_variableManager->addVariable("ren_deferredDebugMode", m_cv_ren_deferredDebugMode);
+
+    m_cv_ren_showPerf = new illConsole::ConsoleVariable("0", "TODO: description",
+        [&] (illConsole::ConsoleVariable * var, const char * value) {
+            std::istringstream stream(value);
+
+            bool dest;
+            if(m_engine->m_developerConsole->getParamBool(stream, dest) 
+                    && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                m_showPerformance = dest;                
+                return true;
+            }
+
+            return false;
+        });
+
+    m_engine->m_developerConsole->m_variableManager->addVariable("ren_showPerf", m_cv_ren_showPerf);
+
+    m_cv_ren_stencilLighting = new illConsole::ConsoleVariable("1", "TODO: description",
+        [&] (illConsole::ConsoleVariable * var, const char * value) {
+            std::istringstream stream(value);
+
+            bool dest;
+            if(m_engine->m_developerConsole->getParamBool(stream, dest) 
+                    && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_stencilLightingPass = dest;                
+                return true;
+            }
+
+            return false;
+        });
+
+    m_engine->m_developerConsole->m_variableManager->addVariable("ren_stencilLighting", m_cv_ren_stencilLighting);
+
+    m_cv_ren_occlusionCull = new illConsole::ConsoleVariable("1", "TODO: description",
+        [&] (illConsole::ConsoleVariable * var, const char * value) {
+            std::istringstream stream(value);
+
+            bool dest;
+            if(m_engine->m_developerConsole->getParamBool(stream, dest) 
+                    && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                m_performCull = dest;                
+                return true;
+            }
+
+            return false;
+        });
+
+    m_engine->m_developerConsole->m_variableManager->addVariable("ren_occlusionCull", m_cv_ren_occlusionCull);
+
+    m_cv_ren_showLights = new illConsole::ConsoleVariable("0", "TODO: description",
+        [&] (illConsole::ConsoleVariable * var, const char * value) {
+            std::istringstream stream(value);
+
+            bool dest;
+            if(m_engine->m_developerConsole->getParamBool(stream, dest) 
+                    && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugLights = dest;                
+                return true;
+            }
+
+            return false;
+        });
+
+    m_engine->m_developerConsole->m_variableManager->addVariable("ren_showLights", m_cv_ren_showLights);
+
+    m_cv_ren_showBounds = new illConsole::ConsoleVariable("0", "TODO: description",
+        [&] (illConsole::ConsoleVariable * var, const char * value) {
+            std::istringstream stream(value);
+
+            bool dest;
+            if(m_engine->m_developerConsole->getParamBool(stream, dest) 
+                    && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugBounds = dest;                
+                return true;
+            }
+
+            return false;
+        });
+
+    m_engine->m_developerConsole->m_variableManager->addVariable("ren_showBounds", m_cv_ren_showBounds);
+
+    m_cv_ren_showGrid = new illConsole::ConsoleVariable("0", "TODO: description",
+        [&] (illConsole::ConsoleVariable * var, const char * value) {
+            std::istringstream stream(value);
+
+            bool dest;
+            if(m_engine->m_developerConsole->getParamBool(stream, dest) 
+                    && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                m_drawGrid = dest;                
+                return true;
+            }
+
+            return false;
+        });
+
+    m_engine->m_developerConsole->m_variableManager->addVariable("ren_showGrid", m_cv_ren_showGrid);
+
+    m_cv_ren_showCullDebug = new illConsole::ConsoleVariable("0", "TODO: description",
+        [&] (illConsole::ConsoleVariable * var, const char * value) {
+            std::istringstream stream(value);
+
+            bool dest;
+            if(m_engine->m_developerConsole->getParamBool(stream, dest) 
+                    && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                m_occlusionDebug = dest;                
+                return true;
+            }
+
+            return false;
+        });
+
+    m_engine->m_developerConsole->m_variableManager->addVariable("ren_showCullDebug", m_cv_ren_showCullDebug);
+
+    m_cv_ren_controlCullCamera = new illConsole::ConsoleVariable("0", "TODO: description",
+        [&] (illConsole::ConsoleVariable * var, const char * value) {
+            std::istringstream stream(value);
+
+            bool dest;
+            if(m_engine->m_developerConsole->getParamBool(stream, dest) 
+                    && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                m_whichCamera = dest;
+                size_t cameraStackPos;
+
+                if(m_whichCamera) {
+                    m_engine->m_inputManager->getInputContextStack(0)->findInputContextStackPos(&m_cameraController.m_inputContext, cameraStackPos);
+                    m_engine->m_inputManager->getInputContextStack(0)->replaceInputContext(&m_occlusionCameraController.m_inputContext, cameraStackPos);
+                }
+                else {
+                    m_engine->m_inputManager->getInputContextStack(0)->findInputContextStackPos(&m_occlusionCameraController.m_inputContext, cameraStackPos);
+                    m_engine->m_inputManager->getInputContextStack(0)->replaceInputContext(&m_cameraController.m_inputContext, cameraStackPos);
+                }
+                return true;
+            }
+
+            return false;
+        });
+
+    m_engine->m_developerConsole->m_variableManager->addVariable("ren_controlCullCamera", m_cv_ren_controlCullCamera);
+
+    m_cv_ren_showFrustum = new illConsole::ConsoleVariable("0", "TODO: description",
+        [&] (illConsole::ConsoleVariable * var, const char * value) {
+            std::istringstream stream(value);
+
+            bool dest;
+            if(m_engine->m_developerConsole->getParamBool(stream, dest) 
+                    && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                m_drawFrustum = dest;
+                return true;
+            }
+
+            return false;
+        });
+
+    m_engine->m_developerConsole->m_variableManager->addVariable("ren_showFrustum", m_cv_ren_showFrustum);
+    
+    m_engine->m_developerConsole->consoleInput("..\\..\\..\\bindDebugStuff.cfg");
 
     switch(scene) {
     case Scene::THE_GRID:
@@ -865,6 +1038,8 @@ RendererDemoController::~RendererDemoController() {
     m_engine->m_inputManager->getInputContextStack(0)->popInputContext();
     m_engine->m_inputManager->getInputContextStack(0)->popInputContext();
 
+    //TODO: clean the cvars
+
 	delete m_graphicsScene;
     delete m_rendererBackend;
 }
@@ -1012,8 +1187,8 @@ void RendererDemoController::render() {
         currY -= GRAPH_HEIGHT + 5.0f;
         m_numCulledCellsGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
 
-        currY -= GRAPH_HEIGHT + 5.0f;
-        m_cellRequeryDurationGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);
+        /*currY -= GRAPH_HEIGHT + 5.0f;
+        m_cellRequeryDurationGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);*/
 
         currY -= GRAPH_HEIGHT + 5.0f;
         m_numProcessedNodesGraph.render(glm::translate(glm::vec3(0.0f, currY, 0.0f)), graphCam);

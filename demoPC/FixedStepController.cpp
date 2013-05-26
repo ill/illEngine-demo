@@ -83,6 +83,7 @@ void FixedStepController::appLoop() {
         m_engine->m_graphicsBackend->beginFrame();
                 
         m_gameController->render();
+                
         m_console->render();        
         
         if(m_engine->m_showingFps) {

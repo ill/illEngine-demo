@@ -63,6 +63,8 @@ void PcConsole::show() {
 }
 
 void PcConsole::render() {
+    glViewport(0, 0, m_engine->m_window->m_screenWidth, m_engine->m_window->m_screenHeight);
+
     illGraphics::Camera cam;
     cam.setViewport(glm::ivec2(0), glm::ivec2(m_engine->m_window->m_screenWidth, m_engine->m_window->m_screenHeight));
     cam.setOrthoTransform(glm::mat4(), 0.0f, (float) m_engine->m_window->m_screenWidth, (float) m_engine->m_window->m_screenHeight, 0.0f);
