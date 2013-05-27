@@ -314,7 +314,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             m_cameraController.m_speed = 10.0f;
             m_cameraController.m_rollSpeed = 50.0f;
 
-            std::ifstream openFile("..\\..\\..\\assets\\maps\\HangarTest.txt");
+            std::ifstream openFile("..\\..\\..\\assets\\maps\\TheGrid.txt");
 
             //read number of static meshes
             //int numMeshes;
@@ -1101,10 +1101,10 @@ void RendererDemoController::render() {
         meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), m_graphicsScene->getGridVolume().getVolumeBounds().m_max.y));
         meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), m_graphicsScene->getGridVolume().getVolumeBounds().m_max.z));
 
-        m_graphicsScene->render(m_camera, m_viewport, meshEdgeList);
+        m_graphicsScene->render(m_camera, m_viewport, &meshEdgeList);
     }
     else {
-        m_graphicsScene->render(m_camera, m_viewport, MeshEdgeList<>());
+        m_graphicsScene->render(m_camera, m_viewport, NULL);
     }
     
     if(m_showPerformance) {
