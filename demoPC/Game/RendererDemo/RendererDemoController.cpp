@@ -1090,8 +1090,23 @@ void RendererDemoController::render() {
     static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugPerObjectCull = m_perObjectOcclusion;
 
     m_graphicsScene->setupFrame();
-    m_graphicsScene->render(m_camera, m_viewport);
 
+    if(m_occlusionDebug) {
+        MeshEdgeList<> meshEdgeList = m_camera.getViewFrustum().getMeshEdgeList();
+
+        meshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), -m_graphicsScene->getGridVolume().getVolumeBounds().m_min.x));
+        meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 1.0f, 0.0f), -m_graphicsScene->getGridVolume().getVolumeBounds().m_min.y));
+        meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, 1.0f), -m_graphicsScene->getGridVolume().getVolumeBounds().m_min.z));
+        meshEdgeList.convexClip(Plane<>(glm::vec3(-1.0f, 0.0f, 0.0f), m_graphicsScene->getGridVolume().getVolumeBounds().m_max.x));
+        meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, -1.0f, 0.0f), m_graphicsScene->getGridVolume().getVolumeBounds().m_max.y));
+        meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), m_graphicsScene->getGridVolume().getVolumeBounds().m_max.z));
+
+        m_graphicsScene->render(m_camera, m_viewport, meshEdgeList);
+    }
+    else {
+        m_graphicsScene->render(m_camera, m_viewport, MeshEdgeList<>());
+    }
+    
     if(m_showPerformance) {
         m_numTraversedCellsGraph.addDataPoint(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugNumTraversedCells);
 
@@ -1315,12 +1330,12 @@ void RendererDemoController::render() {
 
         glEnable(GL_DEPTH_TEST);
 
-        if(m_drawGrid) {
+        /*if(m_drawGrid) {
             renderSceneDebug(m_graphicsScene->getGridVolume());
-        }
+        }*/
 
         //clip the mesh against the bounds
-        if(m_drawFrustum) {
+        /*if(m_drawFrustum) {
             MeshEdgeList<> meshEdgeList = m_camera.getViewFrustum().getMeshEdgeList();
 
             meshEdgeList.convexClip(Plane<>(glm::vec3(1.0f, 0.0f, 0.0f), -m_graphicsScene->getGridVolume().getVolumeBounds().m_min.x));
@@ -1331,7 +1346,7 @@ void RendererDemoController::render() {
             meshEdgeList.convexClip(Plane<>(glm::vec3(0.0f, 0.0f, -1.0f), m_graphicsScene->getGridVolume().getVolumeBounds().m_max.z));
 
             renderMeshEdgeListDebug(meshEdgeList);
-        }
+        }*/
     }
 }
 
