@@ -73,6 +73,11 @@ private:
     illConsole::ConsoleVariable * m_cv_ren_controlCullCamera;
     illConsole::ConsoleVariable * m_cv_ren_showFrustum;
 
+    illConsole::ConsoleCommand * m_cm_ren_freezeFrustum;
+    illConsole::ConsoleCommand * m_cm_ren_unfreezeFrustum;
+    illConsole::ConsoleCommand * m_cm_ren_advanceFrustum;
+    illConsole::ConsoleCommand * m_cm_ren_restartFrustum;
+
     bool m_showPerformance;
     Graph m_numTraversedCellsGraph;    
     Graph m_numEmptyCellsGraph;

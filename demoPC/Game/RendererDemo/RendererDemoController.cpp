@@ -304,7 +304,68 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
 
     m_engine->m_developerConsole->m_variableManager->addVariable("ren_showFrustum", m_cv_ren_showFrustum);
     
+    m_cm_ren_freezeFrustum = new illConsole::ConsoleCommand("TODO: description",
+        [&] (const illConsole::ConsoleCommand *, const char * params) {
+            std::istringstream stream(params ? params : "");
+
+            if(m_engine->m_developerConsole->checkParamEnd(stream)) {
+                static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugCapturingFrustumIter = true;
+            }
+        });
+
+    m_engine->m_developerConsole->m_commandManager->addCommand("ren_freezeFrustum", m_cm_ren_freezeFrustum);
+
+    m_cm_ren_unfreezeFrustum = new illConsole::ConsoleCommand("TODO: description",
+        [&] (const illConsole::ConsoleCommand *, const char * params) {
+            std::istringstream stream(params ? params : "");
+
+            if(m_engine->m_developerConsole->checkParamEnd(stream)) {
+                //delete static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator;
+                static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator = NULL;
+            }
+        });
+
+    m_engine->m_developerConsole->m_commandManager->addCommand("ren_unfreezeFrustum", m_cm_ren_unfreezeFrustum);
+
     m_engine->m_developerConsole->consoleInput("..\\..\\..\\bindDebugStuff.cfg");
+
+    m_cm_ren_advanceFrustum = new illConsole::ConsoleCommand("TODO: description",
+        [&] (const illConsole::ConsoleCommand *, const char * params) {
+            std::istringstream stream(params ? params : "");
+
+            if(m_engine->m_developerConsole->checkParamEnd(stream)) {
+                if(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator
+                    && !static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator->atEnd()) {
+                    static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator->forward();
+                    static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumTraversals.push_back(
+                        static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator->getCurrentPosition());
+                }
+            }
+        });
+
+    m_engine->m_developerConsole->m_commandManager->addCommand("ren_advanceFrustum", m_cm_ren_advanceFrustum);
+
+    m_cm_ren_restartFrustum = new illConsole::ConsoleCommand("TODO: description",
+        [&] (const illConsole::ConsoleCommand *, const char * params) {
+            std::istringstream stream(params ? params : "");
+
+            if(m_engine->m_developerConsole->checkParamEnd(stream)) {
+                if(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugBackupFrustumIterator) {
+                    //delete static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator;
+                    static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator = 
+                        new MultiConvexMeshIterator<>(*static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugBackupFrustumIterator);
+
+                    static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumTraversals.clear();
+
+                    if(!static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator->atEnd()) {
+                        static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumTraversals.push_back(
+                            static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator->getCurrentPosition());
+                    }
+                }
+            }
+        });
+
+    m_engine->m_developerConsole->m_commandManager->addCommand("ren_restartFrustum", m_cm_ren_restartFrustum);
 
     switch(scene) {
     case Scene::THE_GRID:
@@ -314,7 +375,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             m_cameraController.m_speed = 10.0f;
             m_cameraController.m_rollSpeed = 50.0f;
 
-            std::ifstream openFile("..\\..\\..\\assets\\maps\\TheGrid.txt");
+            std::ifstream openFile("..\\..\\..\\assets\\maps\\HangarTest.txt");
 
             //read number of static meshes
             //int numMeshes;
@@ -323,17 +384,9 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
                 m_engine->m_meshManager, m_engine->m_materialManager,
                 
-                //glm::vec3(25.0f), glm::uvec3(3, 1, 4), 
-                //glm::vec3(25.0f), glm::uvec3(2, 1, 25));
-
                 glm::vec3(25.0f), glm::uvec3(50, 30, 50), 
                 glm::vec3(25.0f), glm::uvec3(50, 30, 50));
-
-
-                //glm::vec3(50.0f, 100.0f, 50.0f), glm::uvec3(25, 5, 25), 
-                //glm::vec3(50.0f, 100.0f, 50.0f), glm::uvec3(25, 5, 25));
-
-                
+                            
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42), 
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42));
 
