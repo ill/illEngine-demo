@@ -384,8 +384,11 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
                 m_engine->m_meshManager, m_engine->m_materialManager,
                 
-                glm::vec3(25.0f), glm::uvec3(50, 30, 50), 
-                glm::vec3(25.0f), glm::uvec3(50, 30, 50));
+                glm::vec3(38.0f), glm::uvec3(33, 20, 33), 
+                glm::vec3(38.0f), glm::uvec3(33, 20, 33));
+
+                //glm::vec3(25.0f), glm::uvec3(50, 30, 50), 
+                //glm::vec3(25.0f), glm::uvec3(50, 30, 50));
                             
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42), 
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42));
