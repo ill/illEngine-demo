@@ -1,6 +1,8 @@
 #ifndef ILL_RENDERER_DEMO_CONTROLLER_H__
 #define ILL_RENDERER_DEMO_CONTROLLER_H__
 
+#include <fstream>
+#include <chrono>
 #include <map>
 #include <glm/glm.hpp>
 
@@ -19,6 +21,8 @@
 #include "illEngine/Console/serial/CommandManager.h"
 
 #include "../../Util/Graph.h"
+
+#include "illEngine/Util/Geometry/Transform.h"
 
 namespace illRendererCommon {
 class GraphicsScene;
@@ -44,7 +48,51 @@ public:
     void updateSound(float seconds);
     void render();
 
-private: 
+private:
+    enum class Mode {
+        NONE,
+        RECORDING,
+        PLAYING
+    };
+
+    struct Recorder {
+        std::chrono::system_clock::time_point m_startTime;
+        std::ofstream m_recordFile;
+    };
+
+    struct Player {
+        struct Keyframe {
+            glm::mediump_float m_time;
+            Transform<> m_transform;            
+        };
+
+        std::vector<Keyframe> m_transformList;
+
+        size_t m_keyframe;
+        glm::mediump_float m_delta;
+        glm::mediump_float m_t;
+
+        inline void computeDelta() {
+            if(m_keyframe < m_transformList.size() - 1) {
+                m_delta = 1.0f / (m_transformList[m_keyframe + 1].m_time - m_transformList[m_keyframe].m_time);
+            }
+            else {
+                m_delta = 0.0f;
+            }
+        }
+    };
+
+    void beginRecord(const char * fileName);
+    void recordTransform(const Transform<>& xform);
+    void endRecord();
+
+    void beginPlayback(const char * fileName);
+    void endPlayback();
+
+    Recorder m_recorder;
+    Player m_player;
+    Mode m_mode;
+
     Engine * m_engine;
 
     size_t m_viewport;
@@ -77,6 +125,12 @@ private:
     illConsole::ConsoleCommand * m_cm_ren_unfreezeFrustum;
     illConsole::ConsoleCommand * m_cm_ren_advanceFrustum;
     illConsole::ConsoleCommand * m_cm_ren_restartFrustum;
+
+    illConsole::ConsoleCommand * m_cm_demo_beginRecord;
+    illConsole::ConsoleCommand * m_cm_demo_recordPos;
+    illConsole::ConsoleCommand * m_cm_demo_endRecord;
+    illConsole::ConsoleCommand * m_cm_demo_play;
+    illConsole::ConsoleCommand * m_cm_demo_stop;
 
     bool m_showPerformance;
     Graph m_numTraversedCellsGraph;    

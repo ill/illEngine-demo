@@ -22,6 +22,9 @@ public:
         m_state = APPST_EXITING;
     }
 
+    //TODO: take this out for a real game and use the renderer backend, this makes raw GL calls
+    Graph m_fpsGraph;
+
 private:
     enum State {
         APPST_INITIALIZED,
@@ -31,7 +34,6 @@ private:
 
     //TODO: take this out for a real game and use the renderer backend, this makes raw GL calls
     void renderFpsGraph();
-    Graph m_fpsGraph;
 
     State m_state;
     GameControllerBase * m_gameController;

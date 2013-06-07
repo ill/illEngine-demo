@@ -515,6 +515,8 @@ int main(int argc, char * argv[]) {
 
     //run game loop
     Demo::FixedStepController loopController(new Demo::MainController(&engine), &engine, &console);
+    engine.m_gameController = &loopController;
+    engine.m_gameController->m_fpsGraph.m_outputFile.open("FPS.txt");
     loopController.appLoop();
 
     //uninitialize things

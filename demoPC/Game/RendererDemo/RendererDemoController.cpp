@@ -4,6 +4,8 @@
 #include <glm/gtx/transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "../../FixedStepController.h"
+
 #include "../../Engine.h"
 #include "illEngine/Graphics/Window.h"
 #include "illEngine/Console/serial/DeveloperConsole.h"
@@ -49,6 +51,116 @@ void RendererDemoController::ToggleCamera::onRelease() {
     }
 }*/
 
+void RendererDemoController::beginRecord(const char * fileName) {
+    endRecord();
+    endPlayback();
+
+    m_recorder.m_recordFile.open(fileName);
+    m_recorder.m_startTime = std::chrono::system_clock::now();
+
+    m_mode = Mode::RECORDING;
+}
+
+void RendererDemoController::recordTransform(const Transform<>& xform) {
+    if(m_mode != Mode::RECORDING) {
+        return;
+    }
+
+    //frame time
+    m_recorder.m_recordFile << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - m_recorder.m_startTime).count() << std::endl;
+
+    //pos
+    m_recorder.m_recordFile << xform.m_position.x << ' ' << xform.m_position.y << ' ' << xform.m_position.z << std::endl;
+
+    //scale
+    m_recorder.m_recordFile << xform.m_scale.x << ' ' << xform.m_scale.y << ' ' << xform.m_scale.z << std::endl;
+
+    //quat
+    m_recorder.m_recordFile << xform.m_rotation.x << ' ' << xform.m_rotation.y << ' ' << xform.m_rotation.z << ' ' << xform.m_rotation.w << std::endl;
+}
+
+void RendererDemoController::endRecord() {
+    if(m_mode != Mode::RECORDING) {
+        return;
+    }
+
+    m_recorder.m_recordFile.close();
+
+    m_mode = Mode::NONE;
+}
+
+
+void RendererDemoController::beginPlayback(const char * fileName) {
+    endRecord();
+    endPlayback();
+
+    std::ifstream openFile(fileName);
+
+    m_player.m_transformList.clear();
+    m_player.m_keyframe = 0;
+    m_player.m_t = 0.0f;
+
+    while(openFile.good()) {
+        glm::mediump_float time;
+        openFile >> time;
+
+        if(!openFile.good()) {
+            break;
+        }
+
+        time /= 1000.0f;
+
+        m_player.m_transformList.emplace_back();
+
+        //read the time
+        m_player.m_transformList.back().m_time = time;
+        
+        //read the position
+        openFile >> m_player.m_transformList.back().m_transform.m_position.x;
+        openFile >> m_player.m_transformList.back().m_transform.m_position.y;
+        openFile >> m_player.m_transformList.back().m_transform.m_position.z;
+
+        //read the scale
+        openFile >> m_player.m_transformList.back().m_transform.m_scale.x;
+        openFile >> m_player.m_transformList.back().m_transform.m_scale.y;
+        openFile >> m_player.m_transformList.back().m_transform.m_scale.z;
+
+        //read the quaternion
+        openFile >> m_player.m_transformList.back().m_transform.m_rotation.x;
+        openFile >> m_player.m_transformList.back().m_transform.m_rotation.y;
+        openFile >> m_player.m_transformList.back().m_transform.m_rotation.z;
+        openFile >> m_player.m_transformList.back().m_transform.m_rotation.w;
+    }
+
+    m_player.computeDelta();
+
+    //disable camera controls by switching to the debug camera
+    if(!m_whichCamera) {
+        size_t cameraStackPos;
+        m_engine->m_inputManager->getInputContextStack(0)->findInputContextStackPos(&m_cameraController.m_inputContext, cameraStackPos);
+        m_engine->m_inputManager->getInputContextStack(0)->replaceInputContext(&m_occlusionCameraController.m_inputContext, cameraStackPos);
+    }
+
+    //force camera to be at initial keyframe
+    m_cameraController.m_transform = m_player.m_transformList.front().m_transform.getMatrix();
+
+    m_mode = Mode::PLAYING;
+}
+
+void RendererDemoController::endPlayback() {
+    if(m_mode != Mode::PLAYING) {
+        return;
+    }
+
+    if(!m_whichCamera) {
+        size_t cameraStackPos;
+        m_engine->m_inputManager->getInputContextStack(0)->findInputContextStackPos(&m_occlusionCameraController.m_inputContext, cameraStackPos);
+        m_engine->m_inputManager->getInputContextStack(0)->replaceInputContext(&m_cameraController.m_inputContext, cameraStackPos);
+    }
+
+    m_mode = Mode::NONE;
+}
+
 RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     : GameControllerBase(),
     m_engine(engine),
@@ -60,7 +172,9 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     m_perObjectOcclusion(false),
     m_topDown(false),
     m_drawFrustum(false),
-    m_drawGrid(false)
+    m_drawGrid(false),
+
+    m_mode(Mode::NONE)
 { 
     //set up graphs
     m_numTraversedCellsGraph.m_name.assign("Traversed Cells");
@@ -269,6 +383,11 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             bool dest;
             if(m_engine->m_developerConsole->getParamBool(stream, dest) 
                     && m_engine->m_developerConsole->checkParamEnd(stream)) {
+                //if playing back, don't allow this
+                if(m_mode == Mode::PLAYING) {
+                    return true;
+                }
+                        
                 m_whichCamera = dest;
                 size_t cameraStackPos;
 
@@ -326,9 +445,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
         });
 
     m_engine->m_developerConsole->m_commandManager->addCommand("ren_unfreezeFrustum", m_cm_ren_unfreezeFrustum);
-
-    m_engine->m_developerConsole->consoleInput("..\\..\\..\\bindDebugStuff.cfg");
-
+    
     m_cm_ren_advanceFrustum = new illConsole::ConsoleCommand("TODO: description",
         [&] (const illConsole::ConsoleCommand *, const char * params) {
             std::istringstream stream(params ? params : "");
@@ -367,6 +484,69 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
 
     m_engine->m_developerConsole->m_commandManager->addCommand("ren_restartFrustum", m_cm_ren_restartFrustum);
 
+    m_cm_demo_beginRecord = new illConsole::ConsoleCommand("TODO: description",
+        [&] (const illConsole::ConsoleCommand *, const char * params) {
+            std::istringstream stream(params ? params : "");
+
+            std::string dest;
+
+            if(m_engine->m_developerConsole->getParamString(stream, dest) &&
+                m_engine->m_developerConsole->checkParamEnd(stream)) {
+                beginRecord(dest.c_str());
+            }
+        });
+
+    m_engine->m_developerConsole->m_commandManager->addCommand("demo_beginRecord", m_cm_demo_beginRecord);
+
+    m_cm_demo_recordPos = new illConsole::ConsoleCommand("TODO: description",
+        [&] (const illConsole::ConsoleCommand *, const char * params) {
+            std::istringstream stream(params ? params : "");
+            
+            if(m_engine->m_developerConsole->checkParamEnd(stream)) {
+                recordTransform(Transform<>(m_cameraController.m_transform));
+            }
+        });
+
+    m_engine->m_developerConsole->m_commandManager->addCommand("demo_recordPos", m_cm_demo_recordPos);
+
+    m_cm_demo_endRecord = new illConsole::ConsoleCommand("TODO: description",
+        [&] (const illConsole::ConsoleCommand *, const char * params) {
+            std::istringstream stream(params ? params : "");
+            
+            if(m_engine->m_developerConsole->checkParamEnd(stream)) {
+                endRecord();
+            }
+        });
+
+    m_engine->m_developerConsole->m_commandManager->addCommand("demo_endRecord", m_cm_demo_endRecord);
+
+    m_cm_demo_play = new illConsole::ConsoleCommand("TODO: description",
+        [&] (const illConsole::ConsoleCommand *, const char * params) {
+            std::istringstream stream(params ? params : "");
+
+            std::string dest;
+
+            if(m_engine->m_developerConsole->getParamString(stream, dest) &&
+                m_engine->m_developerConsole->checkParamEnd(stream)) {
+                beginPlayback(dest.c_str());
+            }
+        });
+
+    m_engine->m_developerConsole->m_commandManager->addCommand("demo_play", m_cm_demo_play);
+
+    m_cm_demo_stop = new illConsole::ConsoleCommand("TODO: description",
+        [&] (const illConsole::ConsoleCommand *, const char * params) {
+            std::istringstream stream(params ? params : "");
+            
+            if(m_engine->m_developerConsole->checkParamEnd(stream)) {
+                endPlayback();
+            }
+        });
+
+    m_engine->m_developerConsole->m_commandManager->addCommand("demo_stop", m_cm_demo_stop);
+
+    m_engine->m_developerConsole->consoleInput("..\\..\\..\\bindDebugStuff.cfg");
+
     switch(scene) {
     case Scene::THE_GRID:
 
@@ -384,12 +564,27 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             m_graphicsScene = new illDeferredShadingRenderer::DeferredShadingScene(static_cast<illDeferredShadingRenderer::DeferredShadingBackend *> (m_rendererBackend),
                 m_engine->m_meshManager, m_engine->m_materialManager,
                 
-                glm::vec3(38.0f), glm::uvec3(33, 20, 33), 
-                glm::vec3(38.0f), glm::uvec3(33, 20, 33));
+                //////////
+                //graveyard
+
+                glm::vec3(50.0f), glm::uvec3(25, 15, 25), 
+                glm::vec3(50.0f), glm::uvec3(25, 15, 25));
+
+                //glm::vec3(38.0f), glm::uvec3(33, 20, 33), 
+                //glm::vec3(38.0f), glm::uvec3(33, 20, 33));
 
                 //glm::vec3(25.0f), glm::uvec3(50, 30, 50), 
                 //glm::vec3(25.0f), glm::uvec3(50, 30, 50));
-                            
+                 
+                //////////
+                //the grid
+
+                //glm::vec3(30.0f, 30.0f, 30.0f), glm::uvec3(5, 1, 7), 
+                //glm::vec3(30.0f, 30.0f, 30.0f), glm::uvec3(5, 1, 7));
+
+                //glm::vec3(3.0f, 5.0f, 3.0f), glm::uvec3(44, 5, 70), 
+                //glm::vec3(3.0f, 5.0f, 3.0f), glm::uvec3(44, 5, 70));
+
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42), 
                 //glm::vec3(5.0f, 12.0f, 5.0f), glm::uvec3(26, 2, 42));
 
@@ -1088,6 +1283,11 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
         engine->m_shaderProgramManager);
     
     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_occlusionCamera = &m_occlusionCamera;
+
+    m_numCellQueriesGraph.m_outputFile.open("cellQueries.txt");
+    m_numRenderedCellsGraph.m_outputFile.open("cellRenders.txt");
+    m_numCulledCellsGraph.m_outputFile.open("cellCulls.txt");
+    m_numProcessedNodesGraph.m_outputFile.open("processedNodes.txt");    
 }
 
 RendererDemoController::~RendererDemoController() {
@@ -1103,6 +1303,29 @@ RendererDemoController::~RendererDemoController() {
 void RendererDemoController::update(float seconds) {
     m_cameraController.update(seconds);
     m_occlusionCameraController.update(seconds);
+
+    if(m_mode == Mode::PLAYING) {
+        m_player.m_t += seconds * m_player.m_delta;
+
+        while(m_player.m_t >= 1.0f) {
+            glm::mediump_float overTime = (m_player.m_t - 1.0f) / m_player.m_delta;
+            ++m_player.m_keyframe;
+
+            if(m_player.m_keyframe == m_player.m_transformList.size() - 1) {
+                endPlayback();
+                break;
+            }
+
+            m_player.m_t = 0.0f;
+            m_player.computeDelta();
+            m_player.m_t += overTime * m_player.m_delta;
+        }
+
+        if(m_mode == Mode::PLAYING) {
+            m_cameraController.m_transform = m_player.m_transformList[m_player.m_keyframe].m_transform.interpolate(
+                m_player.m_transformList[m_player.m_keyframe + 1].m_transform, m_player.m_t).getMatrix();
+        }
+    }
 }
 
 void RendererDemoController::updateSound(float seconds) {

@@ -63,6 +63,8 @@ struct CrappyBmFontRenderer;
 
 namespace Demo {
 
+class FixedStepController;
+
 /**
 TODO: this is generally a good struct for any simple game with a single window so put this in util sometime or something
 */
@@ -94,6 +96,7 @@ public:
     illInput::InputManager * m_inputManager;
 
     CrappyBmFontRenderer * m_crappyFontRenderer;
+    FixedStepController * m_gameController;
     
     //some debugging vars, TODO: think of a cleverer way to do this later
     bool m_showingFps;

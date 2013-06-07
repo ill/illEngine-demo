@@ -316,36 +316,36 @@ illInput::InputBinding consoleInputToBinding(const char * input) {
         return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE_WHEEL, (int)illInput::Axis::AX_X);
     }
 
-    if(strncmp(input, "MOUSE_UP", 20) == 0) {
+    if(strncmp(input, "MOUSE_MOVE_UP", 20) == 0) {
         return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE, (int)illInput::Axis::AX_Y_POS);
     }
 
-    if(strncmp(input, "MOUSE_DOWN", 20) == 0) {
+    if(strncmp(input, "MOUSE_MOVE_DOWN", 20) == 0) {
         return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE, (int)illInput::Axis::AX_Y_NEG);
     }
 
-    if(strncmp(input, "MOUSE_LEFT", 20) == 0) {
+    if(strncmp(input, "MOUSE_MOVE_LEFT", 20) == 0) {
         return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE, (int)illInput::Axis::AX_X_NEG);
     }
 
-    if(strncmp(input, "MOUSE_RIGHT", 20) == 0) {
+    if(strncmp(input, "MOUSE_MOVE_RIGHT", 20) == 0) {
         return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE, (int)illInput::Axis::AX_X_POS);
     }
 
-    if(strncmp(input, "MOUSE_VERT", 20) == 0) {
+    if(strncmp(input, "MOUSE_MOVE_VERT", 20) == 0) {
         return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE, (int)illInput::Axis::AX_Y);
     }
 
-    if(strncmp(input, "MOUSE_HORZ", 20) == 0) {
+    if(strncmp(input, "MOUSE_MOVE_HORZ", 20) == 0) {
         return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE, (int)illInput::Axis::AX_X);
     }
 
     if(strncmp(input, "MOUSE_LEFT", 20) == 0) {
-        return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE_BUTTON, 0);
+        return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE_BUTTON, 1);
     }
 
     if(strncmp(input, "MOUSE_RIGHT", 20) == 0) {
-        return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE_BUTTON, 1);
+        return illInput::InputBinding((int)SdlPc::InputType::PC_MOUSE_BUTTON, 3);
     }
 
     if(strncmp(input, "MOUSE_MIDDLE", 20) == 0) {
