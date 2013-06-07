@@ -168,7 +168,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
     m_occlusionDebug(false),
     m_performCull(true),
 
-    m_showPerformance(true),
+    m_showPerformance(false),
     m_perObjectOcclusion(false),
     m_topDown(false),
     m_drawFrustum(false),
@@ -567,14 +567,14 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                 //////////
                 //graveyard
 
-                glm::vec3(50.0f), glm::uvec3(25, 15, 25), 
-                glm::vec3(50.0f), glm::uvec3(25, 15, 25));
+                //glm::vec3(50.0f), glm::uvec3(25, 15, 25), 
+                //glm::vec3(50.0f), glm::uvec3(25, 15, 25));
 
                 //glm::vec3(38.0f), glm::uvec3(33, 20, 33), 
                 //glm::vec3(38.0f), glm::uvec3(33, 20, 33));
 
-                //glm::vec3(25.0f), glm::uvec3(50, 30, 50), 
-                //glm::vec3(25.0f), glm::uvec3(50, 30, 50));
+                glm::vec3(25.0f), glm::uvec3(50, 30, 50), 
+                glm::vec3(25.0f), glm::uvec3(50, 30, 50));
                  
                 //////////
                 //the grid
