@@ -124,7 +124,7 @@ private:
     illConsole::ConsoleCommand * m_cm_ren_freezeFrustum;
     illConsole::ConsoleCommand * m_cm_ren_unfreezeFrustum;
     illConsole::ConsoleCommand * m_cm_ren_advanceFrustum;
-    illConsole::ConsoleCommand * m_cm_ren_restartFrustum;
+    illConsole::ConsoleCommand * m_cm_ren_fastAdvanceFrustum;
 
     illConsole::ConsoleCommand * m_cm_demo_beginRecord;
     illConsole::ConsoleCommand * m_cm_demo_recordPos;

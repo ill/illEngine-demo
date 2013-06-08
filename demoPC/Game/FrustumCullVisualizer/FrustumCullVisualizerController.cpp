@@ -114,6 +114,39 @@ void renderMeshEdgeListDebug(const MeshEdgeList<>& edgeList) {
     glEnd();
 }
 
+void renderMeshEdgeListDebugAlgorithmToWorld(const MeshEdgeList<>& edgeList, const ConvexMeshIterator<>& iterator) {
+    glPointSize(5.0f);
+    
+    //unclipped
+
+    //all the points
+    glPointSize(5.0f);
+
+    glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
+
+    glBegin(GL_POINTS);
+
+    for(size_t point = 0; point < edgeList.m_points.size(); point++) {
+        glVertex3fv(glm::value_ptr(iterator.algorithmToWorldPoint(edgeList.m_points[point])));
+    }
+
+    glEnd();
+
+    //all the lines
+    glLineWidth(1.0f);
+
+    glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+
+    glBegin(GL_LINES);
+
+    for(size_t edge = 0; edge < edgeList.m_edges.size(); edge++) {
+        glVertex3fv(glm::value_ptr(iterator.algorithmToWorldPoint(edgeList.m_points[edgeList.m_edges[edge].m_point[0]])));
+        glVertex3fv(glm::value_ptr(iterator.algorithmToWorldPoint(edgeList.m_points[edgeList.m_edges[edge].m_point[1]])));
+    }
+
+    glEnd();
+}
+
 namespace Demo {
     
 FrustumCullVisualizerController::FrustumCullVisualizerController(Engine * engine)

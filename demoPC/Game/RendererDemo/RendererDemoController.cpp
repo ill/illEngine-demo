@@ -245,6 +245,11 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                         illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::SPECULAR;
                     return true;
                 }
+                else if(dest.compare("OCCLUDER_DEBUG") == 0) {
+                    static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugMode = 
+                        illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::OCCLUDER_DEBUG;
+                    return true;
+                }
                 else if(dest.compare("DIFFUSE_ACCUMULATION") == 0) {
                     static_cast<illDeferredShadingRenderer::DeferredShadingBackend *>(m_rendererBackend)->m_debugMode = 
                         illDeferredShadingRenderer::DeferredShadingBackend::DebugMode::DIFFUSE_ACCUMULATION;
@@ -428,7 +433,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             std::istringstream stream(params ? params : "");
 
             if(m_engine->m_developerConsole->checkParamEnd(stream)) {
-                static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugCapturingFrustumIter = true;
+                static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugMaxCellTraversals = 0;
             }
         });
 
@@ -440,7 +445,7 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
 
             if(m_engine->m_developerConsole->checkParamEnd(stream)) {
                 //delete static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator;
-                static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator = NULL;
+                static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugMaxCellTraversals = -1;
             }
         });
 
@@ -451,38 +456,22 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
             std::istringstream stream(params ? params : "");
 
             if(m_engine->m_developerConsole->checkParamEnd(stream)) {
-                if(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator
-                    && !static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator->atEnd()) {
-                    static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator->forward();
-                    static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumTraversals.push_back(
-                        static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator->getCurrentPosition());
-                }
+                ++static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugMaxCellTraversals;
             }
         });
 
     m_engine->m_developerConsole->m_commandManager->addCommand("ren_advanceFrustum", m_cm_ren_advanceFrustum);
-
-    m_cm_ren_restartFrustum = new illConsole::ConsoleCommand("TODO: description",
+    
+    m_cm_ren_fastAdvanceFrustum = new illConsole::ConsoleCommand("TODO: description",
         [&] (const illConsole::ConsoleCommand *, const char * params) {
             std::istringstream stream(params ? params : "");
 
             if(m_engine->m_developerConsole->checkParamEnd(stream)) {
-                if(static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugBackupFrustumIterator) {
-                    //delete static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator;
-                    static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator = 
-                        new MultiConvexMeshIterator<>(*static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugBackupFrustumIterator);
-
-                    static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumTraversals.clear();
-
-                    if(!static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator->atEnd()) {
-                        static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumTraversals.push_back(
-                            static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugFrustumIterator->getCurrentPosition());
-                    }
-                }
+                static_cast<illDeferredShadingRenderer::DeferredShadingScene *>(m_graphicsScene)->m_debugMaxCellTraversals += 10;
             }
         });
 
-    m_engine->m_developerConsole->m_commandManager->addCommand("ren_restartFrustum", m_cm_ren_restartFrustum);
+    m_engine->m_developerConsole->m_commandManager->addCommand("ren_fastAdvanceFrustum", m_cm_ren_fastAdvanceFrustum);
 
     m_cm_demo_beginRecord = new illConsole::ConsoleCommand("TODO: description",
         [&] (const illConsole::ConsoleCommand *, const char * params) {
