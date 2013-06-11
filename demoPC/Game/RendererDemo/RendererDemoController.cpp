@@ -559,11 +559,11 @@ RendererDemoController::RendererDemoController(Engine * engine, Scene scene)
                 //glm::vec3(50.0f), glm::uvec3(25, 15, 25), 
                 //glm::vec3(50.0f), glm::uvec3(25, 15, 25));
 
-                //glm::vec3(38.0f), glm::uvec3(33, 20, 33), 
-                //glm::vec3(38.0f), glm::uvec3(33, 20, 33));
+                glm::vec3(38.0f), glm::uvec3(33, 25, 33), 
+                glm::vec3(38.0f), glm::uvec3(33, 25, 33));
 
-                glm::vec3(25.0f), glm::uvec3(50, 30, 50), 
-                glm::vec3(25.0f), glm::uvec3(50, 30, 50));
+                //glm::vec3(25.0f), glm::uvec3(50, 30, 50), 
+                //glm::vec3(25.0f), glm::uvec3(50, 30, 50));
                  
                 //////////
                 //the grid
